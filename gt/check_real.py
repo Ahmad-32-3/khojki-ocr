@@ -71,7 +71,7 @@ def main(log=True):
     m["lines_right"] = right
     need(right >= BASELINE["lines_right"], f"lines right {right} < {BASELINE['lines_right']}")
     outside = 0
-    for line in gt["lines"]:
+    for line in (l for l in gt["lines"] if l.get("split", "dev") == "dev"):
         page, gx, gy = eval_glyphs.gt_crop_origin(line["file"])
         boxes = find_lines(page)
         for u in line["units"]:
@@ -83,7 +83,7 @@ def main(log=True):
 
     # stage B: glyph boxes
     c = Counter()
-    for line in gt["lines"]:
+    for line in (l for l in gt["lines"] if l.get("split", "dev") == "dev"):
         c += eval_glyphs.score(line["units"], eval_glyphs.glyph_boxes(cv2.imread(str(ROOT / "gt" / line["file"]), cv2.IMREAD_GRAYSCALE)))
     m["seps_found"], m["glyph_boxes_ok"] = c[("sep", "ok")], c[("glyph", "ok")]
     need(c[("sep", "ok")] >= BASELINE["seps_found"] and c[("sep", "false")] == 0, f"separators: {dict(c)}")

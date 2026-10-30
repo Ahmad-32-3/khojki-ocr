@@ -61,6 +61,17 @@ def glyph_boxes(path):
     return [[int(c["x0"]), int(c["x1"]), int(c["y0"]), int(c["y1"]), c["kind"]] for c in out]
 
 
+def boxes_for(lat, root=Path(__file__).parent):
+    """Boxes a lattice's span indices refer to. Lines prepared before chunk 7 used this file's segmenter
+    (frozen, so their indices stay valid); lines from gt/prep_lines.py use the pipeline's (khojki.glyphs)."""
+    if lat.get("segmenter") == "pipeline":
+        import sys
+        sys.path.insert(0, str(root.parent))
+        from khojki.glyphs import glyph_boxes as pipeline_boxes
+        return pipeline_boxes(cv2.imread(str(root / lat["file"]), cv2.IMREAD_GRAYSCALE))
+    return glyph_boxes(root / lat["file"])
+
+
 def overlay(path, boxes, out):
     img = cv2.imread(str(path))
     img = cv2.resize(img, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)

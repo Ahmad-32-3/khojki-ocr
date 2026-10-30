@@ -6,14 +6,14 @@ import json
 from pathlib import Path
 
 from prep_gt import khojki_table
-from segment import glyph_boxes
+from segment import boxes_for
 
 GT = Path(__file__).resolve().parent
 
 lines = []
-for f in sorted(GT.glob("claude_lattice_l*.json")):
+for f in sorted(GT.glob("claude_lattice_*.json")):
     lat = json.loads(f.read_text(encoding="utf-8"))
-    lat["boxes"] = glyph_boxes(GT / lat["file"])
+    lat["boxes"] = boxes_for(lat)
     lines.append(lat)
 
 html = (GT / "review_template.html").read_text(encoding="utf-8")

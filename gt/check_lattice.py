@@ -1,4 +1,4 @@
-"""Sanity checks for claude_lattice_l*.json, run before build_review.py.
+"""Sanity checks for claude_lattice_*.json, run before build_review.py.
 
 usage: python -X utf8 gt/check_lattice.py            -> exit 1 on errors; warnings are printed but don't fail
 errors:   scores don't sum to 1, a score isn't a multiple of 0.05, unknown code point, a box no reading covers
@@ -7,7 +7,7 @@ warnings: a `why` names a letter/sign (e.g. "HA+U+anusvara") that isn't in that 
 import json, re, sys, unicodedata
 from pathlib import Path
 
-from segment import glyph_boxes
+from segment import boxes_for
 
 GT = Path(__file__).resolve().parent
 MARKS = {"ANUSVARA", "NUKTA", "VIRAMA", "SHADDA", "SUKUN"}
@@ -62,9 +62,9 @@ def demo():
 if __name__ == "__main__":
     demo()
     bad = 0
-    for f in sorted(GT.glob("claude_lattice_l*.json")):
+    for f in sorted(GT.glob("claude_lattice_*.json")):
         lat = json.loads(f.read_text(encoding="utf-8"))
-        e, w = check(lat, glyph_boxes(GT / lat["file"]))
+        e, w = check(lat, boxes_for(lat))
         bad += len(e)
         for msg in e:
             print(f"ERROR {f.name}: {msg}")

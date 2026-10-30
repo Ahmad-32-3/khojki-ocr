@@ -43,9 +43,14 @@ def score(units, boxes):
 
 
 def gt_crop_origin(file):
-    """Page (x, y) of a GT line crop's top-left, recomputed the way prep_gt.py made it (checked by template match, log 64)."""
+    """Page (x, y) of a GT line crop's top-left. Crops from gt/prep_lines.py record it in gt/lines_index.json;
+    the first 6 were made by prep_gt.py, so theirs is recomputed that way (checked by template match, log 64)."""
     page_no, n = int(file[7:9]), int(file[11:13])
     page = cv2.imread(str(ROOT / "data" / "pages" / f"p{page_no:02d}.png"), cv2.IMREAD_GRAYSCALE)
+    index = ROOT / "gt" / "lines_index.json"
+    known = json.loads(index.read_text(encoding="utf-8")) if index.exists() else {}
+    if file in known:
+        return page, known[file]["x"], known[file]["y"]
     h, w = page.shape
     x0, y0, x1, y1 = (int(f * s) for f, s in zip(BODY_BOX, (w, h, w, h)))
     a, _ = line_bands(page[y0:y1, x0:x1].astype(float))[n - 1]
@@ -68,7 +73,7 @@ def main(mode="crops"):
     results = {}
     for method in (["otsu"] if mode == "old" else ["otsu", "sauvola"]):
         total = Counter()
-        for line in gt["lines"]:
+        for line in (l for l in gt["lines"] if l.get("split", "dev") == "dev"):  # never tune on the blind test lines
             path = ROOT / "gt" / line["file"]
             if mode == "old":
                 boxes = old_boxes(path)

@@ -54,6 +54,8 @@ def real_examples(gt_path=GT_FILE):
     gt = json.loads(gt_path.read_text(encoding="utf-8"))
     out = []
     for line in gt["lines"]:
+        if line.get("split", "dev") == "test":
+            continue  # the blind test lines are never learned from
         atoms = glyph_atoms(cv2.imread(str(ROOT / "gt" / line["file"]), cv2.IMREAD_GRAYSCALE))
         for u in line["units"]:
             idx = atoms_in(u, atoms)

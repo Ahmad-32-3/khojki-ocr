@@ -1,0 +1,318 @@
+{
+ "file": "lines/p11_l06.png",
+ "version": 3,
+ "segmenter": "pipeline",
+ "split": "test",
+ "blind": true,
+ "spans": [
+  {
+   "boxes": [
+    0
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    1
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    2
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    3
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    4
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    5
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    6
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    7
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    8,
+    9
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    10
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    11
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    12
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    13
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    14
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    15
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    16
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    18
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    19
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    20
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    21
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    22
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  }
+ ]
+}

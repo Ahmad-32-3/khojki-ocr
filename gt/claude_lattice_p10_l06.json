@@ -1,0 +1,308 @@
+{
+ "file": "lines/p10_l06.png",
+ "version": 3,
+ "segmenter": "pipeline",
+ "split": "test",
+ "blind": true,
+ "spans": [
+  {
+   "boxes": [
+    0,
+    1
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    2
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    3
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    4
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    5
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    6
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    7
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    8
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    9
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    10
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    11,
+    12
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    13
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    14
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    15,
+    16
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    18,
+    19
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    20
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    21,
+    22
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    23
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    24
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    25
+   ],
+   "readings": [
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 1.0,
+     "why": "blind test line: no suggestions"
+    }
+   ]
+  }
+ ]
+}

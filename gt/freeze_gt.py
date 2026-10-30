@@ -14,7 +14,7 @@ from pathlib import Path
 GT = Path(__file__).resolve().parent
 sys.path.insert(0, str(GT.parent))
 from khojki.labels import canonical, from_hex  # noqa: E402
-from segment import glyph_boxes  # noqa: E402
+from segment import boxes_for  # noqa: E402
 
 VERSION = 2
 
@@ -29,11 +29,15 @@ def answer(decision):
 
 def main():
     lines = []
-    for f in sorted(GT.glob("claude_lattice_l*.json")):
+    for f in sorted(GT.glob("claude_lattice_*.json")):
         lat = json.loads(f.read_text(encoding="utf-8"))
         stem = Path(lat["file"]).stem
-        decisions = json.loads((GT / "review" / f"{stem}.json").read_text(encoding="utf-8"))["decisions"]
-        boxes = glyph_boxes(GT / lat["file"])
+        review = GT / "review" / f"{stem}.json"
+        if not review.exists():
+            print(f"skipped {lat['file']}: not reviewed yet")
+            continue
+        decisions = json.loads(review.read_text(encoding="utf-8"))["decisions"]
+        boxes = boxes_for(lat)
         units = []
         for i, span in enumerate(lat["spans"]):
             text = answer(decisions.get(str(i)))
@@ -44,7 +48,7 @@ def main():
                 "status": "open" if text is None else "ok",
                 "bbox": [min(b[0] for b in bb), max(b[1] for b in bb), min(b[2] for b in bb), max(b[3] for b in bb)],
             })
-        lines.append({"file": lat["file"], "units": units})
+        lines.append({"file": lat["file"], "split": lat.get("split", "dev"), "units": units})
 
     (GT / "gt.json").write_text(json.dumps({"version": VERSION, "lines": lines}, ensure_ascii=False, indent=1), encoding="utf-8")
     (GT / "gt.txt").write_text(

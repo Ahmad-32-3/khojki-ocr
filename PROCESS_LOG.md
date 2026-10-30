@@ -430,6 +430,26 @@ Format: **Assumption / error → How caught → Fix**
    - **My slip:** I rounded 0.558 to 0.56 in the baseline, so the check failed on correct code. → Exact value set, and the failed row removed from `results.jsonl`.
    - **Unexplained:** two runs (check_real, and the picture) stalled for more than 10 minutes with almost no CPU, then finished. Re-runs took 18–25 s. They happened at 4–6 a.m., so the machine sleeping is likely, but not confirmed.
 
+## 2026-10-30 — chunk 7 step 1: blind test set (round 29)
+
+78. **Order decided: blind test set first, then the labelling rounds, then the vision-model baseline (chunk 6).** You asked for whatever's best for the pipeline. Every number so far comes from the 6 page-9 lines that every setting was tuned on, so a fair score needs lines nothing has been tuned on. Both the pipeline and the baseline will be scored on those same lines.
+   - **The test lines were picked by a rule fixed in advance, to avoid choosing easy ones:** the middle line of each new page, p10 line 6 and p11 line 6 (line finder's order). They have 21 and 22 spans.
+   - **Blind:** every span shows only "?", with no candidate and no confidence. You build each glyph from the chart. The grouping of boxes comes from the pipeline's own split; that's grouping, not content, and "box is wrong" is still available.
+   - **They can never leak into learning or tuning:**
+     - The lattice and GT line carry `split: "test"`.
+     - The example bank skips test lines.
+     - `lines_and_truth()`, the glyph scorer and `check_real` read dev lines only.
+     - Test lines will be scored only by a separate `eval_test.py`, after the rounds.
+   - **Tooling for new lines:**
+     - `gt/prep_lines.py` crops with the pipeline's line finder (prep_gt's fixed crop box doesn't fit p10/p11) and records each crop's page position in `gt/lines_index.json`.
+     - The lattice states which segmenter made its boxes. Old lines keep the frozen one, so their span indices stay valid; new lines use the pipeline's.
+     - `freeze_gt.py` skips lines not yet reviewed.
+   - **Checked:**
+     - Refreezing leaves the 6 existing lines' units identical to the committed GT, and `gt.txt` unchanged. Each line only gains `split: "dev"`.
+     - The stale-bank guard correctly fired, because `gt.json`'s bytes changed. After the rebuild, the bank's content fingerprint was unchanged, so the model stayed valid.
+     - `check_real` passes with the same numbers. 26 tests pass.
+     - The review page shows both blind lines with no candidates and no console errors. The test tab created no review file.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

@@ -26,10 +26,14 @@ MIN_SUPPORT = 10  # a threshold counts only if >= 10 calibration recognitions ba
 PARTS = ("letter", "signs")
 
 
-def lines_and_truth():
+def lines_and_truth(split="dev"):
+    """GT lines of one split. 'dev' lines are for learning and tuning; 'test' lines (blind, chunk 7) are scored
+    only by gt/eval_test.py and never used to fit or choose anything."""
     gt = json.loads((ROOT / "gt" / "gt.json").read_text(encoding="utf-8"))
     out = []
     for line in gt["lines"]:
+        if line.get("split", "dev") != split:
+            continue
         atoms = glyph_atoms(cv2.imread(str(ROOT / "gt" / line["file"]), cv2.IMREAD_GRAYSCALE))
         truth = {}  # atom indices of a GT unit -> (letter, signs), or None if nobody could read it
         for u in line["units"]:
