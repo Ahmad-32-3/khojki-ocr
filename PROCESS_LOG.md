@@ -252,6 +252,16 @@ Format: **Assumption / error → How caught → Fix**
    - The commit-blocking hook from the skills bundle was rewritten in Python, because `jq` isn't installed. Tested both ways: a passing suite lets the commit through, and a failing one returns `deny`.
    - uv isn't installed, so it was skipped; `pyproject.toml` works with pip.
 
+## 2026-10-29 — chunk 0: ground truth frozen (round 20)
+
+59. **The draft commit message said "109 of 122 glyphs decided". The real figure is 98 of 111.** I wrote it from memory, not from the files. It was caught when freezing GT v1 and checking the counts by independent routes:
+   - 111 units, both from a raw count of spans and from the freeze script.
+   - 98 settled, counted from the review files alone.
+   - 13 `?` in the text file, and 13 open units in the JSON.
+   - Two glyphs checked by hand: line 9 g2 is HA+U, and line 2 g3 is JJA+AA.
+   → From now on, every number in a commit message or the retro gets recounted first (verifying-output skill).
+   - GT v1 stores each unit's pixel box, so a future segmenter change can't silently shift the truth.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

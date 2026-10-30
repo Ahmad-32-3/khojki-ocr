@@ -175,6 +175,18 @@ Tools:
 5. VLM baseline on the same lines; score it.
 6. Retro.
 
+### Build chunks (round 20). Each ends with a commit you make.
+
+| Chunk | Builds | Done when | Skill |
+|---|---|---|---|
+| 0 | Freeze GT v1 (`gt/gt_v1.json`, `.txt`) | Counts match by a second route | verifying-output |
+| 1 | Stage A: lines. Otsu vs Sauvola, plus a check of p10–p11 cropping | Line errors counted per page | verifying-output |
+| 2 | Stage B: glyph boxes scored against GT boxes; fixes for SA/AA/separator splits | Segmentation error rate before and after | verifying-output |
+| 3 | Spec for recognition, then stage C: example bank from GT + chart renders (uharfbuzz), features, nearest neighbour, calibration, recognition vs suggestion | Spec's acceptance criteria pass; runs offline | writing-specs first; `/checking-divergence` once (you type it) |
+| 4 | Stage D: encoding, validation, `.txt` + JSON (+ PAGE-XML) output | Validator rejects bad sequences in tests | — |
+| 5 | Stage E: CER, leave one line out, comparison with GT boxes, per-stage tally, bootstrap interval | Every reported number recomputed by a second route | verifying-output |
+| 6 | Baselines (VLM optional) and numbers for the retro | Same scorer, same lines | verifying-output |
+
 ## 7. Open questions for you
 
 1. The brief says "about 45 pages"; the PDF has 47, and p42–p47 (probably p36–p38 too) look like **Gujarati script**, not Khojki. Do you agree? If so, they're out of scope for recognition, but if they're Gujarati transcriptions of the same ginans, they're a text source for synthetic data.
