@@ -3,7 +3,7 @@
 usage: python -X utf8 gt/check_real.py [--no-log]   (skips cleanly, exit 0, if the scans aren't on this machine)
   --no-log  don't append to results.jsonl (the pre-commit hook uses this, so a commit doesn't leave the log modified)
 The unit tests use synthetic data because the scans aren't in the repo; this is the real-data tier.
-Baselines are the results measured so far (PROCESS_LOG 61, 64, 72, 73): a change may improve them, never lower them.
+Baselines are the results measured so far (PROCESS_LOG 61, 64, 72, 73, 77): a change may improve them, never worsen them.
 """
 import datetime, json, subprocess, sys
 from collections import Counter
@@ -22,7 +22,9 @@ BASELINE = {
     "seps_found": 31,           # of 31 GT separators, with no false ones
     "glyph_boxes_ok": 59,       # GT glyphs in exactly one box (the rest are splits, recoverable)
     "sep_parts_recognised": 62,  # 31 separators x (letter, signs), all right
-    "glyph_top3": 0.49,         # right letter among the 3 suggestions, held-out
+    "glyph_top3": 0.558,        # right letter among the 3 suggestions, held-out (0.494 before log 76)
+    "cer_pipeline_top1": 0.500,  # whole pipeline, best guess per glyph, held-out (log 77); may only go down
+    "cer_pipeline_strict": 1.120,  # the text file as written, U+FFFD counted as errors
     "pipeline_lines": {"09": 11, "10": 12, "11": 12},
 }
 TARGET = 0.95
@@ -101,6 +103,14 @@ def main(log=True):
     need(all(r["correct"] for r in sep_rec) and m["sep_parts_recognised"] >= BASELINE["sep_parts_recognised"], "separator recognition regressed")
     need(not gly_rec or m["glyph_precision"] >= TARGET, f"glyph precision {m['glyph_precision']} below {TARGET}")
     need(m["glyph_top3"] >= BASELINE["glyph_top3"], f"suggestion quality {m['glyph_top3']} < {BASELINE['glyph_top3']}")
+
+    # CER on the 6 GT lines, leave one line out (eval_cer.py)
+    import eval_cer
+    rows = eval_cer.run(model["description"])
+    m["cer_pipeline_top1"] = round(eval_cer.totals(rows, "pipeline", 1)[0], 4)
+    m["cer_pipeline_strict"] = round(eval_cer.totals(rows, "pipeline", 0)[0], 4)
+    need(m["cer_pipeline_top1"] <= BASELINE["cer_pipeline_top1"] + 1e-9, f"top-1 CER {m['cer_pipeline_top1']} > {BASELINE['cer_pipeline_top1']}")
+    need(m["cer_pipeline_strict"] <= BASELINE["cer_pipeline_strict"] + 1e-9, f"strict CER {m['cer_pipeline_strict']} > {BASELINE['cer_pipeline_strict']}")
 
     # stage D: the whole pipeline from the PDF
     for p, n in BASELINE["pipeline_lines"].items():

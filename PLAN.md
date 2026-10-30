@@ -188,7 +188,7 @@ Tools:
 | 2 ✓ | Stage B: glyph boxes (`khojki/glyphs.py`) scored against GT | Separators 22→31 of 31, no merges, splits ≤3 boxes; see log 63–65 | verifying-output |
 | 3 ✓ | Spec for recognition, then stage C: example bank from GT + chart renders (uharfbuzz), features, nearest neighbour, calibration, recognition vs suggestion | Spec's acceptance criteria pass; runs offline | writing-specs first; `/checking-divergence` once (you type it) |
 | 4 ✓ | Stage D: encoding, validation, `.txt` + JSON + PAGE-XML output (`khojki/validate.py`, `khojki/pipeline.py`) | Validator rejects bad sequences in tests; 0 problems on p9–p11 output and on GT v2, flags GT v1 | — |
-| 5 | Stage E: CER, leave one line out, comparison with GT boxes, per-stage tally, bootstrap interval | Every reported number recomputed by a second route | verifying-output |
+| 5 ✓ | Stage E: CER (`khojki/cer.py`, `gt/eval_cer.py`), leave one line out, GT-box comparison, per-stage tally, bootstrap | Top-1 CER 50.0% (recognition 65, segmentation 5, lines 1 errors); all numbers recomputed independently; see log 76–77 | verifying-output |
 | 6 | Baselines (VLM optional) and numbers for the retro | Same scorer, same lines | verifying-output |
 | 7 | Labelling loop: run the pipeline on new p10–p11 lines, review its output, freeze GT vN+1, rebuild the bank, re-score. A fixed blind test set (1 line each from p10 and p11) never enters the bank | A learning curve: lines labelled and minutes spent vs coverage, precision and CER, per round | verifying-output |
 

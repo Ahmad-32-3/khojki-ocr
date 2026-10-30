@@ -403,6 +403,33 @@ Format: **Assumption / error → How caught → Fix**
      - The `--no-log` switch first didn't apply, because my text replacement failed. A `&&` chain then silently ran the *old* hook. Caught because the hook's output lacked the check_real lines.
    - My comment said the .npz file's bytes change on every rebuild. They don't: a rebuild gave an identical file hash. The comment was corrected. The content fingerprint is kept anyway, because it doesn't depend on how the file is written.
 
+## 2026-10-30 — chunk 5: CER and per-stage errors (round 28)
+
+76. **Line finding first added 15 errors, though chunk 1 scored it 35/35 and chunk 2 found identical box positions.** The box scorer checks *where* boxes are, not *what ink is in them*. Traced unit by unit:
+   - My first guess was wrong. I thought Otsu thresholds differed between crops; they were identical, and no pixel flipped.
+   - **Real cause 1: letter height.** The "typical letter height" was a median over all pieces in the crop. Stage A's taller crops include fragments of the neighbouring lines, which shifted it by 0.5–2 px. That alone changed splits and readings (line 2, where it didn't shift, gave identical output). → Measured only from pieces not cut by the crop's top or bottom edge.
+   - **Real cause 2: edge ink.** Thin frame-rule slivers touched the *left* edge, and the rule filter only knew the right edge. Neighbour-line descenders were attached to letters as marks. → Side-rule pieces are dropped. So are pieces cut by the top or bottom edge, but only if centred in the outer quarter of the crop: GT crops have 6 px padding, so dropping all edge pieces lost 2 real glyphs. That was caught by the box score, and fixed.
+   - Result: line finding adds **1** top-1 error instead of 15. Box scores are unchanged on both crop types. **Recognition also improved** (held-out glyph letter top-1 35%→39%, in top 3 49%→56%), because a steady letter height makes the size features consistent.
+
+77. **CER, leave one line out, nested calibration, 142 reference characters** (`gt/eval_cer.py`; numbers from `results.jsonl`):
+
+    | Setup | Top-1 CER | Strict CER |
+    |---|---|---|
+    | Recognition only (GT glyph groups) | 45.8% (65) | 97.2% |
+    | + own glyph split | 49.3% (70) | 110.6% |
+    | + line finding = whole pipeline | **50.0% (71)**, 95% CI 42–57% | 112.0% |
+
+   - **Per-stage tally of top-1 errors:** recognition 65, segmentation 5, line finding 1. Recognition is the bottleneck by far, which is what more labelled lines (chunk 7) address.
+   - **Strict CER is over 100%** by design: each unrecognised glyph writes two U+FFFD (letter and signs), even when it has no sign. The retro must explain this rather than quote it bare.
+   - **Most common recognition errors:** E read as AI (4), and missing or extra nukta / anusvara (dots, 4+3+2). Dots at this resolution are the weak point, as predicted in PLAN §4.
+   - **Second routes:**
+     - The reference length counted straight from `gt.txt` is 142.
+     - An independent edit-distance implementation gives all six distances exactly. It's kept as a test.
+     - Line 9's alignment was checked by hand. It shows a split-off AA upright read as DANDA, and DHA read as MA.
+   - **`check_real.py` now also fails if CER rises.** The baselines are top-1 0.500 and strict 1.120, and the suggestion baseline is raised to 0.558.
+   - **My slip:** I rounded 0.558 to 0.56 in the baseline, so the check failed on correct code. → Exact value set, and the failed row removed from `results.jsonl`.
+   - **Unexplained:** two runs (check_real, and the picture) stalled for more than 10 minutes with almost no CPU, then finished. Re-runs took 18–25 s. They happened at 4–6 a.m., so the machine sleeping is likely, but not confirmed.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

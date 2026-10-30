@@ -70,10 +70,18 @@ def glyph_atoms(gray, method="otsu"):
     if not comps:
         return dict(boxes=[], members=[], labels=labels, tall=0.0)
     H, W = gray.shape
-    tall = float(np.median([c["y1"] - c["y0"] for c in comps if c["area"] > 80] or [H / 2]))
-    # the printed frame: a thin rule, full height or touching the right edge
-    rule = lambda c: (c["x1"] - c["x0"]) < 0.2 * (c["y1"] - c["y0"]) and (c["y1"] - c["y0"] >= 0.85 * H or c["x1"] >= W - 3)
-    comps = [c for c in comps if not rule(c)]
+    # typical letter height; pieces cut by the crop's top/bottom edge belong to neighbouring lines (a taller
+    # crop holds more of them) and would shift it, which changed splits and readings (log 76)
+    whole = [c["y1"] - c["y0"] for c in comps if c["area"] > 80 and c["y0"] > 0 and c["y1"] < H]
+    tall = float(np.median(whole or [c["y1"] - c["y0"] for c in comps if c["area"] > 80] or [H / 2]))
+    # the printed frame: a thin rule, full height or touching either side
+    rule = lambda c: (c["x1"] - c["x0"]) < 0.2 * (c["y1"] - c["y0"]) and (c["y1"] - c["y0"] >= 0.85 * H or c["x1"] >= W - 3 or c["x0"] <= 2)
+    # ink cut by the crop's top or bottom edge belongs to the neighbouring line (stage A grows lines into the
+    # gaps, so its crops hold their descenders and marks); joined to a letter here it changed the reading (log 76).
+    # A real glyph can graze the edge of a tight crop (GT crops have 6 px padding), so only pieces centred in the
+    # outer quarter of the crop count as the neighbour's.
+    neighbour = lambda c: (c["y0"] == 0 or c["y1"] >= H) and not 0.25 * H <= (c["y0"] + c["y1"]) / 2 <= 0.75 * H
+    comps = [c for c in comps if not rule(c) and not neighbour(c)]
     # ponytail: fixed size cut between letters and marks; revisit for other pages / resolutions
     big = sorted((c for c in comps if c["y1"] - c["y0"] >= 0.45 * tall), key=lambda c: c["x0"])
     small = [c for c in comps if c["y1"] - c["y0"] < 0.45 * tall]

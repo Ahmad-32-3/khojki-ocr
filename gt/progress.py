@@ -6,6 +6,7 @@ usage: python -X utf8 gt/progress.py 1 2      -> gt/progress/chunkN.png (gitigno
   3a example bank: one label as a real 1896 glyph and as both chart fonts
   3b recognition on a held-out line: solid green = recognised, dashed grey = suggestion with its top 3 letters
   4  the whole pipeline on page 10: each line, and under it the text file's content drawn glyph by glyph
+  5  CER: where the top-1 errors come from (recognition / segmentation / line finding), and the CER table
 """
 import json, sys
 from pathlib import Path
@@ -204,9 +205,39 @@ def chunk4(page=10, n_lines=4):
                    "Chunk 4 - whole pipeline, PDF page in, text out. Under each line: black = committed character, dashed ? = not recognised (U+FFFD).", 40)
 
 
+def chunk5():
+    import eval_cer
+    rows = eval_cer.run()
+    t = {(st, k): eval_cer.totals(rows, st, k) for st in eval_cer.SETUPS for k in (0, 1)}
+    u, l, p = (t[(st, 1)][1] for st in eval_cer.SETUPS)
+    n = t[("units", 1)][2]
+    W, H = 1100, 330
+    img = np.full((H, W, 3), 255, np.uint8)
+    put = lambda txt, x, y, sc=0.55, col=(0, 0, 0), th=1: cv2.putText(img, txt, (x, y), FONT, sc, col, th, cv2.LINE_AA)
+    put(f"Top-1 errors on the 6 GT lines ({n} characters), whole pipeline, each line held out: {p} errors = CER {p / n:.1%}", 20, 30)
+    x, y, scale = 20, 50, (W - 40) / n
+    lx = 20
+    for label, v, col in (("recognition", u, (60, 90, 200)), ("segmentation", l - u, (40, 160, 230)), ("line finding", p - l, (90, 190, 120))):
+        w = max(2, int(v * scale))
+        cv2.rectangle(img, (x, y), (x + w, y + 40), col, -1)
+        x += w
+        cv2.rectangle(img, (lx, y + 52), (lx + 14, y + 66), col, -1)  # legend: small segments can't hold a label
+        put(f"{label}: {v}", lx + 20, y + 64, 0.5)
+        lx += 230
+    cv2.rectangle(img, (20, y), (W - 20, y + 40), (120, 120, 120), 1)
+    put("(the grey outline is all 142 characters; insertions can push errors past it)", 20, 145, 0.45, (90, 90, 90))
+    put("setup", 20, 180, 0.5, (0, 0, 0), 2); put("top-1 CER", 330, 180, 0.5, (0, 0, 0), 2); put("strict CER (text file as written)", 520, 180, 0.5, (0, 0, 0), 2)
+    names = {"units": "recognition only (GT glyph groups)", "lines": "+ own glyph split", "pipeline": "+ line finding (whole pipeline)"}
+    for i, st in enumerate(eval_cer.SETUPS):
+        yy = 210 + i * 30
+        put(names[st], 20, yy, 0.5); put(f"{t[(st, 1)][0]:.1%}", 330, yy, 0.5); put(f"{t[(st, 0)][0]:.1%}", 520, yy, 0.5)
+    put("Strict CER is over 100%: every unrecognised glyph writes two U+FFFD (letter, signs), even with no sign.", 20, 310, 0.45, (90, 90, 90))
+    return caption(img, "Chunk 5 - character error rate, split by stage.", 40)
+
+
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     for n in sys.argv[1:] or ["1", "2"]:
         path = OUT / f"chunk{n}.png"
-        cv2.imwrite(str(path), {"1": chunk1, "2": chunk2, "3a": chunk3a, "3b": chunk3b, "4": chunk4}[n]())
+        cv2.imwrite(str(path), {"1": chunk1, "2": chunk2, "3a": chunk3a, "3b": chunk3b, "4": chunk4, "5": chunk5}[n]())
         print("wrote", path.relative_to(ROOT))
