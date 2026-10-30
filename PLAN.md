@@ -180,7 +180,7 @@ Tools:
 | Chunk | Builds | Done when | Skill |
 |---|---|---|---|
 | 0 | Freeze GT v1 (`gt/gt_v1.json`, `.txt`) | Counts match by a second route | verifying-output |
-| 1 | Stage A: lines. Otsu vs Sauvola, plus a check of p10–p11 cropping | Line errors counted per page | verifying-output |
+| 1 ✓ | Stage A: lines (`khojki/lines.py`). Otsu vs Sauvola, p9–p11 | 35/35 lines right with both; see log 61 | verifying-output |
 | 2 | Stage B: glyph boxes scored against GT boxes; fixes for SA/AA/separator splits | Segmentation error rate before and after | verifying-output |
 | 3 | Spec for recognition, then stage C: example bank from GT + chart renders (uharfbuzz), features, nearest neighbour, calibration, recognition vs suggestion | Spec's acceptance criteria pass; runs offline | writing-specs first; `/checking-divergence` once (you type it) |
 | 4 | Stage D: encoding, validation, `.txt` + JSON (+ PAGE-XML) output | Validator rejects bad sequences in tests | — |

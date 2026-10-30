@@ -262,6 +262,30 @@ Format: **Assumption / error → How caught → Fix**
    → From now on, every number in a commit message or the retro gets recounted first (verifying-output skill).
    - GT v1 stores each unit's pixel box, so a future segmenter change can't silently shift the truth.
 
+## 2026-10-29 — chunk 1: line finding (round 21)
+
+60. **Line ground truth was marked by eye before any code was written.** I read line centres off a pixel-ruler image of each page into `gt/lines_gt.json`. That gives 35 text lines: p9 11 (a 2-line heading + 9 body), p10 12 and p11 12. I'd said 13 for p10 and p11 earlier. That was wrong: I counted from a small thumbnail.
+
+61. **Experiments (text lines right out of 35, scored by `gt/eval_lines.py`):**
+
+    | # | Approach | Otsu | Sauvola | What went wrong |
+    |---|---|---|---|---|
+    | 0 | Old rule (mean − 2σ) with no hand-tuned crop box | 10 | — | Needs the crop box tuned for p9; fails on p10/p11, where the page sits elsewhere |
+    | 1 | Frame = biggest ink component | 0 | 0 | The biggest component was the dark scan border |
+    | 2 | …excluding components touching the image edge | 0 | 4 | p9's frame touches the border at a corner, so no frame was found |
+    | 3 | Frame from its vertical rules | 12 | 18 | The left rules sit against the spine and merge into it |
+    | 4 | Frame from its horizontal rules (rows **and** sides) | 35 | 35 | **The score was perfect but the crop was wrong.** The rules fade near the spine, so p9's left edge came out at x=129 and cut off text starting at x≈60. The score only checks rows, so it couldn't see this. Caught by checking the x-range by eye. |
+    | 5 | Rows from the rules, sides from the widest run of inked columns | 17 | — | Fragments of the side rules and page edge made every row look inked |
+    | 6 | …dropping tall or edge-touching pieces | 33 | — | p9's last two lines joined through a descender |
+    | 7 | …splitting over-tall bands at their emptiest row; dropping bands under 0.6× a line height | **35** | **35** | — |
+    | 8 | …growing lines into the gaps (capped, never into a dropped band) | **35** | **35** | Two specks on p11 (7 px and 26 px; possibly dots) had been dropped between lines. They're kept now. |
+
+    - **Otsu and Sauvola tie at this stage.** Otsu stays the default because it's simpler. The real comparison happens in stage B, where small dots matter.
+    - **Caveat for the retro:** every parameter was tuned while looking at these same 3 pages. There is no held-out page for stage A, so 35/35 is a fit, not a generalisation result.
+    - **Known gap:** the line score checks rows only. Horizontal crop errors (as in #4) need the overlay check.
+
+62. **Test strength checked by breaking the code.** With frame detection disabled, the first synthetic test still passed, because other steps covered for it. A page number above the frame was added to the synthetic page. Now the tests fail when the frame step is broken.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.
