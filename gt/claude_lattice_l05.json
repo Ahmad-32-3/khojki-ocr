@@ -1,0 +1,545 @@
+{
+ "file": "lines/p09_l05.png",
+ "version": 3,
+ "spans": [
+  {
+   "boxes": [
+    0
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11206"
+     ],
+     "conf": 0.6,
+     "why": "independent O: 6-shape"
+    },
+    {
+     "cps": [
+      "U+11203"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.3,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    0
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.85,
+     "why": "segmenter merged these dots into the glyph box"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.15,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    1
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1122A",
+      "U+11230"
+     ],
+     "conf": 0.35,
+     "why": "C5: stroke above on HA"
+    },
+    {
+     "cps": [
+      "U+1122A",
+      "U+1122D"
+     ],
+     "conf": 0.15,
+     "why": "C3 says HA takes the tall I, so arch reading is weak"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.5,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    2
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1121E"
+     ],
+     "conf": 0.55,
+     "why": "NA: w-shape"
+    },
+    {
+     "cps": [
+      "U+11228"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    2
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.85,
+     "why": "segmenter merged these dots into the glyph box"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.15,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    3
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.45,
+     "why": "RA bare: loop, stem, foot right"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+1122D"
+     ],
+     "conf": 0.2,
+     "why": "RA+I if the top tick is the I stroke"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    4
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.3,
+     "why": "RA-like with a short cross stroke"
+    },
+    {
+     "cps": [
+      "U+11220"
+     ],
+     "conf": 0.2,
+     "why": "PHA has a cross stroke"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.5,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    5
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    6,
+    7
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1122A",
+      "U+1122C"
+     ],
+     "conf": 0.55,
+     "why": "HA + AA upright"
+    },
+    {
+     "cps": [
+      "U+11208",
+      "U+1122C"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    8
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11209"
+     ],
+     "conf": 0.4,
+     "why": "KHA: flat-topped y-shape"
+    },
+    {
+     "cps": [
+      "U+11227"
+     ],
+     "conf": 0.2,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    9
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    10
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11203",
+      "U+11234"
+     ],
+     "conf": 0.55,
+     "why": "C6: U with one dot above (centred-above anusvara variant)"
+    },
+    {
+     "cps": [
+      "U+11203"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    11,
+    12
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11218",
+      "U+1122C"
+     ],
+     "conf": 0.5,
+     "why": "NNA + AA upright"
+    },
+    {
+     "cps": [
+      "U+11216",
+      "U+1122C"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    13
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226",
+      "U+1122D"
+     ],
+     "conf": 0.65,
+     "why": "C3: RA takes the arch form of I; matches Noto RA+I"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+11230"
+     ],
+     "conf": 0.1,
+     "why": "C5: only if the stroke goes up-left, it goes right here"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    14
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.5,
+     "why": "MA + II: long tail sweeping down right (same as line 1 glyph 11)"
+    },
+    {
+     "cps": [
+      "U+11221",
+      "U+1122E"
+     ],
+     "conf": 0.25,
+     "why": "BA+II if the left hook isn't MA's loop"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    15
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    16,
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11239"
+     ],
+     "conf": 0.7,
+     "why": "C10: Noto DOUBLE DANDA is this exact two-stroke shape; marks a verse section"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.3,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.85,
+     "why": "segmenter merged these dots into the glyph box"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.15,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    18
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11210",
+      "U+11230"
+     ],
+     "conf": 0.25,
+     "why": "JA + E stroke"
+    },
+    {
+     "cps": [
+      "U+11210",
+      "U+11230",
+      "U+11236"
+     ],
+     "conf": 0.2,
+     "why": "plus the dots above"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.55,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    19
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11210",
+      "U+11230"
+     ],
+     "conf": 0.35,
+     "why": "C5: JA + stroke above"
+    },
+    {
+     "cps": [
+      "U+1122A",
+      "U+11230"
+     ],
+     "conf": 0.2,
+     "why": "C14: 3-curl letters look alike"
+    },
+    {
+     "cps": [
+      "U+1122A",
+      "U+11232"
+     ],
+     "conf": 0.1,
+     "why": "no AA upright, so O is unlikely"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  }
+ ]
+}

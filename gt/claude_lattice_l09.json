@@ -1,0 +1,516 @@
+{
+ "file": "lines/p09_l09.png",
+ "version": 3,
+ "spans": [
+  {
+   "boxes": [
+    0,
+    1
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11239"
+     ],
+     "conf": 0.7,
+     "why": "C10: Noto DOUBLE DANDA is this exact two-stroke shape; marks a verse section"
+    },
+    {
+     "cps": [
+      "U+11238",
+      "U+11238"
+     ],
+     "conf": 0.05,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    2
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11208",
+      "U+1122E"
+     ],
+     "conf": 0.3,
+     "why": "KA-like 3 curl with the long II tail sweeping right"
+    },
+    {
+     "cps": [
+      "U+11211",
+      "U+1122E"
+     ],
+     "conf": 0.25,
+     "why": "JJA + II; JJA confirmed in line 2"
+    },
+    {
+     "cps": [
+      "U+11208"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    3
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11218"
+     ],
+     "conf": 0.4,
+     "why": "left upright + arch with hook, like line 1 NNA"
+    },
+    {
+     "cps": [
+      "U+11216"
+     ],
+     "conf": 0.15,
+     "why": "DDA, loop instead of upright"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.45,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    4
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224"
+     ],
+     "conf": 0.45,
+     "why": "n-shape with loop at lower left = MA"
+    },
+    {
+     "cps": [
+      "U+11219"
+     ],
+     "conf": 0.2,
+     "why": "TA has a hook, not a loop"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    5
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    6,
+    7
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11229"
+     ],
+     "conf": 0.4,
+     "why": "SA split into two boxes, same pattern as lines 1-4"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+11226"
+     ],
+     "conf": 0.15,
+     "why": "two RA"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.45,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    8
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11221"
+     ],
+     "conf": 0.35,
+     "why": "loop + double arch with tail; BA confirmed in line 4"
+    },
+    {
+     "cps": [
+      "U+11224"
+     ],
+     "conf": 0.2,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.45,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    9
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    10
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1122A",
+      "U+1122F",
+      "U+11234"
+     ],
+     "conf": 0.3,
+     "why": "HA body, dots above like line 4's HA+U+anusvara (code points fixed, see log 49)"
+    },
+    {
+     "cps": [
+      "U+1122A",
+      "U+11234"
+     ],
+     "conf": 0.15,
+     "why": "if only one dot is the anusvara"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.55,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    11
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11219"
+     ],
+     "conf": 0.45,
+     "why": "plain n with hook at top left = TA"
+    },
+    {
+     "cps": [
+      "U+1121E"
+     ],
+     "conf": 0.15,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    12,
+    13
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11227",
+      "U+1122C"
+     ],
+     "conf": 0.5,
+     "why": "LA + AA upright, same as line 3"
+    },
+    {
+     "cps": [
+      "U+11227"
+     ],
+     "conf": 0.1,
+     "why": "if the upright is a danda"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    14
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224"
+     ],
+     "conf": 0.45,
+     "why": "same shape as box 4"
+    },
+    {
+     "cps": [
+      "U+11219"
+     ],
+     "conf": 0.2,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    15
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    16
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1121A",
+      "U+1122D"
+     ],
+     "conf": 0.25,
+     "why": "new shape: v-bowl + tall stroke rising right (I sign?)"
+    },
+    {
+     "cps": [
+      "U+1121E",
+      "U+1122D"
+     ],
+     "conf": 0.15,
+     "why": ""
+    },
+    {
+     "cps": [
+      "U+1121A"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.5,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11206"
+     ],
+     "conf": 0.35,
+     "why": "6-shape like line 5's letter O"
+    },
+    {
+     "cps": [
+      "U+0AEC"
+     ],
+     "conf": 0.15,
+     "why": "Gujarati digit 6"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.5,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.8,
+     "why": "segmenter merged these dots into the glyph box"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.2,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    18
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.4,
+     "why": "hooked upright with loop, like line 3 RA"
+    },
+    {
+     "cps": [
+      "U+11229"
+     ],
+     "conf": 0.15,
+     "why": "half of a split SA"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.45,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    19
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11221"
+     ],
+     "conf": 0.25,
+     "why": "loop + arch, new variant"
+    },
+    {
+     "cps": [
+      "U+11216"
+     ],
+     "conf": 0.2,
+     "why": ""
+    },
+    {
+     "cps": [
+      "U+1120A"
+     ],
+     "conf": 0.1,
+     "why": "GA"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.45,
+     "why": ""
+    }
+   ]
+  }
+ ]
+}

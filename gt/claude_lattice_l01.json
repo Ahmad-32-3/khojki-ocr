@@ -1,0 +1,526 @@
+{
+ "file": "lines/p09_l01.png",
+ "version": 3,
+ "spans": [
+  {
+   "boxes": [
+    0
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1122A"
+     ],
+     "conf": 0.55,
+     "why": "HA: hooked top, body, stroke down to the baseline"
+    },
+    {
+     "cps": [
+      "U+11208"
+     ],
+     "conf": 0.15,
+     "why": "KA has a similar top"
+    },
+    {
+     "cps": [
+      "U+1122A",
+      "U+1122E"
+     ],
+     "conf": 0.1,
+     "why": "HA+II if the bottom stroke is the II tail; it doesn't curl under, so unlikely"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.2,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    1
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226",
+      "U+1122D"
+     ],
+     "conf": 0.65,
+     "why": "C3: RA takes the arch form of I; matches Noto RA+I"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+11230"
+     ],
+     "conf": 0.1,
+     "why": "C5: only if the stroke goes up-left, it goes right here"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    2
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    3
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1122A"
+     ],
+     "conf": 0.55,
+     "why": "HA: hooked top, body, stroke down to the baseline"
+    },
+    {
+     "cps": [
+      "U+11208"
+     ],
+     "conf": 0.15,
+     "why": "KA has a similar top"
+    },
+    {
+     "cps": [
+      "U+1122A",
+      "U+1122E"
+     ],
+     "conf": 0.1,
+     "why": "HA+II if the bottom stroke is the II tail; it doesn't curl under, so unlikely"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.2,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    4
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226",
+      "U+1122D"
+     ],
+     "conf": 0.65,
+     "why": "C3: RA takes the arch form of I; matches Noto RA+I"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+11230"
+     ],
+     "conf": 0.1,
+     "why": "C5: only if the stroke goes up-left, it goes right here"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    5
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    6
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.5,
+     "why": "RA bare: loop, stem, foot right; small tick at top is part of RA in Noto"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+1122D"
+     ],
+     "conf": 0.3,
+     "why": "RA+I if the tick is the I stroke"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.2,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    7
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11218"
+     ],
+     "conf": 0.6,
+     "why": "NNA: tall hooked stroke on the left + n-shape"
+    },
+    {
+     "cps": [
+      "U+11216"
+     ],
+     "conf": 0.15,
+     "why": "DDA: same hook but three humps"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    8
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+11230",
+      "U+11234"
+     ],
+     "conf": 0.5,
+     "why": "MA (the 'dot inside' is MA's loop filled with ink) + E (stroke above, to the upper left) + anusvara (dot)"
+    },
+    {
+     "cps": [
+      "U+11219",
+      "U+11230",
+      "U+11234"
+     ],
+     "conf": 0.25,
+     "why": "TA+E+anusvara if the loop is just ink"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    9
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    10
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.7,
+     "why": "MA (loop + n-shape) + II (long tail sweeping down right)"
+    },
+    {
+     "cps": [
+      "U+11221",
+      "U+1122E"
+     ],
+     "conf": 0.1,
+     "why": "BA+II: BA has no closed loop"
+    },
+    {
+     "cps": [
+      "U+11223",
+      "U+1122E"
+     ],
+     "conf": 0.05,
+     "why": "BHA+II"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.15,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    11
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.7,
+     "why": "MA (loop + n-shape) + II (long tail sweeping down right)"
+    },
+    {
+     "cps": [
+      "U+11221",
+      "U+1122E"
+     ],
+     "conf": 0.1,
+     "why": "BA+II: BA has no closed loop"
+    },
+    {
+     "cps": [
+      "U+11223",
+      "U+1122E"
+     ],
+     "conf": 0.05,
+     "why": "BHA+II"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.15,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    12
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    13,
+    14
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122C"
+     ],
+     "conf": 0.7,
+     "why": "MA + AA (separate upright stroke)"
+    },
+    {
+     "cps": [
+      "U+11221",
+      "U+1122C"
+     ],
+     "conf": 0.1,
+     "why": "BA+AA"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.2,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    15
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11203",
+      "U+11234"
+     ],
+     "conf": 0.55,
+     "why": "C6: U with one dot above (centred-above anusvara variant)"
+    },
+    {
+     "cps": [
+      "U+11203"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    15
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.8,
+     "why": "two dots; the segmenter merged them into box 15"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.2,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    16,
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11229"
+     ],
+     "conf": 0.3,
+     "why": "SA: two joined P-like shapes"
+    },
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.1,
+     "why": "RA"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.6,
+     "why": "two boxes overlap here; split unclear"
+    }
+   ]
+  },
+  {
+   "boxes": [
+    18
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.5,
+     "why": "RA bare"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+1122D"
+     ],
+     "conf": 0.25,
+     "why": "RA+I"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  }
+ ]
+}

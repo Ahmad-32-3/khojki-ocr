@@ -1,0 +1,521 @@
+{
+ "file": "lines/p09_l03.png",
+ "version": 3,
+ "spans": [
+  {
+   "boxes": [
+    0
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11210",
+      "U+11230"
+     ],
+     "conf": 0.45,
+     "why": "JA (3-shape with upright bar) + E stroke above"
+    },
+    {
+     "cps": [
+      "U+11210"
+     ],
+     "conf": 0.15,
+     "why": "if the top stroke is a blot"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    1
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    2,
+    3
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11227",
+      "U+1122C"
+     ],
+     "conf": 0.4,
+     "why": "LA (4-shape with loop) + AA"
+    },
+    {
+     "cps": [
+      "U+11209",
+      "U+1122C"
+     ],
+     "conf": 0.25,
+     "why": "KHA if there's no loop"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    4,
+    5
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11229",
+      "U+11234"
+     ],
+     "conf": 0.25,
+     "why": "SA split across boxes 4-5, dot above"
+    },
+    {
+     "cps": [
+      "U+11229",
+      "U+11236"
+     ],
+     "conf": 0.1,
+     "why": "if the dots are a nukta"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.65,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    6
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11219",
+      "U+11230"
+     ],
+     "conf": 0.5,
+     "why": "n-shape + E stroke"
+    },
+    {
+     "cps": [
+      "U+11224",
+      "U+11230"
+     ],
+     "conf": 0.15,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    7
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    8
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11228",
+      "U+11230"
+     ],
+     "conf": 0.55,
+     "why": "VA bowl + E stroke above"
+    },
+    {
+     "cps": [
+      "U+1121E",
+      "U+11230"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    9
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11215",
+      "U+11230"
+     ],
+     "conf": 0.45,
+     "why": "TTHA (round with top curl) + E stroke"
+    },
+    {
+     "cps": [
+      "U+11217",
+      "U+11230"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.45,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    10
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    11
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1122A"
+     ],
+     "conf": 0.55,
+     "why": "HA: hooked top, body, stroke to the baseline"
+    },
+    {
+     "cps": [
+      "U+11208"
+     ],
+     "conf": 0.15,
+     "why": "KA has a similar top"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.3,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    12
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226",
+      "U+1122D"
+     ],
+     "conf": 0.65,
+     "why": "C3: RA takes the arch form of I; matches Noto RA+I"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+11230"
+     ],
+     "conf": 0.1,
+     "why": "C5: only if the stroke goes up-left, it goes right here"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    12
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.85,
+     "why": "segmenter merged these dots into the glyph box"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.15,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    13
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+11230"
+     ],
+     "conf": 0.5,
+     "why": "C5: stroke above going up-left = E on MA"
+    },
+    {
+     "cps": [
+      "U+11224"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    14
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11218",
+      "U+11230"
+     ],
+     "conf": 0.4,
+     "why": "NNA (tall hook + n) + E stroke"
+    },
+    {
+     "cps": [
+      "U+11218",
+      "U+11230",
+      "U+11234"
+     ],
+     "conf": 0.2,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    15
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    16
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.6,
+     "why": "C1: long tail = II"
+    },
+    {
+     "cps": [
+      "U+11221",
+      "U+1122E"
+     ],
+     "conf": 0.15,
+     "why": "C15: BA vs MA loop"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.25,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.45,
+     "why": "RA bare: loop, stem, foot right"
+    },
+    {
+     "cps": [
+      "U+11226",
+      "U+1122D"
+     ],
+     "conf": 0.2,
+     "why": "RA+I if the top tick is the I stroke"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    18
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "two stacked dots"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    19,
+    20
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11228",
+      "U+1122C"
+     ],
+     "conf": 0.55,
+     "why": "VA + AA; the line-final dash is left out (rule 8)"
+    },
+    {
+     "cps": [
+      "U+1121E",
+      "U+1122C"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  }
+ ]
+}
