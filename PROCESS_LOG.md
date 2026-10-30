@@ -286,6 +286,36 @@ Format: **Assumption / error → How caught → Fix**
 
 62. **Test strength checked by breaking the code.** With frame detection disabled, the first synthetic test still passed, because other steps covered for it. A page number above the frame was added to the synthetic page. Now the tests fail when the frame step is broken.
 
+## 2026-10-29 — chunk 2: glyph boxes (round 22)
+
+63. **All 9 "separator inside a letter's box" errors had one cause.** The two dots of a word separator are slanted: the lower dot sits 4–7 px to the right, and the two often share no column. The old rule paired dots only if they overlapped horizontally. So each lone dot was joined to the nearest letter.
+   - Found by listing the components inside each box that two glyphs shared.
+   - → Dots are now paired by centre distance (≤ 0.3 × letter height across, 0.2–0.6 × down).
+   - Two separators were still missed because their dots were just over the size limit (9 px vs 9.0; 8 px vs 7.95). A sweep of the limit on the 6 GT lines:
+     - 0.3 → 29/31 separators.
+     - 0.35–0.4 → 31/31.
+     - 0.45 → a false separator (Sauvola).
+     - Set to 0.375, halfway between the two failure points.
+
+64. **Stage B results** (`gt/eval_glyphs.py`; 111 GT units = 80 glyphs + 31 separators; every row sums to 111):
+
+    | Segmenter | Glyph right | Glyph split | Separator found | Merges | False separators |
+    |---|---|---|---|---|---|
+    | Old (`gt/segment.py`, frozen) | 59 | 21 | 22 | 0 | 0 |
+    | New, Otsu | 59 | 21 | **31** | 0 | 0 |
+    | New, Sauvola | 56 | 24 | 31 | 0 | 0 |
+    | Stage A + B (Otsu, the line finder's own crops) | 59 | 21 | 31 | 0 | 0 |
+
+   - **Otsu is the default from here.** It ties Sauvola at stage A and splits 3 fewer glyphs here.
+   - Running on the line finder's crops gives the same numbers as the hand-made GT crops. The two crops were lined up by recomputing prep_gt's crop position and by template matching, and the two agreed on all 6 lines.
+
+65. **Splits are left for stage C on purpose. Merges are not allowed.**
+   - Gaps between boxes can't separate the two cases. Boxes of one glyph sit −3 to +10 px apart, and boxes of different glyphs sit −11 px and up. Any gap threshold would merge some real neighbours, and a merge can't be undone later.
+   - All 21 splits are 2–3 boxes in a row: 18 of 2, 3 of 3, never with another glyph's box between. So stage C will try joining up to 3 neighbouring boxes, which is the standard over-segment-then-recognise approach (Casey & Lecolinet 1996).
+   - The splits are: an AA upright cut off (9), SA in two halves (7), double danda in two strokes (4), and VA+AA (1).
+   - **Caveat:** the dot-size limit was chosen on the same 6 lines that CER will be measured on. It's one parameter, but it's still tuned on test data.
+   - The first separator test passed under the old rule too: my synthetic dots overlapped by 1 px, unlike the real ones. The dots were moved apart so the test fails under the old rule.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.
