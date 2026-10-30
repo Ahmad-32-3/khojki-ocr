@@ -1,0 +1,86 @@
+"""Progress pictures: a small visual sample of each chunk's results.
+
+usage: python -X utf8 gt/progress.py 1 2      -> gt/progress/chunkN.png (gitignored: contains scan pixels)
+  1  line finding: each page shrunk, red box per line found, green tick per line marked by eye
+  2  glyph boxes on two lines: green = glyph, orange = separator, red bracket = one glyph in 2-3 boxes
+"""
+import json, sys
+from pathlib import Path
+
+import cv2
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path[:0] = [str(ROOT), str(ROOT / "gt")]
+from khojki.glyphs import glyph_boxes  # noqa: E402
+from khojki.lines import find_lines  # noqa: E402
+from eval_glyphs import score  # noqa: E402
+from eval_lines import score as line_score  # noqa: E402
+
+OUT = ROOT / "gt" / "progress"
+FONT = cv2.FONT_HERSHEY_SIMPLEX
+
+
+def caption(img, text, h=34):
+    bar = np.full((h, img.shape[1], 3), 255, np.uint8)
+    cv2.putText(bar, text, (8, h - 11), FONT, 0.6, (0, 0, 0), 1, cv2.LINE_AA)
+    return np.vstack([bar, img])
+
+
+def stack(imgs, axis):
+    if axis == 1:
+        h = max(i.shape[0] for i in imgs)
+        imgs = [np.pad(i, ((0, h - i.shape[0]), (0, 8), (0, 0)), constant_values=255) for i in imgs]
+        return np.hstack(imgs)
+    w = max(i.shape[1] for i in imgs)
+    return np.vstack([np.pad(i, ((0, 8), (0, w - i.shape[1]), (0, 0)), constant_values=255) for i in imgs])
+
+
+def chunk1():
+    gt = json.loads((ROOT / "gt" / "lines_gt.json").read_text(encoding="utf-8"))
+    panels = []
+    for page in ("p09", "p10", "p11"):
+        gray = cv2.imread(str(ROOT / "data" / "pages" / f"{page}.png"), cv2.IMREAD_GRAYSCALE)
+        found = find_lines(gray)
+        s = line_score(found, gt[page]["text"], gt[page]["skip"])
+        img = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
+        for x0, y0, x1, y1 in found:
+            cv2.rectangle(img, (x0, y0), (x1, y1), (0, 0, 220), 3)
+        for y in gt[page]["text"]:
+            cv2.line(img, (0, y), (35, y), (0, 170, 0), 6)
+        img = cv2.resize(img, None, fx=0.4, fy=0.4, interpolation=cv2.INTER_AREA)
+        panels.append(caption(img, f"{page}: {s['right']}/{len(gt[page]['text'])} lines right"))
+    return caption(stack(panels, 1), "Chunk 1 - line finding. Red box = line found. Green tick = line marked by eye.", 40)
+
+
+def chunk2(files=("lines/p09_l01.png", "lines/p09_l09.png")):
+    gt = {l["file"]: l for l in json.loads((ROOT / "gt" / "gt_v1.json").read_text(encoding="utf-8"))["lines"]}
+    panels = []
+    for f in files:
+        gray = cv2.imread(str(ROOT / "gt" / f), cv2.IMREAD_GRAYSCALE)
+        boxes = glyph_boxes(gray)
+        k = 2
+        img = cv2.resize(cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR), None, fx=k, fy=k, interpolation=cv2.INTER_CUBIC)
+        img = np.pad(img, ((0, 24), (0, 0), (0, 0)), constant_values=255)
+        for x0, x1, y0, y1, kind in boxes:
+            cv2.rectangle(img, (x0 * k, y0 * k), (x1 * k, y1 * k), (0, 140, 255) if kind == "sep" else (0, 160, 0), 2)
+        for u in gt[f]["units"]:  # glyphs that came out in several boxes: bracket underneath
+            inside = [b for b in boxes if b[4] == "glyph" and u["cps"] != ["U+1123A"] and u["bbox"][0] <= (b[0] + b[1]) / 2 < u["bbox"][1]]
+            if len(inside) > 1:
+                x0, x1, yb = inside[0][0] * k, inside[-1][1] * k, img.shape[0] - 14
+                cv2.line(img, (x0, yb), (x1, yb), (0, 0, 220), 3)
+                cv2.line(img, (x0, yb - 8), (x0, yb), (0, 0, 220), 3)
+                cv2.line(img, (x1, yb - 8), (x1, yb), (0, 0, 220), 3)
+        s = score(gt[f]["units"], boxes)
+        seps = sum(v for (kd, _), v in s.items() if kd == "sep")
+        panels.append(caption(img, f"{f[6:13]}: separators {s[('sep', 'ok')]}/{seps}, glyphs in one box {s[('glyph', 'ok')]}, "
+                                   f"in 2-3 boxes {s[('glyph', 'split')]}, merges {s[('glyph', 'merge')]}"))
+    return caption(stack(panels, 0), "Chunk 2 - glyph boxes. Green = glyph. Orange = separator. Red bracket = one glyph in several boxes (joined in chunk 3).", 40)
+
+
+if __name__ == "__main__":
+    OUT.mkdir(exist_ok=True)
+    for n in sys.argv[1:] or ["1", "2"]:
+        path = OUT / f"chunk{n}.png"
+        cv2.imwrite(str(path), {"1": chunk1, "2": chunk2}[n]())
+        print("wrote", path.relative_to(ROOT))
