@@ -120,3 +120,14 @@ def test_schema_on_ground_truth_lines():
         pytest.skip("no data/model.json")
     for f in sorted((ROOT / "gt" / "lines").glob("p09_l*.png")):
         check_output(R.recognise_line(cv2.imread(str(f), cv2.IMREAD_GRAYSCALE), model=model), model)
+
+
+def test_stale_model_is_refused():
+    """Fix 5 (log 75): a model fitted on another bank must not run with its old thresholds."""
+    from khojki.bank import fingerprint
+    gray = synthetic_line()
+    bank = synthetic_bank(gray)
+    R.check_model(dict(MODEL, bank_fp=fingerprint(bank)), bank)            # matching: fine
+    with pytest.raises(RuntimeError, match="Refit"):
+        R.recognise_line(gray, bank, dict(MODEL, bank_fp="0" * 16))
+    assert fingerprint(bank) == fingerprint(synthetic_bank(synthetic_line()))  # same content, same value

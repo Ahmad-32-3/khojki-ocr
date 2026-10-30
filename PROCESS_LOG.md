@@ -371,6 +371,38 @@ Format: **Assumption / error → How caught → Fix**
    - **Other build notes:** OpenCV 5 dropped `HOGDescriptor`, so HOG is written in NumPy (my plan had wrongly said OpenCV covers it). Identical examples made the "typical close distance" 0, which made scores NaN. It now has a floor; a synthetic test found this.
    - SPEC.md was updated with what the build changed. 20 tests pass, including the schema check on all 6 real lines.
 
+## 2026-10-30 — chunk 4: whole pipeline and validation (round 26)
+
+73. **The pipeline runs end to end from the PDF:** `python -m khojki.pipeline <pdf> --page N`. It writes `.txt`, `.json` and PAGE-XML to `out/`, which is gitignored like the scans.
+   - Pages 9–11: 35 lines, 340 of 1,428 parts recognised (all of them separators), **0 validation problems**.
+   - **Checked by second routes:**
+     - Page 9's output has the same number of separators as the GT on all 6 GT lines.
+     - The PAGE-XML parses on all 3 pages. Glyph elements equal JSON units (211 / 251 / 252). No suggestion ever sits in the answer slot (index 1).
+     - The validator flags GT v1 at exactly line 5, character 21: the JA+E+NUKTA case from log 66.
+   - **Not verified:** separator counts on p10–p11. Those pages have no glyph ground truth yet; that's chunk 7.
+
+74. **The validator's first version missed a mark straight after a separator.** It only flagged marks with no base at all, and a separator counts as a base. Caught by its own self-check before it ran on any data. → Marks are now valid only after a letter or a placeholder (U+FFFD, or `?` in GT).
+
+## 2026-10-30 — robustness fixes (round 27)
+
+75. **Four checks that fail on their own instead of relying on me to read output** (from the 8 suggestions; your call to build 3–6 now):
+   - **`gt/check_real.py`, the real-data tier.** It exits 1 on any regression. Checked: the PDF's SHA-256, the GT is valid Unicode, the bank was built from this GT, the model was fitted on this bank, 35/35 lines, 31/31 separators, no merges, ≥59 glyphs in one box, separators recognised with no errors, glyph precision ≥95% (or no glyph recognitions), suggestion top-3 ≥49%, and the whole pipeline on p9–p11 with 0 validation problems. It takes 18 s, and skips cleanly when the scans aren't on the machine.
+   - **Every GT glyph must lie inside a found line.** This closes the blind spot from log 61, where the line score checked rows only.
+   - **`gt/results.jsonl`.** Each run appends its numbers, commit, whether there were uncommitted changes, GT version and SHA, and bank fingerprint. Commit messages and the retro copy numbers from here, not from memory (log 59).
+   - **Stale-model guard.** The bank stores the SHA of the `gt.json` it was built from, and the model stores the fingerprint of the bank it was fitted on. The pipeline refuses to run on a mismatch and says how to fix it.
+   - **Pre-commit hook.** It now runs pytest, then `check_real.py --no-log`. It's moved to a tracked `hooks/` folder, enabled with `git config core.hooksPath hooks`, so it survives a fresh clone.
+   - **Each check proved able to fail** by breaking one thing at a time:
+     - A stale model → refused, and reported.
+     - Line crops shifted 30 px right, as in log 61 → "8 GT glyphs fall outside every found line". The old row-only score would have passed this.
+     - Separator detection disabled → fails on separators.
+     - An injected validation problem → fails on the pipeline.
+     - The unbroken code passes.
+     - The 4 failing rows those break tests wrote to `results.jsonl` were removed, because they weren't real runs.
+   - **Two slips caught along the way:**
+     - `check_real` crashed on the stale model instead of reporting it. Now it catches the error and reports it.
+     - The `--no-log` switch first didn't apply, because my text replacement failed. A `&&` chain then silently ran the *old* hook. Caught because the hook's output lacked the check_real lines.
+   - My comment said the .npz file's bytes change on every rebuild. They don't: a rebuild gave an identical file hash. The comment was corrected. The content fingerprint is kept anyway, because it doesn't depend on how the file is written.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.
