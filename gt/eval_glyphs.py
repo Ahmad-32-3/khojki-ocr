@@ -1,4 +1,4 @@
-"""Score stage B (glyph boxes) against ground truth v1.
+"""Score stage B (glyph boxes) against the ground truth (gt/gt.json).
 
 usage: python -X utf8 gt/eval_glyphs.py [--old | --pipeline]
   default     stage B on the ground-truth line crops (stage A taken as perfect)
@@ -63,7 +63,7 @@ def pipeline_boxes(file, method):
 
 
 def main(mode="crops"):
-    gt = json.loads((ROOT / "gt" / "gt_v1.json").read_text(encoding="utf-8"))
+    gt = json.loads((ROOT / "gt" / "gt.json").read_text(encoding="utf-8"))
     from segment import glyph_boxes as old_boxes
     results = {}
     for method in (["otsu"] if mode == "old" else ["otsu", "sauvola"]):

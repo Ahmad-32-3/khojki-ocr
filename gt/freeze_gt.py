@@ -1,22 +1,30 @@
-"""Freeze ground truth v1 from the review decisions.
+"""Freeze the ground truth from the review decisions.
 
-usage: python -X utf8 gt/freeze_gt.py      -> gt/gt_v1.json, gt/gt_v1.txt
+usage: python -X utf8 gt/freeze_gt.py      -> gt/gt.json, gt/gt.txt   (the version number is inside gt.json)
 Each unit stores its pixel box, not just box numbers, so the truth doesn't change if the segmenter does.
 A unit nobody could read is kept as status "open" (written "?" in the .txt) and left out of CER later.
+
+Versions:
+  1  first freeze (log 59)
+  2  marks put in Unicode order: nukta straight after its letter (log 68). Changes one unit: line 5 glyph 19.
 """
-import json, unicodedata
+import json, sys, unicodedata
 from pathlib import Path
 
-from segment import glyph_boxes
-
 GT = Path(__file__).resolve().parent
+sys.path.insert(0, str(GT.parent))
+from khojki.labels import canonical, from_hex  # noqa: E402
+from segment import glyph_boxes  # noqa: E402
+
+VERSION = 2
 
 
 def answer(decision):
     """Code points as text, or None for open. Missing decision and "?" both mean open."""
     if not decision or decision["cps"] == ["?"]:
         return None
-    return unicodedata.normalize("NFC", "".join(chr(int(c[2:], 16)) for c in decision["cps"]))
+    cps = canonical(from_hex(decision["cps"]))
+    return unicodedata.normalize("NFC", "".join(map(chr, cps)))
 
 
 def main():
@@ -38,12 +46,12 @@ def main():
             })
         lines.append({"file": lat["file"], "units": units})
 
-    (GT / "gt_v1.json").write_text(json.dumps({"version": 1, "lines": lines}, ensure_ascii=False, indent=1), encoding="utf-8")
-    (GT / "gt_v1.txt").write_text(
+    (GT / "gt.json").write_text(json.dumps({"version": VERSION, "lines": lines}, ensure_ascii=False, indent=1), encoding="utf-8")
+    (GT / "gt.txt").write_text(
         "".join("".join(u["text"] or "?" for u in l["units"]) + "\n" for l in lines), encoding="utf-8")
     n = sum(len(l["units"]) for l in lines)
     ok = sum(u["status"] == "ok" for l in lines for u in l["units"])
-    print(f"{len(lines)} lines, {n} units, {ok} ok, {n - ok} open")
+    print(f"version {VERSION}: {len(lines)} lines, {n} units, {ok} ok, {n - ok} open")
 
 
 if __name__ == "__main__":

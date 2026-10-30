@@ -54,7 +54,7 @@ def chunk1():
 
 
 def chunk2(files=("lines/p09_l01.png", "lines/p09_l09.png")):
-    gt = {l["file"]: l for l in json.loads((ROOT / "gt" / "gt_v1.json").read_text(encoding="utf-8"))["lines"]}
+    gt = {l["file"]: l for l in json.loads((ROOT / "gt" / "gt.json").read_text(encoding="utf-8"))["lines"]}
     panels = []
     for f in files:
         gray = cv2.imread(str(ROOT / "gt" / f), cv2.IMREAD_GRAYSCALE)

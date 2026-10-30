@@ -331,6 +331,21 @@ Format: **Assumption / error → How caught → Fix**
    - A+NUKTA was in the GT but missing from the chart set. Nukta on vowel letters was added (Pandey 4.10).
    - The comparison picture shows the domain gap. RA, HA, HA+U and SA+NUKTA look close to Noto. MA+II and JJA+AA differ a lot in the 1896 type. The real SA+NUKTA also has a dot below (Pandey's inverted-nukta variant).
 
+## 2026-10-30 — ground truth v2 (round 24)
+
+68. **The ground truth itself is now in Unicode order (your call).** In entry 66 I only reordered labels at comparison time. You wanted the ground truth fixed.
+   - `freeze_gt.py` now writes marks in Unicode order: nukta straight after its letter, then the vowel sign, then anusvara.
+   - The output is `gt/gt.json` and `gt/gt.txt`, with the version inside the file (now 2). The `gt_v1.*` files are deleted; v1 stays in git history.
+   - Checked against v1 from git, unit by unit: **exactly one unit changed**, line 5 g19, from JA+E+NUKTA to JA+NUKTA+E. Unit counts are the same, and the text holds the same characters, only reordered.
+   - Glyph scores and the example bank were re-run on v2. The numbers are unchanged.
+   - **Root cause:** the review page's "Add a mark" button added marks in the order clicked. It now sorts them into Unicode order, using the same rule as `khojki/labels.py`. Checked that both give the same results in 3 cases.
+
+69. **My fix broke the review page for a few minutes.** The page already had a function called `isMark`. Declaring a second one stopped the whole script from loading, so the line list came up empty.
+   - Caught in a test tab on 127.0.0.1, by reading the console errors, before telling you the change was done.
+   - → Renamed to `isMarkCp`. A fresh tab loads with no errors and all 6 lines.
+   - Your review files weren't touched (their timestamps are unchanged).
+   - Lesson: grep the template for a name before adding one.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

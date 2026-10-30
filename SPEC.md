@@ -16,7 +16,7 @@ The person using the output is a reviewer. If the program shows a guess as if it
    - **HOG:** histograms of stroke directions.
    - **Shape counts:** holes, stroke ends, junctions, aspect ratio, ink share by zone (upper / middle / lower), size relative to the line.
 3. **Example bank.**
-   - **Real examples** are cut from the ground-truth lines, using each unit's pixel box from `gt/gt_v1.json`.
+   - **Real examples** are cut from the ground-truth lines, using each unit's pixel box from `gt/gt.json`.
    - **Chart examples** are rendered with HarfBuzz shaping in Noto Sans Khojki and Noto Serif Khojki. They cover every consonant × sign cell of the chart, the independent vowels, the punctuation, and the four conjuncts (tra, dra, kṣa, jña).
    - Each example is labelled `real` or `chart`.
 4. **Match.** The k nearest examples vote, weighted by distance, which gives a score per label.

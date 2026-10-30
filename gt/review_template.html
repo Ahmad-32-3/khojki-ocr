@@ -455,6 +455,15 @@ $("unkSave").onclick = async () => {
 // ---------- "none of these": port of the khojki-demo.netlify.app chart ----------
 // Same sections, columns and behaviour as the site; lists come from the Unicode table, not hand-typed.
 const cp = (...n) => String.fromCodePoint(...n);
+// Trailing marks in Unicode order: nukta right after the letter, then the vowel sign, then anusvara / shadda.
+// NFC doesn't do this for Khojki (log 68), so marks added in any order are sorted here. Same rule as khojki/labels.py.
+const MARK_RANK = { 0x11236: 0, 0x11235: 1, 0x11234: 3, 0x11237: 3 };
+const isMarkCp = c => (c >= 0x1122C && c <= 0x11237) || c === 0x1123E || c === 0x11241;
+function canonical(cps) {
+  let i = cps.length;
+  while (i && isMarkCp(cps[i - 1]) && cps[i - 1] !== 0x11235) i--;
+  return [...cps.slice(0, i), ...cps.slice(i).sort((a, b) => (MARK_RANK[a] ?? 2) - (MARK_RANK[b] ?? 2))];
+}
 const hex = n => n.toString(16).toUpperCase();
 const DOT = "◌";
 const title = s => s.charAt(0) + s.slice(1).toLowerCase();
@@ -488,7 +497,7 @@ function inspect(name) {
   $("insp-add").innerHTML = addable.length ? "Add a mark: " + addable.map(([c, l]) =>
     `<button data-cp="${c}" title="${l}"><span class="k">${base}${cp(c)}</span> +${l}</button>`).join("") : "";
   $("insp-add").querySelectorAll("button").forEach(b => b.onclick = () => {
-    const c = +b.dataset.cp; built = [...built, c];
+    const c = +b.dataset.cp; built = canonical([...built, c]);
     inspect(friendly(built.map(x => "U+" + hex(x))));
   });
 }

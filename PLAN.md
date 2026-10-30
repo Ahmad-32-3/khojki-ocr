@@ -29,6 +29,7 @@ Two of those shape the design before we write any code:
 | 4 | CER computed against "LLM-assisted geometric ground truth" | Circular if the same LLM is also a recogniser: we'd be measuring agreement with ourselves. The brief says *we* transcribe and time it. | Blind double transcription, then adjudication (§4a). The LLM never sees the human's version first, and the human never sees the LLM's. |
 | 5 | Track A: SSIM against Noto Sans Khojki templates | (a) Template matching needs characters cut out, but Stage 2 says the line is the atomic unit; the two conflict. (b) Noto is a modern design; the 1896 type may differ. **Unverified — test it in step 0.** | Harvest templates from the page itself (cluster-and-label, §4). Use Noto only for synthetic data. |
 | 6 | Track C: "CTC sequence transformer analysing word waveforms"; TrOCR "handles cursive easily" | TrOCR is encoder–decoder, not CTC. "Waveforms" isn't a thing in HTR. Neither model handles anything without labelled lines. | Out of scope for this round. If we train, it's a small CRNN+CTC (Kraken) on synthetic + real lines. |
+| 7 | Labelling loop: run the pipeline on new p10–p11 lines, review its output, freeze GT vN+1, rebuild the bank, re-score. A fixed blind test set (1 line each from p10 and p11) never enters the bank | A learning curve: lines labelled and minutes spent vs coverage, precision and CER, per round | verifying-output |
 | 7 | Three recognition tracks, routing gate, active-learning backplane, weekly anomaly sweeps | Far beyond 2–4 hours. The brief says a small working pipeline beats an ambitious one. | Build one track. Keep the rest as "future work" lines in the retro. |
 | 8 | Projection profiles "fail completely" at 2° skew; Surya needs "massive" memory | Both overstated. Deskew before projection is standard. Surya runs on CPU, just slowly. | Try projection + deskew first; switch only if it fails on our 5 lines. |
 | 9 | Footer: "This is for informational purposes only. For medical advice or diagnosis, consult a professional." | A chatbot disclaimer pasted into the doc. | Delete before this doc is shown to anyone. |
@@ -179,7 +180,7 @@ Tools:
 
 | Chunk | Builds | Done when | Skill |
 |---|---|---|---|
-| 0 | Freeze GT v1 (`gt/gt_v1.json`, `.txt`) | Counts match by a second route | verifying-output |
+| 0 ✓ | Freeze GT (`gt/gt.json`, `.txt`; v2 = marks in Unicode order) | Counts match by a second route | verifying-output |
 | 1 ✓ | Stage A: lines (`khojki/lines.py`). Otsu vs Sauvola, p9–p11 | 35/35 lines right with both; see log 61 | verifying-output |
 | 2 ✓ | Stage B: glyph boxes (`khojki/glyphs.py`) scored against GT | Separators 22→31 of 31, no merges, splits ≤3 boxes; see log 63–65 | verifying-output |
 | 3 | Spec for recognition, then stage C: example bank from GT + chart renders (uharfbuzz), features, nearest neighbour, calibration, recognition vs suggestion | Spec's acceptance criteria pass; runs offline | writing-specs first; `/checking-divergence` once (you type it) |

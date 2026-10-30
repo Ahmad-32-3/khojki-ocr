@@ -49,7 +49,7 @@ def atoms_in(unit, atoms):
     return [k for k, b in enumerate(atoms["boxes"]) if b[4] == kind and unit["bbox"][0] <= (b[0] + b[1]) / 2 < unit["bbox"][1]]
 
 
-def real_examples(gt_path=ROOT / "gt" / "gt_v1.json"):
+def real_examples(gt_path=ROOT / "gt" / "gt.json"):
     gt = json.loads(gt_path.read_text(encoding="utf-8"))
     out = []
     for line in gt["lines"]:
