@@ -1,0 +1,57 @@
+{
+  "transcriber": "human",
+  "exported": "2026-10-28T05:56:16.907Z",
+  "lines": [
+    {
+      "file": "lines/p09_l01.png",
+      "text": "𑈪𑈄𑈺𑈪𑈄𑈺𑈦𑈦𑈛𑈏",
+      "codepoints": [
+        "U+1122A",
+        "U+11204",
+        "U+1123A",
+        "U+1122A",
+        "U+11204",
+        "U+1123A",
+        "U+11226",
+        "U+11226",
+        "U+1121B",
+        "U+1120F"
+      ],
+      "note": "5th and 6th letter look different but i only see 1 possible match for both",
+      "seconds": 388,
+      "done": false
+    },
+    {
+      "file": "lines/p09_l02.png",
+      "text": "",
+      "codepoints": [],
+      "note": "",
+      "seconds": 1,
+      "done": false
+    },
+    {
+      "file": "lines/p09_l03.png",
+      "text": "",
+      "codepoints": [],
+      "note": "",
+      "seconds": 0,
+      "done": false
+    },
+    {
+      "file": "lines/p09_l04.png",
+      "text": "",
+      "codepoints": [],
+      "note": "",
+      "seconds": 0,
+      "done": false
+    },
+    {
+      "file": "lines/p09_l05.png",
+      "text": "",
+      "codepoints": [],
+      "note": "",
+      "seconds": 0,
+      "done": false
+    }
+  ]
+}

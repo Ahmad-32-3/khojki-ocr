@@ -1,0 +1,210 @@
+{
+ "file": "lines/p09_l09.png",
+ "saved": "2026-10-29T21:05:47",
+ "decisions": {
+  "0": {
+   "cps": [
+    "U+11239"
+   ],
+   "rank": 1,
+   "claude_conf": 0.35,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 6
+  },
+  "1": {
+   "cps": [
+    "U+1122A",
+    "U+1122F"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 81
+  },
+  "2": {
+   "cps": [
+    "U+11218"
+   ],
+   "rank": 1,
+   "claude_conf": 0.4,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 10
+  },
+  "3": {
+   "cps": [
+    "U+11224"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "4": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "5": {
+   "cps": [
+    "U+11229"
+   ],
+   "rank": 1,
+   "claude_conf": 0.4,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "6": {
+   "cps": [
+    "U+11224",
+    "U+1122E"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 63
+  },
+  "7": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 3
+  },
+  "8": {
+   "cps": [
+    "U+1121D",
+    "U+11236"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 125
+  },
+  "9": {
+   "cps": [
+    "U+11219"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "10": {
+   "cps": [
+    "U+11227",
+    "U+1122C"
+   ],
+   "rank": 1,
+   "claude_conf": 0.5,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 3
+  },
+  "11": {
+   "cps": [
+    "U+11224"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 3
+  },
+  "12": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "13": {
+   "cps": [
+    "U+1121A",
+    "U+1122D"
+   ],
+   "rank": 1,
+   "claude_conf": 0.25,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 6
+  },
+  "14": {
+   "cps": [
+    "U+11206"
+   ],
+   "rank": 1,
+   "claude_conf": 0.35,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "15": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.8,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "16": {
+   "cps": [
+    "U+11226"
+   ],
+   "rank": 1,
+   "claude_conf": 0.4,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4
+  },
+  "17": {
+   "cps": [
+    "U+11218",
+    "U+1122E"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 2,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 92
+  }
+ }
+}
