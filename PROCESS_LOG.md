@@ -316,6 +316,21 @@ Format: **Assumption / error → How caught → Fix**
    - **Caveat:** the dot-size limit was chosen on the same 6 lines that CER will be measured on. It's one parameter, but it's still tuned on test data.
    - The first separator test passed under the old rule too: my synthetic dots overlapped by 1 px, unlike the real ones. The dots were moved apart so the test fails under the old rule.
 
+## 2026-10-29 — chunk 3a: spec and example bank (round 23)
+
+66. **Ground-truth encoding issue: vowel sign before nukta.** You recorded line 5 g19 as JA + E + NUKTA. Unicode's Indic model puts the nukta straight after its consonant (JA + NUKTA + E). NFC doesn't fix this: vowel sign E has combining class 0, so nothing gets reordered past it. The two spellings would count as different, and CER would mark a correct reading as wrong.
+   → The frozen GT is unchanged. `khojki/labels.canonical()` puts trailing marks in Unicode order (nukta, then vowel sign, then anusvara) wherever labels are compared. Chunk 4's validator will enforce it on output. This is an encoding decision for the retro.
+
+67. **Example bank** (`khojki/bank.py` → `data/bank.npz`, gitignored because the real examples are scan pixels):
+   - **98 real examples.** That's one per settled GT unit, so the counts match.
+   - **2,666 chart examples:** 1,333 labels × 2 fonts. Both fonts draw every label, so the counts match.
+   - Each real example contains only its own ink. Stage B now records which ink pieces make up each box, so overlapping neighbours are left out. That refactor left stage B's scores unchanged.
+   - Chart renders are shaped by HarfBuzz. A test checks that MA+II comes out with its tail.
+   - **The data is thin:** 40 distinct labels, 24 of them with only one example.
+   - **The ceiling on real-example recognition:** in leave-one-line-out, only 70 of 98 units have their label on another line, and 31 of those are separators. So at most **39 of 67 non-separator glyphs** can be recognised from real examples. The other 28 can only be suggestions, unless chart examples prove reliable. Counted from the bank, and again straight from `gt_v1.json`.
+   - A+NUKTA was in the GT but missing from the chart set. Nukta on vowel letters was added (Pandey 4.10).
+   - The comparison picture shows the domain gap. RA, HA, HA+U and SA+NUKTA look close to Noto. MA+II and JJA+AA differ a lot in the 1896 type. The real SA+NUKTA also has a dot below (Pandey's inverted-nukta variant).
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

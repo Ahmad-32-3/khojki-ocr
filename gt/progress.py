@@ -78,9 +78,31 @@ def chunk2(files=("lines/p09_l01.png", "lines/p09_l09.png")):
     return caption(stack(panels, 0), "Chunk 2 - glyph boxes. Green = glyph. Orange = separator. Red bracket = one glyph in several boxes (joined in chunk 3).", 40)
 
 
+def chunk3a():
+    """Same label as a real 1896 glyph and as both chart fonts, after the same size normalisation."""
+    from khojki.bank import load
+    from khojki.labels import name
+    b = load()
+    wanted = [(0x11226,), (0x11224, 0x1122E), (0x1122A,), (0x1122A, 0x1122F), (0x11229, 0x11236),
+              (0x11211, 0x1122C), (0x11239,), (0x1123A,)]
+    cols = []
+    for lab in wanted:
+        tiles = []
+        for src in ("real", "NotoSansKhojki-Regular.ttf", "NotoSerifKhojki-Regular.ttf"):
+            i = next(i for i, (l, s, ln) in enumerate(zip(b["label"], b["source"], b["line"]))
+                     if l == lab and (s == src or ln == src))
+            tile = cv2.resize(255 - b["img"][i], None, fx=2, fy=2, interpolation=cv2.INTER_NEAREST)
+            tiles.append(np.pad(cv2.cvtColor(tile, cv2.COLOR_GRAY2BGR), ((4, 4), (4, 4), (0, 0)), constant_values=200))
+        cols.append(caption(stack(tiles, 0), name(lab), 26))
+    legend = np.full((cols[0].shape[0], 120, 3), 255, np.uint8)
+    for k, t in enumerate(("", "real 1896", "Noto Sans", "Noto Serif")):
+        cv2.putText(legend, t, (4, 26 + k * 104 - 50 if k else 20), FONT, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
+    return caption(stack([legend] + cols, 1), "Chunk 3a - example bank. Each column: one label as a real 1896 glyph, then drawn by the two chart fonts.", 40)
+
+
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     for n in sys.argv[1:] or ["1", "2"]:
         path = OUT / f"chunk{n}.png"
-        cv2.imwrite(str(path), {"1": chunk1, "2": chunk2}[n]())
+        cv2.imwrite(str(path), {"1": chunk1, "2": chunk2, "3a": chunk3a}[n]())
         print("wrote", path.relative_to(ROOT))

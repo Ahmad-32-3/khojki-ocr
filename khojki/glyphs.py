@@ -14,8 +14,10 @@ from khojki.lines import binarise
 
 
 def components(ink, min_area=6):
-    n, _, stats, _ = cv2.connectedComponentsWithStats(ink, connectivity=8)
-    return [dict(x0=x, x1=x + w, y0=y, y1=y + h, area=a) for x, y, w, h, a in stats[1:] if a >= min_area]
+    """Components as dicts; `ids` holds the label id(s) in the returned label image, so a box knows its own ink."""
+    n, labels, stats, _ = cv2.connectedComponentsWithStats(ink, connectivity=8)
+    comps = [dict(x0=x, x1=x + w, y0=y, y1=y + h, area=a, ids=[i]) for i, (x, y, w, h, a) in enumerate(stats) if i and a >= min_area]
+    return comps, labels
 
 
 def _xov(a, b):
@@ -51,16 +53,22 @@ def separators(small, tall, line_h):
             b = small[best[1]]
             used |= {i, best[1]}
             seps.append(dict(x0=min(a["x0"], b["x0"]), x1=max(a["x1"], b["x1"]),
-                             y0=min(a["y0"], b["y0"]), y1=max(a["y1"], b["y1"]), kind="sep"))
+                             y0=min(a["y0"], b["y0"]), y1=max(a["y1"], b["y1"]), kind="sep", ids=a["ids"] + b["ids"]))
     return seps, used
 
 
 def glyph_boxes(gray, method="otsu"):
     """Return [[x0, x1, y0, y1, kind], ...] left to right. kind: 'glyph' or 'sep'."""
+    return glyph_atoms(gray, method)["boxes"]
+
+
+def glyph_atoms(gray, method="otsu"):
+    """Boxes plus what's needed to cut out each box's own ink:
+    {'boxes': [[x0, x1, y0, y1, kind]], 'members': [[label ids]], 'labels': label image, 'tall': median letter height}."""
     ink = binarise(gray, method)
-    comps = components(ink)
+    comps, labels = components(ink)
     if not comps:
-        return []
+        return dict(boxes=[], members=[], labels=labels, tall=0.0)
     H, W = gray.shape
     tall = float(np.median([c["y1"] - c["y0"] for c in comps if c["area"] > 80] or [H / 2]))
     # the printed frame: a thin rule, full height or touching the right edge
@@ -75,9 +83,9 @@ def glyph_boxes(gray, method="otsu"):
     for c in big:
         if merged and _xov(merged[-1], c) > 0.6 * min(c["x1"] - c["x0"], merged[-1]["x1"] - merged[-1]["x0"]):
             m = merged[-1]
-            m.update(x0=min(m["x0"], c["x0"]), x1=max(m["x1"], c["x1"]), y0=min(m["y0"], c["y0"]), y1=max(m["y1"], c["y1"]))
+            m.update(x0=min(m["x0"], c["x0"]), x1=max(m["x1"], c["x1"]), y0=min(m["y0"], c["y0"]), y1=max(m["y1"], c["y1"]), ids=m["ids"] + c["ids"])
         else:
-            merged.append(dict(c, kind="glyph"))
+            merged.append(dict(c, kind="glyph", ids=list(c["ids"])))
 
     seps, used = separators(small, tall, H)
 
@@ -87,7 +95,8 @@ def glyph_boxes(gray, method="otsu"):
             continue
         cx = (s["x0"] + s["x1"]) / 2
         g = min(merged, key=lambda g: 0 if g["x0"] <= cx <= g["x1"] else min(abs(cx - g["x0"]), abs(cx - g["x1"])))
-        g.update(x0=min(g["x0"], s["x0"]), x1=max(g["x1"], s["x1"]), y0=min(g["y0"], s["y0"]), y1=max(g["y1"], s["y1"]))
+        g.update(x0=min(g["x0"], s["x0"]), x1=max(g["x1"], s["x1"]), y0=min(g["y0"], s["y0"]), y1=max(g["y1"], s["y1"]), ids=g["ids"] + s["ids"])
 
     out = sorted(merged + seps, key=lambda c: c["x0"])
-    return [[int(c["x0"]), int(c["x1"]), int(c["y0"]), int(c["y1"]), c["kind"]] for c in out]
+    return dict(boxes=[[int(c["x0"]), int(c["x1"]), int(c["y0"]), int(c["y1"]), c["kind"]] for c in out],
+                members=[c["ids"] for c in out], labels=labels, tall=tall)
