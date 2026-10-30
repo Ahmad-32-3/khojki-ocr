@@ -346,6 +346,31 @@ Format: **Assumption / error → How caught → Fix**
    - Your review files weren't touched (their timestamps are unchanged).
    - Lesson: grep the template for a name before adding one.
 
+## 2026-10-30 — chunk 3b: recognition (round 25)
+
+70. **A single threshold hid that glyphs fail the target.** The first held-out run looked fine: HOG recognised 79/196 parts at 96% precision. Splitting the result by kind showed separators carrying it. On glyphs alone it was 21/134 parts at **86%** (95% CI 71–100%).
+   - → Calibration and τ are now fitted separately for predicted separators and predicted glyphs.
+   - **That exposed a real bug.** A vowel-sign AA upright that came out as its own box matched a separator. It was then recognised under the separator threshold: 3 wrong "separators" on line 5.
+   - → Stage B's separator decision (31/31 right) is now binding. Glyph boxes are compared only with non-separator examples, and separator boxes only with separators.
+   - Also: the "glyph precision below target" warning didn't print at first. My text replacement hadn't matched, so the check was never added. Spec criterion 6 requires the warning, so it was fixed and checked in the output.
+
+71. **Thresholds need evidence behind them.** With separate groups, the glyph threshold was being set from 3–5 calibration recognitions. It then failed on held-out lines (33–83%). → τ now needs ≥ 10 calibration recognitions behind it.
+
+72. **Result: separators are recognised, glyphs are only suggested at 6 lines.** Leave one line out, nested calibration, ground-truth line crops:
+
+    | Description | Parts recognised | Precision | Glyph letter: top 1 / in top 3 |
+    |---|---|---|---|
+    | Pixels | 62/196 (all separators) | 100% | 33% / 46% |
+    | **HOG (chosen)** | 62/196 (all separators) | 100% | **35% / 49%** |
+    | Shape counts | 62/196 (all separators) | 100% | 15% / 19% |
+
+   - **Risk–coverage for HOG glyph letters:** top 10 by score are 90% right, top 15 are 93%, top 20 are 70%, all 77 are 35%. Even the 3 highest-scored are only 2/3 right. So no threshold can reach 95% today, and the 10-example rule isn't what's blocking glyphs. They are close, which gives chunk 7's learning curve a clear target.
+   - **Second route:** the shipped code path (`recognise_atoms` + `model.json`), with each line removed from the bank and counted from the output *text* against `gt.json`, gives 31/31 separators in the right lines and 0 glyph characters committed. That matches the evaluation.
+   - **Choosing the description:** HOG and Pixels tie on separators. HOG gives better suggestions (49% vs 46% in the top 3). Shape counts give poor suggestions. A description is only eligible if it meets the target on glyphs too; having no glyph recognitions counts as meeting it.
+   - **Calibration is coarse.** Most top options show 24% or 0%, because isotonic regression on ~60 glyph points gives a few steps. That's honest, but it doesn't say much. It will sharpen with more labelled lines.
+   - **Other build notes:** OpenCV 5 dropped `HOGDescriptor`, so HOG is written in NumPy (my plan had wrongly said OpenCV covers it). Identical examples made the "typical close distance" 0, which made scores NaN. It now has a floor; a synthetic test found this.
+   - SPEC.md was updated with what the build changed. 20 tests pass, including the schema check on all 6 real lines.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

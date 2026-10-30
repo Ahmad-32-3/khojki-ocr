@@ -13,18 +13,18 @@ The person using the output is a reviewer. If the program shows a guess as if it
 1. **Candidate units.** Stage B gives boxes in reading order, and a glyph may come out in 2–3 pieces (log 65). Every run of 1–3 neighbouring glyph boxes is a candidate unit. Separator boxes are units of their own and are never joined.
 2. **Describe the shape.** Each candidate is cropped to its ink, kept in proportion, padded to a square and resized to 48 × 48. Three ways of describing it are compared, and the best is chosen by held-out results:
    - **Pixels:** the ink image blurred by a distance transform, compared by Euclidean distance.
-   - **HOG:** histograms of stroke directions.
+   - **HOG:** histograms of stroke directions. Written in NumPy, because OpenCV 5 dropped `HOGDescriptor`. **Chosen**: it ties for best suggestions and meets the target (log 72).
    - **Shape counts:** holes, stroke ends, junctions, aspect ratio, ink share by zone (upper / middle / lower), size relative to the line.
 3. **Example bank.**
    - **Real examples** are cut from the ground-truth lines, using each unit's pixel box from `gt/gt.json`.
    - **Chart examples** are rendered with HarfBuzz shaping in Noto Sans Khojki and Noto Serif Khojki. They cover every consonant × sign cell of the chart, the independent vowels, the punctuation, and the four conjuncts (tra, dra, kṣa, jña).
    - Each example is labelled `real` or `chart`.
-4. **Match.** The k nearest examples vote, weighted by distance, which gives a score per label.
+4. **Match.** The k = 7 nearest examples vote, weighted by distance, which gives a score per label. Some of the score is held back as "none of these", so a far-away match scores low. *(Built:)* Stage B's separator decision is binding. A glyph box is compared only with non-separator examples, and a separator box only with separators (log 70).
 5. **Choose the split.** Dynamic programming picks the partition of the line's boxes into units with the best total log-score. This decides "one glyph in 2 pieces" versus "2 glyphs".
 6. **Calibrate.** Raw scores become probabilities using isotonic regression, fitted only on predictions for lines the model didn't learn from.
 7. **Decide, part by part.** A label is a letter plus signs. The probability of a **part** is the sum over all candidates that share that part: for example, P(letter = MA) adds up MA, MA+II and MA+E.
    - A part is **recognised** if its probability ≥ τ **and** it beats the next option for that part by ≥ 0.15.
-   - τ is the lowest threshold that gives ≥ 95% precision on held-out lines.
+   - τ is the lowest threshold that gives ≥ 95% precision on held-out lines. *(Built:)* There are separate τ and calibrations for predicted separators and predicted glyphs, because separators would otherwise carry a threshold that glyphs don't meet (log 70). A τ also needs ≥ 10 calibration recognitions behind it; 3 out of 3 right proves nothing (log 71).
    - Otherwise the part is a **suggestion**.
    - Parts that only chart examples support are always suggestions, unless the hidden-letter test (criterion 7) shows they reach the 95% bar.
 
@@ -67,6 +67,13 @@ The person using the output is a reviewer. If the program shows a guess as if it
 6. The evaluation prints the following for the held-out lines, with counts: recognition precision with a 95% bootstrap interval, coverage (share of parts recognised), and the three-description comparison. **If precision is under 95%, the run says so in plain words.** It never silently lowers the bar.
 7. Hidden-letter test: one letter's real examples are removed and the line is run. The letter is then supported only by chart examples, and it must come out as a suggestion. Tested.
 8. Every number written to PROCESS_LOG or the retro is recomputed by a second route first (verifying-output skill).
+
+## Result (chunk 3b, log 70–72)
+
+- **Separators: 31 of 31 recognised, 0 wrong.**
+- **Glyphs: none recognised.** The most confident glyph guesses are 90–93% right, not 95% (risk–coverage table, log 72), so no threshold qualifies yet.
+- **Suggestions:** the right letter is among the 3 shown for 49% of held-out glyphs, and first for 35%.
+- Every acceptance criterion has a passing test (`tests/test_recognise.py`).
 
 ## What to expect
 
