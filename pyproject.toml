@@ -1,0 +1,18 @@
+[project]
+name = "khojki-ocr"
+version = "0.1.0"
+description = "Page images of 1896 printed Khojki to Unicode text, with a CER report"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0",
+    "opencv-python>=4.10",
+    "pillow>=10.0",
+    "pymupdf>=1.24",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["gt"]

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khojki GT Picker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khojki&family=Noto+Sans+Gujarati&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#faf8f4; --fg:#1d1b18; --muted:#6b665e; --line:#d9d3c7; --accent:#2f5d8a; --warn:#a33; --card:#fff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#1b1a18; --fg:#ece8e0; --muted:#a29c91; --line:#3a3732; --accent:#7fb0e0; --warn:#e88; --card:#24221f; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.4 system-ui, sans-serif; }
+  header { padding:10px 16px; border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  h1 { font-size:16px; margin:0 12px 0 0; }
+  main { padding:12px 16px; max-width:1200px; margin:auto; }
+  button { font:inherit; border:1px solid var(--line); background:var(--card); color:var(--fg); border-radius:4px; padding:4px 10px; cursor:pointer; }
+  button:hover { border-color:var(--accent); }
+  .kh { font-family:"Noto Sans Khojki", sans-serif; }
+  .crop { background:#fff; border:1px solid var(--line); overflow-x:auto; }
+  .crop img { display:block; height:calc(var(--zoom) * 1px); width:auto; }
+  .pixel img { image-rendering:pixelated; }
+  .render { font-size:calc(var(--zoom) * 0.55px); white-space:pre; overflow-x:auto; border:1px dashed var(--line); padding:4px 8px; min-height:1.6em; background:var(--card); }
+  textarea { width:100%; font-size:32px; font-family:"Noto Sans Khojki", sans-serif; padding:6px; background:var(--card); color:var(--fg); border:1px solid var(--line); border-radius:4px; }
+  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:8px 0; }
+  .muted { color:var(--muted); }
+  .cps { font:12px ui-monospace, monospace; display:flex; flex-wrap:wrap; gap:4px; }
+  .cps span { border:1px solid var(--line); border-radius:3px; padding:1px 4px; background:var(--card); }
+  .cps .bad { border-color:var(--warn); color:var(--warn); }
+  .group h3 { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:12px 0 4px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(64px, 1fr)); gap:4px; }
+  .g { display:flex; flex-direction:column; align-items:center; padding:4px 2px; }
+  .g .glyph { font-size:30px; line-height:1.2; }
+  .g .hex { font:10px ui-monospace, monospace; color:var(--muted); }
+  .g .nm { font-size:9px; color:var(--muted); text-align:center; line-height:1.1; }
+  input[type=text] { flex:1; min-width:200px; font:inherit; padding:4px; background:var(--card); color:var(--fg); border:1px solid var(--line); border-radius:4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Khojki blind transcription</h1>
+  <button id="prev">◀ prev</button><span id="pos"></span><button id="next">next ▶</button>
+  <label>zoom <input id="zoom" type="range" min="40" max="240" value="120"></label>
+  <label><input id="pixel" type="checkbox" checked> sharp pixels</label>
+  <button id="export">Export JSON + TXT</button>
+  <span class="muted">Saved in this browser as you type.</span>
+</header>
+<main>
+  <div id="crop" class="crop pixel"><img id="img" alt="line crop"></div>
+  <div class="row muted">Your transcription rendered in Noto Sans Khojki (compare glyph by glyph with the crop above):</div>
+  <div id="render" class="render kh"></div>
+  <div class="row"><textarea id="text" rows="1" spellcheck="false"></textarea></div>
+  <div class="row">
+    <button id="bksp">⌫ last code point</button>
+    <button data-ins=" ">space</button>
+    <button data-ins="?">? unreadable</button>
+    <span class="muted">Timer: <b id="timer">0s</b> (runs while this tab is focused and the line is not marked done)</span>
+    <label><input id="done" type="checkbox"> done</label>
+  </div>
+  <div class="row"><input id="note" type="text" placeholder="Notes: doubts, damaged glyphs, anything unusual on this line"></div>
+  <div class="row muted">Code points in logical order (red = outside the allowed set):</div>
+  <div id="cps" class="cps"></div>
+  <div id="palette"></div>
+</main>
+<script>
+const LINES = __LINES__;
+const GLYPHS = __GLYPHS__;
+const KEY = "khojki-gt-v1";
+const ALLOWED = new Set([...GLYPHS.map(g => g.cp), 0x20, 0x3F]);
+const MARK = c => c === "Mn" || c === "Mc";
+
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+const rec = f => (state[f] ||= { text: "", note: "", seconds: 0, done: false });
+
+let i = 0;
+const $ = id => document.getElementById(id);
+const txt = $("text");
+
+function groups() {
+  const g = { "Independent vowels": [], "Consonants": [], "Vowel signs": [], "Other signs": [], "Punctuation": [], "Gujarati digits": [] };
+  for (const x of GLYPHS) {
+    if (x.cp < 0x1000) g["Gujarati digits"].push(x);
+    else if (x.name.includes("VOWEL SIGN")) g["Vowel signs"].push(x);
+    else if (x.cat === "Po") g["Punctuation"].push(x);
+    else if (MARK(x.cat)) g["Other signs"].push(x);
+    else if (/LETTER (A|AA|I|U|E|AI|O|AU|SHORT I)$/.test(x.name)) g["Independent vowels"].push(x);
+    else g["Consonants"].push(x);
+  }
+  return g;
+}
+
+function buildPalette() {
+  const pal = $("palette");
+  for (const [title, list] of Object.entries(groups())) {
+    const sec = document.createElement("div"); sec.className = "group";
+    sec.innerHTML = `<h3>${title}</h3>`;
+    const grid = document.createElement("div"); grid.className = "grid";
+    for (const x of list) {
+      const b = document.createElement("button"); b.className = "g"; b.title = x.name;
+      const ch = String.fromCodePoint(x.cp);
+      const shown = MARK(x.cat) ? "◌" + ch : ch;  // dotted circle carrier for marks
+      const short = x.name.replace(/^(KHOJKI|GUJARATI) /, "").replace(/^(LETTER|VOWEL SIGN|SIGN|DIGIT) /, "");
+      b.innerHTML = `<span class="glyph kh">${shown}</span><span class="hex">${x.cp.toString(16).toUpperCase()}</span><span class="nm">${short}</span>`;
+      b.onclick = () => insert(ch);
+      grid.appendChild(b);
+    }
+    sec.appendChild(grid); pal.appendChild(sec);
+  }
+}
+
+function insert(s) {
+  const a = txt.selectionStart, b = txt.selectionEnd;
+  txt.value = txt.value.slice(0, a) + s + txt.value.slice(b);
+  txt.selectionStart = txt.selectionEnd = a + s.length;
+  txt.focus(); changed();
+}
+
+function changed() {
+  // NFC can reorder marks (VIRAMA+NUKTA -> NUKTA+VIRAMA); show what is stored, not what was typed
+  const nfc = txt.value.normalize("NFC");
+  if (nfc !== txt.value) { const p = txt.selectionStart; txt.value = nfc; txt.selectionStart = txt.selectionEnd = p; }
+  const r = rec(LINES[i]); r.text = nfc; save(); show();
+}
+
+function show() {
+  const f = LINES[i], r = rec(f);
+  $("img").src = f; $("pos").textContent = `${i + 1} / ${LINES.length}  ${f}`;
+  if (document.activeElement !== txt) txt.value = r.text;
+  $("note").value = r.note; $("done").checked = r.done; $("timer").textContent = r.seconds + "s";
+  $("render").textContent = r.text || " ";
+  const byCp = new Map(GLYPHS.map(g => [g.cp, g]));
+  const cps = [...r.text];
+  $("cps").innerHTML = cps.map((c, k) => {
+    const cp = c.codePointAt(0), g = byCp.get(cp);
+    const orphan = g && MARK(g.cat) && (k === 0 || cps[k - 1] === " ");  // mark with no base letter
+    const bad = !ALLOWED.has(cp) || orphan;
+    const label = g ? g.name.replace(/^(KHOJKI|GUJARATI) /, "") : (cp === 0x20 ? "SPACE" : cp === 0x3F ? "UNREADABLE" : "?");
+    return `<span class="${bad ? "bad" : ""}" title="${label}">${cp.toString(16).toUpperCase()} ${label}${orphan ? " (no base)" : ""}</span>`;
+  }).join("");
+}
+
+txt.addEventListener("input", changed);
+$("note").addEventListener("input", e => { rec(LINES[i]).note = e.target.value; save(); });
+$("done").addEventListener("change", e => { rec(LINES[i]).done = e.target.checked; save(); });
+$("bksp").onclick = () => { const cps = [...txt.value]; cps.pop(); txt.value = cps.join(""); changed(); };
+document.querySelectorAll("[data-ins]").forEach(b => b.onclick = () => insert(b.dataset.ins));
+$("prev").onclick = () => { i = (i + LINES.length - 1) % LINES.length; txt.value = rec(LINES[i]).text; show(); };
+$("next").onclick = () => { i = (i + 1) % LINES.length; txt.value = rec(LINES[i]).text; show(); };
+const setZoom = () => document.documentElement.style.setProperty("--zoom", $("zoom").value);
+$("zoom").oninput = setZoom; setZoom();
+$("pixel").onchange = e => $("crop").classList.toggle("pixel", e.target.checked);
+
+setInterval(() => {
+  const r = rec(LINES[i]);
+  if (document.hasFocus() && !r.done) { r.seconds++; $("timer").textContent = r.seconds + "s"; save(); }
+}, 1000);
+
+$("export").onclick = () => {
+  const lines = LINES.map(f => { const r = rec(f); return { file: f, text: r.text, codepoints: [...r.text].map(c => "U+" + c.codePointAt(0).toString(16).toUpperCase()), note: r.note, seconds: r.seconds, done: r.done }; });
+  const dl = (name, body, type) => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([body], { type })); a.download = name; a.click(); };
+  dl("gt_human.json", JSON.stringify({ transcriber: "human", exported: new Date().toISOString(), lines }, null, 2), "application/json");
+  dl("gt_human.txt", lines.map(l => l.text).join("\n") + "\n", "text/plain;charset=utf-8");
+};
+
+buildPalette(); show();
+</script>
+</body>
+</html>

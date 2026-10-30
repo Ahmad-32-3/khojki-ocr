@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khojki Line Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khojki&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f6f3ee; --card:#fff; --fg:#1f1d1a; --muted:#6d675e; --line:#ddd6ca; --accent:#2f5d8a; --accent-bg:#e5eef7;
+          --ok:#2e7d4f; --ok-bg:#e3f2e8; --warn:#b3261e; --warn-bg:#fbe7e5; --toss:#9a6700; --toss-bg:#fdf1d8; --box:#2f5d8a; --cur:#e8590c; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+          --bg:#191816; --card:#23211e; --fg:#ece8e0; --muted:#a39d92; --line:#3b3833; --accent:#82b4e6; --accent-bg:#1f3347;
+          --ok:#6cc596; --ok-bg:#1d3326; --warn:#f08a80; --warn-bg:#3d201d; --toss:#e7b75a; --toss-bg:#3a2f17; --box:#82b4e6; --cur:#ff8c42; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.45 system-ui, sans-serif; }
+  header { position:sticky; top:0; z-index:5; background:var(--bg); border-bottom:1px solid var(--line); padding:10px 16px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  h1 { font-size:16px; margin:0 8px 0 0; }
+  main { max-width:1100px; margin:0 auto; padding:12px 16px 48px; }
+  button, select { font:inherit; color:var(--fg); background:var(--card); border:1px solid var(--line); border-radius:6px; padding:5px 10px; cursor:pointer; }
+  button:hover { border-color:var(--accent); }
+  button:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  .muted { color:var(--muted); }
+  .kh { font-family:"Noto Sans Khojki", sans-serif; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; margin:12px 0; }
+  .label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:6px; }
+  /* line with boxes */
+  .linewrap { position:relative; overflow-x:auto; }
+  .linewrap img { display:block; height:150px; width:auto; image-rendering:auto; }
+  .linewrap svg { position:absolute; left:0; top:0; height:150px; }
+  .linewrap rect { fill:transparent; stroke:var(--box); stroke-width:1; opacity:.55; cursor:pointer; }
+  .linewrap rect.cur { stroke:var(--cur); stroke-width:2.5; opacity:1; }
+  .linewrap rect.done { stroke:var(--ok); opacity:.8; }
+  /* transcription so far */
+  .reading { display:flex; flex-wrap:wrap; gap:2px; align-items:flex-end; font-size:34px; min-height:52px; }
+  .reading span { padding:0 3px; border-radius:4px; cursor:pointer; border-bottom:3px solid transparent; }
+  .reading span.cur { border-bottom-color:var(--cur); }
+  .reading span.todo { color:var(--muted); font:20px system-ui; }
+  .reading span.unk { color:var(--warn); font:24px system-ui; }
+  /* review card */
+  .review { display:grid; grid-template-columns:minmax(220px, 320px) 1fr; gap:16px; }
+  @media (max-width:760px) { .review { grid-template-columns:1fr; } }
+  canvas { width:100%; background:#fff; border-radius:8px; border:1px solid var(--line); }
+  .chips { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+  .chip { font-size:12px; padding:2px 8px; border-radius:99px; background:var(--accent-bg); color:var(--accent); }
+  .chip.toss { background:var(--toss-bg); color:var(--toss); }
+  .chip.warn { background:var(--warn-bg); color:var(--warn); }
+  .cands { display:grid; gap:8px; }
+  .cand { display:grid; grid-template-columns:28px 92px 1fr; gap:10px; align-items:center; text-align:left; padding:8px 10px; border-radius:8px; }
+  .cand .key { font:12px ui-monospace, monospace; color:var(--muted); border:1px solid var(--line); border-radius:4px; text-align:center; padding:2px 0; }
+  .cand .glyph { font-size:46px; line-height:1.15; text-align:center; background:var(--bg); border-radius:6px; }
+  .cand .name { font-weight:600; }
+  .cand .why { color:var(--muted); font-size:13px; }
+  .cand .hex { font:11px ui-monospace, monospace; color:var(--muted); }
+  .bar { height:6px; background:var(--line); border-radius:3px; margin:4px 0; overflow:hidden; }
+  .bar i { display:block; height:100%; background:var(--accent); }
+  .cand.picked { border-color:var(--ok); background:var(--ok-bg); }
+  .actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+  .actions .sel { border-color:var(--ok); background:var(--ok-bg); }
+  textarea { width:100%; font:inherit; color:var(--fg); background:var(--card); border:1px solid var(--line); border-radius:6px; padding:6px; min-height:2.6em; }
+  /* builder: port of the khojki-demo.netlify.app chart (same palette in both themes, as on the site) */
+  #builder { display:none; --c-bg:#faf9f6; --c-card:#fff; --c-border:#d4d0c8; --c-header-bg:#3b3531; --c-header-fg:#faf9f6;
+    --c-accent:#8b6f47; --c-accent-light:#f5f0e8; --c-text:#2c2520; --c-muted:#7a7068; --c-highlight:rgba(139,111,71,.10);
+    --glyph-size:1.7rem; --khojki-font:"Noto Sans Khojki", sans-serif;
+    background:var(--c-bg); color:var(--c-text); font-family:"Segoe UI", system-ui, -apple-system, sans-serif; line-height:1.5;
+    border:1px solid var(--line); border-radius:10px; padding:1.25rem; margin:12px 0; }
+  #builder.open { display:block; }
+  #builder h2 { font-size:1.4rem; font-weight:700; margin:0 0 .25rem; }
+  #builder .subtitle { color:var(--c-muted); font-size:.9rem; margin-bottom:1rem; }
+  #builder .section-title { font-size:1.15rem; font-weight:600; margin:1.5rem 0 .75rem; padding-bottom:.4rem; border-bottom:2px solid var(--c-accent); display:inline-block; }
+  #builder .toolbar { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-bottom:.75rem; padding:.6rem .8rem; background:var(--c-card); border:1px solid var(--c-border); border-radius:10px; }
+  #builder .toolbar label { font-size:.78rem; color:var(--c-muted); font-weight:500; }
+  #builder .toolbar input[type=search] { border:1px solid var(--c-border); border-radius:6px; padding:.35rem .6rem; font-size:.82rem; outline:none; width:180px; color:var(--c-text); background:#fff; }
+  #builder .toolbar input[type=search]:focus { border-color:var(--c-accent); }
+  #builder .toolbar input[type=range] { width:100px; accent-color:var(--c-accent); }
+  #builder .size-row { display:flex; align-items:center; gap:.5rem; }
+  #builder .size-val { font-family:"SF Mono","Fira Code",monospace; font-size:.72rem; color:var(--c-accent); min-width:3.2em; }
+  #builder .vowel-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); gap:.5rem; margin-bottom:1rem; }
+  #builder .signs-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:.5rem; margin-bottom:1rem; }
+  #builder .vowel-card, #builder .sign-card { background:var(--c-card); border:1px solid var(--c-border); border-radius:8px; padding:.75rem .5rem; text-align:center; transition:box-shadow .15s, transform .15s; cursor:pointer; user-select:none; color:var(--c-text); font:inherit; }
+  #builder .vowel-card:hover, #builder .sign-card:hover { box-shadow:0 2px 8px rgba(0,0,0,.08); transform:translateY(-1px); }
+  #builder .vowel-card .glyph, #builder .sign-card .glyph { font-family:var(--khojki-font); font-size:2rem; line-height:1.3; display:block; }
+  #builder .vowel-card .name, #builder .sign-card .name { font-size:.7rem; color:var(--c-muted); text-transform:uppercase; letter-spacing:.03em; margin-top:.15rem; }
+  #builder .vowel-card .code, #builder .sign-card .code { font-size:.65rem; font-family:"SF Mono","Fira Code",monospace; color:var(--c-accent); margin-top:.1rem; display:block; }
+  #builder .matrix-wrapper { overflow:auto; max-height:70vh; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,.07); margin-bottom:1rem; }
+  #builder table.matrix { border-collapse:collapse; width:100%; min-width:900px; background:var(--c-card); font-size:.85rem; }
+  #builder table.matrix th, #builder table.matrix td { border:1px solid var(--c-border); text-align:center; vertical-align:middle; }
+  #builder table.matrix thead th { background:var(--c-header-bg); color:var(--c-header-fg); padding:.6rem .35rem; font-weight:600; position:sticky; top:0; z-index:3; }
+  #builder table.matrix thead th .dep-glyph { font-family:var(--khojki-font); font-size:1.5rem; display:block; line-height:1.2; }
+  #builder table.matrix thead th .dep-label { font-size:.6rem; opacity:.7; text-transform:uppercase; letter-spacing:.04em; }
+  #builder table.matrix thead th.col-highlight { background:#5a4d42; }
+  #builder table.matrix tbody th { background:var(--c-accent-light); padding:.4rem .6rem; font-weight:600; white-space:nowrap; text-align:left; position:sticky; left:0; z-index:2; min-width:110px; }
+  #builder table.matrix tbody tr.row-highlight th { background:#e8dcc8; }
+  #builder table.matrix tbody th .cons-glyph { font-family:var(--khojki-font); font-size:1.4rem; margin-right:.4rem; vertical-align:middle; }
+  #builder table.matrix tbody th .cons-name { font-size:.65rem; color:var(--c-muted); display:block; font-weight:400; }
+  #builder table.matrix td { padding:.5rem .25rem; min-width:64px; cursor:pointer; transition:background .1s; user-select:none; }
+  #builder table.matrix td .combo { font-family:var(--khojki-font); font-size:var(--glyph-size); line-height:1.2; display:block; }
+  #builder table.matrix td.inherent { background:var(--c-accent-light); }
+  #builder table.matrix td.col-highlight { background:var(--c-highlight); }
+  #builder table.matrix tbody tr.row-highlight td { background:var(--c-highlight); }
+  #builder table.matrix tbody tr.row-highlight td.inherent { background:#e4d7c3; }
+  #builder table.matrix td.cell-active { background:var(--c-accent) !important; color:#fff; border-radius:2px; }
+  #builder table.matrix td.cell-active .combo { color:#fff; }
+  #builder table.matrix .col-sep { width:6px; min-width:6px; max-width:6px; padding:0; background:var(--c-bg); border-top:none; border-bottom:none; cursor:default; }
+  #builder table.matrix thead .col-sep { background:var(--c-bg); }
+  #builder table.matrix tbody tr.hidden-row { display:none; }
+  /* inspector: sticky selection panel (site: fixed top-right; here it also holds "use this") */
+  #inspector { position:sticky; top:64px; z-index:4; display:flex; flex-wrap:wrap; gap:1rem; align-items:center; background:var(--c-card); border:1px solid var(--c-border); border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.10); padding:.8rem 1.2rem; margin-bottom:1rem; }
+  #inspector .insp-glyph { font-family:var(--khojki-font); font-size:3.5rem; line-height:1.3; min-width:90px; text-align:center; }
+  #inspector .insp-details { flex:1; min-width:200px; }
+  #inspector .insp-row { font-size:.8rem; color:var(--c-muted); display:flex; gap:1rem; margin-bottom:.15rem; }
+  #inspector .insp-row .label { font-weight:600; color:var(--c-text); min-width:80px; }
+  #inspector .insp-row .val { font-family:"SF Mono","Fira Code",monospace; color:var(--c-accent); }
+  #inspector .add { display:flex; flex-wrap:wrap; gap:.3rem; margin-top:.4rem; }
+  #inspector .add button, #inspector .go button { background:#fff; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px; font-size:.75rem; padding:.2rem .5rem; }
+  #inspector .add button .k { font-family:var(--khojki-font); font-size:1.1rem; }
+  #inspector .go { display:flex; gap:.5rem; }
+  #inspector .go .use { background:var(--c-accent); color:#fff; border-color:var(--c-accent); font-size:.9rem; padding:.4rem 1rem; }
+  @media (max-width:700px) { #inspector { position:static; } #builder { padding:.75rem; } }
+  #toast { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%) translateY(80px); background:#3b3531; color:#faf9f6; padding:.6rem 1.4rem; border-radius:8px; font-size:.85rem; z-index:9999; pointer-events:none; opacity:0; transition:opacity .25s, transform .25s; white-space:nowrap; box-shadow:0 4px 16px rgba(0,0,0,.2); }
+  #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  .drop { margin-top:8px; border:2px dashed var(--line); border-radius:8px; padding:14px; text-align:center; color:var(--muted); cursor:pointer; }
+  .drop.over, .drop:focus { border-color:var(--accent); color:var(--accent); outline:none; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .thumbs figure { position:relative; margin:0; }
+  .thumbs img { height:80px; border-radius:6px; border:1px solid var(--line); display:block; }
+  .thumbs button { position:absolute; top:2px; right:2px; padding:0 6px; font-size:12px; }
+  button.primary { background:var(--accent); color:var(--card); border-color:var(--accent); font-weight:600; }
+  .saved-unk { margin-top:8px; padding:8px; border-radius:8px; background:var(--warn-bg); color:var(--fg); font-size:13px; }
+  .dots { display:flex; flex-wrap:wrap; gap:3px; }
+  .dots b { width:14px; height:14px; border-radius:3px; background:var(--line); cursor:pointer; }
+  .dots b.done { background:var(--ok); } .dots b.unk { background:var(--warn); } .dots b.cur { outline:2px solid var(--cur); }
+  .help { font-size:12px; }
+  kbd { font:11px ui-monospace, monospace; border:1px solid var(--line); border-bottom-width:2px; border-radius:3px; padding:0 4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Khojki line review</h1>
+  <select id="lineSel" aria-label="Line"></select>
+  <label class="muted">Order <select id="order"><option value="reading">reading order</option><option value="conf">least confident first</option></select></label>
+  <label class="muted"><input type="checkbox" id="hideScores"> hide Claude's scores</label>
+  <span id="progress" class="muted"></span>
+  <button id="export">Export review JSON</button>
+  <button id="sendNow" title="Send this line's review to Claude now">Send line to Claude</button>
+  <span id="saveStatus" class="muted" style="font-size:12px"></span>
+</header>
+<main>
+  <div class="card">
+    <div class="label">The line. Boxes are the segmenter's glyphs; orange is the one you're reviewing. Click a box to jump to it.</div>
+    <div class="linewrap"><img id="lineImg" alt="line crop"><svg id="boxes"></svg></div>
+    <div class="label" style="margin-top:10px">Your reading so far, drawn in Noto Sans Khojki (grey · = not reviewed, red ? = unreadable)</div>
+    <div id="reading" class="reading kh"></div>
+    <div class="dots" id="dots" style="margin-top:6px"></div>
+  </div>
+
+  <div class="card review">
+    <div>
+      <div class="label">This glyph, zoomed</div>
+      <canvas id="zoom" width="640" height="360"></canvas>
+      <div class="chips" id="chips"></div>
+      <div class="actions">
+        <button id="prev">◀ Prev <kbd>←</kbd></button>
+        <button id="next">Next <kbd>→</kbd></button>
+      </div>
+    </div>
+    <div>
+      <div class="label">Which one matches? <span class="help muted">keys <kbd>1</kbd>–<kbd>6</kbd>, <kbd>N</kbd> none of these, <kbd>U</kbd> unreadable, <kbd>B</kbd> box is wrong</span></div>
+      <div class="cands" id="cands"></div>
+      <div class="actions">
+        <button id="none">None of these: build it <kbd>N</kbd></button>
+        <button id="unk">Unreadable ? <kbd>U</kbd></button>
+        <button id="boxWrong">Box is wrong <kbd>B</kbd></button>
+      </div>
+      <div style="margin-top:10px"><textarea id="note" placeholder="Note on this glyph (optional): why you chose it, what's odd about the print"></textarea></div>
+
+      <div class="card" id="unkPanel" hidden>
+        <div class="label">Mark as unreadable: say what you see, add pictures if they help</div>
+        <textarea id="unkComment" placeholder="What do you see? e.g. 'looks like RA but has an extra dot inside', 'ink blot over the top'"></textarea>
+        <div id="drop" class="drop" tabindex="0">Drop pictures here, paste (Ctrl+V), or <u>click to choose files</u></div>
+        <input type="file" id="unkFiles" accept="image/png,image/jpeg,image/webp" multiple hidden>
+        <div class="thumbs" id="thumbs"></div>
+        <div class="actions">
+          <button id="attachCrop">Attach this zoomed crop</button>
+          <button id="unkSave" class="primary">Save as unreadable &amp; next</button>
+          <button id="unkCancel">Cancel <kbd>Esc</kbd></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="builder">
+    <h2>Khojki Script Chart</h2>
+    <p class="subtitle">Unicode Block U+11200 – U+11241 · Consonant × Dependent Vowel Matrix · <strong>Click any glyph to select it for this box</strong></p>
+    <div id="inspector">
+      <span class="insp-glyph" id="insp-glyph">◌</span>
+      <div class="insp-details">
+        <div class="insp-row"><span class="label">Name</span><span class="val" id="insp-name">nothing selected</span></div>
+        <div class="insp-row"><span class="label">Codepoints</span><span class="val" id="insp-codes"></span></div>
+        <div class="add" id="insp-add"></div>
+      </div>
+      <div class="go"><button class="use" id="useBuilt">Use this</button><button id="clearBuilt">Clear</button><button id="closeBuilt">Close chart</button></div>
+    </div>
+    <div class="section-title">Independent Vowels</div>
+    <div class="vowel-grid" id="vowel-grid"></div>
+    <div class="section-title">Consonants × Dependent Vowel Signs &amp; Various Signs</div>
+    <div class="toolbar">
+      <label for="search-input">Filter consonants:</label>
+      <input type="search" id="search-input" placeholder="e.g. ka, pha, na..." autocomplete="off">
+      <div class="size-row">
+        <label for="size-slider">Glyph size:</label>
+        <input type="range" id="size-slider" min="1" max="4" step="0.1" value="1.7">
+        <span class="size-val" id="size-val">1.7rem</span>
+      </div>
+    </div>
+    <div class="matrix-wrapper">
+      <table class="matrix" id="matrix-table"><thead><tr id="matrix-head-row"><th style="min-width:110px;">Consonant</th><th><span class="dep-label">Inherent</span><br><span class="dep-label">(a)</span></th></tr></thead><tbody id="matrix-body"></tbody></table>
+    </div>
+    <div class="section-title">Punctuation</div>
+    <div class="signs-grid" id="punct-grid"></div>
+    <div class="section-title">Digits (Gujarati, used by Khojki)</div>
+    <div class="signs-grid" id="digit-grid"></div>
+  </div>
+</main>
+<div id="toast"></div>
+<script>
+const LINES = __LINES__;
+const GLYPHS = __GLYPHS__;
+const KEY = "khojki-review-v1";
+const BY_CP = new Map(GLYPHS.map(g => [g.cp, g]));
+const $ = id => document.getElementById(id);
+const isMark = g => g && (g.cat === "Mn" || g.cat === "Mc");
+
+let store = {};
+try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+// progress goes to disk through gt/server.py (gt/review/<line>.json); the browser copy is a fallback
+let saveTimer, sent = {};
+try { sent = JSON.parse(localStorage.getItem(KEY + "-sent")) || {}; } catch (e) {}
+function setStatus(msg, bad) { const s = $("saveStatus"); s.textContent = msg; s.style.color = bad ? "var(--warn)" : "var(--ok)"; }
+async function saveLine(file) {
+  try {
+    const r = await fetch("/api/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ file, decisions: store[file] || {} }) });
+    if (!r.ok) throw new Error((await r.json()).error);
+    setStatus("Saved to disk " + new Date().toLocaleTimeString());
+  } catch (e) { setStatus("Not saved to disk (" + e.message + "). Kept in this browser only.", true); }
+}
+const save = () => {
+  try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {}
+  const file = line().file; clearTimeout(saveTimer); saveTimer = setTimeout(() => saveLine(file), 400);
+};
+async function loadFromDisk() {
+  try {
+    const disk = await (await fetch("/api/state")).json();
+    for (const L of LINES) {
+      if (disk[L.file] && Object.keys(disk[L.file]).length >= Object.keys(store[L.file] || {}).length) store[L.file] = disk[L.file];
+      else if (store[L.file] && Object.keys(store[L.file]).length) await saveLine(L.file);  // first run: move browser progress to disk
+    }
+    try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {}
+    setStatus("Progress loaded from disk");
+  } catch (e) { setStatus("Save server not running: progress kept in this browser only", true); }
+}
+async function sendLine(file, manual) {
+  try {
+    const r = await fetch("/api/complete", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ file, manual: !!manual, reviewed: Object.keys(store[file] || {}).length }) });
+    if (!r.ok) throw new Error((await r.json()).error);
+    sent[file] = new Date().toISOString();
+    try { localStorage.setItem(KEY + "-sent", JSON.stringify(sent)); } catch (e) {}
+    showToast((manual ? "Sent" : "Line complete: sent") + " to Claude");
+  } catch (e) { showToast("Couldn't send: " + e.message); }
+}
+
+let li = 0, order = [], pos = 0, built = [];
+const line = () => LINES[li];
+const dec = () => (store[line().file] ||= {});
+const spanAt = k => line().spans[k];
+
+// "U+11226" -> character; names written for people, not code charts
+const ch = h => h === "?" ? "?" : String.fromCodePoint(parseInt(h.slice(2), 16));
+function friendly(cps) {
+  if (cps.length === 1 && cps[0] === "?") return "none of my readings";
+  return cps.map(h => {
+    const g = BY_CP.get(parseInt(h.slice(2), 16));
+    if (!g) return h;
+    const n = g.name.replace(/^KHOJKI /, "");
+    if (n.startsWith("VOWEL SIGN ")) return "+ vowel " + n.slice(11);
+    if (n === "SIGN ANUSVARA") return "+ dot (anusvara)";
+    if (n.startsWith("SIGN ")) return "+ " + n.slice(5).toLowerCase();
+    if (n === "WORD SEPARATOR") return "word separator (:)";
+    if (n.startsWith("LETTER ")) return (/^LETTER (A|AA|I|U|E|AI|O|AU|SHORT I)$/.test(n) ? "vowel letter " : "") + n.slice(7);
+    return n.toLowerCase();
+  }).join(" ");
+}
+const render = cps => cps.map(ch).join("");
+const hexes = cps => cps.join(" ");
+
+function buildOrder() {
+  const idx = line().spans.map((_, k) => k);
+  if ($("order").value === "conf") idx.sort((a, b) => topConf(spanAt(a)) - topConf(spanAt(b)));
+  order = idx;
+}
+const topConf = s => Math.max(...s.readings.filter(r => r.cps[0] !== "?").map(r => r.conf), 0);
+const isToss = s => { const c = s.readings.filter(r => r.cps[0] !== "?").map(r => r.conf).sort((a, b) => b - a); return c.length > 1 && c[0] - c[1] <= 0.15; };
+
+// ---------- drawing ----------
+const img = $("lineImg");
+function drawLine() {
+  const L = line();
+  img.src = L.file;
+  img.onload = () => {
+    const s = img.clientHeight / img.naturalHeight, svg = $("boxes");
+    svg.setAttribute("viewBox", `0 0 ${img.naturalWidth} ${img.naturalHeight}`);
+    svg.style.width = img.clientWidth + "px";
+    drawBoxes(); drawZoom();
+  };
+}
+function drawBoxes() {
+  const L = line(), cur = new Set(spanAt(order[pos]).boxes), d = dec();
+  const doneBoxes = new Set(L.spans.flatMap((s, k) => d[k] ? s.boxes : []));
+  $("boxes").innerHTML = L.boxes.map(([x0, x1, y0, y1], b) =>
+    `<rect data-b="${b}" x="${x0}" y="${y0}" width="${x1 - x0}" height="${y1 - y0}" class="${cur.has(b) ? "cur" : doneBoxes.has(b) ? "done" : ""}"><title>box ${b}</title></rect>`).join("");
+  // keep the current box in view on the scrolling strip
+  const wrap = document.querySelector(".linewrap"), k = img.clientHeight / img.naturalHeight;
+  const cx = Math.min(...[...cur].map(b => L.boxes[b][0])) * k;
+  if (cx < wrap.scrollLeft + 40 || cx > wrap.scrollLeft + wrap.clientWidth - 120) wrap.scrollLeft = cx - wrap.clientWidth / 3;
+  $("boxes").querySelectorAll("rect").forEach(r => r.onclick = () => {
+    const b = +r.dataset.b, k = L.spans.findIndex(s => s.boxes.includes(b));
+    if (k >= 0) { pos = order.indexOf(k); show(); }
+  });
+}
+function drawZoom() {
+  const L = line(), s = spanAt(order[pos]);
+  const bx = s.boxes.map(b => L.boxes[b]);
+  const pad = 10, x0 = Math.max(0, Math.min(...bx.map(b => b[0])) - pad), x1 = Math.min(img.naturalWidth, Math.max(...bx.map(b => b[1])) + pad);
+  const c = $("zoom"), g = c.getContext("2d"), w = x1 - x0, h = img.naturalHeight;
+  const k = Math.min(c.width / w, c.height / h);
+  g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height);
+  g.imageSmoothingQuality = "high";
+  const dx = (c.width - w * k) / 2, dy = (c.height - h * k) / 2;
+  g.drawImage(img, x0, 0, w, h, dx, dy, w * k, h * k);
+  g.strokeStyle = "#e8590c"; g.lineWidth = 2;
+  bx.forEach(([a, b, y0, y1]) => g.strokeRect(dx + (a - x0) * k, dy + y0 * k, (b - a) * k, (y1 - y0) * k));
+}
+function drawReading() {
+  const L = line(), d = dec(), curK = order[pos];
+  $("reading").innerHTML = L.spans.map((s, k) => {
+    const r = d[k];
+    const cls = k === curK ? "cur" : "";
+    if (!r) return `<span class="todo ${cls}" data-k="${k}" title="not reviewed">·</span>`;
+    if (r.cps[0] === "?") return `<span class="unk ${cls}" data-k="${k}" title="unreadable">?</span>`;
+    return `<span class="${cls}" data-k="${k}" title="${friendly(r.cps)}">${render(r.cps)}</span>`;
+  }).join("");
+  $("reading").querySelectorAll("span").forEach(e => e.onclick = () => { pos = order.indexOf(+e.dataset.k); show(); });
+  $("dots").innerHTML = order.map((k, p) => `<b data-p="${p}" class="${d[k] ? (d[k].cps[0] === "?" ? "unk" : "done") : ""} ${p === pos ? "cur" : ""}" title="glyph ${k + 1}"></b>`).join("");
+  $("dots").querySelectorAll("b").forEach(e => e.onclick = () => { pos = +e.dataset.p; show(); });
+  const n = Object.keys(d).length;
+  $("progress").textContent = `${n} / ${L.spans.length} reviewed`;
+}
+
+function show() {
+  const k = order[pos], s = spanAt(k), r = dec()[k], hide = $("hideScores").checked;
+  const chips = [`glyph ${k + 1} of ${line().spans.length}`];
+  let html = `<span class="chip">${chips[0]}</span>`;
+  if (isToss(s)) html += `<span class="chip toss">toss-up: Claude can't separate the top two</span>`;
+  if (s.boxes.length > 1) html += `<span class="chip">covers ${s.boxes.length} boxes</span>`;
+  if (line().spans.some((o, j) => j !== k && o.boxes.some(b => s.boxes.includes(b)))) html += `<span class="chip warn">shares a box with another glyph</span>`;
+  if (r && r.boxWrong) html += `<span class="chip warn">you flagged the box</span>`;
+  $("chips").innerHTML = html;
+
+  const real = s.readings.filter(x => x.cps[0] !== "?");
+  const unk = s.readings.find(x => x.cps[0] === "?");
+  $("cands").innerHTML = real.map((x, i) => {
+    const picked = r && r.cps.join() === x.cps.join();
+    return `<button class="cand ${picked ? "picked" : ""}" data-i="${i}">
+      <span class="key">${i + 1}</span>
+      <span class="glyph kh">${render(x.cps)}</span>
+      <span><span class="name">${friendly(x.cps)}</span>
+        ${hide ? "" : `<span class="bar"><i style="width:${Math.round(x.conf * 100)}%"></i></span><span class="muted">Claude: ${Math.round(x.conf * 100)}%</span>`}
+        ${x.why ? `<div class="why">${x.why}</div>` : ""}
+        <div class="hex">${hexes(x.cps)}</div></span></button>`;
+  }).join("") + (unk && !hide ? `<div class="muted">Claude puts ${Math.round(unk.conf * 100)}% on "none of these".${unk.why ? " " + unk.why : ""}</div>` : "");
+  $("cands").querySelectorAll(".cand").forEach(b => b.onclick = () => choose(real[+b.dataset.i].cps, +b.dataset.i + 1, real[+b.dataset.i].conf));
+  if (r && r.cps[0] === "?" && (r.comment || (r.images || []).length))
+    $("cands").innerHTML += `<div class="saved-unk"><b>You marked this unreadable.</b> ${r.comment ? r.comment.replace(/</g, "&lt;") : ""}
+      <div class="thumbs">${(r.images || []).map(p => `<img src="${p}" alt="your picture">`).join("")}</div></div>`;
+  $("note").value = (r && r.note) || "";
+  $("unk").classList.toggle("sel", !!(r && r.cps[0] === "?"));
+  $("boxWrong").classList.toggle("sel", !!(r && r.boxWrong));
+  drawBoxes(); drawZoom(); drawReading();
+}
+
+let t0 = performance.now();
+function choose(cps, rank, conf, extra) {
+  const k = order[pos], prev = dec()[k] || {};
+  dec()[k] = { cps, rank, claude_conf: conf, lattice: line().version || 1, boxWrong: !!prev.boxWrong, note: $("note").value,
+               seconds: Math.round((prev.seconds || 0) + (performance.now() - t0) / 1000), ...(extra || {}) };
+  save(); t0 = performance.now();
+  $("builder").classList.remove("open");
+  closeUnk();
+  const L = line();
+  if (Object.keys(dec()).length === L.spans.length && !sent[L.file]) {
+    clearTimeout(saveTimer); saveLine(L.file).then(() => sendLine(L.file));  // save first, then tell Claude
+  }
+  if (pos < order.length - 1) pos++;
+  show();
+}
+
+// ---------- unreadable: comment + pictures ----------
+let pending = [];  // [{dataUrl}] not yet uploaded
+const unkOpen = () => !$("unkPanel").hidden;
+function closeUnk() { $("unkPanel").hidden = true; pending = []; }
+function openUnk() {
+  const r = dec()[order[pos]];
+  $("unkPanel").hidden = false;
+  $("unkComment").value = (r && r.comment) || "";
+  pending = [];
+  drawThumbs();
+  $("unkComment").focus();
+}
+function drawThumbs() {
+  const r = dec()[order[pos]], saved = (r && r.images) || [];
+  $("thumbs").innerHTML = saved.map(p => `<figure><img src="${p}" alt="saved picture"></figure>`).join("") +
+    pending.map((p, i) => `<figure><img src="${p}" alt="new picture"><button data-i="${i}" title="remove">×</button></figure>`).join("");
+  $("thumbs").querySelectorAll("button").forEach(b => b.onclick = () => { pending.splice(+b.dataset.i, 1); drawThumbs(); });
+}
+function addFiles(files) {
+  [...files].filter(f => /^image\/(png|jpeg|webp)$/.test(f.type)).forEach(f => {
+    const rd = new FileReader(); rd.onload = () => { pending.push(rd.result); drawThumbs(); }; rd.readAsDataURL(f);
+  });
+}
+$("drop").onclick = () => $("unkFiles").click();
+$("drop").onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("unkFiles").click(); } };
+$("unkFiles").onchange = e => { addFiles(e.target.files); e.target.value = ""; };
+$("drop").ondragover = e => { e.preventDefault(); $("drop").classList.add("over"); };
+$("drop").ondragleave = () => $("drop").classList.remove("over");
+$("drop").ondrop = e => { e.preventDefault(); $("drop").classList.remove("over"); addFiles(e.dataTransfer.files); };
+document.addEventListener("paste", e => { if (unkOpen()) addFiles([...e.clipboardData.items].filter(i => i.kind === "file").map(i => i.getAsFile())); });
+$("attachCrop").onclick = () => { pending.push($("zoom").toDataURL("image/png")); drawThumbs(); };
+$("unkCancel").onclick = closeUnk;
+$("unkSave").onclick = async () => {
+  const k = order[pos], prev = dec()[k] || {}, file = line().file;
+  $("unkSave").disabled = true;
+  try {
+    const paths = [...(prev.images || [])];
+    for (const dataUrl of pending) {
+      const r = await fetch("/api/image", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ file, span: k + 1, dataUrl }) });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.error);
+      paths.push(j.path);
+    }
+    const conf = (spanAt(k).readings.find(x => x.cps[0] === "?") || {}).conf || 0;
+    choose(["?"], -1, conf, { comment: $("unkComment").value.trim(), images: paths });
+  } catch (e) { showToast("Pictures not saved: " + e.message + " (is gt/server.py running?)"); }
+  finally { $("unkSave").disabled = false; }
+};
+
+// ---------- "none of these": port of the khojki-demo.netlify.app chart ----------
+// Same sections, columns and behaviour as the site; lists come from the Unicode table, not hand-typed.
+const cp = (...n) => String.fromCodePoint(...n);
+const hex = n => n.toString(16).toUpperCase();
+const DOT = "◌";
+const title = s => s.charAt(0) + s.slice(1).toLowerCase();
+const nm = g => g.name.replace(/^KHOJKI (LETTER |VOWEL SIGN |SIGN )?|^GUJARATI DIGIT /, "");
+const indepVowels = GLYPHS.filter(g => g.cat === "Lo" && (g.cp <= 0x11207 || g.cp === 0x11240)).map(g => [g.cp, nm(g).replace("SHORT I", "Short I")]);
+const consonants = GLYPHS.filter(g => g.cat === "Lo" && g.cp >= 0x11208 && g.cp !== 0x11240).map(g => [g.cp, title(nm(g))]);
+const depVowels = GLYPHS.filter(g => g.cp >= 0x1122C && g.cp <= 0x11233).map(g => [g.cp, nm(g)]);
+const signs = [0x11234, 0x11235, 0x11236, 0x11237, 0x1123E].map(c => [c, title(nm(BY_CP.get(c)))]);
+const punctuation = GLYPHS.filter(g => g.cat === "Po").map(g => [g.cp, nm(g).split(" ").map(title).join(" ")]);
+const digits = GLYPHS.filter(g => g.cp >= 0x0AE6 && g.cp <= 0x0AEF).map(g => [g.cp, "Digit " + nm(g).toLowerCase()]);
+
+let toastTimer;
+function showToast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 1600); }
+
+function select(cps, name, td) {
+  built = cps;
+  document.querySelectorAll("#matrix-table td.cell-active").forEach(e => e.classList.remove("cell-active"));
+  if (td) td.classList.add("cell-active");
+  inspect(name);
+  showToast(`Selected ${name}. Press "Use this" to apply`);
+}
+function inspect(name) {
+  const s = built.length ? cp(...built).normalize("NFC") : "";
+  $("insp-glyph").textContent = s || DOT;
+  $("insp-name").textContent = built.length ? (name || friendly(built.map(c => "U+" + hex(c)))) : "nothing selected";
+  $("insp-codes").textContent = [...s].map(c => "U+" + hex(c.codePointAt(0))).join(" ");
+  // a cell holds one sign; real clusters can carry more (e.g. TA + E + anusvara)
+  const base = built.length ? s : DOT;
+  const hasVowel = built.some(c => c >= 0x1122C && c <= 0x11233);  // one vowel sign per cluster
+  const addable = built.length && built[0] >= 0x11208 && built[0] !== 0x11240 ? (hasVowel ? signs : [...depVowels, ...signs]).filter(([c]) => !built.includes(c)) : [];
+  $("insp-add").innerHTML = addable.length ? "Add a mark: " + addable.map(([c, l]) =>
+    `<button data-cp="${c}" title="${l}"><span class="k">${base}${cp(c)}</span> +${l}</button>`).join("") : "";
+  $("insp-add").querySelectorAll("button").forEach(b => b.onclick = () => {
+    const c = +b.dataset.cp; built = [...built, c];
+    inspect(friendly(built.map(x => "U+" + hex(x))));
+  });
+}
+
+function buildChart() {
+  const card = (cls, code, name, codes, chars) => {
+    const d = document.createElement("div"); d.className = cls;
+    d.innerHTML = `<span class="glyph">${chars}</span><span class="name">${name}</span>${cls === "sign-card" ? "<br>" : ""}<span class="code">${codes}</span>`;
+    d.onclick = () => select(code, name, null);
+    return d;
+  };
+  indepVowels.forEach(([c, n]) => $("vowel-grid").appendChild(card("vowel-card", [c], n, `U+${hex(c)}`, cp(c))));
+  punctuation.forEach(([c, n]) => $("punct-grid").appendChild(card("sign-card", [c], n, `U+${hex(c)}`, cp(c))));
+  digits.forEach(([c, n]) => $("digit-grid").appendChild(card("sign-card", [c], n, `U+${hex(c)}`, cp(c))));
+
+  const headRow = $("matrix-head-row"), tbody = $("matrix-body");
+  const head = (c, l, col) => { const th = document.createElement("th"); th.dataset.col = col; th.innerHTML = `<span class="dep-glyph">${DOT}${cp(c)}</span><span class="dep-label">${l}</span><br><span class="dep-label">U+${hex(c)}</span>`; headRow.appendChild(th); };
+  depVowels.forEach(([c, l], ci) => head(c, l, ci + 2));
+  const sepTh = document.createElement("th"); sepTh.className = "col-sep"; headRow.appendChild(sepTh);
+  const signColStart = depVowels.length + 2;
+  signs.forEach(([c, l], si) => head(c, l, signColStart + si));
+
+  consonants.forEach(([code, name]) => {
+    const tr = document.createElement("tr"); tr.dataset.name = name.toLowerCase();
+    tr.innerHTML = `<th><span class="cons-glyph">${cp(code)}</span><span class="cons-name">${name}<br>U+${hex(code)}</span></th>`;
+    const cell = (cps, label, col, cls) => {
+      const td = document.createElement("td"); td.dataset.col = col; if (cls) td.className = cls;
+      td.innerHTML = `<span class="combo">${cp(...cps)}</span>`;
+      td.onclick = () => select(cps, label, td);
+      tr.appendChild(td);
+    };
+    cell([code], `${name} (inherent a)`, 1, "inherent");
+    depVowels.forEach(([vc, vl], ci) => cell([code, vc], `${name} + ${vl}`, ci + 2));
+    const sep = document.createElement("td"); sep.className = "col-sep"; tr.appendChild(sep);
+    signs.forEach(([sc, sl], si) => cell([code, sc], `${name} + ${sl}`, signColStart + si));
+    tbody.appendChild(tr);
+  });
+
+  // crosshair highlighting, as on the site
+  const table = $("matrix-table"); let activeCol = -1;
+  table.addEventListener("mouseover", e => {
+    const td = e.target.closest("td"), tr = e.target.closest("tr");
+    if (!td || !tr || !tbody.contains(tr)) return;
+    tbody.querySelectorAll("tr.row-highlight").forEach(r => r.classList.remove("row-highlight"));
+    tr.classList.add("row-highlight");
+    const col = parseInt(td.dataset.col);
+    if (col !== activeCol) {
+      table.querySelectorAll(".col-highlight").forEach(el => el.classList.remove("col-highlight"));
+      if (!isNaN(col)) {
+        table.querySelectorAll(`td[data-col="${col}"]`).forEach(el => el.classList.add("col-highlight"));
+        headRow.querySelectorAll("th").forEach(th => th.classList.toggle("col-highlight", +th.dataset.col === col || (col === 1 && th.cellIndex === 1)));
+      }
+      activeCol = col;
+    }
+  });
+  table.addEventListener("mouseleave", () => {
+    tbody.querySelectorAll("tr.row-highlight").forEach(r => r.classList.remove("row-highlight"));
+    table.querySelectorAll(".col-highlight").forEach(el => el.classList.remove("col-highlight"));
+    activeCol = -1;
+  });
+  $("search-input").addEventListener("input", e => {
+    const q = e.target.value.trim().toLowerCase();
+    tbody.querySelectorAll("tr").forEach(tr => tr.classList.toggle("hidden-row", !!q && !tr.dataset.name.includes(q)));
+  });
+  $("size-slider").addEventListener("input", e => {
+    $("builder").style.setProperty("--glyph-size", e.target.value + "rem");
+    $("size-val").textContent = e.target.value + "rem";
+  });
+}
+buildChart();
+
+$("none").onclick = () => {
+  const b = $("builder"), open = !b.classList.contains("open");
+  b.classList.toggle("open", open); built = []; inspect();
+  if (open) b.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+$("closeBuilt").onclick = () => { $("builder").classList.remove("open"); window.scrollTo({ top: 0, behavior: "smooth" }); };
+$("useBuilt").onclick = () => {
+  if (!built.length) return showToast("Pick a glyph in the chart first");
+  const cps = [...cp(...built).normalize("NFC")].map(c => "U+" + hex(c.codePointAt(0)));
+  choose(cps, 0, 0);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+$("clearBuilt").onclick = () => { built = []; document.querySelectorAll("#matrix-table td.cell-active").forEach(e => e.classList.remove("cell-active")); inspect(); };
+$("unk").onclick = openUnk;
+$("sendNow").onclick = () => { clearTimeout(saveTimer); saveLine(line().file).then(() => sendLine(line().file, true)); };
+$("boxWrong").onclick = () => {
+  const k = order[pos]; const r = dec()[k] || { cps: null };
+  r.boxWrong = !r.boxWrong; r.note = $("note").value; if (r.cps) dec()[k] = r; else dec()[k] = Object.assign(r, { cps: ["?"], rank: -1, claude_conf: 0 });
+  save(); show();
+};
+$("note").oninput = () => { const r = dec()[order[pos]]; if (r) { r.note = $("note").value; save(); } };
+$("prev").onclick = () => { pos = Math.max(0, pos - 1); show(); };
+$("next").onclick = () => { pos = Math.min(order.length - 1, pos + 1); show(); };
+$("order").onchange = () => { const k = order[pos]; buildOrder(); pos = order.indexOf(k); show(); };
+$("hideScores").onchange = show;
+$("lineSel").innerHTML = LINES.map((l, i) => `<option value="${i}">${l.file.replace("lines/", "")}</option>`).join("");
+$("lineSel").onchange = e => { li = +e.target.value; pos = 0; buildOrder(); drawLine(); show(); };
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && unkOpen()) return closeUnk();
+  if (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT" || unkOpen()) return;
+  const real = spanAt(order[pos]).readings.filter(x => x.cps[0] !== "?");
+  if (/^[1-6]$/.test(e.key) && real[+e.key - 1]) { const x = real[+e.key - 1]; choose(x.cps, +e.key, x.conf); }
+  else if (e.key === "ArrowRight") $("next").click();
+  else if (e.key === "ArrowLeft") $("prev").click();
+  else if (e.key.toLowerCase() === "n") $("none").click();
+  else if (e.key.toLowerCase() === "u") $("unk").click();
+  else if (e.key.toLowerCase() === "b") $("boxWrong").click();
+});
+
+$("export").onclick = () => {
+  const out = LINES.map(L => {
+    const d = store[L.file] || {};
+    const spans = L.spans.map((s, k) => ({ span: k + 1, boxes: s.boxes, claude_top: s.readings[0].cps, claude_top_conf: s.readings[0].conf, tossup: isToss(s), ...(d[k] || { cps: null }) }));
+    const text = spans.map(s => s.cps ? s.cps.map(ch).join("") : "").join("");
+    return { file: L.file, text, codepoints: [...text].map(c => "U+" + c.codePointAt(0).toString(16).toUpperCase()), spans };
+  });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([JSON.stringify({ reviewer: "human", exported: new Date().toISOString(), lines: out }, null, 2)], { type: "application/json" }));
+  a.download = "gt_review.json"; a.click();
+};
+
+buildOrder(); drawLine(); show();
+loadFromDisk().then(show);
+</script>
+</body>
+</html>
