@@ -24,3 +24,6 @@ __pycache__/
 # Secrets
 .env
 *.key
+
+# Pipeline output (the pages are for this exercise only)
+out/

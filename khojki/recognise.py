@@ -12,7 +12,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from khojki.bank import BANK, load, normalise, unit_mask
+from khojki.bank import BANK, fingerprint, load, normalise, unit_mask
 from khojki.glyphs import glyph_atoms
 from khojki.labels import SEPARATOR, parts
 
@@ -231,9 +231,19 @@ def load_model(path=MODEL):
     return json.loads(Path(path).read_text(encoding="utf-8")) if Path(path).exists() else None
 
 
+def check_model(model, bank):
+    """A model's thresholds were measured on one bank. Used with another (e.g. after a GT refreeze and bank
+    rebuild without refitting), they no longer mean 95%. So refuse, rather than run with stale thresholds."""
+    want = (model or {}).get("bank_fp")
+    if want and want != fingerprint(bank):
+        raise RuntimeError(f"data/model.json was fitted on bank {want}, but data/bank.npz is {fingerprint(bank)}. "
+                           "Refit: python -X utf8 gt/eval_recognise.py --fit")
+
+
 def recognise_line(gray, bank=None, model=None, description=None):
     model = model if model is not None else load_model()
     bank = bank if bank is not None else load(BANK)
+    check_model(model, bank)
     index = Index(bank, description or (model or {}).get("description", "pixels"))
     return recognise_atoms(glyph_atoms(gray), index, model)
 

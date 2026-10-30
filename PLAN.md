@@ -164,6 +164,10 @@ Tools:
 - Digits: **Gujarati U+0AE6–0AEF**, per the Unicode core spec.
 - Vowel signs: logical order (consonant first, then sign), whatever the visual position.
 - Output: UTF-8, NFC, one line per text line, validated by the allowlist in §2 row 3.
+- **Marks after a letter in Unicode order: nukta, then vowel sign, then anusvara/shadda.** NFC doesn't do this for Khojki, because a vowel sign has combining class 0. It's enforced by `khojki/labels.canonical()` and checked by `khojki/validate.py` (log 66, 68).
+- **An unrecognised part is written as U+FFFD,** one per part, never a guessed Khojki character. Options go in the JSON and PAGE-XML, not the text (SPEC.md).
+- **Ground truth writes an unreadable glyph as `?`.** It's left out of CER. Only the GT validator accepts it.
+- **PAGE-XML:** each glyph's TextEquiv index 1 holds the committed text. Suggestions are further TextEquiv entries marked `comments="suggestion: …"`.
 
 ## 6. Order of work
 
@@ -183,7 +187,7 @@ Tools:
 | 1 ✓ | Stage A: lines (`khojki/lines.py`). Otsu vs Sauvola, p9–p11 | 35/35 lines right with both; see log 61 | verifying-output |
 | 2 ✓ | Stage B: glyph boxes (`khojki/glyphs.py`) scored against GT | Separators 22→31 of 31, no merges, splits ≤3 boxes; see log 63–65 | verifying-output |
 | 3 ✓ | Spec for recognition, then stage C: example bank from GT + chart renders (uharfbuzz), features, nearest neighbour, calibration, recognition vs suggestion | Spec's acceptance criteria pass; runs offline | writing-specs first; `/checking-divergence` once (you type it) |
-| 4 | Stage D: encoding, validation, `.txt` + JSON (+ PAGE-XML) output | Validator rejects bad sequences in tests | — |
+| 4 ✓ | Stage D: encoding, validation, `.txt` + JSON + PAGE-XML output (`khojki/validate.py`, `khojki/pipeline.py`) | Validator rejects bad sequences in tests; 0 problems on p9–p11 output and on GT v2, flags GT v1 | — |
 | 5 | Stage E: CER, leave one line out, comparison with GT boxes, per-stage tally, bootstrap interval | Every reported number recomputed by a second route | verifying-output |
 | 6 | Baselines (VLM optional) and numbers for the retro | Same scorer, same lines | verifying-output |
 | 7 | Labelling loop: run the pipeline on new p10–p11 lines, review its output, freeze GT vN+1, rebuild the bank, re-score. A fixed blind test set (1 line each from p10 and p11) never enters the bank | A learning curve: lines labelled and minutes spent vs coverage, precision and CER, per round | verifying-output |

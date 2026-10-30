@@ -16,7 +16,7 @@ from sklearn.isotonic import IsotonicRegression
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from khojki.bank import atoms_in, load  # noqa: E402
+from khojki.bank import atoms_in, fingerprint, load  # noqa: E402
 from khojki.glyphs import glyph_atoms  # noqa: E402
 from khojki.labels import SEPARATOR, canonical, from_hex, parts  # noqa: E402
 from khojki.recognise import DESCRIPTIONS, MARGIN, MODEL, Index, best_split, calibrate, candidates, group, part_scores  # noqa: E402
@@ -166,6 +166,7 @@ def main(do_fit=False):
             recs += predict(l, Index(bank, d, bank_rows(bank, {l["file"]})))
         model = fit(recs)
         model["description"] = d
+        model["bank_fp"], model["gt_sha"] = fingerprint(bank), bank["gt_sha"]
         MODEL.write_text(json.dumps(model, indent=1), encoding="utf-8")
         taus = ", ".join(f"{p}/{k} {model[p][k]['tau']:.2f}" for p in PARTS for k in ("sep", "glyph"))
         print(f"wrote {MODEL.relative_to(ROOT)}: tau {taus}")

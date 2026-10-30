@@ -3,7 +3,7 @@
 usage: python -X utf8 -m khojki.bank      -> data/bank.npz (gitignored: the real examples are scan pixels)
 Every example is size-normalised the same way, so a real glyph and a font render can be compared.
 """
-import json
+import hashlib, json
 from pathlib import Path
 
 import cv2
@@ -15,6 +15,7 @@ from khojki.render import FONT_FILES, chart_labels, render
 
 ROOT = Path(__file__).resolve().parents[1]
 BANK = ROOT / "data" / "bank.npz"
+GT_FILE = ROOT / "gt" / "gt.json"
 SIZE, INNER = 48, 40  # ink scaled so its longer side is INNER px, centred in a SIZE x SIZE square
 
 
@@ -49,7 +50,7 @@ def atoms_in(unit, atoms):
     return [k for k, b in enumerate(atoms["boxes"]) if b[4] == kind and unit["bbox"][0] <= (b[0] + b[1]) / 2 < unit["bbox"][1]]
 
 
-def real_examples(gt_path=ROOT / "gt" / "gt.json"):
+def real_examples(gt_path=GT_FILE):
     gt = json.loads(gt_path.read_text(encoding="utf-8"))
     out = []
     for line in gt["lines"]:
@@ -76,19 +77,34 @@ def chart_examples():
     return out
 
 
-def save(examples, path=BANK):
+def file_sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def fingerprint(bank):
+    """Hash of the bank's content (images, labels, sources): the same content gives the same value however
+    the .npz happens to be compressed or written. (Checked: stable across rebuilds, log 75.)"""
+    h = hashlib.sha256(np.ascontiguousarray(bank["img"]).tobytes())
+    h.update(np.ascontiguousarray(bank["meta"]).tobytes())
+    h.update("|".join(" ".join(f"{c:X}" for c in l) + "/" + s for l, s in zip(bank["label"], bank["source"])).encode())
+    return h.hexdigest()[:16]
+
+
+def save(examples, path=BANK, gt_sha=""):
     np.savez_compressed(path, img=np.stack([e["img"] for e in examples]), meta=np.stack([e["meta"] for e in examples]),
                         label=np.array([" ".join(f"{c:X}" for c in e["label"]) for e in examples]),
-                        source=np.array([e["source"] for e in examples]), line=np.array([e["line"] for e in examples]))
+                        source=np.array([e["source"] for e in examples]), line=np.array([e["line"] for e in examples]),
+                        gt_sha=np.array(gt_sha))
 
 
 def load(path=BANK):
     d = np.load(path)
     labels = [tuple(int(h, 16) for h in s.split()) for s in d["label"]]
-    return dict(img=d["img"], meta=d["meta"], label=labels, source=list(d["source"]), line=list(d["line"]))
+    return dict(img=d["img"], meta=d["meta"], label=labels, source=list(d["source"]), line=list(d["line"]),
+                gt_sha=str(d["gt_sha"]) if "gt_sha" in d else "")
 
 
 if __name__ == "__main__":
     real, chart = real_examples(), chart_examples()
-    save(real + chart)
+    save(real + chart, gt_sha=file_sha(GT_FILE))
     print(f"bank: {len(real)} real + {len(chart)} chart = {len(real) + len(chart)} examples -> {BANK.relative_to(ROOT)}")

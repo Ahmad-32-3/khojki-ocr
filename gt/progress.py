@@ -5,6 +5,7 @@ usage: python -X utf8 gt/progress.py 1 2      -> gt/progress/chunkN.png (gitigno
   2  glyph boxes on two lines: green = glyph, orange = separator, red bracket = one glyph in 2-3 boxes
   3a example bank: one label as a real 1896 glyph and as both chart fonts
   3b recognition on a held-out line: solid green = recognised, dashed grey = suggestion with its top 3 letters
+  4  the whole pipeline on page 10: each line, and under it the text file's content drawn glyph by glyph
 """
 import json, sys
 from pathlib import Path
@@ -168,9 +169,44 @@ def chunk3b(file="lines/p09_l09.png"):
                    "Chunk 3b - recognition. Suggestions (dashed) list the top 3 letters in grey with calibrated confidence; nothing is committed for them.", 40)
 
 
+def chunk4(page=10, n_lines=4):
+    """What out/<page>.txt holds, drawn under each line: black = committed character, dashed ? = not recognised."""
+    from khojki.pipeline import pdf_page, run_page
+    from khojki.render import render
+    gray = pdf_page(ROOT / "data" / "sample_khojki_script_vatiations.pdf", page)
+    result = run_page(gray, f"p{page:02d}")
+    panels = []
+    for l in result["lines"][:n_lines]:
+        x0, y0, x1, y1 = l["bbox"]
+        crop = cv2.cvtColor(gray[y0:y1, x0:x1], cv2.COLOR_GRAY2BGR)
+        strip = np.full((60, crop.shape[1], 3), 255, np.uint8)
+        for u in l["units"]:
+            ux0, ux1 = u["bbox"][0] - x0, u["bbox"][2] - x0
+            if u["letter"]["status"] == "recognised" and u["signs"]["status"] == "recognised":
+                m = render(tuple(ord(c) for c in u["text"]))
+                ys, xs = np.nonzero(m)
+                g = 255 - cv2.resize(m[ys.min():ys.max() + 1, xs.min():xs.max() + 1], None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
+                h, w = min(g.shape[0], 50), min(g.shape[1], strip.shape[1] - ux0)
+                strip[5:5 + h, ux0:ux0 + w] = cv2.cvtColor(g[:h, :w], cv2.COLOR_GRAY2BGR)
+            else:
+                for x in range(ux0 + 1, ux1 - 1, 6):
+                    cv2.line(strip, (x, 6), (min(x + 3, ux1 - 2), 6), (120, 120, 120), 1)
+                    cv2.line(strip, (x, 52), (min(x + 3, ux1 - 2), 52), (120, 120, 120), 1)
+                cv2.putText(strip, "?", ((ux0 + ux1) // 2 - 6, 38), FONT, 0.8, (120, 120, 120), 2, cv2.LINE_AA)
+        panels.append(np.vstack([crop, strip]))
+    parts = [u[p] for l in result["lines"] for u in l["units"] for p in ("letter", "signs")]
+    rec = sum(p["status"] == "recognised" for p in parts)
+    bad = sum(len(l["problems"]) for l in result["lines"])
+    head = (f"page {page}: {len(result['lines'])} lines found, {rec} of {len(parts)} parts recognised (the separators), "
+            f"{bad} validation problems. First {n_lines} lines shown.")
+    panels.append(np.full((1, 1160, 3), 255, np.uint8))  # widen so the captions fit
+    return caption(caption(stack(panels, 0), head),
+                   "Chunk 4 - whole pipeline, PDF page in, text out. Under each line: black = committed character, dashed ? = not recognised (U+FFFD).", 40)
+
+
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     for n in sys.argv[1:] or ["1", "2"]:
         path = OUT / f"chunk{n}.png"
-        cv2.imwrite(str(path), {"1": chunk1, "2": chunk2, "3a": chunk3a, "3b": chunk3b}[n]())
+        cv2.imwrite(str(path), {"1": chunk1, "2": chunk2, "3a": chunk3a, "3b": chunk3b, "4": chunk4}[n]())
         print("wrote", path.relative_to(ROOT))

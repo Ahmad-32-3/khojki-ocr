@@ -471,5 +471,7 @@
    "tau": 2.0
   }
  },
- "description": "hog"
+ "description": "hog",
+ "bank_fp": "530fe4932b1849a1",
+ "gt_sha": "ffd3c8ab2f9fa424d0cb20fef0e2cd59c123d9420a5f2ed2d9e7c35b3ad90c2c"
 }
