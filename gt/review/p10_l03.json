@@ -154,7 +154,8 @@
   },
   "12": {
    "cps": [
-    "U+11210"
+    "U+11210",
+    "U+1122E"
    ],
    "rank": 0,
    "claude_conf": 0.05,
@@ -162,16 +163,16 @@
    "boxWrong": false,
    "note": "",
    "seconds": 77,
-   "comment": "Same mistake again:\nthis is Ja + II, not a Ma, just compare the left character between Ma + vowelII and Ja + vowel II, i attatched it in this complaint",
+   "comment": "Same mistake again:\nthis is Ja + II, not a Ma, just compare the left character between Ma + vowelII and Ja + vowel II, i attatched it in this complaint\nrecheck: JA + II",
    "images": [
     "review/img/p10_l03_s13_1.png",
     "review/img/p10_l03_s13_2.png",
     "review/img/p10_l03_s13_3.png"
    ],
    "was": [
-    "?"
+    "U+11210"
    ],
-   "recheck": "2026-10-30T23:40:56"
+   "recheck": "2026-10-31T01:45:41"
   },
   "13": {
    "cps": [

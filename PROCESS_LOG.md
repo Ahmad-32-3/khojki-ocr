@@ -500,6 +500,70 @@ Format: **Assumption / error → How caught → Fix**
      - **Caveat:** each round is scored on its own dev set, so the two rounds aren't measured on the same lines. The test lines give the fixed comparison, at the end.
    - **The strict CER gate failed (1.106 → 1.206), and I reset it rather than fixing code.** Strict writes 2 U+FFFD per unrecognised glyph. The new lines have more glyphs per separator, and no glyph is recognised yet, so strict rises on a bigger set without any code changing. Baselines now say which GT they were measured on, and are reset when the GT grows.
 
+86. **The three unclear notes, answered in chat; GT v5.**
+   - You asked me to put the glyph, your note and the question in chat instead of making you open a page. I sent one picture of the 4 crops next to font drawings of the options.
+   - Your answers: p09_l04 g18 is no character we can identify (stays open). p09_l09 g18 is plain NNA (the II is dropped). p10_l03 g13 is JA+II (the recheck button had saved plain JA). p11_l06 g7 (test) stays QA+U.
+   - **2 answers changed.** Backup taken before applying. Bank still 150 real examples.
+   - suggestion top-3 64.8% (same). Pipeline CER top-1 40.2% → **38.8%**. Strict 120.6% (same). check_real passed. 29 tests pass.
+
+87. **Labelling stopped; test lines scored once; retro written (your call).**
+   - Test lines (p10 l6, p11 l6, 49 reference characters): pipeline top-1 CER **40.8%** (20/49), strict 120.4%. Per line: p10 l6 21.7%, p11 l6 57.7%. Run once, on GT v5 and the v5 model, logged to `results.jsonl`.
+   - Dev refresh (209 characters): top-1 38.8%, strict 120.6%. Errors by stage: recognition 64, segmentation 19, line finding −2.
+   - Pipeline time: 11.2 / 13.1 / 12.2 s for p9 / p10 / p11 on this laptop's CPU.
+   - Review time: 9,204 s (153 min) over 11 lines, from the `seconds` field of every decision.
+   - **Second routes:** reference lengths recounted from `gt.json` (209 dev, 49 test). Review time summed again with a regex over the raw files. Both match.
+
+88. **Tried recent techniques to improve recognition; none helped significantly (your request).** `gt/exp_vision.py`, dev lines only, test lines untouched.
+   - **Diagnosis first.** Real print strokes are 3.67 px wide at the 48 px scale; the Noto renders are 2.59 px. Relative glyph size matches once labels are matched (MA+II's II tail is shorter in print).
+   - **Harness fix.** Scoring on the program's own split changed the glyph count per variant (114-124), so the first comparison was apples to oranges. Now scored on the 105 GT glyph groups, compared glyph by glyph (exact McNemar). Baseline reproduces eval_recognise's numbers through the old route (52.5% / 64.8% on its own split).
+   - **Results** (letter, held-out, baseline pixels 68.6% top-1 / 85.7% top 3):
+
+     | Variant | Top-1 | Top 3 | p (top-1) |
+     |---|---|---|---|
+     | Thicker renders (2x2 dilate) | +1 | -4 | 1.00 |
+     | Thicker + 4 degraded copies each | -4 | -4 | 0.39 |
+     | + 4 jittered copies of each real glyph | +4 | -5 | 0.34 |
+     | Sans renders only | +2 | -3 | 0.69 |
+     | Real examples weighted x3 in the vote | +3 | 0 | 0.45 |
+     | Ensemble pixels + HOG | **+6** | 0 | 0.11 |
+     | Small CNN trained per fold on the augmented bank | +4 | -1 | 0.50 |
+
+   - **Reading:** with 105 glyphs, nothing reaches significance, and 11 variants were tried, so the best one (+6) is what chance alone would often produce. Nothing is adopted into the pipeline. Degraded copies hurt: they outnumber the real examples among the 7 neighbours.
+   - **Compare:** labelling 3 more lines (+52 real glyphs) moved top 3 by 9 points (log 85). More real examples is the lever; the model is not.
+   - **Not tried:** frozen pretrained features (CLIP / DINOv2). They need a weights download. A 2026 study on 64 px manuscript glyphs found frozen DINOv2 weak and frozen CLIP best (P@1 0.40), and domain adaptation on unlabeled real glyphs (SimCLR + DANN) best of all (0.59).
+
+89. **Built a domain-adaptation recognizer (SimCLR + DANN); it lost to plain pixels (your request: a showcase technique).** `gt/exp_adapt.py`, dev lines only, test lines untouched.
+   - **What it is.** A small CNN trained per fold with up to three losses: name the label of each bank example (supervised), match two random print-like views of the same glyph (SimCLR, on 722 unlabelled crops from the 24 page lines that are not GT), and fool a render-vs-real head through gradient reversal (DANN). The embedding is the kNN description. Method follows arXiv 2609.07159.
+   - **No leakage.** The unlabelled pool excludes all 11 GT lines (find_lines' order matches the hand-marked centres: 11/12/12 lines). Labels of the held-out line are removed per fold, as before.
+   - **Results** (same 105 glyphs as log 88, baseline pixels 68.6% / 85.7%; 800 steps, 1 seed, CPU, 16-58 min per variant):
+
+     | Variant | Top-1 | Top 3 | p (top-1) | Right-label renders in 7 nearest |
+     |---|---|---|---|---|
+     | Baseline pixels | 0 | 0 | | 0.75 |
+     | Supervised CNN | -8 | -5 | 0.13 | 0.91 |
+     | + SimCLR | -3 | -8 | 0.68 | 1.02 |
+     | + DANN | **-15** | -7 | **0.00** | 0.92 |
+     | + SimCLR + DANN | -4 | -10 | 0.50 | 0.91 |
+
+   - **Reading:** the adaptation did what it is for: renders of the right letter became more frequent neighbours (0.75 -> up to 1.02 of 7). But accuracy fell. Pixels wins through its real neighbours; a learned space pulls in more renders and so dilutes them. DANN alone is significantly worse: with 722 unlabelled glyphs and no labels on the real side, matching the two domains as wholes also matches wrong letters (known negative transfer). SimCLR softens that (-3 vs -8 for supervised alone).
+   - **Limits:** one seed per fold, 800 steps, no tuning of the loss weights (tuning on 9 lines would overfit). Seeds alone can move a CNN by a few glyphs.
+   - **Second route:** the baseline row reproduces log 88's 68.6% / 85.7% through this file's own scoring loop. 29 tests pass.
+
+90. **Learning curve: recognition climbs steadily with real labels (your request).** `gt/exp_curve.py`, dev lines only, 2 min on CPU.
+   - Same 105 glyphs and pixels kNN as log 88. In each fold a random share of the real examples is kept (renders always stay), 5 draws per share.
+
+     | Real examples kept | Real glyphs per fold | Top-1 | Top 3 |
+     |---|---|---|---|
+     | 25% | ~33 | 45.9% +- 1.6 | 65.7% +- 2.5 |
+     | 50% | ~67 | 58.1% +- 1.8 | 76.2% +- 1.6 |
+     | 75% | ~100 | 65.1% +- 2.3 | 80.6% +- 3.1 |
+     | 100% | ~133 | 68.6% | 85.7% |
+
+   - **Reading:** every step up in real labels helps, and the gap between steps is many times the spread between draws. This is the evidence behind "data is the lever": quadrupling the real labels moved top-1 by 23 points; the best model change in log 88 moved it by 6.
+   - **Projection (rough):** a power-law fit, top-3 error = 2.92 n^-0.60, puts top 3 at 90% near ~270 real glyphs (~14 lines) and 95% near ~850 (~45 lines). Four points over a 4x range, on top-3 letters only: a planning guess, not a promise, and much lower than Kraken's ~800 lines for a whole line recognizer.
+   - **Second route:** the 100% row reproduces log 88's baseline exactly (68.6% / 85.7%).
+   - Re-weighted DANN (renders drawn at the real letter mix, to test the label-shift diagnosis of log 89) is running; results go in the next entry.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

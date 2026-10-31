@@ -17,7 +17,12 @@ FROM_NOTES = {  # key -> (cps, your note)
     "lines/p10_l03.png#16": (["U+11219"], "Ta"),
     "lines/p11_l03.png#1": (["U+1121E", "U+1122E"], "Na + II"),
     "lines/p09_l04.png#17": (["?"], "No, if this was flipped along a vertical line such that the line goes through the "
-                                    "middle of the 2 characters, then BA + I would be valid"),
+                                    "middle of the 2 characters, then BA + I would be valid; asked again: neither, "
+                                    "not a character we can identify"),
+    # asked again in chat (log 86): the notes above left these unclear
+    "lines/p09_l09.png#17": (["U+11218"], "NNA"),
+    "lines/p10_l03.png#12": (["U+11210", "U+1122E"], "JA + II"),
+    "lines/p11_l06.png#6": (["U+1123F", "U+1122F"], "QA + U"),
 }
 
 

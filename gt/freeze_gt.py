@@ -9,6 +9,7 @@ Versions:
   2  marks put in Unicode order: nukta straight after its letter (log 68). Changes one unit: line 5 glyph 19.
   3  adds the two blind test lines p10_l06 and p11_l06 (split "test", log 82). Dev lines unchanged.
   4  round 1 (p9 l6, p10 l3, p11 l3) and the MA/DHA/JA/BA recheck: 15 answers changed (log 85).
+  5  your chat answers on 3 unclear notes: p09_l09 g18 NNA, p10_l03 g13 JA+II, p11_l06 g7 kept QA+U (log 86).
 """
 import json, sys, unicodedata
 from pathlib import Path
@@ -18,7 +19,7 @@ sys.path.insert(0, str(GT.parent))
 from khojki.labels import canonical, from_hex  # noqa: E402
 from segment import boxes_for  # noqa: E402
 
-VERSION = 4
+VERSION = 5
 
 
 def answer(decision):
