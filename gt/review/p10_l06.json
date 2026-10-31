@@ -1,0 +1,254 @@
+{
+ "file": "lines/p10_l06.png",
+ "saved": "2026-10-30T20:54:22",
+ "decisions": {
+  "0": {
+   "cps": [
+    "U+11228"
+   ],
+   "rank": 1,
+   "claude_conf": 0.5,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 30
+  },
+  "1": {
+   "cps": [
+    "?"
+   ],
+   "rank": -1,
+   "claude_conf": 0.4,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 145,
+   "comment": "Mark this as abbreviation sign + dependant vowel ll (double check this)",
+   "images": [
+    "review/img/p10_l06_s02_1.png"
+   ]
+  },
+  "2": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4
+  },
+  "3": {
+   "cps": [
+    "U+11210",
+    "U+11230",
+    "U+11234"
+   ],
+   "rank": 2,
+   "claude_conf": 0.2,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 19
+  },
+  "4": {
+   "cps": [
+    "U+11210",
+    "U+11230"
+   ],
+   "rank": 2,
+   "claude_conf": 0.2,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4
+  },
+  "5": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "6": {
+   "cps": [
+    "U+1122A",
+    "U+1122F"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "7": {
+   "cps": [
+    "?"
+   ],
+   "rank": -1,
+   "claude_conf": 0.5,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 146,
+   "comment": "flipped tta + nowel letter L",
+   "images": [
+    "review/img/p10_l06_s08_1.png"
+   ]
+  },
+  "8": {
+   "cps": [
+    "U+1123D"
+   ],
+   "rank": 1,
+   "claude_conf": 0.55,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 6
+  },
+  "9": {
+   "cps": [
+    "U+1123D"
+   ],
+   "rank": 1,
+   "claude_conf": 0.55,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "10": {
+   "cps": [
+    "U+11238"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "11": {
+   "cps": [
+    "U+11229"
+   ],
+   "rank": 1,
+   "claude_conf": 0.5,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "12": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "13": {
+   "cps": [
+    "U+11227"
+   ],
+   "rank": 1,
+   "claude_conf": 0.4,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "14": {
+   "cps": [
+    "?"
+   ],
+   "rank": -1,
+   "claude_conf": 0.45,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 68,
+   "comment": "unknown symbol (reverse c) + inherent MA",
+   "images": [
+    "review/img/p10_l06_s15_1.png"
+   ]
+  },
+  "15": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "16": {
+   "cps": [
+    "U+11239"
+   ],
+   "rank": 1,
+   "claude_conf": 0.65,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "17": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "18": {
+   "cps": [
+    "U+11229",
+    "U+11232"
+   ],
+   "rank": 1,
+   "claude_conf": 0.4,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4
+  },
+  "19": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "20": {
+   "cps": [
+    "U+11200"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  }
+ }
+}

@@ -1,0 +1,233 @@
+{
+ "file": "lines/p11_l06.png",
+ "saved": "2026-10-30T20:58:51",
+ "decisions": {
+  "0": {
+   "cps": [
+    "U+11203",
+    "U+11234"
+   ],
+   "rank": 1,
+   "claude_conf": 0.55,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 7
+  },
+  "1": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "2": {
+   "cps": [
+    "U+11219",
+    "U+11232"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "3": {
+   "cps": [
+    "U+11219",
+    "U+1122C"
+   ],
+   "rank": 1,
+   "claude_conf": 0.55,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "4": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "5": {
+   "cps": [
+    "U+11229"
+   ],
+   "rank": 1,
+   "claude_conf": 0.55,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "6": {
+   "cps": [
+    "U+1123F",
+    "U+1122F"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 76
+  },
+  "7": {
+   "cps": [
+    "U+1122A",
+    "U+11232"
+   ],
+   "rank": 1,
+   "claude_conf": 0.35,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 49
+  },
+  "8": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "9": {
+   "cps": [
+    "U+1121A",
+    "U+1122E",
+    "U+11234"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 3
+  },
+  "10": {
+   "cps": [
+    "?"
+   ],
+   "rank": -1,
+   "claude_conf": 0.25,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 52,
+   "comment": "claude has trouble with abbreviation sign + inherent letters, take this as abbreviation sign + or even Qa + and you can find much closer resemblences, try to remake this based on research and see if we can find a match on google",
+   "images": [
+    "review/img/p11_l06_s11_1.png"
+   ]
+  },
+  "11": {
+   "cps": [
+    "U+11200"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "12": {
+   "cps": [
+    "U+11229"
+   ],
+   "rank": 1,
+   "claude_conf": 0.5,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "13": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "14": {
+   "cps": [
+    "U+11238"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 9
+  },
+  "15": {
+   "cps": [
+    "?"
+   ],
+   "boxWrong": true,
+   "note": "This shouldve been combined with prev box so instead of single danda its double danda and then word seperator after",
+   "rank": -1,
+   "claude_conf": 0
+  },
+  "16": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.8,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 41
+  },
+  "17": {
+   "cps": [
+    "U+1123C"
+   ],
+   "rank": 1,
+   "claude_conf": 0.55,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "18": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "19": {
+   "cps": [
+    "?"
+   ],
+   "boxWrong": true,
+   "note": "Not an applicable box, this is just a line on paper",
+   "rank": -1,
+   "claude_conf": 0
+  }
+ }
+}
