@@ -35,3 +35,15 @@ def test_dot_above_a_letter_is_a_mark_not_a_separator():
 def test_neighbouring_letters_are_never_merged():
     boxes = glyph_boxes(line(*(letter(x) for x in (30, 66, 102, 138))))
     assert len(boxes) == 4
+
+
+def test_broken_frame_rule_near_the_side_is_dropped():
+    # p11 l6: a 3 px rule 6 px in from the right edge, cut by the top edge, taller than 1.5 letters but under the full-height cut (log 83)
+    rule = lambda img: cv2.rectangle(img, (290, 0), (292, 58), 20, -1)
+    assert len(glyph_boxes(line(letter(40), letter(80), rule))) == 2
+
+
+def test_tall_thin_letter_in_mid_line_is_kept():
+    # the same shape in mid-line, not cut by an edge (a danda-like stroke), stays text
+    stroke = lambda img: cv2.rectangle(img, (150, 14), (152, 60), 20, -1)
+    assert len(glyph_boxes(line(letter(40), letter(80), stroke))) == 3

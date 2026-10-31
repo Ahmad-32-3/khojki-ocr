@@ -74,8 +74,12 @@ def glyph_atoms(gray, method="otsu"):
     # crop holds more of them) and would shift it, which changed splits and readings (log 76)
     whole = [c["y1"] - c["y0"] for c in comps if c["area"] > 80 and c["y0"] > 0 and c["y1"] < H]
     tall = float(np.median(whole or [c["y1"] - c["y0"] for c in comps if c["area"] > 80] or [H / 2]))
-    # the printed frame: a thin rule, full height or touching either side
-    rule = lambda c: (c["x1"] - c["x0"]) < 0.2 * (c["y1"] - c["y0"]) and (c["y1"] - c["y0"] >= 0.85 * H or c["x1"] >= W - 3 or c["x0"] <= 2)
+    # the printed frame: a thin rule, full height, touching either side, or cut by the top/bottom edge and taller
+    # than 1.5 letters (p11 l6: a broken rule 6 px in from the side, 0.6 H tall, log 83). On pages 9-11 that last
+    # case only ever fires within 25 px of a side.
+    rule = lambda c: (c["x1"] - c["x0"]) < 0.2 * (c["y1"] - c["y0"]) and (
+        c["y1"] - c["y0"] >= 0.85 * H or c["x1"] >= W - 3 or c["x0"] <= 2
+        or (c["y0"] == 0 or c["y1"] >= H) and c["y1"] - c["y0"] >= 1.5 * tall)
     # ink cut by the crop's top or bottom edge belongs to the neighbouring line (stage A grows lines into the
     # gaps, so its crops hold their descenders and marks); joined to a letter here it changed the reading (log 76).
     # A real glyph can graze the edge of a tight crop (GT crops have 6 px padding), so only pieces centred in the

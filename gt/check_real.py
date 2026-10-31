@@ -23,8 +23,8 @@ BASELINE = {
     "glyph_boxes_ok": 59,       # GT glyphs in exactly one box (the rest are splits, recoverable)
     "sep_parts_recognised": 62,  # 31 separators x (letter, signs), all right
     "glyph_top3": 0.558,        # right letter among the 3 suggestions, held-out (0.494 before log 76)
-    "cer_pipeline_top1": 0.500,  # whole pipeline, best guess per glyph, held-out (log 77); may only go down
-    "cer_pipeline_strict": 1.120,  # the text file as written, U+FFFD counted as errors
+    "cer_pipeline_top1": 0.486,  # whole pipeline, best guess per glyph, held-out (log 77, 83); may only go down
+    "cer_pipeline_strict": 1.106,  # the text file as written, U+FFFD counted as errors
     "pipeline_lines": {"09": 11, "10": 12, "11": 12},
 }
 TARGET = 0.95
