@@ -17,14 +17,14 @@ PDF = ROOT / "data" / "sample_khojki_script_vatiations.pdf"
 PDF_SHA = "99f373777e13ad01ccc7ff1ae067cb80a3de2bc22d96df6c7ab0a558f8d11f23"
 RESULTS = ROOT / "gt" / "results.jsonl"
 
-BASELINE = {
+BASELINE = {  # measured on GT v4 (9 dev lines); reset whenever the GT grows, since the population changes (log 85)
     "lines_right": 35,          # of 35 marked by eye on p9-p11, and nothing else kept
-    "seps_found": 31,           # of 31 GT separators, with no false ones
-    "glyph_boxes_ok": 59,       # GT glyphs in exactly one box (the rest are splits, recoverable)
-    "sep_parts_recognised": 62,  # 31 separators x (letter, signs), all right
-    "glyph_top3": 0.558,        # right letter among the 3 suggestions, held-out (0.494 before log 76)
-    "cer_pipeline_top1": 0.486,  # whole pipeline, best guess per glyph, held-out (log 77, 83); may only go down
-    "cer_pipeline_strict": 1.106,  # the text file as written, U+FFFD counted as errors
+    "seps_found": 45,           # of 45 GT separators, with no false ones
+    "glyph_boxes_ok": 92,       # GT glyphs in exactly one box (the rest are splits, recoverable)
+    "sep_parts_recognised": 88,  # of 45 separators x (letter, signs) = 90
+    "glyph_top3": 0.648,        # right letter among the 3 suggestions, held-out (v3: 0.558)
+    "cer_pipeline_top1": 0.402,  # whole pipeline, best guess per glyph, held-out (v3: 0.486); may only go down
+    "cer_pipeline_strict": 1.206,  # the text file as written, U+FFFD counted as errors (v3: 1.106)
     "pipeline_lines": {"09": 11, "10": 12, "11": 12},
 }
 TARGET = 0.95

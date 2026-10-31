@@ -480,6 +480,26 @@ Format: **Assumption / error → How caught → Fix**
    - **`gt/eval_test.py`:** scores the test lines with the committed dev-only model, asserts no test line is in the bank, and uses the same three setups as `eval_cer.py`. Smoke-run without printing scores. Reference lengths match a direct count from gt.json (23, 24). **Not run for real until the rounds end.**
    - **Chunk 7 round 1 prepared:** p9 l6, p10 l3, p11 l3, one per page, so learning isn't page-9 only. Pre-filled with the pipeline's own suggestions plus components. Round 0 (now): 6 dev lines; page-9 CER top-1 48.6%; glyphs recognised 0; glyph top-3 55.8%. The test lines took 694 s (11.6 min) of review for 41 glyphs.
 
+84. **Round 1, first two lines; a recheck page for MA / DHA / JA (your call).**
+   - **p11 l3** (6.5 min): the pipeline's first suggestion was right on 14 of 17 answered glyphs. CHA ×2 and JA came from the chart. 2 open, 1 not answered.
+   - **p10 l3** (10.4 min): right first on 12 of 15 answered. 5 left open **as a flag**, with notes. JA was read as MA twice: glyph 3 "very obviously a Ja", glyph 13 "Ja + II". Glyph 12: "Ma + U + anusvara", with the question why the chart's MA+U didn't match. **These suggestions came from the pipeline, not from my readings.** That's the point of this round, and it's what's failing.
+   - **Why the chart doesn't rescue it.** (1) By design, a chart drawing alone can never make a *recognition*, only a suggestion (SPEC criterion 7): Noto's shapes aren't the 1896 type. (2) The matcher compares the whole 48×48 glyph with HOG. MA and JA share the right-hand arch and differ in the small left part, so the arch dominates the distance. (3) There are few real examples: JA+II has very few, MA+II many, so the vote leans to MA. More reviewed lines fix (3). (2) may need a description that weighs the left part. To be decided on the learning curve, not guessed.
+   - **Recheck page** (`gt/build_recheck.py`, `recheck.html`): every reviewed glyph whose answer **or** pipeline guess is MA, DHA or JA (34). Each shows the crop next to Noto drawings of the three letters, alone and with II/U/AA/O. Answers save to `gt/review/recheck.json` and change nothing until applied. Tested in my own tab: a save of JA + II with the old anusvara kept wrote the right code points. The test file and log line were removed afterwards.
+
+85. **Recheck applied, GT v4 frozen, round 1 measured.**
+   - **The recheck page lost 8 of your answers.** It saved a note only on cards where a letter button was also pressed. You wrote 8 answers as notes alone. I read them from the open page. → A note alone now saves. Five notes were clear and are applied (NA+II ×2, TA+II, TA, HA). Their wording is kept in `gt/apply_recheck.py` with the note text.
+   - **Three notes I couldn't read for sure:** p09_l09 g18 "NNA" (was NNA+II: keep the II?); p11_l06 g7 (test) "Na" (was QA+U: NA+U or NA?); p09_l04 g18 "not BA+I, unless flipped" (set to open). None of the first two are applied yet.
+   - **15 answers changed** (9 buttons + 6 notes). Mostly MA → BA (5) and MA → TA/JA. One test-line answer went JA → MA (p10 l6 g4). Old answers are kept as `was`. Backup taken before applying.
+   - **GT v4:** 11 lines, 210 units (152 + 18 + 20 + 20), 186 confirmed. Bank: 150 real (98 + 51 new + 2 notes from open − 1 to open).
+   - **Round 1 on the learning curve** (dev, leave one line out; 6 → 9 lines; 98 → 150 real examples):
+     - suggestion top-3: 55.8% → **64.8%**
+     - pipeline CER top-1: 48.6% → **40.2%**
+     - glyphs recognised: 0 → 0. Nothing passes the 95% bar yet.
+     - review time: 32.4 min for 3 lines (p9 l6 15.5, p10 l3 10.4, p11 l3 6.5), plus the recheck.
+     - The refit now prefers raw pixels to HOG.
+     - **Caveat:** each round is scored on its own dev set, so the two rounds aren't measured on the same lines. The test lines give the fixed comparison, at the end.
+   - **The strict CER gate failed (1.106 → 1.206), and I reset it rather than fixing code.** Strict writes 2 U+FFFD per unrecognised glyph. The new lines have more glyphs per separator, and no glyph is recognised yet, so strict rises on a bigger set without any code changing. Baselines now say which GT they were measured on, and are reset when the GT grows.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.
