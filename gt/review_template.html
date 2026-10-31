@@ -493,7 +493,11 @@ function inspect(name) {
   // a cell holds one sign; real clusters can carry more (e.g. TA + E + anusvara)
   const base = built.length ? s : DOT;
   const hasVowel = built.some(c => c >= 0x1122C && c <= 0x11233);  // one vowel sign per cluster
-  const addable = built.length && built[0] >= 0x11208 && built[0] !== 0x11240 ? (hasVowel ? signs : [...depVowels, ...signs]).filter(([c]) => !built.includes(c)) : [];
+  // consonants take a vowel sign and marks; vowel letters take marks only (anusvara, nukta: Pandey 4.9-4.10);
+  // punctuation takes nothing. Vowel letters used to get no marks at all, so U + anusvara couldn't be built (log 81).
+  const b0 = built[0], vowelLetter = b0 <= 0x11207 || b0 === 0x11240, consonant = b0 >= 0x11208 && b0 < 0x11238 || b0 === 0x1123F;
+  const vowelMarks = signs.filter(([c]) => c === 0x11234 || c === 0x11236);  // virama, shadda, sukun are for consonants
+  const addable = !built.length ? [] : (consonant ? (hasVowel ? signs : [...depVowels, ...signs]) : vowelLetter ? vowelMarks : []).filter(([c]) => !built.includes(c));
   $("insp-add").innerHTML = addable.length ? "Add a mark: " + addable.map(([c, l]) =>
     `<button data-cp="${c}" title="${l}"><span class="k">${base}${cp(c)}</span> +${l}</button>`).join("") : "";
   $("insp-add").querySelectorAll("button").forEach(b => b.onclick = () => {

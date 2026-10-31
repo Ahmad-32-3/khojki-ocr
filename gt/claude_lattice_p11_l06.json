@@ -3,7 +3,7 @@
  "version": 3,
  "segmenter": "pipeline",
  "split": "test",
- "blind": true,
+ "blind": false,
  "spans": [
   {
    "boxes": [
@@ -12,10 +12,26 @@
    "readings": [
     {
      "cps": [
+      "U+11203",
+      "U+11234"
+     ],
+     "conf": 0.55,
+     "why": "C6 + vowel letter U: loop with the crescent sweeping right, dot above"
+    },
+    {
+     "cps": [
+      "U+11206",
+      "U+11234"
+     ],
+     "conf": 0.2,
+     "why": "if the crescent is a flourish on a plain 6-shape O"
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.25,
+     "why": ""
     }
    ]
   },
@@ -26,66 +42,87 @@
    "readings": [
     {
      "cps": [
-      "?"
+      "U+1123A"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
-    }
-   ]
-  },
-  {
-   "boxes": [
-    2
-   ],
-   "readings": [
+     "conf": 0.95,
+     "why": "C9: two stacked dots"
+    },
     {
      "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.05,
+     "why": ""
     }
    ]
   },
   {
    "boxes": [
+    2,
     3
    ],
    "readings": [
     {
      "cps": [
-      "?"
+      "U+11219",
+      "U+11232"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
-    }
-   ]
-  },
-  {
-   "boxes": [
-    4
-   ],
-   "readings": [
+     "conf": 0.45,
+     "why": "TA (n with top hook) + O: AA upright with the E stroke over it (C5)"
+    },
+    {
+     "cps": [
+      "U+1121E",
+      "U+11232"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
+      "U+11219",
+      "U+11233"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
     {
      "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.35,
+     "why": ""
     }
    ]
   },
   {
    "boxes": [
+    4,
     5
    ],
    "readings": [
     {
      "cps": [
+      "U+11219",
+      "U+1122C"
+     ],
+     "conf": 0.55,
+     "why": "TA + AA upright cut off by the segmenter (C16)"
+    },
+    {
+     "cps": [
+      "U+1121E",
+      "U+1122C"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.35,
+     "why": ""
     }
    ]
   },
@@ -96,67 +133,120 @@
    "readings": [
     {
      "cps": [
-      "?"
+      "U+1123A"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
-    }
-   ]
-  },
-  {
-   "boxes": [
-    7
-   ],
-   "readings": [
+     "conf": 0.95,
+     "why": "C9: two stacked dots"
+    },
     {
      "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.05,
+     "why": ""
     }
    ]
   },
   {
    "boxes": [
-    8,
+    7,
+    8
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11229"
+     ],
+     "conf": 0.55,
+     "why": "C17: SA in two halves"
+    },
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.1,
+     "why": "if only the second half is a letter (RA)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
     9
    ],
    "readings": [
     {
      "cps": [
-      "?"
+      "U+11224"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
-    }
-   ]
-  },
-  {
-   "boxes": [
-    10
-   ],
-   "readings": [
+     "conf": 0.35,
+     "why": "C15: loop + arch + right leg"
+    },
+    {
+     "cps": [
+      "U+11221"
+     ],
+     "conf": 0.2,
+     "why": ""
+    },
+    {
+     "cps": [
+      "U+11218"
+     ],
+     "conf": 0.15,
+     "why": ""
+    },
     {
      "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.3,
+     "why": ""
     }
    ]
   },
   {
    "boxes": [
+    10,
     11
    ],
    "readings": [
     {
      "cps": [
+      "U+1122A",
+      "U+11232"
+     ],
+     "conf": 0.35,
+     "why": "HA (3-curl with top stub) + O (upright + stroke over it)"
+    },
+    {
+     "cps": [
+      "U+11210",
+      "U+11232"
+     ],
+     "conf": 0.15,
+     "why": "C14"
+    },
+    {
+     "cps": [
+      "U+1121D",
+      "U+11232"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.4,
+     "why": ""
     }
    ]
   },
@@ -167,10 +257,17 @@
    "readings": [
     {
      "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "C9: two stacked dots"
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.05,
+     "why": ""
     }
    ]
   },
@@ -181,10 +278,28 @@
    "readings": [
     {
      "cps": [
+      "U+1121A",
+      "U+1122E",
+      "U+11234"
+     ],
+     "conf": 0.3,
+     "why": "v-bowl + tall stroke (THA, as you chose on p9 l9) with a long tail (C1 II) and a dot"
+    },
+    {
+     "cps": [
+      "U+1121A",
+      "U+1122D",
+      "U+11234"
+     ],
+     "conf": 0.25,
+     "why": "if the right stroke is the I sign"
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.45,
+     "why": ""
     }
    ]
   },
@@ -195,10 +310,34 @@
    "readings": [
     {
      "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.5,
+     "why": "C1: loop + arch with the long II tail"
+    },
+    {
+     "cps": [
+      "U+11218",
+      "U+1122E"
+     ],
+     "conf": 0.15,
+     "why": ""
+    },
+    {
+     "cps": [
+      "U+11221",
+      "U+1122E"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.25,
+     "why": ""
     }
    ]
   },
@@ -209,38 +348,53 @@
    "readings": [
     {
      "cps": [
-      "?"
+      "U+11200"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
-    }
-   ]
-  },
-  {
-   "boxes": [
-    16
-   ],
-   "readings": [
+     "conf": 0.45,
+     "why": "vowel letter A: lead-in stroke into a hooked arch"
+    },
+    {
+     "cps": [
+      "U+11216"
+     ],
+     "conf": 0.1,
+     "why": "DDA"
+    },
     {
      "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.45,
+     "why": ""
     }
    ]
   },
   {
    "boxes": [
+    16,
     17
    ],
    "readings": [
     {
      "cps": [
+      "U+11229"
+     ],
+     "conf": 0.5,
+     "why": "C17: SA in two halves"
+    },
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.1,
+     "why": ""
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.4,
+     "why": ""
     }
    ]
   },
@@ -251,10 +405,17 @@
    "readings": [
     {
      "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "C9: two stacked dots"
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.05,
+     "why": ""
     }
    ]
   },
@@ -265,10 +426,24 @@
    "readings": [
     {
      "cps": [
+      "U+0AE8"
+     ],
+     "conf": 0.45,
+     "why": "Gujarati digit 2: verse number before a section mark (Pandey 4.11, 4.14)"
+    },
+    {
+     "cps": [
+      "U+11214"
+     ],
+     "conf": 0.15,
+     "why": "TTA, if not a digit"
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.4,
+     "why": ""
     }
    ]
   },
@@ -279,10 +454,73 @@
    "readings": [
     {
      "cps": [
+      "U+0AE8"
+     ],
+     "conf": 0.4,
+     "why": "second digit 2 (the box also holds a separator and the section mark)"
+    },
+    {
+     "cps": [
+      "U+11214"
+     ],
+     "conf": 0.15,
+     "why": ""
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.45,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    20
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.8,
+     "why": "separator merged into the same box"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.2,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    20
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123C"
+     ],
+     "conf": 0.55,
+     "why": "C12: double section mark, two long rules"
+    },
+    {
+     "cps": [
+      "U+1123B"
+     ],
+     "conf": 0.1,
+     "why": "single section mark"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.35,
+     "why": ""
     }
    ]
   },
@@ -293,10 +531,17 @@
    "readings": [
     {
      "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "C9: two stacked dots"
+    },
+    {
+     "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 0.05,
+     "why": ""
     }
    ]
   },
@@ -309,10 +554,11 @@
      "cps": [
       "?"
      ],
-     "conf": 1.0,
-     "why": "blind test line: no suggestions"
+     "conf": 1,
+     "why": "NOT TEXT: the page frame's vertical rule. Mark it unreadable (U) and say so in the note."
     }
    ]
   }
- ]
+ ],
+ "assisted": true
 }
