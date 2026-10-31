@@ -38,8 +38,12 @@ def lines_and_truth(split="dev"):
         truth = {}  # atom indices of a GT unit -> (letter, signs), or None if nobody could read it
         for u in line["units"]:
             idx = tuple(atoms_in(u, atoms))
-            if idx:
-                truth[idx] = None if u["status"] != "ok" else parts(canonical(from_hex(u["cps"])))
+            if not idx:
+                continue
+            t = None if u["status"] != "ok" else parts(canonical(from_hex(u["cps"])))
+            if truth.get(idx) and t:  # several answers on one box (p11 l6: digit, separator, section mark):
+                t = (truth[idx][0] + truth[idx][1] + t[0] + t[1], ())  # keep all, in order (log 83)
+            truth[idx] = t or truth.get(idx)
         out.append(dict(file=line["file"], atoms=atoms, truth=truth))
     return out
 
