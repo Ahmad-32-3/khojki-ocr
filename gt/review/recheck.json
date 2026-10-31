@@ -1,0 +1,141 @@
+{
+ "saved": "2026-10-30T23:39:20",
+ "answers": {
+  "lines/p09_l01.png#8": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l01.png#10": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l01.png#11": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l01.png#13": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l02.png#8": {
+   "cps": [
+    "U+11221",
+    "U+1122E"
+   ],
+   "note": ""
+  },
+  "lines/p09_l03.png#0": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l05.png#14": {
+   "cps": [
+    "U+11221"
+   ],
+   "note": ""
+  },
+  "lines/p09_l05.png#18": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l09.png#3": {
+   "cps": [
+    "U+11224"
+   ],
+   "note": ""
+  },
+  "lines/p09_l09.png#6": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l09.png#8": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l09.png#11": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p09_l06.png#1": {
+   "cps": [
+    "U+11221"
+   ],
+   "note": ""
+  },
+  "lines/p09_l06.png#17": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p10_l03.png#0": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p10_l03.png#2": {
+   "cps": [
+    "U+11210"
+   ],
+   "note": ""
+  },
+  "lines/p10_l03.png#12": {
+   "cps": [
+    "U+11210"
+   ],
+   "note": ""
+  },
+  "lines/p10_l03.png#17": {
+   "cps": [
+    "U+11224"
+   ],
+   "note": ""
+  },
+  "lines/p10_l06.png#1": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p10_l06.png#3": {
+   "cps": [
+    "U+11224",
+    "U+11230",
+    "U+11234"
+   ],
+   "note": ""
+  },
+  "lines/p10_l06.png#4": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p10_l06.png#14": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p11_l03.png#10": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p11_l03.png#12": {
+   "keep": true,
+   "note": ""
+  },
+  "lines/p11_l03.png#13": {
+   "cps": [
+    "U+11221",
+    "U+1122E"
+   ],
+   "note": ""
+  },
+  "lines/p11_l03.png#17": {
+   "cps": [
+    "U+11221",
+    "U+1122E"
+   ],
+   "note": ""
+  },
+  "lines/p11_l06.png#10": {
+   "cps": [
+    "U+11221",
+    "U+1122E"
+   ],
+   "note": ""
+  }
+ }
+}

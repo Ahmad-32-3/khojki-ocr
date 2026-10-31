@@ -185,6 +185,16 @@
    "boxWrong": false,
    "note": "",
    "seconds": 4
+  },
+  "15": {
+   "cps": [
+    "U+1121E",
+    "U+1122E"
+   ],
+   "rank": 0,
+   "was": null,
+   "recheck": "2026-10-30T23:40:56",
+   "comment": "recheck: Na + II"
   }
  }
 }

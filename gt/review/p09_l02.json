@@ -73,15 +73,21 @@
   },
   "8": {
    "cps": [
-    "U+11224",
+    "U+11221",
     "U+1122E"
    ],
-   "rank": 1,
+   "rank": 0,
    "claude_conf": 0.6,
    "lattice": 2,
    "boxWrong": false,
    "note": "",
-   "seconds": 2661
+   "seconds": 2661,
+   "was": [
+    "U+11224",
+    "U+1122E"
+   ],
+   "recheck": "2026-10-30T23:40:56",
+   "comment": ""
   },
   "9": {
    "cps": [

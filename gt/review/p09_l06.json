@@ -1,0 +1,213 @@
+{
+ "file": "lines/p09_l06.png",
+ "saved": "2026-10-30T22:48:29",
+ "decisions": {
+  "1": {
+   "cps": [
+    "U+11221"
+   ],
+   "rank": 0,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 714,
+   "was": [
+    "U+11224",
+    "U+1122E"
+   ],
+   "recheck": "2026-10-30T23:40:56",
+   "comment": ""
+  },
+  "2": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "3": {
+   "cps": [
+    "U+11239"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "4": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "5": {
+   "cps": [
+    "U+11201",
+    "U+11234"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "6": {
+   "cps": [
+    "U+1122A",
+    "U+1122F",
+    "U+11234"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "7": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "8": {
+   "cps": [
+    "U+1121E",
+    "U+1122C",
+    "U+11234"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4
+  },
+  "9": {
+   "cps": [
+    "U+1122A",
+    "U+1122F",
+    "U+11234"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "10": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "11": {
+   "cps": [
+    "U+11200",
+    "U+11236"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "12": {
+   "cps": [
+    "U+11226"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "13": {
+   "cps": [
+    "U+11229",
+    "U+11236"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "14": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "15": {
+   "cps": [
+    "U+11226"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "16": {
+   "cps": [
+    "U+11229",
+    "U+1122C"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "17": {
+   "cps": [
+    "?"
+   ],
+   "rank": -1,
+   "claude_conf": 0.7,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 198,
+   "comment": "a weird Nna or Dda.\n\nits like a Nna + a connected line to a straight line\nlike Nna + single danda?",
+   "images": [
+    "review/img/p09_l06_s18_1.png"
+   ]
+  }
+ }
+}

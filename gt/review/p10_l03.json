@@ -1,0 +1,263 @@
+{
+ "file": "lines/p10_l03.png",
+ "saved": "2026-10-30T22:58:54",
+ "decisions": {
+  "0": {
+   "cps": [
+    "U+11224",
+    "U+1122E"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "This is very basic, please dont make this mistake again",
+   "seconds": 41
+  },
+  "1": {
+   "cps": [
+    "U+11226"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4
+  },
+  "2": {
+   "cps": [
+    "U+11210"
+   ],
+   "rank": 0,
+   "claude_conf": 0.05,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 129,
+   "comment": "You have made this mistake multiple times so now i am putting it in unreadable as a flag, STOP making this mistake, this is a very obvious different inherent letter. design software that WONT mistake this again. this must be a ROBUST OCR pipeline and right now its FAILING:\nVery obviously a Ja",
+   "images": [
+    "review/img/p10_l03_s03_1.png"
+   ],
+   "was": [
+    "?"
+   ],
+   "recheck": "2026-10-30T23:40:56"
+  },
+  "3": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "4": {
+   "cps": [
+    "U+11239"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "5": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "6": {
+   "cps": [
+    "U+1122A",
+    "U+1122F"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "7": {
+   "cps": [
+    "?"
+   ],
+   "rank": -1,
+   "claude_conf": 0.65,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 53,
+   "comment": "Sane thing, its an S with 2 dots on top and then a hook beside it",
+   "images": [
+    "review/img/p10_l03_s08_1.png"
+   ]
+  },
+  "8": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "9": {
+   "cps": [
+    "U+11229"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "10": {
+   "cps": [
+    "U+11229"
+   ],
+   "rank": 1,
+   "claude_conf": 0.45,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "11": {
+   "cps": [
+    "?"
+   ],
+   "rank": -1,
+   "claude_conf": 0.7,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 168,
+   "comment": "Ma + U + anusvura is more likely.\nExplain why you cant recognize this when there is one to one replica with Ma + U on the actual glyphics chart",
+   "images": [
+    "review/img/p10_l03_s12_1.png"
+   ]
+  },
+  "12": {
+   "cps": [
+    "U+11210"
+   ],
+   "rank": 0,
+   "claude_conf": 0.05,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 77,
+   "comment": "Same mistake again:\nthis is Ja + II, not a Ma, just compare the left character between Ma + vowelII and Ja + vowel II, i attatched it in this complaint",
+   "images": [
+    "review/img/p10_l03_s13_1.png",
+    "review/img/p10_l03_s13_2.png",
+    "review/img/p10_l03_s13_3.png"
+   ],
+   "was": [
+    "?"
+   ],
+   "recheck": "2026-10-30T23:40:56"
+  },
+  "13": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "14": {
+   "cps": [
+    "?"
+   ],
+   "rank": -1,
+   "claude_conf": 1,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 45,
+   "comment": "i cant tell what this is",
+   "images": [
+    "review/img/p10_l03_s15_1.png"
+   ]
+  },
+  "15": {
+   "cps": [
+    "U+11238"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "16": {
+   "cps": [
+    "U+11219"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 69,
+   "was": [
+    "U+11224"
+   ],
+   "recheck": "2026-10-30T23:40:56",
+   "comment": "recheck: Ta"
+  },
+  "17": {
+   "cps": [
+    "U+11224"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 7
+  },
+  "18": {
+   "cps": [
+    "U+11219"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 20
+  },
+  "19": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  }
+ }
+}

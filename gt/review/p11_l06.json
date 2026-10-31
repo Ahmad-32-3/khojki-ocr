@@ -121,9 +121,10 @@
   },
   "10": {
    "cps": [
-    "?"
+    "U+11221",
+    "U+1122E"
    ],
-   "rank": -1,
+   "rank": 0,
    "claude_conf": 0.25,
    "lattice": 3,
    "boxWrong": false,
@@ -132,7 +133,11 @@
    "comment": "claude has trouble with abbreviation sign + inherent letters, take this as abbreviation sign + or even Qa + and you can find much closer resemblences, try to remake this based on research and see if we can find a match on google",
    "images": [
     "review/img/p11_l06_s11_1.png"
-   ]
+   ],
+   "was": [
+    "?"
+   ],
+   "recheck": "2026-10-30T23:40:56"
   },
   "11": {
    "cps": [

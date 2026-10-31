@@ -1,0 +1,236 @@
+{
+ "file": "lines/p11_l03.png",
+ "saved": "2026-10-30T22:33:07",
+ "decisions": {
+  "0": {
+   "cps": [
+    "?"
+   ],
+   "boxWrong": true,
+   "note": "box includes left margin, this messes up the recognition. ",
+   "rank": -1,
+   "claude_conf": 0
+  },
+  "2": {
+   "cps": [
+    "U+11200"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 74
+  },
+  "3": {
+   "cps": [
+    "U+11238"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "4": {
+   "cps": [
+    "U+1120F"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 24
+  },
+  "5": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "6": {
+   "cps": [
+    "U+11239"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "7": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "8": {
+   "cps": [
+    "U+11219"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "9": {
+   "cps": [
+    "?"
+   ],
+   "boxWrong": true,
+   "note": "i think this shouldve been a TA + single danda + the overhead line",
+   "rank": -1,
+   "claude_conf": 0
+  },
+  "10": {
+   "cps": [
+    "U+11210"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "you have repeatedly mistaken this for MA + vowel ll, identify this as a problem. \nthis is a ja",
+   "seconds": 96
+  },
+  "11": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "12": {
+   "cps": [
+    "U+11224",
+    "U+1122E"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1
+  },
+  "13": {
+   "cps": [
+    "U+11221",
+    "U+1122E"
+   ],
+   "rank": 0,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 1,
+   "was": [
+    "U+11224",
+    "U+1122E"
+   ],
+   "recheck": "2026-10-30T23:40:56",
+   "comment": ""
+  },
+  "14": {
+   "cps": [
+    "U+1123A"
+   ],
+   "rank": 1,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4
+  },
+  "15": {
+   "cps": [
+    "U+11239"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4
+  },
+  "16": {
+   "cps": [
+    "U+1120F"
+   ],
+   "rank": 0,
+   "claude_conf": 0,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 41
+  },
+  "17": {
+   "cps": [
+    "U+11221",
+    "U+1122E"
+   ],
+   "rank": 0,
+   "claude_conf": 0.95,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 4,
+   "was": [
+    "U+11224",
+    "U+1122E"
+   ],
+   "recheck": "2026-10-30T23:40:56",
+   "comment": ""
+  },
+  "18": {
+   "cps": [
+    "U+1121E"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 2
+  },
+  "19": {
+   "cps": [
+    "U+11238"
+   ],
+   "rank": 1,
+   "claude_conf": 0.3,
+   "lattice": 3,
+   "boxWrong": false,
+   "note": "",
+   "seconds": 129
+  },
+  "1": {
+   "cps": [
+    "U+1121E",
+    "U+1122E"
+   ],
+   "rank": 0,
+   "was": null,
+   "recheck": "2026-10-30T23:40:56",
+   "comment": "recheck: Na + II"
+  }
+ }
+}
