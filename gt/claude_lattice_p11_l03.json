@@ -1,0 +1,618 @@
+{
+ "file": "lines/p11_l03.png",
+ "version": 3,
+ "segmenter": "pipeline",
+ "split": "dev",
+ "blind": false,
+ "spans": [
+  {
+   "boxes": [
+    0,
+    1
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123F",
+      "U+11236",
+      "U+11230"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "U+11238",
+      "U+1123F",
+      "U+11236"
+     ],
+     "conf": 0.05,
+     "why": "components: DANDA + QA+NUKTA"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.65,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    2
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.95,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    3
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11200"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.7,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    4
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11238"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    5
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.7,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    6
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "pipeline: recognised"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    7,
+    8
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11239"
+     ],
+     "conf": 0.95,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    9
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "pipeline: recognised"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    10
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11219"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.7,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    11
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1121E",
+      "U+11231"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.7,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    12
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.95,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    13
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "pipeline: recognised"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    14
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.7,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    15
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.95,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    16
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1123A"
+     ],
+     "conf": 0.95,
+     "why": "pipeline: recognised"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    17
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11239"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.7,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    18
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11239"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.7,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    19
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11224",
+      "U+1122E"
+     ],
+     "conf": 0.95,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.05,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    20
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+1121E"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.7,
+     "why": ""
+    }
+   ]
+  },
+  {
+   "boxes": [
+    21
+   ],
+   "readings": [
+    {
+     "cps": [
+      "U+11238"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "U+11226"
+     ],
+     "conf": 0.3,
+     "why": "pipeline suggestion (calibrated)"
+    },
+    {
+     "cps": [
+      "?"
+     ],
+     "conf": 0.4,
+     "why": ""
+    }
+   ]
+  }
+ ],
+ "boxes": [
+  [
+   4,
+   6,
+   2,
+   46,
+   "glyph"
+  ],
+  [
+   10,
+   39,
+   12,
+   61,
+   "glyph"
+  ],
+  [
+   42,
+   94,
+   30,
+   67,
+   "glyph"
+  ],
+  [
+   96,
+   136,
+   34,
+   57,
+   "glyph"
+  ],
+  [
+   142,
+   155,
+   30,
+   59,
+   "glyph"
+  ],
+  [
+   159,
+   181,
+   32,
+   61,
+   "glyph"
+  ],
+  [
+   189,
+   197,
+   38,
+   55,
+   "sep"
+  ],
+  [
+   207,
+   216,
+   34,
+   59,
+   "glyph"
+  ],
+  [
+   218,
+   231,
+   33,
+   63,
+   "glyph"
+  ],
+  [
+   236,
+   246,
+   39,
+   54,
+   "sep"
+  ],
+  [
+   261,
+   285,
+   31,
+   54,
+   "glyph"
+  ],
+  [
+   280,
+   307,
+   11,
+   54,
+   "glyph"
+  ],
+  [
+   307,
+   361,
+   31,
+   70,
+   "glyph"
+  ],
+  [
+   362,
+   374,
+   35,
+   51,
+   "sep"
+  ],
+  [
+   380,
+   442,
+   29,
+   61,
+   "glyph"
+  ],
+  [
+   451,
+   505,
+   33,
+   69,
+   "glyph"
+  ],
+  [
+   512,
+   522,
+   25,
+   42,
+   "sep"
+  ],
+  [
+   517,
+   545,
+   32,
+   59,
+   "glyph"
+  ],
+  [
+   544,
+   569,
+   31,
+   60,
+   "glyph"
+  ],
+  [
+   573,
+   624,
+   31,
+   73,
+   "glyph"
+  ],
+  [
+   623,
+   652,
+   35,
+   60,
+   "glyph"
+  ],
+  [
+   658,
+   666,
+   33,
+   60,
+   "glyph"
+  ]
+ ]
+}
