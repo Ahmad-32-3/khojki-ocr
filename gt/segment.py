@@ -63,7 +63,10 @@ def glyph_boxes(path):
 
 def boxes_for(lat, root=Path(__file__).parent):
     """Boxes a lattice's span indices refer to. Lines prepared before chunk 7 used this file's segmenter
-    (frozen, so their indices stay valid); lines from gt/prep_lines.py use the pipeline's (khojki.glyphs)."""
+    (frozen, so their indices stay valid); lines from gt/prep_lines.py store the pipeline's boxes from when they
+    were prepared, so a later stage B change can't shift the indices under a review (log 83)."""
+    if "boxes" in lat:
+        return lat["boxes"]
     if lat.get("segmenter") == "pipeline":
         import sys
         sys.path.insert(0, str(root.parent))

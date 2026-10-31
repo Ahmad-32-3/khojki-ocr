@@ -66,7 +66,8 @@ def prepare(page, line_no, test=False, bank=None, model=None):
     else:
         spans = [{"boxes": u["boxes"], "readings": readings(u)} for u in units]
     lat = {"file": f"lines/{name}.png", "version": 3, "segmenter": "pipeline", "split": "test" if test else "dev",
-           "blind": test, "spans": spans}
+           "blind": test, "spans": spans,
+           "boxes": [list(map(int, b[:4])) + [b[4]] for b in atoms["boxes"]]}  # frozen: later stage B changes can't shift them
     (GT / f"claude_lattice_{name}.json").write_text(json.dumps(lat, indent=1), encoding="utf-8")
     index = json.loads(INDEX.read_text(encoding="utf-8")) if INDEX.exists() else {}
     index[lat["file"]] = {"page": page, "x": x0, "y": y0, "w": x1 - x0, "h": y1 - y0}
