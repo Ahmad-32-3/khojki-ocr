@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letter recheck</title>
+<style>
+  body { font: 14px system-ui, sans-serif; margin: 16px; background: #fafafa; color: #222; }
+  .refs { display: flex; flex-wrap: wrap; gap: 8px; position: sticky; top: 0; background: #fafafa; padding: 8px 0; border-bottom: 1px solid #ccc; z-index: 1; }
+  .ref { text-align: center; font-size: 11px; }
+  .ref img { height: 56px; display: block; background: #fff; border: 1px solid #ddd; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+  .card { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 8px; }
+  .card.done { border-color: #2a7; }
+  canvas { display: block; margin-bottom: 6px; background: #eee; }
+  .meta { font-size: 12px; color: #555; }
+  .comment { font-size: 12px; color: #a40; margin: 4px 0; }
+  .row { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+  button.on { background: #2a7; color: #fff; }
+  textarea { width: 100%; box-sizing: border-box; }
+  #bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #ccc; padding: 8px 16px; }
+</style></head>
+<body>
+<h3>Recheck: which letter is it? (compare the left part of each glyph with the drawings)</h3>
+<div class="refs" id="refs"></div>
+<div class="grid" id="grid"></div>
+<div style="height:60px"></div>
+<div id="bar"><button id="save">Save answers</button> <span id="status"></span></div>
+<script>
+const REFS = __REFS__, ITEMS = __ITEMS__, LETTERS = __LETTERS__;
+const SIGNS = [["", "no vowel sign"], ["U+1122E", "+ II"], ["U+1122F", "+ U"], ["U+1122C", "+ AA"], ["U+11232", "+ O"], ["U+1122D", "+ I"], ["U+11230", "+ E"]];
+const answers = {};
+document.getElementById("refs").innerHTML = REFS.map(r => `<div class="ref"><img src="data:image/png;base64,${r.png}" alt="${r.name}">${r.name}</div>`).join("");
+const grid = document.getElementById("grid");
+ITEMS.forEach((it, n) => {
+  const key = `${it.file}#${it.span}`;
+  const c = document.createElement("div"); c.className = "card";
+  const signNow = it.answer_cps.slice(1).filter(x => x !== "U+11234").join(" ");
+  const anus = it.answer_cps.includes("U+11234");
+  c.innerHTML = `<canvas></canvas>
+    <div class="meta">${it.file.replace("lines/", "").replace(".png", "")} glyph ${it.span + 1}${it.split === "test" ? " (test line)" : ""}<br>
+    your answer: <b>${it.answer}</b> · pipeline guess: ${it.guess}</div>
+    ${it.comment ? `<div class="comment">${it.comment.replace(/</g, "&lt;")}</div>` : ""}
+    <div class="row"><button data-keep>Keep</button>${LETTERS.map(([cp, nm]) => `<button data-l="${cp}">${nm}</button>`).join("")}</div>
+    <div class="row"><select>${SIGNS.map(([v, t]) => `<option value="${v}" ${v === signNow ? "selected" : ""}>${t}</option>`).join("")}</select>
+    <label><input type="checkbox" ${anus ? "checked" : ""}> anusvara</label></div>
+    <textarea rows="1" placeholder="note (optional)"></textarea>`;
+  const img = new Image(); img.src = it.file;
+  img.onload = () => {
+    const [x0, x1, y0, y1] = it.box, pad = 6, s = 2, cv = c.querySelector("canvas");
+    const sx = Math.max(0, x0 - pad), sy = Math.max(0, y0 - pad), w = Math.min(img.width, x1 + pad) - sx, h = Math.min(img.height, y1 + pad) - sy;
+    cv.width = w * s; cv.height = h * s;
+    cv.getContext("2d").drawImage(img, sx, sy, w, h, 0, 0, w * s, h * s);
+  };
+  const record = (letter) => {
+    const sign = c.querySelector("select").value, an = c.querySelector("input").checked;
+    answers[key] = letter === null ? { keep: true } :
+      { cps: [letter, ...(sign ? [sign] : []), ...(an ? ["U+11234"] : [])] };
+    answers[key].note = c.querySelector("textarea").value;
+    c.querySelectorAll(".row button").forEach(b => b.classList.toggle("on", letter === null ? b.hasAttribute("data-keep") : b.dataset.l === letter));
+    c.classList.add("done");
+    document.getElementById("status").textContent = `${Object.keys(answers).length} of ${ITEMS.length} answered`;
+  };
+  c.querySelector("[data-keep]").onclick = () => record(null);
+  const again = () => answers[key] && answers[key].cps && record(answers[key].cps[0]);  // sign changed after the letter
+  c.querySelector("select").onchange = again; c.querySelector("input").onchange = again;
+  c.querySelector("textarea").oninput = () => {  // a note alone is an answer too (log 85: 8 notes were lost)
+    (answers[key] = answers[key] || {}).note = c.querySelector("textarea").value;
+    document.getElementById("status").textContent = `${Object.keys(answers).length} of ${ITEMS.length} answered`;
+  };
+  c.querySelectorAll("[data-l]").forEach(b => b.onclick = () => record(b.dataset.l));
+  grid.appendChild(c);
+});
+document.getElementById("status").textContent = `0 of ${ITEMS.length} answered`;
+document.getElementById("save").onclick = async () => {
+  const r = await fetch("/api/recheck", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ answers }) });
+  document.getElementById("status").textContent = r.ok ? `saved ${Object.keys(answers).length} answers` : "save failed";
+};
+</script>
+</body></html>

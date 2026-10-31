@@ -5,6 +5,7 @@ usage: python -X utf8 gt/server.py [port=8765]      (localhost only)
   POST /api/save             {file, decisions}         -> gt/review/<line>.json
   POST /api/image            {file, span, dataUrl}     -> gt/review/img/<line>_s<span>_<n>.png, returns {path}
   POST /api/complete         {file}                    -> appends to gt/review/inbox.log (Claude watches this)
+  POST /api/recheck          {answers}                 -> gt/review/recheck.json (gt/build_recheck.py page)
 """
 import base64, binascii, datetime, json, re, sys
 from functools import partial
@@ -42,6 +43,14 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(413, {"error": "body too large or empty"})
         try:
             req = json.loads(self.rfile.read(n))
+            if self.path == "/api/recheck":
+                if not isinstance(req.get("answers"), dict):
+                    return self._json(400, {"error": "answers must be an object"})
+                now = datetime.datetime.now().isoformat(timespec="seconds")
+                (OUT / "recheck.json").write_text(json.dumps({"saved": now, "answers": req["answers"]}, indent=1, ensure_ascii=False), encoding="utf-8")
+                with open(OUT / "inbox.log", "a", encoding="utf-8") as f:
+                    f.write(f"{now} recheck answers={len(req['answers'])} -> review/recheck.json\n")
+                return self._json(200, {"saved": now})
             m = LINE.match(req.get("file", ""))
             if not m:
                 return self._json(400, {"error": "unknown line"})

@@ -12,6 +12,7 @@ data/*.npz
 gt/picker.html
 gt/combos.html
 gt/review.html
+gt/recheck.html
 
 # Local runtime state
 gt/review/inbox.log
