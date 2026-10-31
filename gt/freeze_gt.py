@@ -7,6 +7,7 @@ A unit nobody could read is kept as status "open" (written "?" in the .txt) and 
 Versions:
   1  first freeze (log 59)
   2  marks put in Unicode order: nukta straight after its letter (log 68). Changes one unit: line 5 glyph 19.
+  3  adds the two blind test lines p10_l06 and p11_l06 (split "test", log 82). Dev lines unchanged.
 """
 import json, sys, unicodedata
 from pathlib import Path
@@ -16,7 +17,7 @@ sys.path.insert(0, str(GT.parent))
 from khojki.labels import canonical, from_hex  # noqa: E402
 from segment import boxes_for  # noqa: E402
 
-VERSION = 2
+VERSION = 3
 
 
 def answer(decision):

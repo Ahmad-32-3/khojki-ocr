@@ -450,6 +450,28 @@ Format: **Assumption / error → How caught → Fix**
      - `check_real` passes with the same numbers. 26 tests pass.
      - The review page shows both blind lines with no candidates and no console errors. The test tab created no review file.
 
+79. **"The page is empty": my first diagnosis was wrong.** The empty line list and broken image matched the `isMark` crash from log 69, so I guessed a cached copy of that broken page and added no-cache headers to the server. The preview tab list showed the real cause: the open tab was `file:///…/gt/review_template.html`, the **template** with its `__LINES__` placeholder unfilled, not the served `localhost:8765/review.html`. → Reverted the server change, since it was built on a wrong cause, and opened the right page in a new tab. Lesson: check *which page* is open before theorising about *why* it's broken.
+
+80. **Protocol change, your call: the test lines are assisted, not blind.** On the first glyph you couldn't tell which vowel letter a shape was without knowing how independent vowels work, and you decided suggestions were worth the bias ("I will handle that"). Recorded as is:
+   - p10 l6 and p11 l6 are still **test** lines. They're never learned from and never used for tuning, so the scores stay *held-out*.
+   - But their truth was made **with my suggestions shown**, so the scores aren't *independent of my reading*. The retro must say this.
+   - **The pipeline's own suggestions are never shown on test lines.** A system that shapes its own answer key is a worse bias than an outside reader.
+   - First case (p11 l6 g1): I showed the candidate vowel letters drawn in Noto, plus your two earlier decisions on similar shapes. The p9 l5 g1 plain 6-shape (you chose O) is a different family. The p9 l1 g15 crescent-plus-dot (still open) is the same family.
+
+81. **The test lines now have my scored readings, as on page 9 (your call: "I need to save time").** They're still `split: "test"`, never learned from and never tuned on, but reviewed with my suggestions (`assisted: true` in the lattice).
+   - **Chart builder bug:** "Add a mark" only worked on consonants, so a vowel letter could never take anusvara and U+anusvara couldn't be built. → Vowel letters now take anusvara and nukta only (Pandey 4.9–4.10). Consonants are unchanged, and punctuation takes nothing. Tested in a test tab: U → +anusvara gives U+11203 U+11234.
+   - **I regrouped the pipeline's boxes while reading.** It had joined two letters (p10 boxes 0+1) and split SA, MA and O in several places. A single box holding a digit, a separator and a section mark (p11 box 20) became 3 readings on the same box, as was done on page 9.
+   - **New in the data:** Gujarati digit 2 twice (a verse number, "22") before a separator and a **double section mark** (p11). Two **abbreviation signs** then a danda (p10). That's the pattern log 51 predicted for page-9 line 6.
+   - **Stage B bug the dev checks couldn't see:** on p11 l6, the page frame's vertical rule survived as a "glyph" (box 22). The rule filter needs a thin piece that's near full-height or touching a side, and this crop's rule did neither. The p9 checks pass because p9 crops don't hit it. To fix after the test lines are frozen, and to be measured on dev lines only, so the test stays clean.
+
+82. **Test lines reviewed; GT v3 frozen. My top reading was right on 32 of 41.**
+   - **p10 l6:** 16 of 21 matched my first reading. You took my second reading on 2 (JA, not HA: the C-rule pair again). 3 are left open with notes.
+   - **p11 l6:** 16 of 20 matched my first reading. **Glyph 7 is QA + U** (U+1123F U+1122F), which I didn't offer at all. QA is a Unicode 15 letter that page 9 never showed. **Glyph 15 is a danda**, where I read a Gujarati 2. Glyph 16 (my second "2") and glyph 11 are open. The frame rule (glyph 20) is open, as planned.
+   - **Where I was wrong:** I read a loop joined to a letter as MA + II. You saw a separate piece: an abbreviation-like loop or QA's loop. My readings went to the nearest whole letter I knew, not to the parts.
+   - **Your idea, built: describe unknown glyphs by their parts.** When a unit of 2–3 boxes has no confident reading as a whole, the pipeline now also reads each box alone. It gives "components: A + B" as one more suggestion: in the `.json`, as a PAGE-XML TextEquiv with `comments="suggestion: components …"`, and in pre-filled review lattices. On p10 l6, boxes 15+16 now come out as **ABBREVIATION SIGN + DA**, which is the split you saw.
+   - **Limit:** it only splits where stage B already found separate boxes. A loop *joined* in ink to its letter (p11 glyph 11) is one box, so it gets no components. That needs stroke-level splitting, which isn't built.
+   - **Second-route checks on the freeze.** v2→v3 diff: all 6 dev lines byte-identical, 2 new test lines. Units: 111 + 21 + 20 = 152. Confirmed: 98 + 18 + 17 = 133. Bank still 98 real (test excluded). `check_real` gives identical numbers to the baseline. 27 tests pass.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.
