@@ -41,6 +41,12 @@ def readings(unit):
         why = "pipeline: recognised" if letter["status"] == "recognised" else "pipeline suggestion (calibrated)"
         out.append({"cps": cps + sign_cps, "conf": c, "why": why})
         total = round(total + c, 2)
+    comps = unit.get("components")
+    c = min(max(0.05, min(p["conf"] for p in comps) // 0.05 * 0.05), round(1 - total - 0.05, 2)) if comps else 0
+    if c > 0:  # unknown as a whole: offer the pieces we can read, named
+        out.append({"cps": [x for p in comps for x in p["cps"]], "conf": round(c, 2),
+                    "why": "components: " + " + ".join(p["name"] for p in comps)})
+        total = round(total + c, 2)
     out.append({"cps": ["?"], "conf": round(1 - total, 2), "why": ""})
     return out
 

@@ -131,3 +131,14 @@ def test_stale_model_is_refused():
     with pytest.raises(RuntimeError, match="Refit"):
         R.recognise_line(gray, bank, dict(MODEL, bank_fp="0" * 16))
     assert fingerprint(bank) == fingerprint(synthetic_bank(synthetic_line()))  # same content, same value
+
+
+def test_unknown_join_is_described_by_its_pieces(monkeypatch):
+    """A two-box unit with no clear whole reading also gets each box read on its own ("components")."""
+    cands = {(0, 1): ({MA: 0.3, RA: 0.1}, {MA, RA}), (1, 1): ({RA: 0.3, MA: 0.1}, {MA, RA}),
+             (0, 2): ({MA: 0.4, RA: 0.35}, {MA, RA})}
+    monkeypatch.setattr(R, "candidates", lambda atoms, index: cands)
+    out = R.recognise_atoms({"boxes": [None, None]}, None, MODEL)
+    (u,) = out["units"]
+    assert u["letter"]["status"] == "suggestion"
+    assert [c["name"] for c in u["components"]] == ["MA", "RA"]

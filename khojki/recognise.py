@@ -14,7 +14,7 @@ import numpy as np
 
 from khojki.bank import BANK, fingerprint, load, normalise, unit_mask
 from khojki.glyphs import glyph_atoms
-from khojki.labels import SEPARATOR, parts
+from khojki.labels import SEPARATOR, name, parts
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "data" / "model.json"
@@ -209,6 +209,16 @@ def best_split(n_boxes, cands):
     return units[::-1]
 
 
+def _component(cand, model):
+    """One box of an unknown unit, read on its own: its best letter + signs. A shape we have no example for as a
+    whole (e.g. a loop joined to MA) can still be described by the parts we do know."""
+    share, real = cand
+    opts = part_scores(share, real)
+    m = (model or {}).get("letter", {}).get(group(opts), {})
+    cps = opts["letter"][0][0] + opts["signs"][0][0]
+    return {"cps": [f"U+{c:04X}" for c in cps], "name": name(cps), "conf": round(calibrate(opts["letter"][0][1], m.get("calib")), 3)}
+
+
 def recognise_atoms(atoms, index, model):
     cands = candidates(atoms, index)
     units = []
@@ -223,6 +233,8 @@ def recognise_atoms(atoms, index, model):
             unit[part] = d = decide(opts[part], m.get("calib"), m.get("tau", 2.0))
             text += "".join(chr(int(c[2:], 16)) for c in d["cps"]) if d["status"] == "recognised" else REPLACEMENT
         unit["text"] = text
+        if len(idx) > 1 and unit["letter"]["status"] != "recognised":
+            unit["components"] = [_component(cands[(i, 1)], model) for i in idx]
         units.append(unit)
     return {"units": units, "text": "".join(u["text"] for u in units)}
 

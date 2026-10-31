@@ -51,7 +51,8 @@ def _points(x0, y0, x1, y1):
 def to_page_xml(result):
     """PAGE-XML. Per glyph, TextEquiv index 1 holds the committed text (U+FFFD where unrecognised) with the
     lowest confidence of its recognised parts (0 if any part is a suggestion). Suggestions follow as further
-    TextEquiv entries, index 2+, comments="suggestion: letter|signs", so a tool never mistakes one for the answer."""
+    TextEquiv entries, index 2+, comments="suggestion: letter|signs", so a tool never mistakes one for the answer.
+    A glyph unknown as a whole but made of readable pieces adds one more, comments="suggestion: components A + B"."""
     now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
     out = [f'<?xml version="1.0" encoding="UTF-8"?>',
            f'<PcGts xmlns="{PAGE_NS}">',
@@ -74,6 +75,11 @@ def to_page_xml(result):
                         txt = "".join(chr(int(c[2:], 16)) for c in o["cps"])
                         out.append(f'          <TextEquiv index="{k}" conf="{o["conf"]}" comments="suggestion: {part}"><Unicode>{escape(txt)}</Unicode></TextEquiv>')
                         k += 1
+                if u.get("components"):  # unknown as a whole: the pieces we can read, joined
+                    txt = "".join(chr(int(c[2:], 16)) for p in u["components"] for c in p["cps"])
+                    conf = min(p["conf"] for p in u["components"])
+                    names = " + ".join(p["name"] for p in u["components"])
+                    out.append(f'          <TextEquiv index="{k}" conf="{conf}" comments="suggestion: components {escape(names)}"><Unicode>{escape(txt)}</Unicode></TextEquiv>')
                 out.append('        </Glyph>')
             out.append(f'        <TextEquiv><Unicode>{escape(l["text"])}</Unicode></TextEquiv>')
             out.append('      </TextLine>')
