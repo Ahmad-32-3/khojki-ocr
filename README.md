@@ -5,18 +5,25 @@ book into Unicode text, measures how accurate that text is, and explains what li
 
 ## Start Here
 
-| What | Where |
+| What the brief asks for | Where |
 |---|---|
-| **The retro** (the six-part write-up) | [RETRO.md](RETRO.md) |
-| **Walkthrough website** | *link added after deployment* (or run it locally, below) |
-| **Live demo** | *link added after deployment* (or run it locally, below) |
-| Every decision as it was made | [PROCESS_LOG.md](PROCESS_LOG.md) (94 entries) |
-| How recognition was designed | [SPEC.md](SPEC.md) |
+| **Technical retro** (1 page) | [RETRO.md](RETRO.md) |
+| **Walkthrough website** | [m48ahmad.com/ocr-walkthrough](https://m48ahmad.com/ocr-walkthrough) |
+| **Pipeline output** for pages 9 to 11 (text, JSON, PAGE-XML) | [results/](results/) |
+| **Test lines with their Unicode transcriptions** | [gt/gt.txt](gt/gt.txt) (one line per labelled line, `?` = unreadable) and [gt/gt.json](gt/gt.json) (with positions and dev/test split) |
+| **Results** (CER and most common errors) | below, and `python -X utf8 gt/eval_cer.py` |
+| **How to run it** | below |
+| Every decision as it was made | [PROCESS_LOG.md](PROCESS_LOG.md) (95 entries) |
+
+The live demo (the **Try the Demo** button) needs the small Python server in this repo, so it runs locally:
+see step 5 below. The scans aren't in the repository or on the website, because the pages are for this exercise only.
 
 ## Results in Brief
 
 - On 2 test lines kept aside until the end, the program's best guesses had **about 4 in 10 characters wrong**
-  (a 40.8% character error rate). On the 9 development lines it was 38.8%.
+  (a 40.8% character error rate). On the 9 development lines it was 38.8%. 11 lines were labelled in all.
+- Most common errors: small marks (an extra vowel sign II, E read as a nukta, an extra anusvara) and look-alike
+  letters (MA read as BA).
 - Of 81 errors on the development lines, 64 come from recognizing characters, 19 from cutting lines into
   characters, and none from finding lines.
 - A character counts as certain only when the program is at least 95% sure. No letter reaches that yet, so the text
@@ -84,6 +91,7 @@ upload one and watch each stage: the lines, the character boxes, and what was re
 ## Folders
 
 - **khojki** the pipeline
+- **results** the pipeline output for pages 9 to 11
 - **gt** the answer key, the labelling tools, the accuracy checks and the experiments
 - **demo** the demo page and the small local server that runs the pipeline for it
 - **site** the walkthrough website

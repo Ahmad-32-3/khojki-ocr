@@ -1,0 +1,1759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15">
+  <Metadata><Creator>khojki pipeline</Creator><Created>2026-11-01T03:11:16+00:00</Created><LastChange>2026-11-01T03:11:16+00:00</LastChange></Metadata>
+  <Page imageFilename="sample_khojki_script_vatiations_p10" imageWidth="836" imageHeight="1200">
+    <TextRegion id="r1"><Coords points="112,134 793,134 793,1154 112,1154"/>
+      <TextLine id="r1_l1"><Coords points="112,134 793,134 793,230 112,230"/>
+        <Glyph id="r1_l1_g1"><Coords points="129,184 162,184 162,210 129,210"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g2"><Coords points="166,184 176,184 176,207 166,207"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g3"><Coords points="178,166 206,166 206,214 178,214"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈦𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈔</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.149" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g4"><Coords points="209,172 229,172 229,202 209,202"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.049" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈜</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g5"><Coords points="236,185 248,185 248,202 236,202"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g6"><Coords points="253,162 294,162 294,209 253,209"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.455" comments="suggestion: letter"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.455" comments="suggestion: components DANDA + PA+NUKTA"><Unicode>𑈸𑈟𑈶</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g7"><Coords points="296,162 356,162 356,222 296,222"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈡𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈚𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈉𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g8"><Coords points="351,171 382,171 382,216 351,216"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.09" comments="suggestion: letter"><Unicode>𑈢</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈦𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈯𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.156" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g9"><Coords points="384,187 395,187 395,202 384,202"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g10"><Coords points="405,180 435,180 435,212 405,212"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: components DANDA + DANDA"><Unicode>𑈸𑈸</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g11"><Coords points="435,179 453,179 453,210 435,210"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.005" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g12"><Coords points="460,179 471,179 471,207 460,207"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.009" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g13"><Coords points="475,179 530,179 530,212 475,212"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈖</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈭</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g14"><Coords points="541,170 572,170 572,206 541,206"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈠</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g15"><Coords points="575,166 609,166 609,208 575,208"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈄</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈄</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈄𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.226" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.148" comments="suggestion: signs"><Unicode>𑈭</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g16"><Coords points="607,183 620,183 620,198 607,198"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g17"><Coords points="621,168 651,168 651,205 621,205"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.8" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.065" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g18"><Coords points="654,162 687,162 687,206 654,206"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈄</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.082" comments="suggestion: letter"><Unicode>𑈄𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.193" comments="suggestion: signs"><Unicode>𑈭𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.081" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g19"><Coords points="686,183 696,183 696,198 686,198"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g20"><Coords points="699,164 751,164 751,201 699,201"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈁𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈁</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.01" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈬𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.278" comments="suggestion: components A + DANDA"><Unicode>𑈀𑈸</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g21"><Coords points="755,155 777,155 777,207 755,207"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈟𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈜𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈋𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.184" comments="suggestion: signs"><Unicode>𑈯𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g22"><Coords points="782,183 787,183 787,197 782,197"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l1_g23"><Coords points="788,152 789,152 789,171 788,171"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>𑈤𑈸�𑈆𑈺𑈩�𑈦𑈴𑈺𑈹𑈸𑈸�𑈪𑈄𑈺𑈪�𑈺𑈁𑈴�𑈺�</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l2"><Coords points="112,230 793,230 793,321 112,321"/>
+        <Glyph id="r1_l2_g1"><Coords points="132,248 177,248 177,295 132,295"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.083" comments="suggestion: letter"><Unicode>𑈖𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈗</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.031" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.1" comments="suggestion: components DANDA + PHA+AI"><Unicode>𑈸𑈠𑈱</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g2"><Coords points="171,248 206,248 206,293 171,293"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈂</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.007" comments="suggestion: letter"><Unicode>𑈈</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.187" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g3"><Coords points="209,244 249,244 249,296 209,296"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈐𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈘𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈤𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈳</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈳𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g4"><Coords points="250,269 260,269 260,292 250,292"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g5"><Coords points="271,267 336,267 336,313 271,313"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.0" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈖</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g6"><Coords points="328,272 340,272 340,285 328,285"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g7"><Coords points="351,269 382,269 382,292 351,292"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.027" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g8"><Coords points="372,245 398,245 398,289 372,289"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.07" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g9"><Coords points="403,257 428,257 428,291 403,291"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.022" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.021" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g10"><Coords points="422,241 443,241 443,288 422,288"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈨𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.195" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g11"><Coords points="450,269 461,269 461,283 450,283"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g12"><Coords points="472,251 525,251 525,288 472,288"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈁𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈁</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈥𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.015" comments="suggestion: signs"><Unicode>𑈬𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.002" comments="suggestion: signs"><Unicode>𑈲𑈴</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.0" comments="suggestion: components A + DANDA"><Unicode>𑈀𑈸</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g13"><Coords points="532,250 576,250 576,301 532,301"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈋𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈢𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈟𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g14"><Coords points="579,247 633,247 633,289 579,289"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈁𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈁</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈖</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈳𑈴</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.0" comments="suggestion: components A + TTHA+NUKTA"><Unicode>𑈀𑈕𑈶</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g15"><Coords points="638,266 648,266 648,284 638,284"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g16"><Coords points="659,262 689,262 689,291 659,291"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈠</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈛</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g17"><Coords points="691,246 733,246 733,291 691,291"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.0" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈳𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈭</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l2_g18"><Coords points="724,247 768,247 768,295 724,295"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈘</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.017" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈬𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.171" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈳𑈴</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.0" comments="suggestion: components KA+U + DANDA+ANUSVARA"><Unicode>𑈈𑈯𑈸𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>𑈩𑈶��𑈸�𑈺𑈞�𑈪�𑈺𑈁𑈴�𑈁𑈴𑈺𑈏��</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l3"><Coords points="112,321 793,321 793,398 112,398"/>
+        <Glyph id="r1_l3_g1"><Coords points="131,355 176,355 176,378 131,378"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤𑈮</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.021" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.172" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.098" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g2"><Coords points="180,353 204,353 204,385 180,385"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="1.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g3"><Coords points="213,354 265,354 265,391 213,391"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.048" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.222" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g4"><Coords points="269,358 278,358 278,371 269,371"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g5"><Coords points="286,351 314,351 314,383 286,383"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.787" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈠</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.755" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.1" comments="suggestion: components DANDA + DANDA"><Unicode>𑈸𑈸</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g6"><Coords points="316,357 324,357 324,372 316,372"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g7"><Coords points="333,348 365,348 365,388 333,388"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪𑈯</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈠</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈔</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.023" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g8"><Coords points="366,341 406,341 406,392 366,392"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈂</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈈</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.055" comments="suggestion: letter"><Unicode>𑈈𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.003" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.278" comments="suggestion: components CHA + HA+AI"><Unicode>𑈏𑈪𑈱</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g9"><Coords points="410,358 421,358 421,373 410,373"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g10"><Coords points="425,350 467,350 467,376 425,376"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.713" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.455" comments="suggestion: components DANDA + CHA"><Unicode>𑈸𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g11"><Coords points="471,351 509,351 509,378 471,378"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.72" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈘</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.5" comments="suggestion: components DANDA + CHA"><Unicode>𑈸𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g12"><Coords points="516,342 559,342 559,386 516,386"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈉𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.001" comments="suggestion: letter"><Unicode>𑈛</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.151" comments="suggestion: signs"><Unicode>𑈬𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.111" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.096" comments="suggestion: signs"><Unicode>𑈯𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g13"><Coords points="563,349 625,349 625,393 563,393"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈐𑈮</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.077" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.004" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g14"><Coords points="624,353 636,353 636,368 624,368"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g15"><Coords points="645,346 666,346 666,379 645,379"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g16"><Coords points="677,348 686,348 686,375 677,375"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g17"><Coords points="694,348 718,348 718,374 694,374"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g18"><Coords points="725,348 753,348 753,375 725,375"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g19"><Coords points="756,348 791,348 791,396 756,396"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈔𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈜</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l3_g20"><Coords points="781,351 786,351 786,368 781,368"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>𑈤𑈮𑈦𑈐𑈺𑈹𑈺𑈪𑈯�𑈺𑈩𑈩�𑈐𑈮𑈺𑈦𑈸𑈙𑈤𑈙𑈺</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l4"><Coords points="112,398 793,398 793,485 112,485"/>
+        <Glyph id="r1_l4_g1"><Coords points="136,404 172,404 172,479 136,479"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.012" comments="suggestion: letter"><Unicode>𑈂𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈛𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈠𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈯𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g2"><Coords points="172,417 201,417 201,467 172,467"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪𑈰</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈜</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈪𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.11" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g3"><Coords points="206,436 230,436 230,475 206,475"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.8" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g4"><Coords points="236,436 246,436 246,459 236,459"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g5"><Coords points="255,439 264,439 264,456 255,456"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g6"><Coords points="274,436 314,436 314,466 274,466"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈘</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.455" comments="suggestion: components DANDA + CHA"><Unicode>𑈸𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g7"><Coords points="307,419 330,419 330,462 307,462"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.006" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.004" comments="suggestion: letter"><Unicode>𑈨𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g8"><Coords points="335,438 358,438 358,470 335,470"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.748" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g9"><Coords points="358,418 375,418 375,458 358,458"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑉀</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.105" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g10"><Coords points="381,440 390,440 390,454 381,454"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g11"><Coords points="400,431 441,431 441,461 400,461"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.713" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈘</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.455" comments="suggestion: components DANDA + CHA"><Unicode>𑈸𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g12"><Coords points="450,432 512,432 512,467 450,467"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈖</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.183" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.1" comments="suggestion: components RA + QA"><Unicode>𑈦𑈿</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g13"><Coords points="517,434 542,434 542,468 517,468"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.949" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g14"><Coords points="551,438 558,438 558,451 551,451"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g15"><Coords points="568,433 586,433 586,462 568,462"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g16"><Coords points="584,407 611,407 611,461 584,461"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈟𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈟𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.25" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g17"><Coords points="616,433 640,433 640,469 616,469"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="1.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g18"><Coords points="644,440 654,440 654,455 644,455"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g19"><Coords points="666,411 704,411 704,460 666,460"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈀𑈶</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈀𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈅</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g20"><Coords points="712,432 757,432 757,473 712,473"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈡𑈮</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈢</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g21"><Coords points="759,437 765,437 765,452 759,452"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l4_g22"><Coords points="770,429 787,429 787,463 770,463"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈔</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.25" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.1" comments="suggestion: components DANDA + DANDA"><Unicode>𑈸𑈸</Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>�𑈪𑈰𑈦𑈸𑈺𑈩�𑈦�𑈺𑈩�𑈦𑈺𑈸𑈟𑈱𑈴𑈦𑈺𑈀𑈶𑈡𑈮𑈺𑈹</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l5"><Coords points="112,485 793,485 793,572 112,572"/>
+        <Glyph id="r1_l5_g1"><Coords points="136,517 165,517 165,559 136,559"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪𑈯</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.094" comments="suggestion: letter"><Unicode>𑈐𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.6" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g2"><Coords points="165,511 203,511 203,550 165,550"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈀𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈡𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈲</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g3"><Coords points="205,522 238,522 238,545 205,545"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈝</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.099" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g4"><Coords points="244,526 253,526 253,541 244,541"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g5"><Coords points="255,504 288,504 288,549 255,549"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈄</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.089" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.07" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.05" comments="suggestion: signs"><Unicode>𑈳𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g6"><Coords points="286,520 318,520 318,547 286,547"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.004" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈝</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g7"><Coords points="325,523 334,523 334,546 325,546"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g8"><Coords points="342,520 373,520 373,547 342,547"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.006" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g9"><Coords points="379,526 391,526 391,539 379,539"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g10"><Coords points="396,519 430,519 430,557 396,557"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪𑈯</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.036" comments="suggestion: letter"><Unicode>𑈍</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.026" comments="suggestion: letter"><Unicode>𑈉</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.154" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g11"><Coords points="430,496 477,496 477,546 430,546"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈖</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.223" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.086" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.278" comments="suggestion: components DANDA + RA+E"><Unicode>𑈸𑈦𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g12"><Coords points="482,520 516,520 516,545 482,545"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.056" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g13"><Coords points="523,521 533,521 533,540 523,540"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g14"><Coords points="542,496 572,496 572,553 542,553"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈪𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈜𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g15"><Coords points="575,520 609,520 609,546 575,546"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.094" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.01" comments="suggestion: letter"><Unicode>𑈝</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g16"><Coords points="617,519 627,519 627,545 617,545"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g17"><Coords points="635,524 649,524 649,539 635,539"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.03" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g18"><Coords points="656,524 670,524 670,537 656,537"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.25" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g19"><Coords points="679,517 688,517 688,544 679,544"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g20"><Coords points="698,519 724,519 724,544 698,544"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g21"><Coords points="730,521 739,521 739,541 730,541"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l5_g22"><Coords points="743,521 792,521 792,561 743,561"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.239" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: components MA + DDDA+NUKTA"><Unicode>𑈤𑈜𑈶</Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>𑈪𑈯�𑈤𑈺�𑈤𑈸𑈤𑈺𑈪𑈯𑈩𑈶𑈞𑈺𑈪𑈱𑈴𑈤𑈸𑈽�𑈸𑈙𑈺�</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l6"><Coords points="112,572 793,572 793,647 112,647"/>
+        <Glyph id="r1_l6_g1"><Coords points="141,604 164,604 164,634 141,634"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g2"><Coords points="168,594 199,594 199,634 168,634"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈤𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.094" comments="suggestion: letter"><Unicode>𑈙𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.022" comments="suggestion: signs"><Unicode>𑈲</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g3"><Coords points="207,609 217,609 217,626 207,626"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g4"><Coords points="224,585 262,585 262,635 224,635"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈋</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.219" comments="suggestion: signs"><Unicode>𑈳𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.101" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g5"><Coords points="267,588 305,588 305,633 267,633"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈐𑈰</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.02" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g6"><Coords points="311,611 321,611 321,627 311,627"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g7"><Coords points="327,601 361,601 361,641 327,641"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪𑈯</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.059" comments="suggestion: letter"><Unicode>𑈠</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈜</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.017" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g8"><Coords points="364,588 402,588 402,640 364,640"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈂</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈜𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.077" comments="suggestion: letter"><Unicode>𑈟𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.129" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g9"><Coords points="407,611 421,611 421,624 407,624"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.226" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g10"><Coords points="427,609 442,609 442,623 427,623"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g11"><Coords points="446,603 455,603 455,630 446,630"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g12"><Coords points="461,602 502,602 502,631 461,631"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.042" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈘</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.678" comments="suggestion: components DANDA + CHA"><Unicode>𑈸𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g13"><Coords points="503,610 516,610 516,625 503,625"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g14"><Coords points="525,602 557,602 557,631 525,631"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈝</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g15"><Coords points="568,604 584,604 584,621 568,621"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑉀</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g16"><Coords points="586,599 617,599 617,638 586,638"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈛</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈈</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.171" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g17"><Coords points="619,607 629,607 629,621 619,621"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g18"><Coords points="635,600 660,600 660,635 635,635"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.1" comments="suggestion: components DANDA + DANDA"><Unicode>𑈸𑈸</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g19"><Coords points="663,606 675,606 675,622 663,622"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g20"><Coords points="681,602 720,602 720,629 681,629"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈘</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.678" comments="suggestion: components DANDA + CHA"><Unicode>𑈸𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g21"><Coords points="715,585 736,585 736,625 715,625"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.032" comments="suggestion: letter"><Unicode>𑈨𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.002" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.128" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g22"><Coords points="739,606 747,606 747,622 739,622"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l6_g23"><Coords points="751,602 781,602 781,626 751,626"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈀</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.04" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>𑈨�𑈺�𑈐𑈰𑈺𑈪𑈯��𑈽𑈸𑈩𑈺𑈧𑈽�𑈺𑈹𑈺𑈩�𑈺𑈞</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l7"><Coords points="112,647 793,647 793,739 112,739"/>
+        <Glyph id="r1_l7_g1"><Coords points="142,676 183,676 183,717 142,717"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈉</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈑𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.175" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.12" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g2"><Coords points="186,695 193,695 193,708 186,708"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g3"><Coords points="195,656 241,656 241,716 195,716"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈚𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.1" comments="suggestion: components DDDA+ANUSVARA + RA+NUKTA+E+ANUSVARA"><Unicode>𑈜𑈴𑈦𑈶𑈰𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g4"><Coords points="242,688 265,688 265,723 242,723"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.859" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g5"><Coords points="270,692 280,692 280,708 270,708"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g6"><Coords points="283,664 329,664 329,716 283,716"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈚𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.1" comments="suggestion: components DANDA + PA+NUKTA+E"><Unicode>𑈸𑈟𑈶𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g7"><Coords points="331,688 340,688 340,712 331,712"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g8"><Coords points="344,679 373,679 373,715 344,715"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈋</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g9"><Coords points="375,688 386,688 386,712 375,712"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g10"><Coords points="394,690 424,690 424,716 394,716"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈿</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈛</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g11"><Coords points="428,686 458,686 458,712 428,712"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.429" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g12"><Coords points="464,692 475,692 475,709 464,709"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g13"><Coords points="476,686 501,686 501,720 476,720"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.945" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g14"><Coords points="510,663 554,663 554,713 510,713"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩𑈰</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.093" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="8" conf="0.429" comments="suggestion: components DANDA + RA+E"><Unicode>𑈸𑈦𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g15"><Coords points="559,675 584,675 584,704 559,704"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈃</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑉀</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g16"><Coords points="586,692 595,692 595,708 586,708"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g17"><Coords points="602,649 664,649 664,726 602,726"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.075" comments="suggestion: letter"><Unicode>𑈢𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.012" comments="suggestion: letter"><Unicode>𑈿𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈣𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.25" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g18"><Coords points="662,689 675,689 675,704 662,704"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g19"><Coords points="677,674 715,674 715,721 677,721"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈍</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈤𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈯𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g20"><Coords points="719,682 779,682 779,726 719,726"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈐𑈮</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.037" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l7_g21"><Coords points="776,689 782,689 782,704 776,704"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>�𑈺𑈩𑈶𑈦𑈺𑈩𑈶𑈸𑈪𑈸�𑈙𑈺𑈦𑈩𑈰�𑈺�𑈺�𑈐𑈮𑈺</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l8"><Coords points="112,739 793,739 793,823 112,823"/>
+        <Glyph id="r1_l8_g1"><Coords points="127,759 129,759 129,807 127,807"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.004" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈔𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈕𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g2"><Coords points="141,774 165,774 165,805 141,805"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.096" comments="suggestion: letter"><Unicode>𑈙𑈵𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g3"><Coords points="170,774 181,774 181,802 170,802"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g4"><Coords points="183,770 209,770 209,810 183,810"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g5"><Coords points="213,778 223,778 223,793 213,793"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g6"><Coords points="227,772 260,772 260,801 227,801"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.333" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g7"><Coords points="269,774 278,774 278,800 269,800"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g8"><Coords points="287,775 320,775 320,798 287,798"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g9"><Coords points="325,777 335,777 335,793 325,793"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g10"><Coords points="340,769 370,769 370,802 340,802"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.066" comments="suggestion: letter"><Unicode>𑈙𑈵𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g11"><Coords points="375,770 396,770 396,805 375,805"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g12"><Coords points="391,770 418,770 418,806 391,806"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g13"><Coords points="427,776 436,776 436,791 427,791"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g14"><Coords points="442,770 454,770 454,801 442,801"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g15"><Coords points="458,770 553,770 553,800 458,800"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.0" comments="suggestion: letter"><Unicode>𑈐𑈵𑈓</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈥𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g16"><Coords points="472,776 483,776 483,792 472,792"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g17"><Coords points="573,769 598,769 598,800 573,800"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈙𑈵𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈉</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g18"><Coords points="606,769 613,769 613,797 606,797"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g19"><Coords points="618,768 644,768 644,801 618,801"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.9" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g20"><Coords points="652,767 691,767 691,797 652,797"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.429" comments="suggestion: components RA + CHA"><Unicode>𑈦𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g21"><Coords points="698,774 707,774 707,791 698,791"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g22"><Coords points="709,752 735,752 735,799 709,799"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈔</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.278" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.096" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.033" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g23"><Coords points="737,773 745,773 745,788 737,788"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g24"><Coords points="753,763 775,763 775,795 753,795"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l8_g25"><Coords points="773,762 788,762 788,795 773,795"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.438" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>�𑈨𑈸𑈦𑈺𑈤𑈸𑈞𑈺𑈨𑈸�𑈺𑈸�𑈺𑈨𑈸𑈦𑈩𑈺�𑈺𑈏𑈸</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l9"><Coords points="112,823 793,823 793,898 112,898"/>
+        <Glyph id="r1_l9_g1"><Coords points="147,841 175,841 175,889 147,889"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈜𑈶</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈜𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈜</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.065" comments="suggestion: letter"><Unicode>𑈔</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.218" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g2"><Coords points="174,838 203,838 203,891 174,891"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈔</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.094" comments="suggestion: letter"><Unicode>𑈪𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈯𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g3"><Coords points="207,839 243,839 243,885 207,885"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈉</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.094" comments="suggestion: letter"><Unicode>𑈙𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.01" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g4"><Coords points="247,866 256,866 256,880 247,880"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g5"><Coords points="264,849 295,849 295,885 264,885"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.8" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g6"><Coords points="297,838 333,838 333,886 297,886"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈄</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.035" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈭</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.21" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g7"><Coords points="331,863 342,863 342,879 331,879"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g8"><Coords points="345,847 374,847 374,882 345,882"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.779" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g9"><Coords points="379,841 421,841 421,884 379,884"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.049" comments="suggestion: letter"><Unicode>𑈔</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.029" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.001" comments="suggestion: letter"><Unicode>𑈓</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈭</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈲𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g10"><Coords points="412,861 423,861 423,879 412,879"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g11"><Coords points="430,843 485,843 485,886 430,886"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈠</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈬𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.107" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g12"><Coords points="489,855 528,855 528,878 489,878"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈀</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈀</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.091" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.05" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g13"><Coords points="534,855 544,855 544,873 534,873"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g14"><Coords points="552,839 583,839 583,882 552,882"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈧𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.333" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈋</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈢</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈯𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g15"><Coords points="593,852 650,852 650,888 593,888"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈞𑈮</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.098" comments="suggestion: letter"><Unicode>𑈿</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g16"><Coords points="647,853 690,853 690,877 647,877"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈀</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈀</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g17"><Coords points="697,848 735,848 735,877 697,877"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈉</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.678" comments="suggestion: components DANDA + CHA"><Unicode>𑈸𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g18"><Coords points="740,854 750,854 750,871 740,871"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g19"><Coords points="760,846 781,846 781,880 760,880"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.1" comments="suggestion: components DANDA + DANDA"><Unicode>𑈸𑈸</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g20"><Coords points="783,850 789,850 789,864 783,864"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>𑈜𑈶𑈪𑈴𑈤𑈰𑈴𑈺𑈪�𑈺𑈪�𑈺�𑈀𑈺𑈧𑈴𑈞𑈮𑈀𑈩𑈺𑈹𑈺</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l10"><Coords points="112,898 793,898 793,984 112,984"/>
+        <Glyph id="r1_l10_g1"><Coords points="143,914 191,914 191,966 143,966"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈚𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈉𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.057" comments="suggestion: letter"><Unicode>𑈥𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.077" comments="suggestion: signs"><Unicode>𑈲</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.066" comments="suggestion: signs"><Unicode>𑈲𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g2"><Coords points="193,905 230,905 230,968 193,968"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.008" comments="suggestion: letter"><Unicode>𑈦𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.007" comments="suggestion: letter"><Unicode>𑈠𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈪𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈳</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈳𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g3"><Coords points="226,944 236,944 236,960 226,960"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g4"><Coords points="244,938 263,938 263,965 244,965"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.056" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g5"><Coords points="262,908 294,908 294,963 262,963"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.001" comments="suggestion: letter"><Unicode>𑈟𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈦𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.201" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g6"><Coords points="295,943 309,943 309,958 295,958"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈽</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.228" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g7"><Coords points="315,918 342,918 342,965 315,965"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈢</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈢𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.25" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.114" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g8"><Coords points="352,940 382,940 382,968 352,968"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈛</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈿</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.033" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.048" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g9"><Coords points="389,944 399,944 399,960 389,960"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g10"><Coords points="406,918 451,918 451,961 406,961"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈳</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: components MA+AI + VA+NUKTA"><Unicode>𑈤𑈱𑈨𑈶</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g11"><Coords points="459,935 517,935 517,971 459,971"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈐𑈮</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.07" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g12"><Coords points="519,938 534,938 534,953 519,953"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g13"><Coords points="536,930 575,930 575,963 536,963"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.085" comments="suggestion: letter"><Unicode>𑈢</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.25" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g14"><Coords points="580,932 629,932 629,957 580,957"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤𑈮</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g15"><Coords points="634,932 661,932 661,965 634,965"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.766" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g16"><Coords points="673,918 699,918 699,957 673,957"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈙𑈰</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈙𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.084" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g17"><Coords points="705,937 718,937 718,955 705,955"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g18"><Coords points="729,931 758,931 758,965 729,965"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈈</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g19"><Coords points="758,930 783,930 783,956 758,956"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.094" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l10_g20"><Coords points="785,928 790,928 790,953 785,953"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>��𑈺𑈸����𑈺�𑈐𑈮𑈺�𑈤𑈮𑈦𑈙𑈰𑈺��𑈸</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l11"><Coords points="112,984 793,984 793,1069 112,1069"/>
+        <Glyph id="r1_l11_g1"><Coords points="140,1022 165,1022 165,1053 140,1053"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈙𑈵𑈦</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g2"><Coords points="166,1021 192,1021 192,1059 166,1059"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g3"><Coords points="197,1027 208,1027 208,1042 197,1042"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g4"><Coords points="214,992 282,992 282,1057 214,1057"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈡𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈚𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈩𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈳</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈳𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g5"><Coords points="286,1027 299,1027 299,1044 286,1044"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g6"><Coords points="304,1002 334,1002 334,1053 304,1053"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈢</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈨𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.172" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g7"><Coords points="339,1021 387,1021 387,1055 339,1055"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈉</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈈</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.047" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g8"><Coords points="393,1023 435,1023 435,1046 393,1046"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈀</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈀</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g9"><Coords points="438,1015 483,1015 483,1045 438,1045"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈩</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈚</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.678" comments="suggestion: components DANDA + CHA"><Unicode>𑈸𑈏</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g10"><Coords points="489,1022 500,1022 500,1039 489,1039"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g11"><Coords points="508,1018 522,1018 522,1046 508,1046"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.058" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g12"><Coords points="524,1017 536,1017 536,1051 524,1051"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g13"><Coords points="545,1015 568,1015 568,1049 545,1049"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g14"><Coords points="577,1018 609,1018 609,1054 577,1054"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈠</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.1" comments="suggestion: components DANDA + DANDA"><Unicode>𑈸𑈸</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g15"><Coords points="609,1024 617,1024 617,1039 609,1039"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g16"><Coords points="622,1015 724,1015 724,1048 622,1048"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.0" comments="suggestion: letter"><Unicode>𑈐𑈵𑈓</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈬</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g17"><Coords points="722,999 742,999 742,1040 722,1040"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.056" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g18"><Coords points="751,1018 770,1018 770,1050 751,1050"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.062" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.028" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l11_g19"><Coords points="762,999 783,999 783,1053 762,1053"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.014" comments="suggestion: letter"><Unicode>𑈕𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈱𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>𑈨𑈦𑈺�𑈺��𑈀𑈩𑈺𑈸𑈸�𑈹𑈺��𑈦�</Unicode></TextEquiv>
+      </TextLine>
+      <TextLine id="r1_l12"><Coords points="112,1069 793,1069 793,1154 112,1154"/>
+        <Glyph id="r1_l12_g1"><Coords points="149,1100 175,1100 175,1135 149,1135"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.736" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g2"><Coords points="166,1082 190,1082 190,1124 166,1124"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.076" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈟</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g3"><Coords points="200,1104 223,1104 223,1137 200,1137"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.455" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.005" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g4"><Coords points="212,1085 242,1085 242,1139 212,1139"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈜</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈐𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.184" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.179" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g5"><Coords points="241,1108 254,1108 254,1123 241,1123"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g6"><Coords points="258,1098 288,1098 288,1136 258,1136"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.797" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g7"><Coords points="291,1098 338,1098 338,1134 291,1134"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈘</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈘</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.074" comments="suggestion: letter"><Unicode>𑈖</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.029" comments="suggestion: letter"><Unicode>𑈡</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈴</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g8"><Coords points="342,1080 381,1080 381,1129 342,1129"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈤𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈑𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.211" comments="suggestion: signs"><Unicode>𑈰𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.211" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g9"><Coords points="382,1109 393,1109 393,1124 382,1124"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g10"><Coords points="397,1097 423,1097 423,1132 397,1132"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.8" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g11"><Coords points="431,1098 458,1098 458,1123 431,1123"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.025" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="1.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g12"><Coords points="465,1098 523,1098 523,1136 465,1136"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈐</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈑</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.211" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g13"><Coords points="528,1105 537,1105 537,1120 528,1120"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g14"><Coords points="544,1095 570,1095 570,1125 544,1125"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈙𑈵𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈞</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g15"><Coords points="576,1094 587,1094 587,1122 576,1122"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g16"><Coords points="593,1092 617,1092 617,1129 593,1129"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.278" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.022" comments="suggestion: letter"><Unicode>𑈪</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g17"><Coords points="609,1090 635,1090 635,1133 609,1133"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.045" comments="suggestion: letter"><Unicode>𑈕</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑉀𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.062" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈰</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈯</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g18"><Coords points="640,1101 653,1101 653,1117 640,1117"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g19"><Coords points="657,1092 689,1092 689,1126 657,1126"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.018" comments="suggestion: letter"><Unicode>𑈈</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g20"><Coords points="696,1097 704,1097 704,1122 696,1122"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g21"><Coords points="712,1095 745,1095 745,1122 712,1122"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.278" comments="suggestion: letter"><Unicode>𑈤</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.1" comments="suggestion: letter"><Unicode>𑈧</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.1" comments="suggestion: letter"><Unicode>𑈏</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.063" comments="suggestion: components ABBREVIATION SIGN + TTHA"><Unicode>𑈽𑈕</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g22"><Coords points="747,1069 793,1069 793,1154 747,1154"/>
+          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.0" comments="suggestion: letter"><Unicode>𑈍𑈶</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈛𑈶</Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈓𑈶</Unicode></TextEquiv>
+          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode>𑈯𑈴</Unicode></TextEquiv>
+          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
+          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈱</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l12_g23"><Coords points="776,1096 784,1096 784,1111 776,1111"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <TextEquiv><Unicode>𑈦�𑈦�𑈺𑈦𑈘𑈤𑈰𑈴𑈺𑈦𑈙�𑈺𑈨𑈸𑈦�𑈺�𑈸��𑈺</Unicode></TextEquiv>
+      </TextLine>
+      <TextEquiv><Unicode>𑈤𑈸�𑈆𑈺𑈩�𑈦𑈴𑈺𑈹𑈸𑈸�𑈪𑈄𑈺𑈪�𑈺𑈁𑈴�𑈺�
+𑈩𑈶��𑈸�𑈺𑈞�𑈪�𑈺𑈁𑈴�𑈁𑈴𑈺𑈏��
+𑈤𑈮𑈦𑈐𑈺𑈹𑈺𑈪𑈯�𑈺𑈩𑈩�𑈐𑈮𑈺𑈦𑈸𑈙𑈤𑈙𑈺
+�𑈪𑈰𑈦𑈸𑈺𑈩�𑈦�𑈺𑈩�𑈦𑈺𑈸𑈟𑈱𑈴𑈦𑈺𑈀𑈶𑈡𑈮𑈺𑈹
+𑈪𑈯�𑈤𑈺�𑈤𑈸𑈤𑈺𑈪𑈯𑈩𑈶𑈞𑈺𑈪𑈱𑈴𑈤𑈸𑈽�𑈸𑈙𑈺�
+𑈨�𑈺�𑈐𑈰𑈺𑈪𑈯��𑈽𑈸𑈩𑈺𑈧𑈽�𑈺𑈹𑈺𑈩�𑈺𑈞
+�𑈺𑈩𑈶𑈦𑈺𑈩𑈶𑈸𑈪𑈸�𑈙𑈺𑈦𑈩𑈰�𑈺�𑈺�𑈐𑈮𑈺
+�𑈨𑈸𑈦𑈺𑈤𑈸𑈞𑈺𑈨𑈸�𑈺𑈸�𑈺𑈨𑈸𑈦𑈩𑈺�𑈺𑈏𑈸
+𑈜𑈶𑈪𑈴𑈤𑈰𑈴𑈺𑈪�𑈺𑈪�𑈺�𑈀𑈺𑈧𑈴𑈞𑈮𑈀𑈩𑈺𑈹𑈺
+��𑈺𑈸����𑈺�𑈐𑈮𑈺�𑈤𑈮𑈦𑈙𑈰𑈺��𑈸
+𑈨𑈦𑈺�𑈺��𑈀𑈩𑈺𑈸𑈸�𑈹𑈺��𑈦�
+𑈦�𑈦�𑈺𑈦𑈘𑈤𑈰𑈴𑈺𑈦𑈙�𑈺𑈨𑈸𑈦�𑈺�𑈸��𑈺</Unicode></TextEquiv>
+    </TextRegion>
+  </Page>
+</PcGts>

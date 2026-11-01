@@ -1,0 +1,12081 @@
+{
+ "page": "sample_khojki_script_vatiations_p10",
+ "width": 836,
+ "height": 1200,
+ "lines": [
+  {
+   "bbox": [
+    112,
+    134,
+    793,
+    230
+   ],
+   "text": "𑈤𑈸�𑈆𑈺𑈩�𑈦𑈴𑈺𑈹𑈸𑈸�𑈪𑈄𑈺𑈪�𑈺𑈁𑈴�𑈺�",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤",
+     "bbox": [
+      129,
+      184,
+      162,
+      210
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      166,
+      184,
+      176,
+      207
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11226",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11214"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.149
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      178,
+      166,
+      206,
+      214
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.049
+       },
+       {
+        "cps": [
+         "U+1121C"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈆",
+     "bbox": [
+      209,
+      172,
+      229,
+      202
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      236,
+      185,
+      248,
+      202
+     ]
+    },
+    {
+     "boxes": [
+      5,
+      6
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11229",
+         "U+11236"
+        ],
+        "conf": 0.455
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+1121F",
+        "U+11236"
+       ],
+       "name": "PA+NUKTA",
+       "conf": 0.455
+      }
+     ],
+     "bbox": [
+      253,
+      162,
+      294,
+      209
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11221",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121A",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11209",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      296,
+      162,
+      356,
+      222
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11222"
+        ],
+        "conf": 0.09
+       },
+       {
+        "cps": [
+         "U+11226",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122F",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.156
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦𑈴",
+     "bbox": [
+      351,
+      171,
+      382,
+      216
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      384,
+      187,
+      395,
+      202
+     ]
+    },
+    {
+     "boxes": [
+      10,
+      11
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.678
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈹",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      405,
+      180,
+      435,
+      212
+     ]
+    },
+    {
+     "boxes": [
+      12
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.005
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      435,
+      179,
+      453,
+      210
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.009
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      460,
+      179,
+      471,
+      207
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11216"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11225"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122D"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      475,
+      179,
+      530,
+      212
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11220"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪",
+     "bbox": [
+      541,
+      170,
+      572,
+      206
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11204"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11204",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.226
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122D"
+        ],
+        "conf": 0.148
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈄",
+     "bbox": [
+      575,
+      166,
+      609,
+      208
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      607,
+      183,
+      620,
+      198
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.8
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.065
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪",
+     "bbox": [
+      621,
+      168,
+      651,
+      205
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11204"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11204",
+         "U+11236"
+        ],
+        "conf": 0.082
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122D",
+         "U+11234"
+        ],
+        "conf": 0.193
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.081
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      654,
+      162,
+      687,
+      206
+     ]
+    },
+    {
+     "boxes": [
+      20
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      686,
+      183,
+      696,
+      198
+     ]
+    },
+    {
+     "boxes": [
+      21,
+      22
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11201"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.01
+       },
+       {
+        "cps": [
+         "U+11225"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122C",
+         "U+11234"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈁𑈴",
+     "components": [
+      {
+       "cps": [
+        "U+11200"
+       ],
+       "name": "A",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.278
+      }
+     ],
+     "bbox": [
+      699,
+      164,
+      751,
+      201
+     ]
+    },
+    {
+     "boxes": [
+      23
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121F",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121C",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1120B",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122F",
+         "U+11234"
+        ],
+        "conf": 0.184
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      755,
+      155,
+      777,
+      207
+     ]
+    },
+    {
+     "boxes": [
+      24
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      782,
+      183,
+      787,
+      197
+     ]
+    },
+    {
+     "boxes": [
+      25
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      788,
+      152,
+      789,
+      171
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    230,
+    793,
+    321
+   ],
+   "text": "𑈩𑈶��𑈸�𑈺𑈞�𑈪�𑈺𑈁𑈴�𑈁𑈴𑈺𑈏��",
+   "units": [
+    {
+     "boxes": [
+      0,
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229",
+         "U+11236"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11216",
+         "U+11236"
+        ],
+        "conf": 0.083
+       },
+       {
+        "cps": [
+         "U+11217"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.031
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩𑈶",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+11220",
+        "U+11231"
+       ],
+       "name": "PHA+AI",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      132,
+      248,
+      177,
+      295
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11202"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11208"
+        ],
+        "conf": 0.007
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.187
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      171,
+      248,
+      206,
+      293
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11218",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11224",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11233"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11233",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      209,
+      244,
+      249,
+      296
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      250,
+      269,
+      260,
+      292
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11216"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      271,
+      267,
+      336,
+      313
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      328,
+      272,
+      340,
+      285
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.027
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈞",
+     "bbox": [
+      351,
+      269,
+      382,
+      292
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.07
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      372,
+      245,
+      398,
+      289
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.022
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.021
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪",
+     "bbox": [
+      403,
+      257,
+      428,
+      291
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.195
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      422,
+      241,
+      443,
+      288
+     ]
+    },
+    {
+     "boxes": [
+      11
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      450,
+      269,
+      461,
+      283
+     ]
+    },
+    {
+     "boxes": [
+      12,
+      13
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11201"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11225"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11225",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122C",
+         "U+11234"
+        ],
+        "conf": 0.015
+       },
+       {
+        "cps": [
+         "U+11232",
+         "U+11234"
+        ],
+        "conf": 0.002
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈁𑈴",
+     "components": [
+      {
+       "cps": [
+        "U+11200"
+       ],
+       "name": "A",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.0
+      }
+     ],
+     "bbox": [
+      472,
+      251,
+      525,
+      288
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1120B",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11222",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121F",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      532,
+      250,
+      576,
+      301
+     ]
+    },
+    {
+     "boxes": [
+      15,
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11201"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11216"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11225"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11233",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈁𑈴",
+     "components": [
+      {
+       "cps": [
+        "U+11200"
+       ],
+       "name": "A",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+11215",
+        "U+11236"
+       ],
+       "name": "TTHA+NUKTA",
+       "conf": 0.0
+      }
+     ],
+     "bbox": [
+      579,
+      247,
+      633,
+      289
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      638,
+      266,
+      648,
+      284
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11220"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121B"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈏",
+     "bbox": [
+      659,
+      262,
+      689,
+      291
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11226",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11233",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122D"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      691,
+      246,
+      733,
+      291
+     ]
+    },
+    {
+     "boxes": [
+      20,
+      21
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11218"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.017
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122C",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.171
+       },
+       {
+        "cps": [
+         "U+11233",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "components": [
+      {
+       "cps": [
+        "U+11208",
+        "U+1122F"
+       ],
+       "name": "KA+U",
+       "conf": 0.278
+      },
+      {
+       "cps": [
+        "U+11238",
+        "U+11234"
+       ],
+       "name": "DANDA+ANUSVARA",
+       "conf": 0.0
+      }
+     ],
+     "bbox": [
+      724,
+      247,
+      768,
+      295
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    321,
+    793,
+    398
+   ],
+   "text": "𑈤𑈮𑈦𑈐𑈺𑈹𑈺𑈪𑈯�𑈺𑈩𑈩�𑈐𑈮𑈺𑈦𑈸𑈙𑈤𑈙𑈺",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.021
+       },
+       {
+        "cps": [
+         "U+11225"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.172
+       },
+       {
+        "cps": [],
+        "conf": 0.098
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤𑈮",
+     "bbox": [
+      131,
+      355,
+      176,
+      378
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 1.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      180,
+      353,
+      204,
+      385
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.048
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.222
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈐",
+     "bbox": [
+      213,
+      354,
+      265,
+      391
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      269,
+      358,
+      278,
+      371
+     ]
+    },
+    {
+     "boxes": [
+      4,
+      5
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.787
+       },
+       {
+        "cps": [
+         "U+11220"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.755
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈹",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      286,
+      351,
+      314,
+      383
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      316,
+      357,
+      324,
+      372
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11220"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11214"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.667
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.023
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪𑈯",
+     "bbox": [
+      333,
+      348,
+      365,
+      388
+     ]
+    },
+    {
+     "boxes": [
+      8,
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11202"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11208"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11208",
+         "U+11236"
+        ],
+        "conf": 0.055
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.003
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "components": [
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.278
+      },
+      {
+       "cps": [
+        "U+1122A",
+        "U+11231"
+       ],
+       "name": "HA+AI",
+       "conf": 0.278
+      }
+     ],
+     "bbox": [
+      366,
+      341,
+      406,
+      392
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      410,
+      358,
+      421,
+      373
+     ]
+    },
+    {
+     "boxes": [
+      11,
+      12
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.713
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.455
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      425,
+      350,
+      467,
+      376
+     ]
+    },
+    {
+     "boxes": [
+      13,
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.72
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11218"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.5
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      471,
+      351,
+      509,
+      378
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11209",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121B"
+        ],
+        "conf": 0.001
+       },
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122C",
+         "U+11234"
+        ],
+        "conf": 0.151
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.111
+       },
+       {
+        "cps": [
+         "U+1122F",
+         "U+11234"
+        ],
+        "conf": 0.096
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      516,
+      342,
+      559,
+      386
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.077
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.004
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.667
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈐𑈮",
+     "bbox": [
+      563,
+      349,
+      625,
+      393
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      624,
+      353,
+      636,
+      368
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      645,
+      346,
+      666,
+      379
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      677,
+      348,
+      686,
+      375
+     ]
+    },
+    {
+     "boxes": [
+      20
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈙",
+     "bbox": [
+      694,
+      348,
+      718,
+      374
+     ]
+    },
+    {
+     "boxes": [
+      21
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.278
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤",
+     "bbox": [
+      725,
+      348,
+      753,
+      375
+     ]
+    },
+    {
+     "boxes": [
+      22
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11214",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1121C"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈙",
+     "bbox": [
+      756,
+      348,
+      791,
+      396
+     ]
+    },
+    {
+     "boxes": [
+      23
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      781,
+      351,
+      786,
+      368
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    398,
+    793,
+    485
+   ],
+   "text": "�𑈪𑈰𑈦𑈸𑈺𑈩�𑈦�𑈺𑈩�𑈦𑈺𑈸𑈟𑈱𑈴𑈦𑈺𑈀𑈶𑈡𑈮𑈺𑈹",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11202",
+         "U+11236"
+        ],
+        "conf": 0.012
+       },
+       {
+        "cps": [
+         "U+1121B",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11220",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      136,
+      404,
+      172,
+      479
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+1121C"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1122A",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.11
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪𑈰",
+     "bbox": [
+      172,
+      417,
+      201,
+      467
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.8
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      206,
+      436,
+      230,
+      475
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      236,
+      436,
+      246,
+      459
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      255,
+      439,
+      264,
+      456
+     ]
+    },
+    {
+     "boxes": [
+      5,
+      6
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11218"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.455
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      274,
+      436,
+      314,
+      466
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.006
+       },
+       {
+        "cps": [
+         "U+11228",
+         "U+11236"
+        ],
+        "conf": 0.004
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      307,
+      419,
+      330,
+      462
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.748
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      335,
+      438,
+      358,
+      470
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11240"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.105
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      358,
+      418,
+      375,
+      458
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      381,
+      440,
+      390,
+      454
+     ]
+    },
+    {
+     "boxes": [
+      11,
+      12
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.713
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11218"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.455
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      400,
+      431,
+      441,
+      461
+     ]
+    },
+    {
+     "boxes": [
+      13,
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11216"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11225"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.183
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "components": [
+      {
+       "cps": [
+        "U+11226"
+       ],
+       "name": "RA",
+       "conf": 0.278
+      },
+      {
+       "cps": [
+        "U+1123F"
+       ],
+       "name": "QA",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      450,
+      432,
+      512,
+      467
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.949
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      517,
+      434,
+      542,
+      468
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      551,
+      438,
+      558,
+      451
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      568,
+      433,
+      586,
+      462
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+1121F",
+         "U+11236"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.25
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈟𑈱𑈴",
+     "bbox": [
+      584,
+      407,
+      611,
+      461
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 1.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      616,
+      433,
+      640,
+      469
+     ]
+    },
+    {
+     "boxes": [
+      20
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      644,
+      440,
+      654,
+      455
+     ]
+    },
+    {
+     "boxes": [
+      21
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11200",
+         "U+11236"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11205"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈀𑈶",
+     "bbox": [
+      666,
+      411,
+      704,
+      460
+     ]
+    },
+    {
+     "boxes": [
+      22
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11222"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈡𑈮",
+     "bbox": [
+      712,
+      432,
+      757,
+      473
+     ]
+    },
+    {
+     "boxes": [
+      23
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      759,
+      437,
+      765,
+      452
+     ]
+    },
+    {
+     "boxes": [
+      24,
+      25
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11214"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.25
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈹",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.455
+      },
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      770,
+      429,
+      787,
+      463
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    485,
+    793,
+    572
+   ],
+   "text": "𑈪𑈯�𑈤𑈺�𑈤𑈸𑈤𑈺𑈪𑈯𑈩𑈶𑈞𑈺𑈪𑈱𑈴𑈤𑈸𑈽�𑈸𑈙𑈺�",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11210",
+         "U+11236"
+        ],
+        "conf": 0.094
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪𑈯",
+     "bbox": [
+      136,
+      517,
+      165,
+      559
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11200",
+         "U+11236"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11221",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11232"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      165,
+      511,
+      203,
+      550
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121D"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.099
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤",
+     "bbox": [
+      205,
+      522,
+      238,
+      545
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      244,
+      526,
+      253,
+      541
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11204"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.089
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.07
+       },
+       {
+        "cps": [
+         "U+11233",
+         "U+11234"
+        ],
+        "conf": 0.05
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      255,
+      504,
+      288,
+      549
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.004
+       },
+       {
+        "cps": [
+         "U+1121D"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤",
+     "bbox": [
+      286,
+      520,
+      318,
+      547
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      325,
+      523,
+      334,
+      546
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.006
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤",
+     "bbox": [
+      342,
+      520,
+      373,
+      547
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      379,
+      526,
+      391,
+      539
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+1120D"
+        ],
+        "conf": 0.036
+       },
+       {
+        "cps": [
+         "U+11209"
+        ],
+        "conf": 0.026
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [],
+        "conf": 0.154
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪𑈯",
+     "bbox": [
+      396,
+      519,
+      430,
+      557
+     ]
+    },
+    {
+     "boxes": [
+      10,
+      11
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229",
+         "U+11236"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11216"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.223
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.086
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩𑈶",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.278
+      },
+      {
+       "cps": [
+        "U+11226",
+        "U+11230"
+       ],
+       "name": "RA+E",
+       "conf": 0.429
+      }
+     ],
+     "bbox": [
+      430,
+      496,
+      477,
+      546
+     ]
+    },
+    {
+     "boxes": [
+      12
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.056
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈞",
+     "bbox": [
+      482,
+      520,
+      516,
+      545
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      523,
+      521,
+      533,
+      540
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+1122A",
+         "U+11236"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121C",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪𑈱𑈴",
+     "bbox": [
+      542,
+      496,
+      572,
+      553
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.094
+       },
+       {
+        "cps": [
+         "U+1121D"
+        ],
+        "conf": 0.01
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤",
+     "bbox": [
+      575,
+      520,
+      609,
+      546
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      617,
+      519,
+      627,
+      545
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1123D"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.03
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈽",
+     "bbox": [
+      635,
+      524,
+      649,
+      539
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1123D"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.25
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      656,
+      524,
+      670,
+      537
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      679,
+      517,
+      688,
+      544
+     ]
+    },
+    {
+     "boxes": [
+      20
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈙",
+     "bbox": [
+      698,
+      519,
+      724,
+      544
+     ]
+    },
+    {
+     "boxes": [
+      21
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      730,
+      521,
+      739,
+      541
+     ]
+    },
+    {
+     "boxes": [
+      22,
+      23
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.239
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "components": [
+      {
+       "cps": [
+        "U+11224"
+       ],
+       "name": "MA",
+       "conf": 0.1
+      },
+      {
+       "cps": [
+        "U+1121C",
+        "U+11236"
+       ],
+       "name": "DDDA+NUKTA",
+       "conf": 0.0
+      }
+     ],
+     "bbox": [
+      743,
+      521,
+      792,
+      561
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    572,
+    793,
+    647
+   ],
+   "text": "𑈨�𑈺�𑈐𑈰𑈺𑈪𑈯��𑈽𑈸𑈩𑈺𑈧𑈽�𑈺𑈹𑈺𑈩�𑈺𑈞",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈨",
+     "bbox": [
+      141,
+      604,
+      164,
+      634
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11224",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11219",
+         "U+11236"
+        ],
+        "conf": 0.094
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11232"
+        ],
+        "conf": 0.022
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      168,
+      594,
+      199,
+      634
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      207,
+      609,
+      217,
+      626
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1120B"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11233",
+         "U+11234"
+        ],
+        "conf": 0.219
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.101
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      224,
+      585,
+      262,
+      635
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.02
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈐𑈰",
+     "bbox": [
+      267,
+      588,
+      305,
+      633
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      311,
+      611,
+      321,
+      627
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11220"
+        ],
+        "conf": 0.059
+       },
+       {
+        "cps": [
+         "U+1121C"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.017
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪𑈯",
+     "bbox": [
+      327,
+      601,
+      361,
+      641
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11202"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121C",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121F",
+         "U+11236"
+        ],
+        "conf": 0.077
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [],
+        "conf": 0.129
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      364,
+      588,
+      402,
+      640
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1123D"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.226
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      407,
+      611,
+      421,
+      624
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1123D"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈽",
+     "bbox": [
+      427,
+      609,
+      442,
+      623
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      446,
+      603,
+      455,
+      630
+     ]
+    },
+    {
+     "boxes": [
+      11,
+      12
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.042
+       },
+       {
+        "cps": [
+         "U+11218"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      461,
+      602,
+      502,
+      631
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      503,
+      610,
+      516,
+      625
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+1121D"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈧",
+     "bbox": [
+      525,
+      602,
+      557,
+      631
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1123D"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11240"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈽",
+     "bbox": [
+      568,
+      604,
+      584,
+      621
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121B"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11208"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.171
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      586,
+      599,
+      617,
+      638
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      619,
+      607,
+      629,
+      621
+     ]
+    },
+    {
+     "boxes": [
+      18,
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈹",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.455
+      },
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      635,
+      600,
+      660,
+      635
+     ]
+    },
+    {
+     "boxes": [
+      20
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      663,
+      606,
+      675,
+      622
+     ]
+    },
+    {
+     "boxes": [
+      21,
+      22
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11218"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      681,
+      602,
+      720,
+      629
+     ]
+    },
+    {
+     "boxes": [
+      23
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228",
+         "U+11236"
+        ],
+        "conf": 0.032
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.002
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.128
+       },
+       {
+        "cps": [],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      715,
+      585,
+      736,
+      625
+     ]
+    },
+    {
+     "boxes": [
+      24
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      739,
+      606,
+      747,
+      622
+     ]
+    },
+    {
+     "boxes": [
+      25
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11200"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.04
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈞",
+     "bbox": [
+      751,
+      602,
+      781,
+      626
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    647,
+    793,
+    739
+   ],
+   "text": "�𑈺𑈩𑈶𑈦𑈺𑈩𑈶𑈸𑈪𑈸�𑈙𑈺𑈦𑈩𑈰�𑈺�𑈺�𑈐𑈮𑈺",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11209"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11211",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.175
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.12
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      142,
+      676,
+      183,
+      717
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      186,
+      695,
+      193,
+      708
+     ]
+    },
+    {
+     "boxes": [
+      2,
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229",
+         "U+11236"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121A",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩𑈶",
+     "components": [
+      {
+       "cps": [
+        "U+1121C",
+        "U+11234"
+       ],
+       "name": "DDDA+ANUSVARA",
+       "conf": 0.1
+      },
+      {
+       "cps": [
+        "U+11226",
+        "U+11236",
+        "U+11230",
+        "U+11234"
+       ],
+       "name": "RA+NUKTA+E+ANUSVARA",
+       "conf": 0.278
+      }
+     ],
+     "bbox": [
+      195,
+      656,
+      241,
+      716
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.859
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      242,
+      688,
+      265,
+      723
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      270,
+      692,
+      280,
+      708
+     ]
+    },
+    {
+     "boxes": [
+      6,
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229",
+         "U+11236"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121A",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩𑈶",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.455
+      },
+      {
+       "cps": [
+        "U+1121F",
+        "U+11236",
+        "U+11230"
+       ],
+       "name": "PA+NUKTA+E",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      283,
+      664,
+      329,
+      716
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      331,
+      688,
+      340,
+      712
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1120B"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪",
+     "bbox": [
+      344,
+      679,
+      373,
+      715
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      375,
+      688,
+      386,
+      712
+     ]
+    },
+    {
+     "boxes": [
+      11
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1123F"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121B"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      394,
+      690,
+      424,
+      716
+     ]
+    },
+    {
+     "boxes": [
+      12
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈙",
+     "bbox": [
+      428,
+      686,
+      458,
+      712
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      464,
+      692,
+      475,
+      709
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.945
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      476,
+      686,
+      501,
+      720
+     ]
+    },
+    {
+     "boxes": [
+      15,
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11229",
+         "U+11236"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.093
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩𑈰",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+11226",
+        "U+11230"
+       ],
+       "name": "RA+E",
+       "conf": 0.429
+      }
+     ],
+     "bbox": [
+      510,
+      663,
+      554,
+      713
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11203"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11240"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      559,
+      675,
+      584,
+      704
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      586,
+      692,
+      595,
+      708
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11222",
+         "U+11236"
+        ],
+        "conf": 0.075
+       },
+       {
+        "cps": [
+         "U+1123F",
+         "U+11236"
+        ],
+        "conf": 0.012
+       },
+       {
+        "cps": [
+         "U+11223",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.25
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      602,
+      649,
+      664,
+      726
+     ]
+    },
+    {
+     "boxes": [
+      20
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      662,
+      689,
+      675,
+      704
+     ]
+    },
+    {
+     "boxes": [
+      21
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1120D"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11224",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F",
+         "U+11234"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      677,
+      674,
+      715,
+      721
+     ]
+    },
+    {
+     "boxes": [
+      22
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.037
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈐𑈮",
+     "bbox": [
+      719,
+      682,
+      779,
+      726
+     ]
+    },
+    {
+     "boxes": [
+      23
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      776,
+      689,
+      782,
+      704
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    739,
+    793,
+    823
+   ],
+   "text": "�𑈨𑈸𑈦𑈺𑈤𑈸𑈞𑈺𑈨𑈸�𑈺𑈸�𑈺𑈨𑈸𑈦𑈩𑈺�𑈺𑈏𑈸",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.004
+       },
+       {
+        "cps": [
+         "U+11214",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11215",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      127,
+      759,
+      129,
+      807
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11219",
+         "U+11235",
+         "U+11226"
+        ],
+        "conf": 0.096
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈨",
+     "bbox": [
+      141,
+      774,
+      165,
+      805
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      170,
+      774,
+      181,
+      802
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.678
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      183,
+      770,
+      209,
+      810
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      213,
+      778,
+      223,
+      793
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.333
+       },
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤",
+     "bbox": [
+      227,
+      772,
+      260,
+      801
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      269,
+      774,
+      278,
+      800
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈞",
+     "bbox": [
+      287,
+      775,
+      320,
+      798
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      325,
+      777,
+      335,
+      793
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11219",
+         "U+11235",
+         "U+11226"
+        ],
+        "conf": 0.066
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈨",
+     "bbox": [
+      340,
+      769,
+      370,
+      802
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.278
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      375,
+      770,
+      396,
+      805
+     ]
+    },
+    {
+     "boxes": [
+      11
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      391,
+      770,
+      418,
+      806
+     ]
+    },
+    {
+     "boxes": [
+      12
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      427,
+      776,
+      436,
+      791
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      442,
+      770,
+      454,
+      801
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210",
+         "U+11235",
+         "U+11213"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11225"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11225",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      458,
+      770,
+      553,
+      800
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      472,
+      776,
+      483,
+      792
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11219",
+         "U+11235",
+         "U+11226"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11209"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈨",
+     "bbox": [
+      573,
+      769,
+      598,
+      800
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      606,
+      769,
+      613,
+      797
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.9
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      618,
+      768,
+      644,
+      801
+     ]
+    },
+    {
+     "boxes": [
+      19,
+      20
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11226"
+       ],
+       "name": "RA",
+       "conf": 0.429
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      652,
+      767,
+      691,
+      797
+     ]
+    },
+    {
+     "boxes": [
+      21
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      698,
+      774,
+      707,
+      791
+     ]
+    },
+    {
+     "boxes": [
+      22
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11214"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.278
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.096
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.033
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      709,
+      752,
+      735,
+      799
+     ]
+    },
+    {
+     "boxes": [
+      23
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      737,
+      773,
+      745,
+      788
+     ]
+    },
+    {
+     "boxes": [
+      24
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈏",
+     "bbox": [
+      753,
+      763,
+      775,
+      795
+     ]
+    },
+    {
+     "boxes": [
+      25
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.438
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      773,
+      762,
+      788,
+      795
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    823,
+    793,
+    898
+   ],
+   "text": "𑈜𑈶𑈪𑈴𑈤𑈰𑈴𑈺𑈪�𑈺𑈪�𑈺�𑈀𑈺𑈧𑈴𑈞𑈮𑈀𑈩𑈺𑈹𑈺",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121C",
+         "U+11236"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+1121C"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11214"
+        ],
+        "conf": 0.065
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.218
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈜𑈶",
+     "bbox": [
+      147,
+      841,
+      175,
+      889
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11214"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1122A",
+         "U+11236"
+        ],
+        "conf": 0.094
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122F",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪𑈴",
+     "bbox": [
+      174,
+      838,
+      203,
+      891
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11209"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11219",
+         "U+11236"
+        ],
+        "conf": 0.094
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.01
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤𑈰𑈴",
+     "bbox": [
+      207,
+      839,
+      243,
+      885
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      247,
+      866,
+      256,
+      880
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.8
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪",
+     "bbox": [
+      264,
+      849,
+      295,
+      885
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11204"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.035
+       },
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122D"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [],
+        "conf": 0.21
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      297,
+      838,
+      333,
+      886
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      331,
+      863,
+      342,
+      879
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.779
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈪",
+     "bbox": [
+      345,
+      847,
+      374,
+      882
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11214"
+        ],
+        "conf": 0.049
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.029
+       },
+       {
+        "cps": [
+         "U+11213"
+        ],
+        "conf": 0.001
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122D"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11232",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      379,
+      841,
+      421,
+      884
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      412,
+      861,
+      423,
+      879
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11220"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122C",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.107
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      430,
+      843,
+      485,
+      886
+     ]
+    },
+    {
+     "boxes": [
+      11
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11200"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.091
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.05
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈀",
+     "bbox": [
+      489,
+      855,
+      528,
+      878
+     ]
+    },
+    {
+     "boxes": [
+      12
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      534,
+      855,
+      544,
+      873
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.333
+       },
+       {
+        "cps": [
+         "U+1120B"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11222"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122F",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈧𑈴",
+     "bbox": [
+      552,
+      839,
+      583,
+      882
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1123F"
+        ],
+        "conf": 0.098
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.667
+       },
+       {
+        "cps": [],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈞𑈮",
+     "bbox": [
+      593,
+      852,
+      650,
+      888
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11200"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈀",
+     "bbox": [
+      647,
+      853,
+      690,
+      877
+     ]
+    },
+    {
+     "boxes": [
+      16,
+      17
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11209"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      697,
+      848,
+      735,
+      877
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      740,
+      854,
+      750,
+      871
+     ]
+    },
+    {
+     "boxes": [
+      19,
+      20
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈹",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.531
+      },
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      760,
+      846,
+      781,
+      880
+     ]
+    },
+    {
+     "boxes": [
+      21
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      783,
+      850,
+      789,
+      864
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    898,
+    793,
+    984
+   ],
+   "text": "��𑈺𑈸����𑈺�𑈐𑈮𑈺�𑈤𑈮𑈦𑈙𑈰𑈺��𑈸",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121A",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11209",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11225",
+         "U+11236"
+        ],
+        "conf": 0.057
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11232"
+        ],
+        "conf": 0.077
+       },
+       {
+        "cps": [
+         "U+11232",
+         "U+11234"
+        ],
+        "conf": 0.066
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      143,
+      914,
+      191,
+      966
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226",
+         "U+11236"
+        ],
+        "conf": 0.008
+       },
+       {
+        "cps": [
+         "U+11220",
+         "U+11236"
+        ],
+        "conf": 0.007
+       },
+       {
+        "cps": [
+         "U+1122A",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11233"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11233",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      193,
+      905,
+      230,
+      968
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      226,
+      944,
+      236,
+      960
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.056
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      244,
+      938,
+      263,
+      965
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121F",
+         "U+11236"
+        ],
+        "conf": 0.001
+       },
+       {
+        "cps": [
+         "U+11226",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.201
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      262,
+      908,
+      294,
+      963
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1123D"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.228
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      295,
+      943,
+      309,
+      958
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11222"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11222",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.25
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.114
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      315,
+      918,
+      342,
+      965
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121B"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1123F"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.033
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.048
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      352,
+      940,
+      382,
+      968
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      389,
+      944,
+      399,
+      960
+     ]
+    },
+    {
+     "boxes": [
+      9,
+      10
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11229",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11233"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "components": [
+      {
+       "cps": [
+        "U+11224",
+        "U+11231"
+       ],
+       "name": "MA+AI",
+       "conf": 0.278
+      },
+      {
+       "cps": [
+        "U+11228",
+        "U+11236"
+       ],
+       "name": "VA+NUKTA",
+       "conf": 0.0
+      }
+     ],
+     "bbox": [
+      406,
+      918,
+      451,
+      961
+     ]
+    },
+    {
+     "boxes": [
+      11
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.07
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈐𑈮",
+     "bbox": [
+      459,
+      935,
+      517,
+      971
+     ]
+    },
+    {
+     "boxes": [
+      12
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      519,
+      938,
+      534,
+      953
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11222"
+        ],
+        "conf": 0.085
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.25
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      536,
+      930,
+      575,
+      963
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤𑈮",
+     "bbox": [
+      580,
+      932,
+      629,
+      957
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.766
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      634,
+      932,
+      661,
+      965
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11219",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.084
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈙𑈰",
+     "bbox": [
+      673,
+      918,
+      699,
+      957
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      705,
+      937,
+      718,
+      955
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11208"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      729,
+      931,
+      758,
+      965
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.094
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      758,
+      930,
+      783,
+      956
+     ]
+    },
+    {
+     "boxes": [
+      20
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      785,
+      928,
+      790,
+      953
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    984,
+    793,
+    1069
+   ],
+   "text": "𑈨𑈦𑈺�𑈺��𑈀𑈩𑈺𑈸𑈸�𑈹𑈺��𑈦�",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11219",
+         "U+11235",
+         "U+11226"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈨",
+     "bbox": [
+      140,
+      1022,
+      165,
+      1053
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.678
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      166,
+      1021,
+      192,
+      1059
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      197,
+      1027,
+      208,
+      1042
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11221",
+         "U+11236"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121A",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11229",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11233"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11233",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      214,
+      992,
+      282,
+      1057
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      286,
+      1027,
+      299,
+      1044
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11222"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11228",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.172
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      304,
+      1002,
+      334,
+      1053
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11209"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11208"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [],
+        "conf": 0.047
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      339,
+      1021,
+      387,
+      1055
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11200"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈀",
+     "bbox": [
+      393,
+      1023,
+      435,
+      1046
+     ]
+    },
+    {
+     "boxes": [
+      8,
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11229"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+1121A"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈩",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.678
+      },
+      {
+       "cps": [
+        "U+1120F"
+       ],
+       "name": "CHA",
+       "conf": 0.678
+      }
+     ],
+     "bbox": [
+      438,
+      1015,
+      483,
+      1045
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      489,
+      1022,
+      500,
+      1039
+     ]
+    },
+    {
+     "boxes": [
+      11
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.058
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      508,
+      1018,
+      522,
+      1046
+     ]
+    },
+    {
+     "boxes": [
+      12
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      524,
+      1017,
+      536,
+      1051
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      545,
+      1015,
+      568,
+      1049
+     ]
+    },
+    {
+     "boxes": [
+      14,
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11220"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈹",
+     "components": [
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.1
+      },
+      {
+       "cps": [
+        "U+11238"
+       ],
+       "name": "DANDA",
+       "conf": 0.1
+      }
+     ],
+     "bbox": [
+      577,
+      1018,
+      609,
+      1054
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      609,
+      1024,
+      617,
+      1039
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11210",
+         "U+11235",
+         "U+11213"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11225"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      622,
+      1015,
+      724,
+      1048
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.056
+       },
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      722,
+      999,
+      742,
+      1040
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.062
+       },
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.028
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      751,
+      1018,
+      770,
+      1050
+     ]
+    },
+    {
+     "boxes": [
+      20
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11215",
+         "U+11236"
+        ],
+        "conf": 0.014
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11231",
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      762,
+      999,
+      783,
+      1053
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "bbox": [
+    112,
+    1069,
+    793,
+    1154
+   ],
+   "text": "𑈦�𑈦�𑈺𑈦𑈘𑈤𑈰𑈴𑈺𑈦𑈙�𑈺𑈨𑈸𑈦�𑈺�𑈸��𑈺",
+   "units": [
+    {
+     "boxes": [
+      0
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.736
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      149,
+      1100,
+      175,
+      1135
+     ]
+    },
+    {
+     "boxes": [
+      1
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.076
+       },
+       {
+        "cps": [
+         "U+1121F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      166,
+      1082,
+      190,
+      1124
+     ]
+    },
+    {
+     "boxes": [
+      2
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.455
+       },
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.005
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      200,
+      1104,
+      223,
+      1137
+     ]
+    },
+    {
+     "boxes": [
+      3
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121C"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11210",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.184
+       },
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.179
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      212,
+      1085,
+      242,
+      1139
+     ]
+    },
+    {
+     "boxes": [
+      4
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      241,
+      1108,
+      254,
+      1123
+     ]
+    },
+    {
+     "boxes": [
+      5
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.797
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      258,
+      1098,
+      288,
+      1136
+     ]
+    },
+    {
+     "boxes": [
+      6
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11218"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11216"
+        ],
+        "conf": 0.074
+       },
+       {
+        "cps": [
+         "U+11221"
+        ],
+        "conf": 0.029
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11234"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈘",
+     "bbox": [
+      291,
+      1098,
+      338,
+      1134
+     ]
+    },
+    {
+     "boxes": [
+      7
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11211",
+         "U+11236"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11230",
+         "U+11234"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.211
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈤𑈰𑈴",
+     "bbox": [
+      342,
+      1080,
+      381,
+      1129
+     ]
+    },
+    {
+     "boxes": [
+      8
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      382,
+      1109,
+      393,
+      1124
+     ]
+    },
+    {
+     "boxes": [
+      9
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.8
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      397,
+      1097,
+      423,
+      1132
+     ]
+    },
+    {
+     "boxes": [
+      10
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11219"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.025
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 1.0
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈙",
+     "bbox": [
+      431,
+      1098,
+      458,
+      1123
+     ]
+    },
+    {
+     "boxes": [
+      11
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11210"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11211"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.667
+       },
+       {
+        "cps": [],
+        "conf": 0.211
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      465,
+      1098,
+      523,
+      1136
+     ]
+    },
+    {
+     "boxes": [
+      12
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      528,
+      1105,
+      537,
+      1120
+     ]
+    },
+    {
+     "boxes": [
+      13
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11228"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11219",
+         "U+11235",
+         "U+11226"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1121E"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈨",
+     "bbox": [
+      544,
+      1095,
+      570,
+      1125
+     ]
+    },
+    {
+     "boxes": [
+      14
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      576,
+      1094,
+      587,
+      1122
+     ]
+    },
+    {
+     "boxes": [
+      15
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.429
+       },
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+1122A"
+        ],
+        "conf": 0.022
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈦",
+     "bbox": [
+      593,
+      1092,
+      617,
+      1129
+     ]
+    },
+    {
+     "boxes": [
+      16
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11215"
+        ],
+        "conf": 0.045
+       },
+       {
+        "cps": [
+         "U+11240",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11239"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.062
+       },
+       {
+        "cps": [
+         "U+11230"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122F"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      609,
+      1090,
+      635,
+      1133
+     ]
+    },
+    {
+     "boxes": [
+      17
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      640,
+      1101,
+      653,
+      1117
+     ]
+    },
+    {
+     "boxes": [
+      18
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+11208"
+        ],
+        "conf": 0.018
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      657,
+      1092,
+      689,
+      1126
+     ]
+    },
+    {
+     "boxes": [
+      19
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11238"
+        ],
+        "conf": 0.678
+       },
+       {
+        "cps": [
+         "U+11226"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11206"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.667
+       }
+      ]
+     },
+     "colour": "orange",
+     "text": "𑈸",
+     "bbox": [
+      696,
+      1097,
+      704,
+      1122
+     ]
+    },
+    {
+     "boxes": [
+      20,
+      21
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+11224"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11227"
+        ],
+        "conf": 0.1
+       },
+       {
+        "cps": [
+         "U+1120F"
+        ],
+        "conf": 0.1
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [],
+        "conf": 0.6
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "components": [
+      {
+       "cps": [
+        "U+1123D"
+       ],
+       "name": "ABBREVIATION SIGN",
+       "conf": 0.429
+      },
+      {
+       "cps": [
+        "U+11215"
+       ],
+       "name": "TTHA",
+       "conf": 0.063
+      }
+     ],
+     "bbox": [
+      712,
+      1095,
+      745,
+      1122
+     ]
+    },
+    {
+     "boxes": [
+      22
+     ],
+     "letter": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1120D",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1121B",
+         "U+11236"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11213",
+         "U+11236"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "signs": {
+      "status": "suggestion",
+      "options": [
+       {
+        "cps": [
+         "U+1122F",
+         "U+11234"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122E",
+         "U+11234"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+11231"
+        ],
+        "conf": 0.0
+       }
+      ]
+     },
+     "colour": "red",
+     "text": "�",
+     "bbox": [
+      747,
+      1069,
+      793,
+      1154
+     ]
+    },
+    {
+     "boxes": [
+      23
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123A"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈺",
+     "bbox": [
+      776,
+      1096,
+      784,
+      1111
+     ]
+    }
+   ],
+   "problems": []
+  }
+ ]
+}
