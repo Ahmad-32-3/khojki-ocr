@@ -25,6 +25,12 @@
     --gutter: clamp(1rem, 5vw, 4rem);
   }
   * { box-sizing: border-box; margin: 0; }
+  /* scrollbars in the page's own colours */
+  html, .viewer-stage { scrollbar-color: var(--walnut) var(--bg); }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--walnut); border: 2px solid var(--bg); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--brown); }
   body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.6; }
   strong { color: var(--text); font-weight: 500; }
 
@@ -44,7 +50,7 @@
   .title { padding: calc(var(--gutter) * 1.25) var(--gutter); max-width: 48rem; }
   h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; letter-spacing: 0.01em; }
   .rule { width: 4rem; height: 1px; margin: 1.5rem 0 1.25rem; background: var(--gold); }
-  /* opens the live demo in a new tab; it needs demo/server.py running (see How to Run) */
+  /* opens /ocr-demo/ in a new tab; the live site talks to the hosted pipeline API */
   .demo-btn {
     display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem;
     font-weight: 500; font-size: 0.9375rem; color: var(--bg); background: var(--gold);
@@ -342,7 +348,7 @@
       <h1>Khojki OCR Pipeline</h1>
       <div class="rule" aria-hidden="true"></div>
       <p class="sub">A short walkthrough of how I built this project</p>
-      <a class="demo-btn" href="/demo/" target="_blank" rel="noopener">Try the Demo <span aria-hidden="true">&rarr;</span></a>
+      <a class="demo-btn" href="/ocr-demo/" target="_blank" rel="noopener">Try the Demo <span aria-hidden="true">&rarr;</span></a>
     </div>
   </header>
 
@@ -810,6 +816,12 @@
     catch { b.textContent = "Select and copy"; }
     setTimeout(() => (b.textContent = "Copy"), 1500);
   }));
+
+  // Warm the hosted pipeline while the reader is still on this page.
+  const apiHost = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+    ? ""
+    : "https://m48ahmad-khojki-api.hf.space";
+  if (apiHost) fetch(apiHost + "/api/samples").catch(() => {});
 </script>
 </body>
 </html>

@@ -590,6 +590,8 @@ Format: **Assumption / error → How caught → Fix**
    - Your notes: every correction is in GT v5 and the bank. Checked: the bank's 150 real examples equal those built from gt.json now, and both carry gt sha 6d8fc96a.
    - Demo: under the coloured boxes, the line's best guess as Khojki text in the same colours; click a character to inspect it.
 
+95. **Figure 5 removed from the demo (your call).** Page 23 is a different print with ornamental vine borders: a band of ornaments between every line and a column down each side. The line finder (built for the 1896 print's plain ruled frame) took each ornament band as a text line and the side ornaments as glyphs, and the recognizer has no "not text" answer, so it guessed letters for ornaments. Fixing it means teaching line finding to skip ornament bands; not done in the time left. Figure 4 (page 18, another print, 62 of 101 glyphs red) was removed too, so the demo shows only the 1896 print it was built for: Figures 1-3.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

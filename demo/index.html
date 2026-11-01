@@ -18,6 +18,12 @@
     --gutter: clamp(1rem, 5vw, 4rem);
   }
   * { box-sizing: border-box; margin: 0; }
+  /* scrollbars in the page's own colours */
+  html, .viewer-stage { scrollbar-color: var(--walnut) var(--bg); }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--walnut); border: 2px solid var(--bg); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--brown); }
   body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.6; }
   main { max-width: 76rem; margin: 0 auto; padding: 2rem var(--gutter) 5rem; }
   a { color: var(--gold); }
@@ -52,13 +58,24 @@
   .card:hover { border-color: var(--brown); }
   .card[aria-checked="true"] { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
   .card:hover img { opacity: 0.85; }
-  .viewer { max-width: min(56rem, 94vw); max-height: 94vh; padding: 0; border: 1px solid var(--walnut);
-            background: var(--bg); color: var(--text); }
-  .viewer::backdrop { background: rgb(0 0 0 / 0.75); }
-  .viewer-bar { position: sticky; top: 0; display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem;
-                background: var(--bg); border-bottom: 1px solid var(--line); }
-  .viewer-bar h2 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; margin-right: auto; }
-  .viewer img { display: block; width: 100%; height: auto; }
+  /* full-screen page viewer: fixed size, so nothing shifts while the image loads; the page is centred and fitted,
+     and clicking it toggles a full-width reading zoom */
+  .viewer { position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0;
+            padding: 0; border: 0; background: var(--bg); color: var(--text); }
+  .viewer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+  .viewer::backdrop { background: transparent; }
+  .viewer-bar { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem var(--gutter); border-bottom: 1px solid var(--line); }
+  .viewer-bar h2 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; }
+  .viewer-bar .hint { margin-right: auto; font-size: 0.8125rem; color: var(--muted); }
+  .viewer-stage { position: relative; min-height: 0; overflow: auto; }
+  /* fitted: pinned inside the stage, so it fits both ways at any window size */
+  .viewer-stage img { position: absolute; inset: 0; margin: auto; max-width: calc(100% - 2.5rem); max-height: calc(100% - 2.5rem);
+                      cursor: zoom-in; box-shadow: 0 0 0 1px var(--line); }
+  /* zoomed: full width (up to 60rem), scroll down to read */
+  .viewer-stage.zoomed img { position: static; display: block; margin: 1.25rem auto; max-height: none;
+                             width: min(100% - 2.5rem, 60rem); max-width: none; cursor: zoom-out; }
+  .viewer-bar h2 { white-space: nowrap; }
+  @media (max-width: 640px) { .viewer-bar .hint { display: none; } .viewer-bar h2 { margin-right: auto; font-size: 1.25rem; } }
   .c-label { font-family: var(--serif); font-size: 1.125rem; color: var(--text); line-height: 1.2; margin-top: 0.25rem; }
   /* shown in place of a preview that fails to load, at the same size, so the row never shows a broken image */
   .no-thumb { display: grid; place-items: center; aspect-ratio: 120 / 174; background: var(--surface); font-size: 0.75rem; color: var(--muted); text-align: center; }
@@ -157,7 +174,7 @@
 <main>
   <div class="top">
     <p class="eyebrow">Khojki OCR &middot; Live Demo</p>
-    <a class="back" href="/">&larr; Back to the walkthrough</a>
+    <a class="back" href="/ocr-walkthrough/">&larr; Back to the walkthrough</a>
   </div>
   <h1>Watch the Pipeline Read a Page</h1>
   <p class="lede">Pick a sample page or upload your own, and run it. The pipeline runs on this computer and shows each
@@ -256,15 +273,21 @@
 <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
   <div class="viewer-bar">
     <h2 id="viewer-title"></h2>
+    <p class="hint">Click the page to zoom in</p>
     <button class="run-btn" type="button" id="viewer-run">Run This Page</button>
     <button class="ghost" type="button" id="viewer-close">Close</button>
   </div>
-  <img id="viewer-img" alt="The selected sample page, full size">
+  <div class="viewer-stage" id="viewer-stage"><img id="viewer-img" alt="The selected sample page, full size"></div>
 </dialog>
 
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+// On localhost the demo server serves the API; on the live site the pipeline runs on the Hugging Face Space.
+const API = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? ""
+  : "https://m48ahmad-khojki-api.hf.space";
+const api = path => API + path;
 let R = null, line = 0, unit = 0, samples = [];
 const LABEL = { green: "Recognized", orange: "Suggestion", red: "No good guess" };
 const WHY = {
@@ -274,8 +297,32 @@ const WHY = {
 };
 
 // ---------- form ----------
+async function fetchSamples(timeoutMs = 60000) {
+  const t0 = performance.now();
+  let lastErr = null;
+  while (performance.now() - t0 < timeoutMs) {
+    try {
+      const res = await fetch(api("/api/samples"));
+      if (res.ok) return res.json();
+      lastErr = new Error(`Server replied ${res.status}`);
+    } catch (err) {
+      lastErr = err;
+    }
+    showError("Waking the demo server… this can take up to a minute the first time.");
+    await new Promise(r => setTimeout(r, 2500));
+  }
+  throw lastErr || new Error("Timed out waiting for the demo server.");
+}
 async function loadSamples() {
-  samples = await (await fetch("/api/samples")).json();
+  try {
+    samples = await fetchSamples();
+  } catch (err) {
+    showError(err.message === "Failed to fetch"
+      ? "Can't reach the demo server. Is it running?"
+      : err.message);
+    return;
+  }
+  showError("");
   $("#sample").innerHTML = samples.map(s => `<option value="${s.id}">${esc(s.label)}</option>`).join("");
   // a preview card per sample, so the reader can see the yellow 1896 pages and the grey ones before running
   $("#cards").innerHTML = samples.map(s => `<button type="button" class="card" role="radio" data-id="${s.id}">
@@ -294,13 +341,22 @@ $("#cards").addEventListener("click", e => {
   const c = e.target.closest(".card");
   if (!c) return;
   $("#sample").value = c.dataset.id; showNote();
+  $("#viewer-stage").classList.remove("zoomed");
+  $(".viewer-bar .hint").textContent = "Click the page to zoom in";
   $("#viewer-img").src = `previews/${c.dataset.id}_large.jpg`;
   $("#viewer-title").textContent = samples.find(x => x.id === c.dataset.id).label;
+  document.documentElement.style.overflow = "hidden";  // the page behind stays still
   $("#viewer").showModal();
+  $("#viewer-close").focus({ preventScroll: true });
+});
+$("#viewer").addEventListener("close", () => { document.documentElement.style.overflow = ""; });
+$("#viewer-img").addEventListener("click", () => {
+  const st = $("#viewer-stage"); st.classList.toggle("zoomed"); st.scrollTop = 0;
+  $(".viewer-bar .hint").textContent = st.classList.contains("zoomed") ? "Click the page to fit it to the screen" : "Click the page to zoom in";
 });
 $("#viewer-close").addEventListener("click", () => $("#viewer").close());
 $("#viewer-run").addEventListener("click", () => { $("#viewer").close(); $("#form").requestSubmit(); });
-$("#viewer").addEventListener("click", e => { if (e.target === $("#viewer")) $("#viewer").close(); });  // click outside the page
+$("#viewer").addEventListener("click", e => { if (e.target === $("#viewer-stage")) $("#viewer").close(); });  // click beside the page
 $("#sample").addEventListener("change", showNote);
 document.querySelectorAll('input[name="src"]').forEach(r => r.addEventListener("change", () => {
   const up = $('input[name="src"]:checked').value === "upload";
@@ -317,9 +373,9 @@ $("#form").addEventListener("submit", async e => {
     const f = $("#file").files[0];
     if (!f) return showError("Choose a file to upload first.");
     const pdf = /\.pdf$/i.test(f.name);
-    req = fetch("/api/run" + (pdf ? `?page=${encodeURIComponent($("#page").value)}` : ""), { method: "POST", body: f });
+    req = fetch(api("/api/run" + (pdf ? `?page=${encodeURIComponent($("#page").value)}` : "")), { method: "POST", body: f });
   } else {
-    req = fetch("/api/run", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ sample: $("#sample").value }) });
+    req = fetch(api("/api/run"), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ sample: $("#sample").value }) });
   }
   showError(""); $("#results").hidden = true;
   const stop = startProgress();
@@ -356,7 +412,7 @@ function view(el, b, inner = "", pad = 0) {
   const x = b.x - pad, y = b.y - pad, w = b.w + 2 * pad, h = b.h + 2 * pad;
   const sw = 1.5 * w / (el.clientWidth || 800);  // 1.5 screen pixels, in this view's units
   el.innerHTML = `<svg viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="xMidYMid meet" style="--sw:${sw}">
-    <image href="${R.image}" width="${R.width}" height="${R.height}"/>${inner}</svg>`;
+    <image href="${api(R.image)}" width="${R.width}" height="${R.height}"/>${inner}</svg>`;
 }
 const rect = (b, cls, delay, extra = "") =>
   `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" class="draw ${cls}"

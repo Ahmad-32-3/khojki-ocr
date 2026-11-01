@@ -1,7 +1,7 @@
-"""Local demo server: the showcase site at /, the live demo at /demo/, and a small JSON API that runs the pipeline.
+"""Demo server: walkthrough at /ocr-walkthrough/, live demo at /ocr-demo/, and a JSON API that runs the pipeline.
 
 usage: python -X utf8 demo/server.py [port]        then open http://localhost:8000/
-Stdlib only. Runs on this machine, because the scans are for this exercise only and must not go on a hosted page.
+On a host, set HOST=0.0.0.0 and ALLOWED_ORIGINS to the site that embeds the demo.
 
 API
   GET  /api/samples              the sample pages (Figure 1, 2, ...)
@@ -10,7 +10,8 @@ API
   GET  /api/image/<id>.png       the page image a result refers to
   GET  /api/thumb/<sample>.jpg   a small colour preview of a sample page
 """
-import json, sys, threading, time, uuid
+import json, os, sys, threading, time, uuid
+from collections import OrderedDict
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -30,18 +31,28 @@ SAMPLES = [  # (id, label, PDF page)
     ("fig1", "Figure 1", 9),
     ("fig2", "Figure 2", 10),
     ("fig3", "Figure 3", 11),
-    ("fig4", "Figure 4", 18),
-    ("fig5", "Figure 5", 23),
 ]
 MAX_UPLOAD = 25 * 1024 * 1024
+MAX_IMAGES = 50
 BANK, MODEL = load(), load_model()
-IMAGES = {}        # result id -> PNG bytes (kept in memory only; this is a local demo)
-PREVIEWS = ROOT / "demo" / "previews"  # small + large colour JPEGs of the sample pages, plain files (not committed)
+IMAGES = OrderedDict()  # result id -> PNG bytes; capped so a public host cannot grow forever
+PREVIEWS = ROOT / "demo" / "previews"  # small + large colour JPEGs of the sample pages
+THUMBS = {}  # sample id -> small colour JPEG of the page
+LOCK = threading.Lock()  # one pipeline run at a time: the example bank's feature cache isn't thread-safe
+
+HOST = os.environ.get("HOST", "127.0.0.1")
+ALLOWED_ORIGINS = {
+    o.strip()
+    for o in os.environ.get(
+        "ALLOWED_ORIGINS",
+        "https://m48ahmad.com,https://www.m48ahmad.com,http://127.0.0.1:5173,http://localhost:5173",
+    ).split(",")
+    if o.strip()
+}
 
 
 def make_previews():
-    """Write each sample page as a small card image and a large readable one, once. Plain files, so any copy of
-    the server can serve them."""
+    """Write each sample page as a small card image and a large readable one, once."""
     if not PDF.is_file():
         return
     import pymupdf
@@ -52,8 +63,6 @@ def make_previews():
             f = PREVIEWS / f"{sid}{suffix}.jpg"
             if not f.exists():
                 f.write_bytes(doc[page - 1].get_pixmap(dpi=dpi).tobytes("jpeg"))
-THUMBS = {}        # sample id -> small colour JPEG of the page, so the reader can see each kind of page
-LOCK = threading.Lock()  # one pipeline run at a time: the example bank's feature cache isn't thread-safe
 
 
 def option(o):
@@ -74,12 +83,18 @@ def describe(unit):
     return out
 
 
+def store_image(rid, png):
+    IMAGES[rid] = png
+    while len(IMAGES) > MAX_IMAGES:
+        IMAGES.popitem(last=False)
+
+
 def run(gray, title):
     t0 = time.perf_counter()
     with LOCK:
         result = run_page(gray, title, BANK, MODEL)
     rid = uuid.uuid4().hex[:12]
-    IMAGES[rid] = cv2.imencode(".png", gray)[1].tobytes()
+    store_image(rid, cv2.imencode(".png", gray)[1].tobytes())
     lines = [{"bbox": l["bbox"], "units": [describe(u) for u in l["units"]]} for l in result["lines"]]
     units = [u for l in lines for u in l["units"]]
     count = lambda c: sum(u["colour"] == c for u in units)
@@ -92,10 +107,32 @@ class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *a, **k):
         super().__init__(*a, directory=str(ROOT), **k)
 
+    def end_headers(self):
+        origin = self.headers.get("Origin", "")
+        if origin in ALLOWED_ORIGINS:
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Vary", "Origin")
+            self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        super().end_headers()
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.end_headers()
+
     def translate_path(self, path):
-        # / is the showcase site; /demo/ is the demo. Nothing else in the project is served.
+        # Local URLs match the live site: /ocr-walkthrough/, /ocr-demo/. Also keep / and /demo/ working.
         p = urlparse(path).path
-        base, rest = (ROOT / "demo", p[len("/demo/"):]) if p.startswith("/demo/") or p == "/demo" else (ROOT / "site", p.lstrip("/"))
+        if p in ("/", ""):
+            return str(ROOT / "site" / "__redirect__")
+        if p.startswith("/ocr-walkthrough/") or p == "/ocr-walkthrough":
+            base, rest = ROOT / "site", p[len("/ocr-walkthrough/"):] if p.startswith("/ocr-walkthrough/") else ""
+        elif p.startswith("/ocr-demo/") or p == "/ocr-demo":
+            base, rest = ROOT / "demo", p[len("/ocr-demo/"):] if p.startswith("/ocr-demo/") else ""
+        elif p.startswith("/demo/") or p == "/demo":
+            base, rest = ROOT / "demo", p[len("/demo/"):] if p.startswith("/demo/") else ""
+        else:
+            base, rest = ROOT / "site", p.lstrip("/")
         target = (base / (rest or "index.html")).resolve()
         return str(target) if target.is_relative_to(base) else str(base / "__missing__")  # no ../ escapes
 
@@ -109,6 +146,11 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         p = urlparse(self.path).path
+        if p in ("/", ""):
+            self.send_response(302)
+            self.send_header("Location", "/ocr-walkthrough/")
+            self.end_headers()
+            return
         if p == "/api/samples":
             return self.send_json([{"id": i, "label": l, "page": pg} for i, l, pg in SAMPLES])
         if p.startswith("/api/thumb/"):
@@ -116,14 +158,19 @@ class Handler(SimpleHTTPRequestHandler):
             hit = [s for s in SAMPLES if s[0] == sid]
             if not hit or not PDF.is_file():
                 return self.send_error(404)
-            if sid not in THUMBS:
-                import pymupdf
-                THUMBS[sid] = pymupdf.open(PDF)[hit[0][2] - 1].get_pixmap(dpi=40).tobytes("jpeg")
+            preview = PREVIEWS / f"{sid}.jpg"
+            if preview.is_file():
+                data = preview.read_bytes()
+            else:
+                if sid not in THUMBS:
+                    import pymupdf
+                    THUMBS[sid] = pymupdf.open(PDF)[hit[0][2] - 1].get_pixmap(dpi=40).tobytes("jpeg")
+                data = THUMBS[sid]
             self.send_response(200)
             self.send_header("Content-Type", "image/jpeg")
-            self.send_header("Content-Length", str(len(THUMBS[sid])))
+            self.send_header("Content-Length", str(len(data)))
             self.end_headers()
-            return self.wfile.write(THUMBS[sid])
+            return self.wfile.write(data)
         if p.startswith("/api/image/"):
             png = IMAGES.get(p.rsplit("/", 1)[-1].removesuffix(".png"))
             if png is None:
@@ -182,7 +229,7 @@ def read_upload(body, page):
 
 
 if __name__ == "__main__":
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
+    port = int(os.environ.get("PORT") or (sys.argv[1] if len(sys.argv) > 1 else 8000))
     make_previews()
-    print(f"Khojki demo: http://localhost:{port}/   (site)   http://localhost:{port}/demo/   (live demo)")
-    ThreadingHTTPServer(("127.0.0.1", port), Handler).serve_forever()
+    print(f"Khojki demo: http://{HOST}:{port}/ocr-walkthrough/   (site)   http://{HOST}:{port}/ocr-demo/   (live demo)")
+    ThreadingHTTPServer((HOST, port), Handler).serve_forever()
