@@ -102,7 +102,9 @@ class Index:
 
     def distances(self, img, meta):
         q = self._scale(DESCRIPTIONS[self.description](img)[None])[0]
-        return np.linalg.norm(self.feat - q, axis=1) + META_WEIGHT * np.linalg.norm(self.meta - meta, axis=1)
+        # rows and q are unit length, so |f - q|^2 = 2 - 2 f.q: one matrix-vector product, ~8x faster than subtracting
+        d = np.sqrt(np.maximum(2 - 2 * (self.feat @ q), 0))
+        return d + META_WEIGHT * np.linalg.norm(self.meta - meta, axis=1)
 
     def _typical_same_label_distance(self):
         """Median distance from a real example to its nearest other example of the same label: the scale of 'close'."""

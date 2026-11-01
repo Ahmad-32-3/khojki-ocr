@@ -630,6 +630,7 @@ Format: **Assumption / error → How caught → Fix**
    - **Dev lines:** every number unchanged (`gt/eval_cer.py` output identical; the 150 real bank examples are byte-identical, so the bank and model.json stand).
    - **Blind test lines:** pipeline 40.8% top-1 (20/49, unchanged); the .txt as written 42.9% → **40.8%** (21 → 20 of 49 wrong); recognition on GT boxes 36.7% → 34.7% top-1. All 3 marks are now read right in every setup. On p11 l6 the digit cut free from the double section mark is read as a danda, so top-1 on the whole pipeline doesn't move.
    - **Pages 9-11:** 18 marks found (the same 18 as entry 98), written into results/. Run time 15-17 s a page on this machine, within the spread of earlier runs.
+100. **Faster commit hook; site copy edits (your call).** The hook's real-data check took 224 s, 190 of them in `Index.distances` subtracting the query from all 2,816 bank rows. Rows and query are already unit length, so the distance is now `sqrt(2 - 2 f·q)`, one matrix-vector product. The check takes 43 s. Second checks: every check_real number is identical, and rerunning pages 9-11 gives identical .txt and .json files (the .xml differs only in its timestamp). The site no longer explains why to use pages 9-11, the hook card ends on what a failed check means, and the test count reads 32.
 
 ### Still unverified (don't build on these yet)
 

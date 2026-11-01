@@ -498,9 +498,7 @@
         <h3>Add the Scans</h3>
         <p>Put the sample PDF in the folder called <strong>khojki-scans</strong> inside the project. The scans
           aren't in the repository, because the pages are for this exercise only.</p>
-        <p>Use pages <strong>9, 10 or 11</strong>: the yellow 1896 printed pages the pipeline was built and tested on.
-          Don't use pages 1 to 6 or 12 to 14. They're handwritten, and the pipeline can't read handwriting. The other
-          printed pages were never tested.</p>
+        <p>Use pages <strong>9, 10 or 11</strong>.</p>
       </li>
       <li>
         <h3>Run It on a Page</h3>
@@ -531,7 +529,7 @@
         <p>Character error rate is the share of characters that are wrong, missing or extra. 38.8% means about 4 in
           10 characters are wrong when you take the program's best guess. On the 2 test lines I held back until the
           end, it was 40.8%.</p>
-        <p>To check the code itself, run the 29 tests:</p>
+        <p>To check the code itself, run the 32 tests:</p>
         <div class="cmd"><pre><code>python -X utf8 -m pytest -q</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
       </li>
       <li>
@@ -747,8 +745,9 @@
       <div>
         <h3>A Commit Hook</h3>
         <p>Before every commit, a script runs three checks. It blocks any scan from being committed, because the pages
-          are for this exercise only. It runs all 29 tests. And it runs checks on the real pages. If any of them fail,
-          the commit stops, whoever wrote the code.</p>
+          are for this exercise only. It runs all 32 tests. And it runs the pipeline on the real pages and compares the
+          scores with the best ones so far. If any check fails, the commit doesn't go through. That goes for code I
+          wrote and code Claude wrote, so a change that makes the results worse can't be saved by either of us.</p>
       </div>
     </div>
 
