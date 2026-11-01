@@ -22,7 +22,7 @@ from khojki.lines import find_lines  # noqa: E402
 from khojki.pipeline import pdf_page  # noqa: E402
 from khojki.recognise import Index, load_model, recognise_atoms  # noqa: E402
 
-PDF = ROOT / "data" / "sample_khojki_script_vatiations.pdf"
+PDF = ROOT / "khojki-scans" / "sample_khojki_script_vatiations.pdf"
 INDEX = GT / "lines_index.json"
 
 

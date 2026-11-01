@@ -578,6 +578,7 @@ Format: **Assumption / error → How caught → Fix**
    - `pip install -e ".[dev]"` failed: setuptools found six top-level folders. `pyproject.toml` now names only `khojki`, and uses headless OpenCV (the one already installed; the pipeline opens no windows).
    - The run docs pointed to the PDF in the project folder; it's in `data/`. Fixed in README and site. Bad input (missing file, PDF without `--page`, unreadable image) now prints one line instead of a traceback.
    - **Second route:** every documented command run as written: install, PDF page 9 (11 lines, 0 validation problems), a page image, 29 tests, eval_cer (64 + 19 - 2 = 81 errors, unchanged).
+   - The pipeline now prints a plain summary per page (lines, separators, characters written vs left as suggestions, files) and eval_cer ends with an "In plain terms" block. Scans moved to `khojki-scans/` (only its README is committed). Measured run time: 14.8 / 18.1 / 16.4 s per page including start-up, 10.8 s of processing on p9; the site's "about 12 s" is corrected to 15-18 s. Pages 9-11 are the yellow 1896 print; 1-6 and 12-14 are handwritten.
 
 ### Still unverified (don't build on these yet)
 

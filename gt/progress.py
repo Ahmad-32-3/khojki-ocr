@@ -174,7 +174,7 @@ def chunk4(page=10, n_lines=4):
     """What out/<page>.txt holds, drawn under each line: black = committed character, dashed ? = not recognised."""
     from khojki.pipeline import pdf_page, run_page
     from khojki.render import render
-    gray = pdf_page(ROOT / "data" / "sample_khojki_script_vatiations.pdf", page)
+    gray = pdf_page(ROOT / "khojki-scans" / "sample_khojki_script_vatiations.pdf", page)
     result = run_page(gray, f"p{page:02d}")
     panels = []
     for l in result["lines"][:n_lines]:

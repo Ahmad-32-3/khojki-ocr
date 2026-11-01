@@ -157,6 +157,12 @@ def main(log=False):
     fmt = lambda ch: name((ord(ch),)) if ch else "-"
     print("most common top-1 recognition errors (true -> read):",
           ", ".join(f"{fmt(a)}->{fmt(b)} x{n}" for (op, a, b), n in conf.most_common(8)))
+    c1, cs = results["cer_pipeline_top-1"], results["cer_pipeline_strict"]
+    print(f"\nIn plain terms (whole pipeline, {len(rows)} development lines, each scored by a model that never saw it):")
+    print(f"  Best guess for every character: {c1:.1%} character error rate, about {round(c1 * 10)} in 10 characters wrong.")
+    print(f"  The .txt as written: {cs:.1%}. Every unsure character is written as � and counts as wrong,")
+    print("  so this can go above 100% (an unsure glyph writes one � for the letter and one for its marks).")
+    print(f"  Where the errors come from: recognition {u}, glyph boxes {l - u}, line finding {p - l}.")
     if log:
         row = {"time": datetime.datetime.now().isoformat(timespec="seconds"),
                "commit": subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip(),

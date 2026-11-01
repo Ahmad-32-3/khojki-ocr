@@ -13,7 +13,7 @@ import cv2
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "gt")]
-PDF = ROOT / "data" / "sample_khojki_script_vatiations.pdf"
+PDF = ROOT / "khojki-scans" / "sample_khojki_script_vatiations.pdf"
 PDF_SHA = "99f373777e13ad01ccc7ff1ae067cb80a3de2bc22d96df6c7ab0a558f8d11f23"
 RESULTS = ROOT / "gt" / "results.jsonl"
 

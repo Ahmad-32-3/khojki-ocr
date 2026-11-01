@@ -31,7 +31,7 @@ Line finding comes out at −2 because the pipeline's own crops did slightly bet
 The bottleneck is labelled examples for recognition. Going from 6 to 9 dev lines (98 to 150 real glyphs) moved top-3 from 55.8% to 64.8% and CER from 48.6% to 40.2%. That's two points, each on a different dev set, so it's not a curve to extrapolate from. Kraken suggests about 800 lines for a printed script. VOLTAGE reached 4% CER on Takri, a related script, from about 14k labelled glyphs, which is about 740 lines at 19 glyphs per line. That's the range I'd plan for. The second bottleneck is the labeller. A non-reader can't reliably tell MA, BA, JA and TA apart, so a Khojki reader has to review.
 
 ## 5. Cost and time
-- **Pipeline:** about 12 s per page on a laptop CPU (11.2, 13.1 and 12.2 s), with no GPU and no API. That's about 9 minutes and $0 for 45 pages.
+- **Pipeline:** about 15 to 18 s per page on a laptop CPU, including start-up (14.8, 18.1 and 16.4 s), with no GPU and no API. That's about 12 minutes and $0 for 45 pages.
 - **Transcription:** 153 minutes of review for 11 lines (210 glyphs). That's about 44 s per glyph and 14 min per line, with suggestions shown. Lines ranged from 2 to 60 minutes. Working blind, without suggestions, took 39 s per code point. At 14 min per line, 800 lines would take a non-reader about 190 hours. The timer counts the time a glyph was open, idle time included.
 
 ## 6. Where the AI was wrong

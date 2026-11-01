@@ -6,7 +6,7 @@ usage: python -X utf8 -m khojki.pipeline <page.png | file.pdf --page N> [--out o
      out/<name>.xml   PAGE-XML 2019 (opens in eScriptorium / Transkribus-style tools)
 Stages: A lines (khojki.lines) -> B glyph boxes (khojki.glyphs) -> C recognition (khojki.recognise) -> D validation.
 """
-import argparse, datetime, json
+import argparse, datetime, json, time
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -15,6 +15,7 @@ import numpy as np
 
 from khojki.bank import load
 from khojki.glyphs import glyph_atoms
+from khojki.labels import SEPARATOR
 from khojki.lines import find_lines
 from khojki.recognise import Index, check_model, load_model, recognise_atoms
 from khojki.validate import problems
@@ -106,10 +107,11 @@ def main(argv=None):
     ap.add_argument("--page", type=int, help="page number, when the input is a PDF")
     ap.add_argument("--out", default="out")
     a = ap.parse_args(argv)
+    start = time.perf_counter()
     src = Path(a.input)
     # bad input gets one plain line, not a traceback
     if not src.is_file():
-        ap.error(f"no such file: {src} (the sample PDF lives in data/)")
+        ap.error(f"no such file: {src} (put the scans in khojki-scans/)")
     if src.suffix.lower() == ".pdf":
         if a.page is None:
             ap.error("a PDF needs --page N")
@@ -124,11 +126,28 @@ def main(argv=None):
     (out / f"{name}.txt").write_text(to_txt(result), encoding="utf-8")
     (out / f"{name}.json").write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / f"{name}.xml").write_text(to_page_xml(result), encoding="utf-8")
-    bad = sum(len(l["problems"]) for l in result["lines"])
-    parts = [u[p] for l in result["lines"] for u in l["units"] for p in ("letter", "signs")]
-    rec = sum(p["status"] == "recognised" for p in parts)
-    print(f"{name}: {len(result['lines'])} lines, {rec}/{len(parts)} parts recognised, {bad} validation problems -> {out}/")
+    print(summary(result, out / name, time.perf_counter() - start))
     return result
+
+
+def summary(result, stem, seconds):
+    """What the run found and how sure it was, in plain words. Accuracy needs an answer key, so it points to that."""
+    units = [u for l in result["lines"] for u in l["units"]]
+    sure = lambda u: u["letter"]["status"] == "recognised"
+    seps = [u for u in units if sure(u) and u["letter"]["cps"] == [f"U+{SEPARATOR:04X}"]]
+    glyphs = [u for u in units if u not in seps]
+    bad = sum(len(l["problems"]) for l in result["lines"])
+    return "\n".join([
+        f"{result['page']}  ({seconds:.1f} s)",
+        f"  Lines found              {len(result['lines'])}",
+        f"  Word separators found    {len(seps)}  (written as text)",
+        f"  Characters found         {len(glyphs)}",
+        f"    written as text        {sum(sure(u) for u in glyphs)}  (95% sure or more)",
+        f"    left as suggestions    {sum(not sure(u) for u in glyphs)}  (written as �; top 3 guesses in the .json)",
+        f"  Unicode order problems   {bad}",
+        f"  Files                    {stem}.txt / .json / .xml",
+        "  Accuracy: only pages 9-11 have an answer key. To score against it, run: python -X utf8 gt/eval_cer.py",
+    ])
 
 
 if __name__ == "__main__":

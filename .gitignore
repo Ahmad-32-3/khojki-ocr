@@ -31,3 +31,7 @@ out/
 
 # Built by pip install -e
 *.egg-info/
+
+# Scans go here; only the note is committed (the pages are for this exercise only)
+khojki-scans/*
+!khojki-scans/README.md

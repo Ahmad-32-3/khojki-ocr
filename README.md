@@ -3,7 +3,7 @@
 A take-home for Karim Tharani (USask): turn page images of printed Khojki into Unicode text, score it with CER,
 and report what it would take to do the whole book.
 
-The pipeline is plain Python (NumPy, OpenCV, scikit-learn). It runs offline on a laptop CPU, about 12 s a page,
+The pipeline is plain Python (NumPy, OpenCV, scikit-learn). It runs offline on a laptop CPU, about 15 to 18 s a page including start-up,
 with no API and no language model at runtime.
 
 ## Results
@@ -40,7 +40,7 @@ as U+FFFD with its top 3 suggestions in the JSON and PAGE-XML, so a reviewer nev
 
 ```bash
 pip install -e ".[dev]"
-python -X utf8 -m khojki.pipeline data/sample_khojki_script_vatiations.pdf --page 9 --out out/
+python -X utf8 -m khojki.pipeline khojki-scans/sample_khojki_script_vatiations.pdf --page 9 --out out/
 python -X utf8 -m pytest -q
 ```
 

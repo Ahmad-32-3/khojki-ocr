@@ -272,6 +272,14 @@
   }
   .copy:hover { border-color: var(--gold); }
   .copy:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+  .steps-run p + p { margin-top: 0.625rem; }
+  .steps-run .cmd + p { margin-top: 0.875rem; }
+  .steps-run .sample + p { margin-top: 0.875rem; }
+  /* what the terminal prints: same box as a command, but quieter and without a copy button */
+  .sample { margin: 0.625rem 0 0; padding: 0.75rem 1rem; background: var(--bg); border: 1px solid var(--line);
+            overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--walnut) transparent; }
+  .sample code, code.path { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 0.8125rem; color: var(--muted); }
+  code.path { color: var(--text); background: var(--surface); padding: 0.05rem 0.375rem; }
   .outputs { list-style: none; padding: 0; margin-top: 1.25rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
   .outputs .k { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 1.125rem; color: var(--gold); }
   .outputs p:not(.k) { margin-top: 0.375rem; font-size: 0.9375rem; font-weight: 300; color: var(--muted); }
@@ -337,7 +345,7 @@
     <p class="lede">The goal is simple: take a scanned page from an 1896 Khojki book and turn it into readable Unicode text.
       I built a five-stage pipeline for it. Pick a stage to see what it does.</p>
     <ul class="facts">
-      <li>~12 s per page</li>
+      <li>15&ndash;18 s per page</li>
       <li>Runs offline</li>
       <li>No language model</li>
     </ul>
@@ -455,43 +463,68 @@
 
 
 
+
   <section class="run" aria-labelledby="run-title">
     <p class="eyebrow">02 &middot; Run It</p>
     <h2 id="run-title">How to Run the Pipeline</h2>
-    <p class="lede">The pipeline is plain Python and runs offline on a laptop. It needs Python 3.11 or newer.</p>
+    <p class="lede">You need Python 3.11 or newer and the Khojki scans. Each page takes about 15 to 18 seconds,
+      including start-up.</p>
     <ol class="steps-run">
       <li>
         <h3>Install</h3>
-        <p>From the project folder, install the package and its test tools.</p>
+        <p>In the project folder, install the package and its test tools.</p>
         <div class="cmd"><pre><code>pip install -e &quot;.[dev]&quot;</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
       </li>
       <li>
-        <h3>Add the Data</h3>
-        <p>The scans aren't in the repository, because the pages are for this exercise only. Put the sample PDF in the
-          data/ folder. The example bank is built from my labelled lines, so it also stays on my machine.</p>
+        <h3>Add the Scans</h3>
+        <p>Put the sample PDF in the <code class="path">khojki-scans</code> folder inside the project. The scans
+          aren't in the repository, because the pages are for this exercise only.</p>
+        <p>Use pages <strong>9, 10 or 11</strong>: the yellow 1896 printed pages the pipeline was built and tested on.
+          Don't use pages 1 to 6 or 12 to 14. They're handwritten, and the pipeline can't read handwriting. The other
+          printed pages were never tested.</p>
       </li>
       <li>
         <h3>Run It on a Page</h3>
-        <p>Give it a PDF and a page number, or a single page image.</p>
-        <div class="cmd"><pre><code>python -X utf8 -m khojki.pipeline data/sample_khojki_script_vatiations.pdf --page 9 --out out/</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
-        <div class="cmd"><pre><code>python -X utf8 -m khojki.pipeline page.png --out out/</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+        <p>Give it the PDF and a page number. A single page image also works.</p>
+        <div class="cmd"><pre><code>python -X utf8 -m khojki.pipeline khojki-scans/sample_khojki_script_vatiations.pdf --page 9 --out out/</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+        <p>When it finishes, it prints a summary of the page:</p>
+        <pre class="sample"><code>sample_khojki_script_vatiations_p09  (10.8 s)
+  Lines found              11
+  Word separators found    52  (written as text)
+  Characters found         158
+    written as text        0  (95% sure or more)
+    left as suggestions    158  (written as �; top 3 guesses in the .json)
+  Unicode order problems   0</code></pre>
+        <p>Word separators are written as text. A character is written as text only when the program is at least 95%
+          sure. None reach that yet, so each one is written as &#xFFFD; and its top three guesses are saved in the
+          <code class="path">.json</code> file.</p>
       </li>
       <li>
-        <h3>Check It</h3>
-        <p>Run the 29 tests, then score the output against the ground truth.</p>
-        <div class="cmd"><pre><code>python -X utf8 -m pytest -q</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+        <h3>Check the Accuracy</h3>
+        <p>Only pages 9 to 11 have an answer key: the lines I labelled by hand. This command runs the whole pipeline
+          on the 9 development lines and compares the result with the answer key. Each line is read by a model that
+          never saw that line.</p>
         <div class="cmd"><pre><code>python -X utf8 gt/eval_cer.py</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+        <pre class="sample"><code>In plain terms (whole pipeline, 9 development lines, each scored by a model that never saw it):
+  Best guess for every character: 38.8% character error rate, about 4 in 10 characters wrong.
+  The .txt as written: 120.6%. Every unsure character is written as � and counts as wrong,
+  so this can go above 100% (an unsure glyph writes one � for the letter and one for its marks).
+  Where the errors come from: recognition 64, glyph boxes 19, line finding -2.</code></pre>
+        <p>Character error rate is the share of characters that are wrong, missing or extra. 38.8% means about 4 in
+          10 characters are wrong when you take the program's best guess. On the 2 test lines I held back until the
+          end, it was 40.8%.</p>
+        <p>To check the code itself, run the 29 tests:</p>
+        <div class="cmd"><pre><code>python -X utf8 -m pytest -q</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
       </li>
     </ol>
     <h3 class="sub-h">What You Get</h3>
     <ul class="outputs">
-      <li><p class="k">.txt</p><p>The page as Unicode text, one line per printed line. Unsure characters are written
-        as &#xFFFD;.</p></li>
-      <li><p class="k">.json</p><p>Every line and glyph with its position on the page, the answer or the top three
-        suggestions, and the confidence of each.</p></li>
+      <li><p class="k">.txt</p><p>The page as Unicode text, one line per printed line. Characters the program isn't
+        sure of are written as &#xFFFD;.</p></li>
+      <li><p class="k">.json</p><p>Every line and character with its position on the page, the answer or the top three
+        guesses, and how sure the program is of each.</p></li>
       <li><p class="k">.xml</p><p>PAGE-XML, a standard format that archive and transcription tools can open.</p></li>
     </ul>
-    <p class="table-note">About 12 seconds a page on a laptop CPU. No internet, no GPU, no cost per page.</p>
   </section>
 
   <section class="compare" aria-labelledby="compare-title">
@@ -507,10 +540,14 @@
     </div>
 
     <ul class="method" aria-label="How the comparisons were kept fair">
-      <li><p class="k">9 + 2 lines</p><p>Nine lines for development. Two kept sealed for the final test.</p></li>
-      <li><p class="k">Leave one line out</p><p>Learn from eight lines, test on the ninth, until every line has been tested.</p></li>
-      <li><p class="k">Top-1 and top-3</p><p>Was the right character the first guess? Was it among the three a reviewer sees?</p></li>
-      <li><p class="k">Chance check</p><p>An exact McNemar test on the same 105 glyphs: a few extra right isn't proof.</p></li>
+      <li><p class="k">Held-Back Test Lines</p><p>I labelled 11 lines. I used 9 to build and compare methods, and kept 2
+        untouched for one final test.</p></li>
+      <li><p class="k">Leave One Line Out</p><p>Each method learned from 8 of the 9 lines and was tested on the
+        remaining one. I repeated this 9 times, so every line was tested once.</p></li>
+      <li><p class="k">Two Scores</p><p>First guess: was the correct character the program's top answer? Top three: was
+        it among the three suggestions a reviewer sees?</p></li>
+      <li><p class="k">A Luck Check</p><p>Every method was tested on the same 105 characters. A statistical test
+        (McNemar's) checked whether a difference was bigger than chance.</p></li>
     </ul>
 
     <div class="figures">
@@ -708,7 +745,7 @@
     <div class="horizons">
       <div class="horizon"><h3>First</h3><ol><li><h4>Have a Khojki Reader Check the Hard Letters</h4><p>MA, BA, JA and TA look alike, and I&#x27;m not a reader. A reader reviewing those letters would make the labels I learn from more reliable.</p></li><li><h4>Build a Larger, Blind Test Set</h4><p>About 50 lines, labelled without suggestions shown, from pages the pipeline never learned from. That&#x27;s about 12 hours, and it would let me trust differences of 3 points instead of 9.</p></li><li><h4>Fix the Most Common Glyph-Box Error</h4><p>Cutting lines into glyphs causes 19 of the 81 errors. I&#x27;d go through them one by one and fix the most common cause first.</p></li></ol></div>
       <div class="horizon"><h3>Then</h3><ol><li><h4>Label in Groups, Not One Glyph at a Time</h4><p>Group similar glyphs automatically from more pages of the book, so a reader labels a whole group at once.</p></li><li><h4>Make the Font Images Match the Print</h4><p>Thicker strokes, the book&#x27;s letter frequencies, and the print&#x27;s ink texture.</p></li><li><h4>Test Line Finding on New Pages</h4><p>It found all 35 lines on three pages, but it was tuned on those same pages. New pages would show whether it holds up.</p></li></ol></div>
-      <div class="horizon"><h3>Later</h3><ol><li><h4>Rerun the Model Comparison</h4><p>On the larger data set, with several data sizes and random seeds, to see when a neural network starts to beat pixel matching.</p></li><li><h4>Read Whole Lines</h4><p>At about 500 to 800 labelled lines, switch to a model that reads whole lines, like Kraken. That removes the glyph-cutting step and its errors.</p></li><li><h4>Run the Whole Book</h4><p>At about 12 seconds a page, the pipeline could process the book in minutes, and the PAGE-XML output could go straight into a transcription tool for correction.</p></li></ol></div>
+      <div class="horizon"><h3>Later</h3><ol><li><h4>Rerun the Model Comparison</h4><p>On the larger data set, with several data sizes and random seeds, to see when a neural network starts to beat pixel matching.</p></li><li><h4>Read Whole Lines</h4><p>At about 500 to 800 labelled lines, switch to a model that reads whole lines, like Kraken. That removes the glyph-cutting step and its errors.</p></li><li><h4>Run the Whole Book</h4><p>At 15 to 18 seconds a page, the pipeline could process 45 pages in about 12 minutes, and the PAGE-XML output could go straight into a transcription tool for correction.</p></li></ol></div>
     </div>
   </section>
 
