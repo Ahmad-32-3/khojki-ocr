@@ -386,7 +386,7 @@
         <p>There are barely any labelled examples of Khojki, the printing is over a century old, and modern OCR tools
           aren't designed to recognize it. So everything here was built and measured from three pages of one book.</p>
       </div>
-      <div class="stat"><p class="num">1896</p><p class="cap">printed Khojki, pages 9&ndash;11 of the Narsi Mehta book</p></div>
+      <div class="stat"><p class="num">1896</p><p class="cap">printed Khojki from the Narsi Mehta book</p></div>
     </div>
 
     <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
@@ -442,7 +442,7 @@
           <li>it clearly beats the alternatives, and</li>
           <li>at least one real example from the book supports it.</li>
         </ul>
-        <p>Otherwise it's marked unknown, with its three best guesses saved for review. Before export, the text is
+        <p>Otherwise its best guess is written and marked as a guess, with the top three saved for review. If even the best guess is under 30%, it's written as &#xFFFD;. Before export, the text is
           checked against Khojki's Unicode ordering rules. The output is readable text, a JSON record of every
           prediction, and PAGE-XML for archival tools.</p>
       </div>
@@ -500,23 +500,22 @@
   Lines found              11
   Word separators found    52  (written as text)
   Characters found         158
-    written as text        0  (95% sure or more)
-    left as suggestions    158  (written as �; top 3 guesses in the .json)
+    certain (green)        0  (95% sure or more)
+    best guess (orange)    127  (written as the best guess; top 3 in the .json)
+    no good guess (red)    31  (best guess under 30%, written as �)
   Unicode order problems   0</code></pre>
-        <p>Word separators are written as text. A character is written as text only when the program is at least 95%
-          sure. None reach that yet, so each one is written as &#xFFFD; and its top three guesses are saved in the
-          .json file.</p>
+        <p>A character counts as certain only when the program is at least 95% sure. None reach that yet, so each one is written as its best guess, with the top three saved in the .json file. When even the best guess is under 30%, it's written as &#xFFFD; instead.</p>
       </li>
       <li>
         <h3>Check the Accuracy</h3>
-        <p>Only pages 9 to 11 have an answer key: the lines I labelled by hand. This command runs the whole pipeline
+        <p>The answer key is the lines I labelled by hand. This command runs the whole pipeline
           on the 9 development lines and compares the result with the answer key. Each line is read by a model that
           never saw that line.</p>
         <div class="cmd"><pre><code>python -X utf8 gt/eval_cer.py</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
         <pre class="sample"><code>In plain terms (whole pipeline, 9 development lines, each scored by a model that never saw it):
   Best guess for every character: 38.8% character error rate, about 4 in 10 characters wrong.
-  The .txt as written: 120.6%. Every unsure character is written as � and counts as wrong,
-  so this can go above 100% (an unsure glyph writes one � for the letter and one for its marks).
+  The .txt as written: 40.7%. It holds the best guesses too; only glyphs with no good guess
+  (best guess under 30%) are written as �, and those count as wrong.
   Where the errors come from: recognition 64, glyph boxes 19, line finding -2.</code></pre>
         <p>Character error rate is the share of characters that are wrong, missing or extra. 38.8% means about 4 in
           10 characters are wrong when you take the program's best guess. On the 2 test lines I held back until the
@@ -538,8 +537,7 @@
       endings .txt, .json and .xml. If you run the same page again, its three files are replaced. The pipeline
       doesn't save anything anywhere else.</p>
     <ul class="outputs">
-      <li><p class="k">.txt</p><p>The page as Unicode text, one line per printed line. Characters the program isn't
-        sure of are written as &#xFFFD;.</p></li>
+      <li><p class="k">.txt</p><p>The page as Unicode text, one line per printed line. Characters with no good guess are written as &#xFFFD;.</p></li>
       <li><p class="k">.json</p><p>Every line and character with its position on the page, the answer or the top three
         guesses, and how sure the program is of each.</p></li>
       <li><p class="k">.xml</p><p>PAGE-XML, a standard format that archive and transcription tools can open.</p></li>
@@ -664,7 +662,7 @@
     <p class="lede">The next step is to change the data, then test the same models again.</p>
     <ol class="plan">
       <li><h4>Build a Larger Test Set</h4><p>With 105 test glyphs, only differences of about 9 percentage points can be trusted. A test set of about 50 lines (950 glyphs), labelled by a Khojki reader without suggestions, could show differences of 3 points.</p><p class="cost">About 12 hours</p></li>
-      <li><h4>Label Similar Glyphs in Groups</h4><p>Cut out every glyph from more pages of this book, group similar glyphs automatically, and have a reader label each group at once. Today each glyph takes about 44 seconds. The VOLTAGE project used this method to label about 14,000 glyphs of Takri, a related script.</p><p class="cost">Needs more scans of this book</p></li>
+      <li><h4>Label Similar Glyphs in Groups</h4><p>Cut out every glyph from more pages of this book, group similar glyphs automatically, and have a reader label each group at once. Today each glyph takes up to 44 seconds. The VOLTAGE project used this method to label about 14,000 glyphs of Takri, a related script.</p><p class="cost">Needs more scans of this book</p></li>
       <li><h4>Make the Font Images Match the Print</h4><p>The printed strokes are about 40% thicker than in the font images. Make the font strokes thicker, include each letter as often as it appears in the book, and copy the print&#x27;s ink texture onto the font images.</p></li>
       <li><h4>Test the Same Models Again</h4><p>Run pixel matching, the CNN, SimCLR and DANN again on the new data, each at several data sizes and with 3 random seeds. This shows how much data a neural network needs before it does better than pixel matching.</p></li>
       <li><h4>Read Whole Lines</h4><p>At about 500 to 800 labelled lines, use a model that reads whole lines, such as Kraken. This would remove the 19 errors caused by cutting lines into glyphs.</p></li>
@@ -745,7 +743,7 @@
     <ul class="tally" aria-label="Review totals">
       <li><span class="n">11</span> lines labelled</li>
       <li><span class="n">210</span> glyphs reviewed</li>
-      <li><span class="n">153</span> minutes of review</li>
+      <li><span class="n">153</span> minutes of review, at most</li>
       <li><span class="n">15</span> answers changed on recheck</li>
     </ul>
   </section>

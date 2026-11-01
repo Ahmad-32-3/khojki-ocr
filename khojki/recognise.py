@@ -23,6 +23,7 @@ K = 7             # neighbours that vote
 MARGIN = 0.15     # a recognised part must beat the next option by this much (SPEC step 7)
 META_WEIGHT = 0.5  # how much relative height / width count next to shape
 REPLACEMENT = "�"
+RED_BELOW = 0.30  # a glyph whose best letter guess is under 30% is "no good guess": written as one REPLACEMENT
 
 
 # ---------- shape descriptions ----------
@@ -221,6 +222,22 @@ def _component(cand, model):
     return {"cps": [f"U+{c:04X}" for c in cps], "name": name(cps), "conf": round(calibrate(opts["letter"][0][1], m.get("calib")), 3)}
 
 
+def colour(letter):
+    """green: recognised; red: no good guess (best letter guess under RED_BELOW); orange: everything else."""
+    if letter["status"] == "recognised":
+        return "green"
+    return "red" if (letter["options"][0]["conf"] if letter["options"] else 0.0) < RED_BELOW else "orange"
+
+
+def unit_text(letter, signs):
+    """What a glyph writes to the text: the answer when recognised, the best guess when there is one (orange),
+    and a single REPLACEMENT only when there's no good guess (red)."""
+    if colour(letter) == "red":
+        return REPLACEMENT
+    pick = lambda d: d["cps"] if d["status"] == "recognised" else (d["options"][0]["cps"] if d["options"] else [])
+    return "".join(chr(int(c[2:], 16)) for c in pick(letter) + pick(signs))
+
+
 def recognise_atoms(atoms, index, model):
     cands = candidates(atoms, index)
     units = []
@@ -228,13 +245,12 @@ def recognise_atoms(atoms, index, model):
         share, real = cands[(idx[0], len(idx))]
         opts = part_scores(share, real)
         unit = {"boxes": idx}
-        text = ""
         kind = group(opts)
         for part in ("letter", "signs"):
             m = (model or {}).get(part, {}).get(kind, {})
-            unit[part] = d = decide(opts[part], m.get("calib"), m.get("tau", 2.0))
-            text += "".join(chr(int(c[2:], 16)) for c in d["cps"]) if d["status"] == "recognised" else REPLACEMENT
-        unit["text"] = text
+            unit[part] = decide(opts[part], m.get("calib"), m.get("tau", 2.0))
+        unit["colour"] = colour(unit["letter"])
+        unit["text"] = unit_text(unit["letter"], unit["signs"])
         if len(idx) > 1 and unit["letter"]["status"] != "recognised":
             unit["components"] = [_component(cands[(i, 1)], model) for i in idx]
         units.append(unit)

@@ -8,7 +8,7 @@ fitted on the other lines only (nested, as in eval_recognise.py):
   lines     + the program's own box split, on GT line crops   -> adds segmentation errors
   pipeline  + lines found on the PDF page                     -> adds line-finding errors
 Two CERs each:
-  strict    the text file as written: every U+FFFD counts as an error
+  strict    the text file as written: best guesses for orange glyphs, U+FFFD (an error) for red ones
   top-1     the best guess for every part, ignoring the confidence bar (comparable to other OCR systems)
 GT glyphs nobody could read ('?') are left out of both sides: the output units on them are dropped.
 """
@@ -26,7 +26,7 @@ from khojki.cer import align  # noqa: E402
 from khojki.glyphs import glyph_atoms  # noqa: E402
 from khojki.labels import SEPARATOR, name  # noqa: E402
 from khojki.lines import find_lines  # noqa: E402
-from khojki.recognise import REPLACEMENT, Index, decide, group, load_model, part_scores, recognise_atoms  # noqa: E402
+from khojki.recognise import REPLACEMENT, Index, decide, group, load_model, part_scores, recognise_atoms, unit_text  # noqa: E402
 import eval_glyphs  # noqa: E402
 import eval_recognise as ER  # noqa: E402
 
@@ -56,10 +56,9 @@ def oracle_units(line, index, model):
         atoms = line["atoms"]
         img, meta = normalise(unit_mask(atoms, list(idx)), atoms["tall"])
         opts = part_scores(*index.votes(img, meta, atoms["boxes"][idx[0]][4]))
+        d = {part: decide(opts[part], model[part][group(opts)]["calib"], model[part][group(opts)]["tau"]) for part in ("letter", "signs")}
+        strict += as_text(ord(c) for c in unit_text(d["letter"], d["signs"]))
         for part in ("letter", "signs"):
-            m = model[part][group(opts)]
-            d = decide(opts[part], m["calib"], m["tau"])
-            strict += as_text(int(c[2:], 16) for c in d["cps"]) if d["status"] == "recognised" else REPLACEMENT
             top1 += as_text(opts[part][0][0])
     return strict, top1
 
@@ -160,8 +159,8 @@ def main(log=False):
     c1, cs = results["cer_pipeline_top-1"], results["cer_pipeline_strict"]
     print(f"\nIn plain terms (whole pipeline, {len(rows)} development lines, each scored by a model that never saw it):")
     print(f"  Best guess for every character: {c1:.1%} character error rate, about {round(c1 * 10)} in 10 characters wrong.")
-    print(f"  The .txt as written: {cs:.1%}. Every unsure character is written as � and counts as wrong,")
-    print("  so this can go above 100% (an unsure glyph writes one � for the letter and one for its marks).")
+    print(f"  The .txt as written: {cs:.1%}. It holds the best guesses too; only glyphs with no good guess")
+    print("  (best guess under 30%) are written as �, and those count as wrong.")
     print(f"  Where the errors come from: recognition {u}, glyph boxes {l - u}, line finding {p - l}.")
     if log:
         row = {"time": datetime.datetime.now().isoformat(timespec="seconds"),

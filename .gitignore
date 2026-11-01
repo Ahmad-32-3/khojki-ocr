@@ -35,3 +35,6 @@ out/
 # Scans go here; only the note is committed (the pages are for this exercise only)
 khojki-scans/*
 !khojki-scans/README.md
+
+# Sample page previews, cut from the scans (made by demo/server.py on start)
+demo/previews/

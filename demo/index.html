@@ -51,6 +51,14 @@
   .card img { width: 100%; height: auto; display: block; background: var(--surface); }
   .card:hover { border-color: var(--brown); }
   .card[aria-checked="true"] { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+  .card:hover img { opacity: 0.85; }
+  .viewer { max-width: min(56rem, 94vw); max-height: 94vh; padding: 0; border: 1px solid var(--walnut);
+            background: var(--bg); color: var(--text); }
+  .viewer::backdrop { background: rgb(0 0 0 / 0.75); }
+  .viewer-bar { position: sticky; top: 0; display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem;
+                background: var(--bg); border-bottom: 1px solid var(--line); }
+  .viewer-bar h2 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; margin-right: auto; }
+  .viewer img { display: block; width: 100%; height: auto; }
   .c-label { font-family: var(--serif); font-size: 1.125rem; color: var(--text); line-height: 1.2; margin-top: 0.25rem; }
   /* shown in place of a preview that fails to load, at the same size, so the row never shows a broken image */
   .no-thumb { display: grid; place-items: center; aspect-ratio: 120 / 174; background: var(--surface); font-size: 0.75rem; color: var(--muted); text-align: center; }
@@ -213,15 +221,15 @@
       <div class="stage-head"><span class="n">3</span><h2 id="s3h">Recognizing Each Glyph</h2><p id="s3-meta"></p></div>
       <ul class="legend">
         <li><span class="sw green"></span><span><b>Green:</b> recognized, 95% sure or more. Written as text.</span></li>
-        <li><span class="sw orange"></span><span><b>Orange:</b> a suggestion. Not sure enough to write as text.</span></li>
+        <li><span class="sw orange"></span><span><b>Orange:</b> a best guess, written into the text but not certain.</span></li>
         <li><span class="sw red"></span><span><b>Red:</b> no good guess. The best guess is under 30%.</span></li>
       </ul>
       <div class="frame" id="line-rec"></div>
       <div class="guess">
         <p class="opts-title">Best Guess for This Line</p>
         <p class="guess-text" id="guess" lang="sd-Khoj"></p>
-        <p class="note">Each glyph's top guess, in the same colours. Only the green ones are written as text in the
-          .txt file; the others are written as &#xFFFD;. Click a character to inspect it.</p>
+        <p class="note">Each glyph's top guess, in the same colours. The .txt file holds the same text, except that red glyphs are
+          written as &#xFFFD;. Click a character to inspect it.</p>
       </div>
       <div class="inspect" id="inspect">
         <div class="zoom" id="zoom"></div>
@@ -245,6 +253,15 @@
   </div>
 </main>
 
+<dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+  <div class="viewer-bar">
+    <h2 id="viewer-title"></h2>
+    <button class="run-btn" type="button" id="viewer-run">Run This Page</button>
+    <button class="ghost" type="button" id="viewer-close">Close</button>
+  </div>
+  <img id="viewer-img" alt="The selected sample page, full size">
+</dialog>
+
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -252,8 +269,8 @@ let R = null, line = 0, unit = 0, samples = [];
 const LABEL = { green: "Recognized", orange: "Suggestion", red: "No good guess" };
 const WHY = {
   green: "The program is at least 95% sure, so this glyph is written as text. The other options are shown for comparison.",
-  orange: "The program has guesses, but none is 95% sure, so it is written as � with these guesses saved for a reviewer.",
-  red: "The best guess is under 30%. The program has no real idea what this glyph is.",
+  orange: "The program has guesses, but none is 95% sure. Its best guess is written into the text, and the other guesses are saved for a reviewer.",
+  red: "The best guess is under 30%. The program has no real idea what this glyph is, so it is written as �.",
 };
 
 // ---------- form ----------
@@ -262,7 +279,7 @@ async function loadSamples() {
   $("#sample").innerHTML = samples.map(s => `<option value="${s.id}">${esc(s.label)}</option>`).join("");
   // a preview card per sample, so the reader can see the yellow 1896 pages and the grey ones before running
   $("#cards").innerHTML = samples.map(s => `<button type="button" class="card" role="radio" data-id="${s.id}">
-      <img src="/api/thumb/${s.id}.jpg" alt="" width="120" height="174" onerror="this.replaceWith(Object.assign(document.createElement('span'), {className: 'no-thumb', textContent: 'Preview unavailable'}))">
+      <img src="previews/${s.id}.jpg" alt="" width="120" height="174" onerror="this.replaceWith(Object.assign(document.createElement('span'), {className: 'no-thumb', textContent: 'Preview unavailable'}))">
       <span class="c-label">${esc(s.label)}</span>
     </button>`).join("");
   showNote();
@@ -272,7 +289,18 @@ const showNote = () => {
   const s = samples.find(x => x.id === $("#sample").value);
   document.querySelectorAll(".card").forEach(c => c.setAttribute("aria-checked", c.dataset.id === $("#sample").value));
 };
-$("#cards").addEventListener("click", e => { const c = e.target.closest(".card"); if (c) { $("#sample").value = c.dataset.id; showNote(); } });
+// clicking a card selects it and opens the page large enough to read
+$("#cards").addEventListener("click", e => {
+  const c = e.target.closest(".card");
+  if (!c) return;
+  $("#sample").value = c.dataset.id; showNote();
+  $("#viewer-img").src = `previews/${c.dataset.id}_large.jpg`;
+  $("#viewer-title").textContent = samples.find(x => x.id === c.dataset.id).label;
+  $("#viewer").showModal();
+});
+$("#viewer-close").addEventListener("click", () => $("#viewer").close());
+$("#viewer-run").addEventListener("click", () => { $("#viewer").close(); $("#form").requestSubmit(); });
+$("#viewer").addEventListener("click", e => { if (e.target === $("#viewer")) $("#viewer").close(); });  // click outside the page
 $("#sample").addEventListener("change", showNote);
 document.querySelectorAll('input[name="src"]').forEach(r => r.addEventListener("change", () => {
   const up = $('input[name="src"]:checked').value === "upload";
@@ -342,7 +370,7 @@ function render() {
   $("#s1-meta").textContent = `${c.lines} lines · ${R.title} · ${R.seconds} s`;
   view($("#page-view"), { x: 0, y: 0, w: R.width, h: R.height },
     R.lines.map((l, i) => rect(box(l.bbox), "linebox", 200 + i * 120)).join(""));
-  $("#counts").innerHTML = [["green", "recognized"], ["orange", "suggestions"], ["red", "no good guess"]]
+  $("#counts").innerHTML = [["green", "certain"], ["orange", "best guesses"], ["red", "no good guess"]]
     .map(([k, t]) => `<li><span class="num">${c[k]}</span>${t} on the whole page</li>`).join("");
   drawLine(true);
   // stages appear one after another, like the pipeline running

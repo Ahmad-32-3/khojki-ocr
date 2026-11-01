@@ -33,10 +33,25 @@ SAMPLES = [  # (id, label, PDF page)
     ("fig4", "Figure 4", 18),
     ("fig5", "Figure 5", 23),
 ]
-RED_BELOW = 0.30   # a suggestion whose best guess is under 30% is shown red: the program has no real idea
 MAX_UPLOAD = 25 * 1024 * 1024
 BANK, MODEL = load(), load_model()
 IMAGES = {}        # result id -> PNG bytes (kept in memory only; this is a local demo)
+PREVIEWS = ROOT / "demo" / "previews"  # small + large colour JPEGs of the sample pages, plain files (not committed)
+
+
+def make_previews():
+    """Write each sample page as a small card image and a large readable one, once. Plain files, so any copy of
+    the server can serve them."""
+    if not PDF.is_file():
+        return
+    import pymupdf
+    PREVIEWS.mkdir(exist_ok=True)
+    doc = pymupdf.open(PDF)
+    for sid, _, page in SAMPLES:
+        for suffix, dpi in (("", 40), ("_large", 110)):
+            f = PREVIEWS / f"{sid}{suffix}.jpg"
+            if not f.exists():
+                f.write_bytes(doc[page - 1].get_pixmap(dpi=dpi).tobytes("jpeg"))
 THUMBS = {}        # sample id -> small colour JPEG of the page, so the reader can see each kind of page
 LOCK = threading.Lock()  # one pipeline run at a time: the example bank's feature cache isn't thread-safe
 
@@ -55,8 +70,7 @@ def describe(unit):
             out[part] = {"sure": True, "options": [option({"cps": d["cps"], "conf": d["conf"]})] + [option(o) for o in d.get("others", [])]}
         else:
             out[part] = {"sure": False, "options": [option(o) for o in d["options"]]}
-    top = out["letter"]["options"][0]["conf"] if out["letter"]["options"] else 0.0
-    out["colour"] = "green" if out["letter"]["sure"] else ("red" if top < RED_BELOW else "orange")
+    out["colour"] = unit["colour"]  # set by the recognizer, same rule as the text output
     return out
 
 
@@ -169,5 +183,6 @@ def read_upload(body, page):
 
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
+    make_previews()
     print(f"Khojki demo: http://localhost:{port}/   (site)   http://localhost:{port}/demo/   (live demo)")
     ThreadingHTTPServer(("127.0.0.1", port), Handler).serve_forever()

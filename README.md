@@ -1,90 +1,91 @@
-# Khojki OCR: 1896 Narsi Mehta print to Unicode
+# Khojki OCR: Reading an 1896 Khojki Print
 
-A take-home for Karim Tharani (USask): turn page images of printed Khojki into Unicode text, score it with CER,
-and report what it would take to do the whole book.
+A take-home project for Karim Tharani (University of Saskatchewan). It turns scanned pages of an 1896 printed Khojki
+book into Unicode text, measures how accurate that text is, and explains what limits it.
 
-The pipeline is plain Python (NumPy, OpenCV, scikit-learn). It runs offline on a laptop CPU, about 15 to 18 s a page including start-up,
-with no API and no language model at runtime.
+## Start Here
 
-## Results
+| What | Where |
+|---|---|
+| **The retro** (the six-part write-up) | [RETRO.md](RETRO.md) |
+| **Walkthrough website** | *link added after deployment* (or run it locally, below) |
+| **Live demo** | *link added after deployment* (or run it locally, below) |
+| Every decision as it was made | [PROCESS_LOG.md](PROCESS_LOG.md) (94 entries) |
+| How recognition was designed | [SPEC.md](SPEC.md) |
 
-| | CER (best guess) | Lines | Characters |
-|---|---|---|---|
-| Test (held out, scored once) | **40.8%** | 2 | 49 |
-| Dev (leave one line out) | **38.8%** | 9 | 209 |
+## Results in Brief
 
-Errors by stage on dev, found by swapping in ground truth one stage at a time:
+- On 2 test lines kept aside until the end, the program's best guesses had **about 4 in 10 characters wrong**
+  (a 40.8% character error rate). On the 9 development lines it was 38.8%.
+- Of 81 errors on the development lines, 64 come from recognizing characters, 19 from cutting lines into
+  characters, and none from finding lines.
+- A character counts as certain only when the program is at least 95% sure. No letter reaches that yet, so the text
+  holds the best guesses, marked as guesses in the JSON for a person to confirm. Word separators do reach it.
+- About 20 model changes, including neural networks, didn't beat simple pixel matching. More hand-checked examples
+  did: four times as many raised first-guess accuracy from 46% to 69%.
 
-| Stage | Errors added | Score |
-|---|---|---|
-| A. Line finding | -2 | 35 of 35 lines |
-| B. Glyph boxes | 19 | 45 of 45 separators |
-| C. Recognition | 64 | right letter in top 3 for 64.8% of glyphs |
+## How to Run It
 
-The program commits a letter only when it is measured to be right 95% of the time. Everything else is written
-as U+FFFD with its top 3 suggestions in the JSON and PAGE-XML, so a reviewer never copies a guess as an answer.
+You need Python 3.11 or newer. Each page takes 15 to 18 seconds on a laptop.
 
-## How it works
-
-1. **Lines (A).** Binarise, find the printed frame, split the text block into ink bands. `khojki/lines.py`
-2. **Glyph boxes (B).** Connected ink blobs, grouped when stacked, word separators flagged. `khojki/glyphs.py`
-3. **Recognition (C).** Each glyph is scaled to 48x48 and compared with a bank of 150 real labelled glyphs and
-   2,666 font renders. The 7 nearest vote; letter and vowel signs are voted on separately. Dynamic programming
-   picks how boxes join into glyphs. `khojki/recognise.py`
-4. **Commit or suggest.** Calibrated on held-out lines (isotonic regression). A part is recognised if it reaches
-   95% precision, beats the runner-up by 0.15 and a real example voted for it.
-5. **Validate and write (D).** Unicode order checks; output as `.txt`, `.json` and PAGE-XML. `khojki/validate.py`
-6. **Score (E).** CER against the ground truth, split by stage. `gt/eval_cer.py`
-
-## Run it
+**1. Install**
 
 ```bash
 pip install -e ".[dev]"
+```
+
+**2. Add the scans.** Put the sample PDF (*sample_khojki_script_vatiations.pdf*) in the **khojki-scans** folder. The
+scans aren't in this repository, because the pages are for this exercise only. Use pages **9, 10 or 11**, the 1896
+print the program was built on. Pages 1 to 6 and 12 to 14 are handwritten and won't work.
+
+**3. Run it on a page**
+
+```bash
 python -X utf8 -m khojki.pipeline khojki-scans/sample_khojki_script_vatiations.pdf --page 9 --out out/
+```
+
+It prints a summary of the page (lines, and how many characters are certain, best guesses, or without a good guess) and saves three files in the
+**out** folder: a *.txt* with the text, a *.json* with every character and its top guesses, and a *.xml* in PAGE-XML,
+a format archive tools can open.
+
+**4. Check the accuracy.** This compares the output with the lines I labelled by hand.
+
+```bash
+python -X utf8 gt/eval_cer.py
+```
+
+It ends with the results in plain words. To check the code itself, run the 29 tests:
+
+```bash
 python -X utf8 -m pytest -q
 ```
 
-**Live demo:** `python -X utf8 demo/server.py`, then open http://localhost:8000. It serves the showcase page; its
-*Try the Demo* button runs the pipeline on a sample page (Figures 1-5) or an upload and shows each stage. Local only,
-because the scans are for this exercise only.
+**5. Run the website and demo locally**
 
-The scans and everything cut from them stay local (the brief: "use the pages for this exercise only"), so the
-PDF, the line crops and `data/bank.npz` are not in this repository. With them in place,
-`python -X utf8 -m khojki.bank` rebuilds the bank and `python -X utf8 gt/eval_recognise.py --fit` refits the model.
+```bash
+python -X utf8 demo/server.py
+```
 
-## Experiments
+Then open http://localhost:8000. The **Try the Demo** button opens the demo, where you can pick a sample page or
+upload one and watch each stage: the lines, the character boxes, and what was recognized.
 
-All on held-out dev glyphs (105), compared glyph by glyph with an exact McNemar test. Test lines never used.
+## How It Works
 
-| Idea | Change in glyphs right first time | File |
-|---|---|---|
-| HOG, shape counts vs raw pixels | pixels best (52% vs 51% vs 27%) | `gt/eval_recognise.py` |
-| Thicker renders, worn copies, jittered real copies | -4 to +4, none significant | `gt/exp_vision.py` |
-| Real examples weighted x3; pixels + HOG ensemble | +3, +6 (p = 0.11) | `gt/exp_vision.py` |
-| Small CNN as the description | -8 | `gt/exp_adapt.py` |
-| + SimCLR on 722 unlabelled page glyphs | -3 | `gt/exp_adapt.py` |
-| + DANN (render vs real adversary) | -15 (p < 0.01) | `gt/exp_adapt.py` |
-| + DANN with renders at the real letter mix | -3 | `gt/exp_adapt.py` |
-| + SimCLR + DANN, real letter mix | -4 | `gt/exp_adapt.py` |
-| **Fewer real labels (learning curve)** | 25% of labels: -23 points | `gt/exp_curve.py` |
+1. **Find the lines.** The page is turned into black ink on white, and each band of ink inside the printed frame
+   becomes a line. *khojki/lines.py*
+2. **Cut each line into characters.** Connected pieces of ink are boxed, and pieces stacked on top of each other are
+   grouped into one character. *khojki/glyphs.py*
+3. **Recognize each character.** It is compared with 150 characters I labelled from the book and 2,666 drawn from
+   Khojki fonts, and the 7 most similar vote. *khojki/recognise.py*
+4. **Decide and check.** A character counts as certain only at 95% confidence; otherwise its best guess is written, or &#xFFFD; if there's no good guess, and the text is checked against
+   Khojki's Unicode rules. *khojki/validate.py*
+5. **Measure.** The output is compared with the answer key, stage by stage. *gt/eval_cer.py*
 
-The model changes didn't beat plain pixels; the number of real labels moved results every time. DANN failed
-from label shift (renders hold every letter equally, the print doesn't); drawing renders at the real letter mix
-cut its loss from 15 glyphs to 3.
+## Folders
 
-**Trusted glyphs (tried, then dropped).** I tried always committing five glyphs I knew at a glance and that the
-recognizer had got right every time it picked them (14 of 14). Chosen fairly, without each held-out line, the same
-rule was right only 5 times out of 12. The commit hook's real-data check blocked it for breaking the 95% bar, so the
-rule is gone. A perfect score on a few examples wasn't proof.
-
-## Ground truth
-
-11 lines (210 glyph units) from pages 9-11, labelled in a local review tool with suggestions shown: 9 dev lines,
-2 test lines. Encoding decisions (separator U+1123A, logical mark order, Gujarati digits) are in `RETRO.md`.
-
-## Files
-
-- `khojki/` the pipeline
-- `gt/` ground truth, review tools, evaluation and experiments
-- `tests/` 29 tests
-- `RETRO.md` one-page retro; `PROCESS_LOG.md` every decision as it was made; `SPEC.md` recognition spec
+- **khojki** the pipeline
+- **gt** the answer key, the labelling tools, the accuracy checks and the experiments
+- **demo** the demo page and the small local server that runs the pipeline for it
+- **site** the walkthrough website
+- **khojki-scans** where the scans go (not committed)
+- **tests** 29 tests

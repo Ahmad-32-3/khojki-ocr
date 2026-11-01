@@ -1,7 +1,7 @@
 """The whole pipeline: page image (or a PDF page) -> Khojki Unicode, offline.
 
 usage: python -X utf8 -m khojki.pipeline <page.png | file.pdf --page N> [--out out/]
-  -> out/<name>.txt   one line of text per printed line; U+FFFD where a part wasn't recognised
+  -> out/<name>.txt   one line of text per printed line: answers, best guesses, and U+FFFD where there's no good guess
      out/<name>.json  every line and unit with page coordinates, recognitions and suggestions, validation problems
      out/<name>.xml   PAGE-XML 2019 (opens in eScriptorium / Transkribus-style tools)
 Stages: A lines (khojki.lines) -> B glyph boxes (khojki.glyphs) -> C recognition (khojki.recognise) -> D validation.
@@ -142,8 +142,9 @@ def summary(result, stem, seconds):
         f"  Lines found              {len(result['lines'])}",
         f"  Word separators found    {len(seps)}  (written as text)",
         f"  Characters found         {len(glyphs)}",
-        f"    written as text        {sum(sure(u) for u in glyphs)}  (95% sure or more)",
-        f"    left as suggestions    {sum(not sure(u) for u in glyphs)}  (written as �; top 3 guesses in the .json)",
+        f"    certain (green)        {sum(u['colour'] == 'green' for u in glyphs)}  (95% sure or more)",
+        f"    best guess (orange)    {sum(u['colour'] == 'orange' for u in glyphs)}  (written as the best guess; top 3 in the .json)",
+        f"    no good guess (red)    {sum(u['colour'] == 'red' for u in glyphs)}  (best guess under 30%, written as �)",
         f"  Unicode order problems   {bad}",
         f"  Files                    {stem}.txt / .json / .xml",
         "  Accuracy: only pages 9-11 have an answer key. To score against it, run: python -X utf8 gt/eval_cer.py",

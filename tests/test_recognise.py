@@ -36,9 +36,9 @@ def synthetic_bank(gray, labels=(MA, RA, (SEPARATOR,), MA)):
 
 
 def check_output(out, model):
-    """Criteria 2 and 3: every part is a valid recognition or suggestion; U+FFFD count = suggestion parts;
-    every other character comes from a recognised part."""
-    suggestions, allowed = 0, set()
+    """Every part is a valid recognition or suggestion. Text: one U+FFFD per red glyph (best guess under RED_BELOW);
+    every other character is a recognised answer or, for an orange glyph, its best guess."""
+    reds, allowed = 0, set()
     for u in out["units"]:
         for part in ("letter", "signs"):
             d = u[part]
@@ -48,8 +48,10 @@ def check_output(out, model):
                 allowed |= {chr(int(c[2:], 16)) for c in d["cps"]}
             else:
                 assert d["options"]
-                suggestions += 1
-    assert out["text"].count(R.REPLACEMENT) == suggestions
+                allowed |= {chr(int(c[2:], 16)) for c in d["options"][0]["cps"]}
+        assert u["colour"] == R.colour(u["letter"])
+        reds += u["colour"] == "red"
+    assert out["text"].count(R.REPLACEMENT) == reds
     assert set(out["text"]) - {R.REPLACEMENT} <= allowed
 
 
