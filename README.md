@@ -15,7 +15,7 @@ copied and preserved. It also measures how accurate that text is, and shows wher
 | **Test lines with their Unicode transcriptions** | [gt/gt.txt](gt/gt.txt) (one line per labelled line, `?` = unreadable) and [gt/gt.json](gt/gt.json) (with positions and dev/test split) |
 | **Results** (CER and most common errors) | below, and `python -X utf8 gt/eval_cer.py` |
 | **How to run it** | below |
-| Every decision as it was made | [PROCESS_LOG.md](PROCESS_LOG.md) (95 entries) |
+| Every decision as it was made | [PROCESS_LOG.md](PROCESS_LOG.md) (99 entries) |
 
 The demo reads pages through a small Python server in this repo, so to run a page yourself, start it locally (step 5
 below). The scans aren't in the repository, because the pages are for this exercise only.
@@ -100,7 +100,7 @@ In plain terms (whole pipeline, 9 development lines, each scored by a model that
 The character error rate is the share of characters that are wrong, missing or extra. Line finding shows -2 because
 the program's own line crops did slightly better than my hand crops on two characters, so it adds no errors.
 
-To check the code itself, run the tests. You should see *29 passed*.
+To check the code itself, run the tests. You should see *32 passed*.
 
 ```bash
 python -X utf8 -m pytest -q
@@ -122,7 +122,8 @@ shows the lines it found, the character boxes in one line, and what it recognize
 1. **Find the lines.** The page is turned into black ink on white, and each band of ink inside the printed frame
    becomes a line. *khojki/lines.py*
 2. **Cut each line into characters.** Connected pieces of ink are boxed, and pieces stacked on top of each other are
-   grouped into one character. *khojki/glyphs.py*
+   grouped into one character. Section marks and abbreviation signs are found by their shape first, so they're never
+   joined to a letter. *khojki/glyphs.py*
 3. **Recognize each character.** It is compared with 150 characters I labelled from the book and 2,666 drawn from
    Khojki fonts, and the 7 most similar vote. *khojki/recognise.py*
 4. **Decide and check.** A character counts as certain only at 95% confidence. Otherwise its best guess is written,
@@ -137,4 +138,4 @@ shows the lines it found, the character boxes in one line, and what it recognize
 - **demo** the demo page and the small local server that runs the pipeline for it
 - **site** the walkthrough website
 - **khojki-scans** where the scans go (not committed)
-- **tests** 29 tests
+- **tests** 32 tests

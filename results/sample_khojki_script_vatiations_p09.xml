@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15">
-  <Metadata><Creator>khojki pipeline</Creator><Created>2026-11-01T03:11:00+00:00</Created><LastChange>2026-11-01T03:11:00+00:00</LastChange></Metadata>
+  <Metadata><Creator>khojki pipeline</Creator><Created>2026-11-01T14:04:42+00:00</Created><LastChange>2026-11-01T14:04:42+00:00</LastChange></Metadata>
   <Page imageFilename="sample_khojki_script_vatiations_p09" imageWidth="825" imageHeight="1200">
     <TextRegion id="r1"><Coords points="44,112 721,112 721,1137 44,1137"/>
       <TextLine id="r1_l1"><Coords points="44,112 721,112 721,214 44,214"/>
@@ -982,19 +982,11 @@
           <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
           <TextEquiv index="6" conf="0.105" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
         </Glyph>
-        <Glyph id="r1_l8_g14"><Coords points="485,840 502,840 502,855 485,855"/>
-          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
-          <TextEquiv index="2" conf="0.1" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
-          <TextEquiv index="3" conf="0.093" comments="suggestion: letter"><Unicode>𑈽</Unicode></TextEquiv>
-          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
-          <TextEquiv index="5" conf="0.226" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        <Glyph id="r1_l8_g14"><Coords points="486,841 502,841 502,855 486,855"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈽</Unicode></TextEquiv>
         </Glyph>
-        <Glyph id="r1_l8_g15"><Coords points="507,838 523,838 523,854 507,854"/>
-          <TextEquiv index="1" conf="0"><Unicode>𑈽</Unicode></TextEquiv>
-          <TextEquiv index="2" conf="0.429" comments="suggestion: letter"><Unicode>𑈽</Unicode></TextEquiv>
-          <TextEquiv index="3" conf="0.031" comments="suggestion: letter"><Unicode>𑈨</Unicode></TextEquiv>
-          <TextEquiv index="4" conf="0.007" comments="suggestion: letter"><Unicode>𑈙</Unicode></TextEquiv>
-          <TextEquiv index="5" conf="0.6" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        <Glyph id="r1_l8_g15"><Coords points="507,838 522,838 522,853 507,853"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈽</Unicode></TextEquiv>
         </Glyph>
         <Glyph id="r1_l8_g16"><Coords points="529,835 539,835 539,859 529,859"/>
           <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
@@ -1043,7 +1035,7 @@
           <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
           <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
         </Glyph>
-        <TextEquiv><Unicode>𑈦𑈸𑈺𑈤𑈮𑈤𑈮𑈐𑈮𑈺�𑈪�𑈸𑈺��𑈽𑈸𑈸𑈦�𑈺𑈩𑈸</Unicode></TextEquiv>
+        <TextEquiv><Unicode>𑈦𑈸𑈺𑈤𑈮𑈤𑈮𑈐𑈮𑈺�𑈪�𑈸𑈺�𑈽𑈽𑈸𑈸𑈦�𑈺𑈩𑈸</Unicode></TextEquiv>
       </TextLine>
       <TextLine id="r1_l9"><Coords points="44,888 721,888 721,965 44,965"/>
         <Glyph id="r1_l9_g1"><Coords points="55,904 105,904 105,956 55,956"/>
@@ -1118,24 +1110,17 @@
         <Glyph id="r1_l9_g11"><Coords points="392,920 401,920 401,937 392,937"/>
           <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
         </Glyph>
-        <Glyph id="r1_l9_g12"><Coords points="410,918 421,918 421,944 410,944"/>
-          <TextEquiv index="1" conf="0"><Unicode>𑈸</Unicode></TextEquiv>
-          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈸</Unicode></TextEquiv>
-          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈦</Unicode></TextEquiv>
-          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈆</Unicode></TextEquiv>
-          <TextEquiv index="5" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+        <Glyph id="r1_l9_g12"><Coords points="410,918 435,918 435,946 410,946"/>
+          <TextEquiv index="1" conf="0"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="2" conf="0.678" comments="suggestion: letter"><Unicode>𑈹</Unicode></TextEquiv>
+          <TextEquiv index="3" conf="0.667" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
+          <TextEquiv index="4" conf="0.455" comments="suggestion: components DANDA + DANDA"><Unicode>𑈸𑈸</Unicode></TextEquiv>
         </Glyph>
-        <Glyph id="r1_l9_g13"><Coords points="423,919 526,919 526,946 423,946"/>
-          <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
-          <TextEquiv index="2" conf="0.0" comments="suggestion: letter"><Unicode>𑈐𑈵𑈓</Unicode></TextEquiv>
-          <TextEquiv index="3" conf="0.0" comments="suggestion: letter"><Unicode>𑈥</Unicode></TextEquiv>
-          <TextEquiv index="4" conf="0.0" comments="suggestion: letter"><Unicode>𑈥𑈶</Unicode></TextEquiv>
-          <TextEquiv index="5" conf="0.0" comments="suggestion: signs"><Unicode></Unicode></TextEquiv>
-          <TextEquiv index="6" conf="0.0" comments="suggestion: signs"><Unicode>𑈮</Unicode></TextEquiv>
-          <TextEquiv index="7" conf="0.0" comments="suggestion: signs"><Unicode>𑈮𑈴</Unicode></TextEquiv>
-        </Glyph>
-        <Glyph id="r1_l9_g14"><Coords points="440,924 448,924 448,939 440,939"/>
+        <Glyph id="r1_l9_g13"><Coords points="440,924 448,924 448,939 440,939"/>
           <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
+        </Glyph>
+        <Glyph id="r1_l9_g14"><Coords points="456,919 526,919 526,935 456,935"/>
+          <TextEquiv index="1" conf="1.0"><Unicode>𑈼</Unicode></TextEquiv>
         </Glyph>
         <Glyph id="r1_l9_g15"><Coords points="549,901 587,901 587,950 549,950"/>
           <TextEquiv index="1" conf="0"><Unicode>�</Unicode></TextEquiv>
@@ -1175,7 +1160,7 @@
         <Glyph id="r1_l9_g19"><Coords points="686,922 696,922 696,942 686,942"/>
           <TextEquiv index="1" conf="1.0"><Unicode>𑈺</Unicode></TextEquiv>
         </Glyph>
-        <TextEquiv><Unicode>�𑈀𑈦𑈺𑈸𑈡𑈮�𑈸𑈄𑈡𑈮𑈺𑈸�𑈺��𑈪𑈸𑈺</Unicode></TextEquiv>
+        <TextEquiv><Unicode>�𑈀𑈦𑈺𑈸𑈡𑈮�𑈸𑈄𑈡𑈮𑈺𑈹𑈺𑈼��𑈪𑈸𑈺</Unicode></TextEquiv>
       </TextLine>
       <TextLine id="r1_l10"><Coords points="44,965 721,965 721,1048 44,1048"/>
         <Glyph id="r1_l10_g1"><Coords points="54,995 88,995 88,1022 54,1022"/>
@@ -1439,8 +1424,8 @@
 𑈐𑈰𑈺𑈧𑈬𑈩𑈶𑈙𑈰𑈺𑈨𑈰𑈕𑈰𑈺𑈪�𑈺�𑈘𑈰𑈺𑈞𑈮𑈦𑈺𑈨𑈬
 �𑈡𑈮𑈺𑈹𑈺𑈁𑈴𑈪𑈯𑈴𑈺𑈞𑈬𑈴𑈪𑈯𑈴𑈺𑈀𑈶𑈦𑈩𑈶𑈺𑈦𑈩𑈬𑈖𑈶𑈰𑈴
 𑈆𑈺𑈪𑈰𑈴𑈞𑈺𑈏𑈦𑈺𑈪𑈸𑈧𑈺�𑈘𑈬�𑈡𑈺𑈹𑈺𑈐𑈶𑈰𑈪𑈶𑈲
-𑈦𑈸𑈺𑈤𑈮𑈤𑈮𑈐𑈮𑈺�𑈪�𑈸𑈺��𑈽𑈸𑈸𑈦�𑈺𑈩𑈸
-�𑈀𑈦𑈺𑈸𑈡𑈮�𑈸𑈄𑈡𑈮𑈺𑈸�𑈺��𑈪𑈸𑈺
+𑈦𑈸𑈺𑈤𑈮𑈤𑈮𑈐𑈮𑈺�𑈪�𑈸𑈺�𑈽𑈽𑈸𑈸𑈦�𑈺𑈩𑈸
+�𑈀𑈦𑈺𑈸𑈡𑈮�𑈸𑈄𑈡𑈮𑈺𑈹𑈺𑈼��𑈪𑈸𑈺
 �𑈸�𑈺�𑈦𑈙𑈱𑈤𑈶𑈰𑈴𑈸𑈺𑈀𑈶�𑈺𑈩𑈶�𑈺𑈀𑈐𑈮𑈦𑈺
 𑈹𑈪𑈯𑈘𑈤𑈺𑈩𑈤𑈮𑈺𑈝𑈶𑈙𑈧𑈬𑈤𑈺𑈚𑈭𑈆𑈺𑈦𑈘</Unicode></TextEquiv>
     </TextRegion>

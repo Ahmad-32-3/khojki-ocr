@@ -2,7 +2,7 @@
 import cv2
 import numpy as np
 
-from khojki.glyphs import glyph_boxes
+from khojki.glyphs import ABBREVIATION, DOUBLE_SECTION, glyph_atoms, glyph_boxes
 
 
 def line(*draw):
@@ -47,3 +47,29 @@ def test_tall_thin_letter_in_mid_line_is_kept():
     # the same shape in mid-line, not cut by an edge (a danda-like stroke), stays text
     stroke = lambda img: cv2.rectangle(img, (150, 14), (152, 60), 20, -1)
     assert len(glyph_boxes(line(letter(40), letter(80), stroke))) == 3
+
+
+def ring(x, y):
+    return lambda img: cv2.circle(img, (x, y), 5, 20, 2)
+
+
+def test_double_rule_is_a_double_section_mark():
+    # p11 l6: the two rules joined the digit before them as small marks, one 88 px box (log 98)
+    rules = lambda img: (cv2.rectangle(img, (150, 33), (220, 35), 20, -1), cv2.rectangle(img, (150, 45), (220, 47), 20, -1))
+    atoms = glyph_atoms(line(letter(40), letter(110), rules))
+    assert [b[4] for b in atoms["boxes"]] == ["glyph", "glyph", "mark"]
+    assert atoms["cps"][2] == (DOUBLE_SECTION,)
+
+
+def test_ring_alone_is_an_abbreviation_sign_not_a_dot():
+    atoms = glyph_atoms(line(letter(40), ring(70, 45), letter(110)))
+    assert [b[4] for b in atoms["boxes"]] == ["glyph", "mark", "glyph"]
+    assert atoms["cps"][1] == (ABBREVIATION,)
+
+
+def test_ring_touching_a_letter_is_cut_off():
+    atoms = glyph_atoms(line(letter(40), ring(59, 45), letter(110)))
+    assert [b[4] for b in atoms["boxes"]] == ["glyph", "mark", "glyph"]
+    bare = glyph_boxes(line(letter(40)))[0]
+    assert atoms["boxes"][0][0] == bare[0] and abs(atoms["boxes"][0][1] - bare[1]) <= 1  # the letter keeps its width
+    assert atoms["boxes"][1][1] >= 64                                     # the whole ring is in the mark

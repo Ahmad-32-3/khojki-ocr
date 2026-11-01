@@ -46,7 +46,8 @@ def unit_mask(atoms, idx):
 
 def atoms_in(unit, atoms):
     """Indices of atoms of the unit's kind whose centre falls in its x-range (same rule as gt/eval_glyphs.py)."""
-    kind = "sep" if unit["cps"] == ["U+1123A"] else "glyph"
+    kind = ("sep" if unit["cps"] == ["U+1123A"] else
+            "mark" if unit["cps"] in (["U+1123B"], ["U+1123C"], ["U+1123D"]) else "glyph")
     return [k for k, b in enumerate(atoms["boxes"]) if b[4] == kind and unit["bbox"][0] <= (b[0] + b[1]) / 2 < unit["bbox"][1]]
 
 

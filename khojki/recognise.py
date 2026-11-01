@@ -177,10 +177,14 @@ def calibrate(raw, calib):
 # ---------- a whole line ----------
 
 def candidates(atoms, index):
-    """Every run of 1..MAX_JOIN neighbouring glyph boxes (separators stand alone) -> label votes."""
+    """Every run of 1..MAX_JOIN neighbouring glyph boxes (separators and marks stand alone) -> label votes.
+    A mark box was already read by its shape in stage B: it gets that label, fully sure."""
     boxes = atoms["boxes"]
     out = {}
     for i in range(len(boxes)):
+        if boxes[i][4] == "mark":
+            out[(i, 1)] = ({atoms["cps"][i]: 1.0}, {atoms["cps"][i]})
+            continue
         for n in range(1, MAX_JOIN + 1):
             idx = list(range(i, i + n))
             if idx[-1] >= len(boxes) or (n > 1 and any(boxes[k][4] != "glyph" for k in idx)):
@@ -245,6 +249,12 @@ def recognise_atoms(atoms, index, model):
         share, real = cands[(idx[0], len(idx))]
         opts = part_scores(share, real)
         unit = {"boxes": idx}
+        if atoms.get("cps") and atoms["cps"][idx[0]]:  # a mark, read by shape in stage B: no calibration applies
+            sure = lambda cps: {"status": "recognised", "cps": [f"U+{c:04X}" for c in cps], "conf": 1.0, "others": []}
+            unit.update(letter=sure(atoms["cps"][idx[0]]), signs=sure(()), colour="green")
+            unit["text"] = unit_text(unit["letter"], unit["signs"])
+            units.append(unit)
+            continue
         kind = group(opts)
         for part in ("letter", "signs"):
             m = (model or {}).get(part, {}).get(kind, {})

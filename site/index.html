@@ -7,7 +7,7 @@
 <meta name="description" content="A short walkthrough of how I built an OCR pipeline for 1896 printed Khojki.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&family=Noto+Sans+Khojki&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <style>
   /* Palette from panel 03: walnut + antique gold */
@@ -176,6 +176,7 @@
   svg .brace { fill: none; stroke: var(--gold); stroke-width: 1; }
   svg .big { fill: var(--gold); font-family: var(--serif); font-size: 30px; }
 
+  .kh { font-family: "Noto Sans Khojki", var(--serif); font-size: 1.5em; line-height: 1; color: var(--text); }
   .sub-h { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; margin-top: 4rem; }
   /* 5 cards: three across, then two wider ones, so no card is left alone on a row */
   .findings { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
@@ -413,6 +414,10 @@
           a letter with a dot or vowel sign above it.</p>
         <p>The program finds connected regions of ink and groups nearby pieces into boxes. The boxes aren't always
           perfect, and that's fine: the recognition stage is built to correct some splitting mistakes.</p>
+        <p>Two marks are found by their shape first: the section mark (<span class="kh">&#x1123B;</span>, or
+          <span class="kh">&#x1123C;</span> when doubled), a thin rule across the line, and the abbreviation sign
+          (<span class="kh">&#x1123D;</span>), a small ring. A section mark used to be joined to the letter next to it.
+          Now <strong>all 3 marks</strong> on the test lines are read right.</p>
       </div>
       <div class="stat"><p class="num">1&nbsp;&ne;&nbsp;1</p><p class="cap">one character isn't always one piece of ink</p></div>
     </div>
@@ -614,6 +619,17 @@
           it matched the wrong letters. Drawing the fonts at the real mix cut its loss from <strong>15 glyphs to 3</strong>.</p>
       </article>
       <article>
+        <h4>Rules From Clean Letters Didn't Carry Over</h4>
+        <p>JA <span class="kh">&#x11210;</span>, MA <span class="kh">&#x11224;</span> and BA <span class="kh">&#x11221;</span>
+          share the same arch; only the left part differs. Rules built on clean font letters told them apart 95.5% of
+          the time. In the book, they read <strong>44.1%</strong> of those letters right, down from 58.8%. I left them out.</p>
+      </article>
+      <article>
+        <h4>The Vowel Sign Decides the Match</h4>
+        <p>With a vowel sign attached, the matcher compares the sign more than the letter. Of the wrong letters on the
+          development lines, <strong>86% (25 of 29)</strong> were caused by the sign next to them.</p>
+      </article>
+      <article>
         <h4>Perfect on 14 Isn't Proof</h4>
         <p>Five familiar characters were right in all 14 cases. Tested on unseen lines, the same rule was right
           <strong>5 times out of 12</strong>. I dropped the rule.</p>
@@ -767,7 +783,7 @@
     </div>
     <div class="horizons">
       <div class="horizon"><h3>First</h3><ol><li><h4>Have a Khojki Reader Check the Hard Letters</h4><p>MA, BA, JA and TA look alike, and I&#x27;m not a reader. A reader reviewing those letters would make the labels I learn from more reliable.</p></li><li><h4>Build a Larger, Blind Test Set</h4><p>About 50 lines, labelled without suggestions shown, from pages the pipeline never learned from. That&#x27;s about 12 hours, and it would let me trust differences of 3 points instead of 9.</p></li><li><h4>Fix the Most Common Glyph-Box Error</h4><p>Cutting lines into glyphs causes 19 of the 81 errors. I&#x27;d go through them one by one and fix the most common cause first.</p></li></ol></div>
-      <div class="horizon"><h3>Then</h3><ol><li><h4>Label in Groups, Not One Glyph at a Time</h4><p>Group similar glyphs automatically from more pages of the book, so a reader labels a whole group at once.</p></li><li><h4>Make the Font Images Match the Print</h4><p>Thicker strokes, the book&#x27;s letter frequencies, and the print&#x27;s ink texture.</p></li><li><h4>Test Line Finding on New Pages</h4><p>It found all 35 lines on three pages, but it was tuned on those same pages. New pages would show whether it holds up.</p></li></ol></div>
+      <div class="horizon"><h3>Then</h3><ol><li><h4>Speed Up the Better Matcher</h4><p>Letting each pixel shift up to 2 pixels when comparing raised first guesses from 68.6% to 77.1% of 105 glyphs, but it adds about a minute a page.</p></li><li><h4>Label in Groups, Not One Glyph at a Time</h4><p>Group similar glyphs automatically from more pages of the book, so a reader labels a whole group at once.</p></li><li><h4>Make the Font Images Match the Print</h4><p>Thicker strokes, the book&#x27;s letter frequencies, and the print&#x27;s ink texture.</p></li><li><h4>Test Line Finding on New Pages</h4><p>It found all 35 lines on three pages, but it was tuned on those same pages. New pages would show whether it holds up.</p></li></ol></div>
       <div class="horizon"><h3>Later</h3><ol><li><h4>Rerun the Model Comparison</h4><p>On the larger data set, with several data sizes and random seeds, to see when a neural network starts to beat pixel matching.</p></li><li><h4>Read Whole Lines</h4><p>At about 500 to 800 labelled lines, switch to a model that reads whole lines, like Kraken. That removes the glyph-cutting step and its errors.</p></li><li><h4>Run the Whole Book</h4><p>At 15 to 18 seconds a page, the pipeline could process 45 pages in about 12 minutes, and the PAGE-XML output could go straight into a transcription tool for correction.</p></li></ol></div>
     </div>
   </section>

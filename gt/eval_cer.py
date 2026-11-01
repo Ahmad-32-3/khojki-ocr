@@ -54,6 +54,9 @@ def oracle_units(line, index, model):
         if truth is None:
             continue
         atoms = line["atoms"]
+        if atoms["boxes"][idx[0]][4] == "mark":  # read by shape in stage B
+            strict, top1 = strict + as_text(atoms["cps"][idx[0]]), top1 + as_text(atoms["cps"][idx[0]])
+            continue
         img, meta = normalise(unit_mask(atoms, list(idx)), atoms["tall"])
         opts = part_scores(*index.votes(img, meta, atoms["boxes"][idx[0]][4]))
         d = {part: decide(opts[part], model[part][group(opts)]["calib"], model[part][group(opts)]["tau"]) for part in ("letter", "signs")}

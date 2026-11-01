@@ -4833,7 +4833,7 @@
     730,
     647
    ],
-   "text": "𑈪𑈯𑈴𑈺𑈙�𑈙𑈸𑈺𑈸𑈏𑈿��𑈺�𑈞𑈮𑈀𑈩𑈺𑈸�𑈺",
+   "text": "𑈪𑈯𑈴𑈺𑈙�𑈙𑈸𑈺𑈸𑈏𑈿��𑈺�𑈞𑈮𑈀𑈩𑈺𑈸�𑈺𑈼",
    "units": [
     {
      "boxes": [
@@ -5687,22 +5687,19 @@
       "options": [
        {
         "cps": [
-         "U+11225"
+         "U+11215"
         ],
         "conf": 0.0
        },
        {
         "cps": [
-         "U+11210",
-         "U+11235",
-         "U+11213"
+         "U+1121C"
         ],
         "conf": 0.0
        },
        {
         "cps": [
-         "U+11225",
-         "U+11236"
+         "U+11206"
         ],
         "conf": 0.0
        }
@@ -5712,18 +5709,21 @@
       "status": "suggestion",
       "options": [
        {
-        "cps": [],
-        "conf": 0.0
-       },
-       {
         "cps": [
-         "U+1122E"
+         "U+1122C",
+         "U+11234"
         ],
         "conf": 0.0
        },
        {
         "cps": [
-         "U+1122E",
+         "U+11232",
+         "U+11234"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
          "U+11234"
         ],
         "conf": 0.0
@@ -5735,7 +5735,7 @@
      "bbox": [
       627,
       592,
-      715,
+      660,
       633
      ]
     },
@@ -5764,6 +5764,33 @@
       606,
       649,
       621
+     ]
+    },
+    {
+     "boxes": [
+      22
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123C"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈼",
+     "bbox": [
+      654,
+      605,
+      715,
+      620
      ]
     }
    ],
@@ -7997,7 +8024,7 @@
     730,
     897
    ],
-   "text": "𑈤𑈮𑈸𑈡𑈱𑈐𑈰𑈺�𑈦�𑈸𑈦𑈺𑈹�𑈸��𑈦𑈺",
+   "text": "𑈤𑈮𑈸𑈡𑈱𑈐𑈰𑈺�𑈦�𑈸𑈦𑈺𑈹�𑈸�𑈼�𑈦𑈺",
    "units": [
     {
      "boxes": [
@@ -8631,21 +8658,19 @@
       "options": [
        {
         "cps": [
-         "U+11210",
-         "U+11235",
-         "U+11213"
+         "U+11238"
+        ],
+        "conf": 0.278
+       },
+       {
+        "cps": [
+         "U+11226"
         ],
         "conf": 0.0
        },
        {
         "cps": [
-         "U+11225"
-        ],
-        "conf": 0.0
-       },
-       {
-        "cps": [
-         "U+11216"
+         "U+1122A"
         ],
         "conf": 0.0
        }
@@ -8656,19 +8681,7 @@
       "options": [
        {
         "cps": [],
-        "conf": 0.0
-       },
-       {
-        "cps": [
-         "U+1122E"
-        ],
-        "conf": 0.0
-       },
-       {
-        "cps": [
-         "U+1122C"
-        ],
-        "conf": 0.0
+        "conf": 0.211
        }
       ]
      },
@@ -8677,13 +8690,40 @@
      "bbox": [
       511,
       854,
-      596,
+      523,
       886
      ]
     },
     {
      "boxes": [
       16
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123C"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈼",
+     "bbox": [
+      532,
+      858,
+      596,
+      871
+     ]
+    },
+    {
+     "boxes": [
+      17
      ],
      "letter": {
       "status": "suggestion",
@@ -8730,7 +8770,7 @@
     },
     {
      "boxes": [
-      17
+      18
      ],
      "letter": {
       "status": "suggestion",
@@ -8763,7 +8803,7 @@
     },
     {
      "boxes": [
-      18
+      19
      ],
      "letter": {
       "status": "recognised",
@@ -9948,7 +9988,7 @@
     730,
     1065
    ],
-   "text": "𑈿�𑈺�𑈀𑈸𑈦𑈙𑈺𑈧𑈸�𑈺𑈹𑈺𑈩��𑈺�",
+   "text": "𑈿�𑈺�𑈀𑈽𑈸𑈦𑈙𑈺𑈧𑈸�𑈺𑈹𑈺𑈩��𑈺�",
    "units": [
     {
      "boxes": [
@@ -10151,19 +10191,19 @@
         "cps": [
          "U+11200"
         ],
-        "conf": 0.678
+        "conf": 0.455
        },
        {
         "cps": [
          "U+11221"
         ],
-        "conf": 0.1
+        "conf": 0.0
        },
        {
         "cps": [
          "U+11201"
         ],
-        "conf": 0.089
+        "conf": 0.0
        }
       ]
      },
@@ -10172,7 +10212,19 @@
       "options": [
        {
         "cps": [],
-        "conf": 0.667
+        "conf": 0.6
+       },
+       {
+        "cps": [
+         "U+1122E"
+        ],
+        "conf": 0.0
+       },
+       {
+        "cps": [
+         "U+1122C"
+        ],
+        "conf": 0.0
        }
       ]
      },
@@ -10180,7 +10232,7 @@
      "text": "𑈀",
      "bbox": [
       198,
-      1018,
+      1019,
       239,
       1042
      ]
@@ -10188,6 +10240,33 @@
     {
      "boxes": [
       5
+     ],
+     "letter": {
+      "status": "recognised",
+      "cps": [
+       "U+1123D"
+      ],
+      "conf": 1.0,
+      "others": []
+     },
+     "signs": {
+      "status": "recognised",
+      "cps": [],
+      "conf": 1.0,
+      "others": []
+     },
+     "colour": "green",
+     "text": "𑈽",
+     "bbox": [
+      223,
+      1018,
+      237,
+      1027
+     ]
+    },
+    {
+     "boxes": [
+      6
      ],
      "letter": {
       "status": "suggestion",
@@ -10232,7 +10311,7 @@
     },
     {
      "boxes": [
-      6
+      7
      ],
      "letter": {
       "status": "suggestion",
@@ -10265,7 +10344,7 @@
     },
     {
      "boxes": [
-      7
+      8
      ],
      "letter": {
       "status": "suggestion",
@@ -10310,7 +10389,7 @@
     },
     {
      "boxes": [
-      8
+      9
      ],
      "letter": {
       "status": "recognised",
@@ -10337,7 +10416,7 @@
     },
     {
      "boxes": [
-      9
+      10
      ],
      "letter": {
       "status": "suggestion",
@@ -10382,7 +10461,7 @@
     },
     {
      "boxes": [
-      10
+      11
      ],
      "letter": {
       "status": "suggestion",
@@ -10427,7 +10506,7 @@
     },
     {
      "boxes": [
-      11
+      12
      ],
      "letter": {
       "status": "suggestion",
@@ -10486,7 +10565,7 @@
     },
     {
      "boxes": [
-      12
+      13
      ],
      "letter": {
       "status": "recognised",
@@ -10513,8 +10592,8 @@
     },
     {
      "boxes": [
-      13,
-      14
+      14,
+      15
      ],
      "letter": {
       "status": "suggestion",
@@ -10584,7 +10663,7 @@
     },
     {
      "boxes": [
-      15
+      16
      ],
      "letter": {
       "status": "recognised",
@@ -10611,8 +10690,8 @@
     },
     {
      "boxes": [
-      16,
-      17
+      17,
+      18
      ],
      "letter": {
       "status": "suggestion",
@@ -10679,7 +10758,7 @@
     },
     {
      "boxes": [
-      18
+      19
      ],
      "letter": {
       "status": "suggestion",
@@ -10742,7 +10821,7 @@
     },
     {
      "boxes": [
-      19
+      20
      ],
      "letter": {
       "status": "suggestion",
@@ -10804,7 +10883,7 @@
     },
     {
      "boxes": [
-      20
+      21
      ],
      "letter": {
       "status": "recognised",
@@ -10831,7 +10910,7 @@
     },
     {
      "boxes": [
-      21
+      22
      ],
      "letter": {
       "status": "suggestion",
