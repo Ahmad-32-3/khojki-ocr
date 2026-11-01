@@ -44,6 +44,10 @@ python -X utf8 -m khojki.pipeline khojki-scans/sample_khojki_script_vatiations.p
 python -X utf8 -m pytest -q
 ```
 
+**Live demo:** `python -X utf8 demo/server.py`, then open http://localhost:8000. It serves the showcase page; its
+*Try the Demo* button runs the pipeline on a sample page (Figures 1-5) or an upload and shows each stage. Local only,
+because the scans are for this exercise only.
+
 The scans and everything cut from them stay local (the brief: "use the pages for this exercise only"), so the
 PDF, the line crops and `data/bank.npz` are not in this repository. With them in place,
 `python -X utf8 -m khojki.bank` rebuilds the bank and `python -X utf8 gt/eval_recognise.py --fit` refits the model.

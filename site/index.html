@@ -44,6 +44,14 @@
   .title { padding: calc(var(--gutter) * 1.25) var(--gutter); max-width: 48rem; }
   h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; letter-spacing: 0.01em; }
   .rule { width: 4rem; height: 1px; margin: 1.5rem 0 1.25rem; background: var(--gold); }
+  /* opens the live demo in a new tab; it needs demo/server.py running (see How to Run) */
+  .demo-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem;
+    font-weight: 500; font-size: 0.9375rem; color: var(--bg); background: var(--gold);
+    padding: 0.75rem 1.5rem; text-decoration: none; transition: background 150ms ease;
+  }
+  .demo-btn:hover { background: var(--text); }
+  .demo-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
   .sub {
     font-weight: 300; font-size: clamp(0.75rem, 1.4vw, 0.875rem);
     letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
@@ -278,8 +286,7 @@
   /* what the terminal prints: same box as a command, but quieter and without a copy button */
   .sample { margin: 0.625rem 0 0; padding: 0.75rem 1rem; background: var(--bg); border: 1px solid var(--line);
             overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--walnut) transparent; }
-  .sample code, code.path { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 0.8125rem; color: var(--muted); }
-  code.path { color: var(--text); background: var(--surface); padding: 0.05rem 0.375rem; }
+  .sample code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 0.8125rem; color: var(--muted); }
   .outputs { list-style: none; padding: 0; margin-top: 1.25rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
   .outputs .k { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 1.125rem; color: var(--gold); }
   .outputs p:not(.k) { margin-top: 0.375rem; font-size: 0.9375rem; font-weight: 300; color: var(--muted); }
@@ -335,6 +342,7 @@
       <h1>Khojki OCR Pipeline</h1>
       <div class="rule" aria-hidden="true"></div>
       <p class="sub">A short walkthrough of how I built this project</p>
+      <a class="demo-btn" href="/demo/" target="_blank" rel="noopener">Try the Demo <span aria-hidden="true">&rarr;</span></a>
     </div>
   </header>
 
@@ -477,7 +485,7 @@
       </li>
       <li>
         <h3>Add the Scans</h3>
-        <p>Put the sample PDF in the <code class="path">khojki-scans</code> folder inside the project. The scans
+        <p>Put the sample PDF in the folder called <strong>khojki-scans</strong> inside the project. The scans
           aren't in the repository, because the pages are for this exercise only.</p>
         <p>Use pages <strong>9, 10 or 11</strong>: the yellow 1896 printed pages the pipeline was built and tested on.
           Don't use pages 1 to 6 or 12 to 14. They're handwritten, and the pipeline can't read handwriting. The other
@@ -497,7 +505,7 @@
   Unicode order problems   0</code></pre>
         <p>Word separators are written as text. A character is written as text only when the program is at least 95%
           sure. None reach that yet, so each one is written as &#xFFFD; and its top three guesses are saved in the
-          <code class="path">.json</code> file.</p>
+          .json file.</p>
       </li>
       <li>
         <h3>Check the Accuracy</h3>
@@ -516,8 +524,19 @@
         <p>To check the code itself, run the 29 tests:</p>
         <div class="cmd"><pre><code>python -X utf8 -m pytest -q</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
       </li>
+      <li>
+        <h3>Try the Live Demo</h3>
+        <p>Start the demo server, then open <strong>http://localhost:8000</strong> in a browser. It serves this page,
+          and the <strong>Try the Demo</strong> button opens the demo, where you can pick a sample page or upload your
+          own and watch each stage.</p>
+        <div class="cmd"><pre><code>python -X utf8 demo/server.py</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+      </li>
     </ol>
-    <h3 class="sub-h">What You Get</h3>
+    <h3 class="sub-h">The Output Files</h3>
+    <p class="lede">Each run saves three files in a folder called <strong>out</strong> inside the project. The files are
+      named after the page, so page 9 of the sample PDF gives <em>sample_khojki_script_vatiations_p09</em> with the
+      endings .txt, .json and .xml. If you run the same page again, its three files are replaced. The pipeline
+      doesn't save anything anywhere else.</p>
     <ul class="outputs">
       <li><p class="k">.txt</p><p>The page as Unicode text, one line per printed line. Characters the program isn't
         sure of are written as &#xFFFD;.</p></li>

@@ -7,6 +7,8 @@ Taken from how I rewrote the "How it works" and "Comparison" sections. All site 
 - No catchphrases or set-up lines ("I didn't just guess at this", "The book leans on common ones", "get a fair test").
 - Every metric says what it counts and out of what. Prefer a percentage ("68.6% right first guess, of 105 glyphs") over a bare count ("-8 glyphs").
 
+- No inline code styling inside sentences (grey boxes around folder or file names). Use plain text, bold for a folder name, italics for a file name, and say it in full ("a folder called out inside the project"). Code boxes are only for commands to copy and terminal output.
+
 ## Voice
 1. **First person, like I'm walking someone through it.** "I built", "I tested", "I wanted to answer". Use "we" only for steps the reader follows along with ("First, we need to figure out where the writing is").
 2. **Conversational, with contractions.** "isn't", "doesn't", "that's", "here's".

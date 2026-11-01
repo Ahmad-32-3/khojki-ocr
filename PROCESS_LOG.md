@@ -580,6 +580,11 @@ Format: **Assumption / error → How caught → Fix**
    - **Second route:** every documented command run as written: install, PDF page 9 (11 lines, 0 validation problems), a page image, 29 tests, eval_cer (64 + 19 - 2 = 81 errors, unchanged).
    - The pipeline now prints a plain summary per page (lines, separators, characters written vs left as suggestions, files) and eval_cer ends with an "In plain terms" block. Scans moved to `khojki-scans/` (only its README is committed). Measured run time: 14.8 / 18.1 / 16.4 s per page including start-up, 10.8 s of processing on p9; the site's "about 12 s" is corrected to 15-18 s. Pages 9-11 are the yellow 1896 print; 1-6 and 12-14 are handwritten.
 
+93. **Live demo built (your request).** `demo/server.py` (stdlib, localhost only) serves the site at `/`, the demo at `/demo/`, and `/api/samples`, `/api/run`, `/api/image/<id>.png`. One pipeline run at a time (the bank's feature cache isn't thread-safe); paths can't escape `site/` or `demo/`; uploads over 25 MB, unreadable files and PDFs without a page get a plain 400.
+   - Samples: Figures 1-3 = pages 9-11 (the 1896 print), Figures 4-5 = pages 18 and 23 (other prints, never tested; Figure 4 comes out mostly red, which is honest).
+   - Colours: green = written as text (95%+), orange = suggestion, red = suggestion whose best guess is under 30%. Your definition of red (glyphs repeatedly missed in the ground truth) needs per-letter error stats; not built in the time left, and the legend says exactly what red means.
+   - Checked in the browser: connection (samples, run 8.9-9.9 s, image, bad upload 400, `../` blocked), all three stages draw in order, glyph clicks and arrow keys move the inspector, upload of a page image gives the same result as the sample, phone width has no sideways scroll. Fixed on the way: Run enabled before samples loaded; boxes drawn as faint dots (Chrome ignores pathLength on rect); zoom box filled solid.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.

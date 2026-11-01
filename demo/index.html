@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khojki OCR Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family: "Noto Sans Khojki"; src: url("NotoSansKhojki-Regular.ttf") format("truetype"); }
+  /* same palette as the showcase site */
+  :root {
+    --bg: #170b0d; --surface: #1f1012; --line: #3a2420; --walnut: #5e362d; --brown: #875b41;
+    --gold: #cba461; --text: #efe4d4; --muted: #b7a48f;
+    --green: #7fae6e; --orange: #d99a4e; --red: #d0605c;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --gutter: clamp(1rem, 5vw, 4rem);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.6; }
+  main { max-width: 76rem; margin: 0 auto; padding: 2rem var(--gutter) 5rem; }
+  a { color: var(--gold); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); }
+  .back { font-size: 0.875rem; color: var(--muted); text-decoration: none; }
+  .back:hover { color: var(--text); }
+  h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.05; margin-top: 0.75rem; }
+  .lede { max-width: 44rem; margin-top: 0.75rem; color: var(--muted); font-weight: 300; }
+
+  /* ---------- controls ---------- */
+  .controls { margin-top: 2rem; padding: 1.25rem; border: 1px solid var(--line); display: grid; gap: 1rem; }
+  .controls > * { min-width: 0; }  /* lets the card row scroll inside the form instead of widening the page */
+  .source { display: flex; gap: 1.5rem; flex-wrap: wrap; border: 0; padding: 0; }
+  .source legend { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .source label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+  .row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-end; }
+  .field { display: grid; gap: 0.25rem; font-size: 0.8125rem; color: var(--muted); }
+  select, input[type="number"], input[type="file"] {
+    font: inherit; font-size: 0.9375rem; color: var(--text); background: var(--surface);
+    border: 1px solid var(--walnut); padding: 0.5rem 0.75rem; min-width: 0;
+  }
+  select { min-width: 18rem; max-width: 100%; }
+  input[type="number"] { width: 6rem; }
+  input[type="file"]::file-selector-button { font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--walnut); padding: 0.25rem 0.75rem; margin-right: 0.75rem; cursor: pointer; }
+  .note { font-size: 0.8125rem; color: var(--muted); }
+  .cards { display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 0.25rem; margin-bottom: 1rem;
+           scrollbar-width: thin; scrollbar-color: var(--walnut) transparent; }
+  .card { flex: none; width: 8.5rem; display: grid; gap: 0.25rem; text-align: left; font: inherit; color: var(--muted);
+          background: none; border: 1px solid var(--line); padding: 0.5rem; cursor: pointer; transition: border-color 150ms ease; }
+  .card img { width: 100%; height: auto; display: block; background: var(--surface); }
+  .card:hover { border-color: var(--brown); }
+  .card[aria-checked="true"] { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+  .c-label { font-family: var(--serif); font-size: 1.125rem; color: var(--text); line-height: 1.2; margin-top: 0.25rem; }
+  /* shown in place of a preview that fails to load, at the same size, so the row never shows a broken image */
+  .no-thumb { display: grid; place-items: center; aspect-ratio: 120 / 174; background: var(--surface); font-size: 0.75rem; color: var(--muted); text-align: center; }
+  .run-btn {
+    font: inherit; font-weight: 500; color: var(--bg); background: var(--gold); border: 0;
+    padding: 0.625rem 1.5rem; cursor: pointer; transition: opacity 150ms ease;
+  }
+  .run-btn:disabled { opacity: 0.5; cursor: progress; }
+  :is(select, input, button, .glyph):focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+
+  /* ---------- progress ---------- */
+  .progress { margin-top: 1.5rem; }
+  .bar { height: 2px; background: var(--line); overflow: hidden; }
+  .bar span { display: block; height: 100%; width: 0; background: var(--gold); transition: width 300ms ease; }
+  .progress p { margin-top: 0.5rem; font-size: 0.875rem; color: var(--muted); }
+  .error { margin-top: 1.5rem; padding: 0.875rem 1rem; border-left: 2px solid var(--red); background: var(--surface); color: var(--text); }
+
+  /* ---------- stages ---------- */
+  .stage { margin-top: 3.5rem; opacity: 0; transform: translateY(12px); transition: opacity 500ms ease, transform 500ms ease; }
+  .stage.show { opacity: 1; transform: none; }
+  .stage-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 0.75rem; }
+  .stage-head .n { font-family: var(--serif); font-size: 1.75rem; line-height: 1; color: var(--gold); }
+  .stage-head h2 { font-family: var(--serif); font-weight: 500; font-size: 1.75rem; line-height: 1.1; }
+  .stage-head p { margin-left: auto; font-size: 0.875rem; color: var(--muted); }
+  .stage > .sub { margin-top: 1rem; color: var(--muted); font-weight: 300; max-width: 44rem; }
+  .frame { margin-top: 1.25rem; border: 1px solid var(--line); background: #000; }
+  .frame svg { display: block; width: 100%; height: auto; }
+  .page-frame { max-width: 34rem; }
+  .linebar { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; font-size: 0.875rem; color: var(--muted); }
+  .ghost { font: inherit; font-size: 0.875rem; color: var(--text); background: none; border: 1px solid var(--walnut); padding: 0.25rem 0.75rem; cursor: pointer; }
+  .ghost:hover { border-color: var(--gold); }
+  .ghost:disabled { opacity: 0.4; cursor: default; }
+
+  /* boxes trace their outline in, like a pen drawing them: one dash as long as the outline (--p), slid into place */
+  .draw { fill: none; stroke-dasharray: var(--p); stroke-dashoffset: var(--p); animation: draw 600ms ease forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  /* --sw = 1.5 screen pixels in this view's own units, set when the view is drawn */
+  .linebox, .gbox { stroke: var(--gold); stroke-width: var(--sw); }
+  .glyph { cursor: pointer; }
+  .glyph .tint { opacity: 0.14; transition: opacity 150ms ease; }
+  .glyph:hover .tint, .glyph.current .tint { opacity: 0.32; }
+  .edge { fill: none !important; stroke-width: var(--sw); }
+  .glyph.current .edge { stroke-width: calc(var(--sw) * 2.5); }
+  .green { fill: var(--green); stroke: var(--green); } .orange { fill: var(--orange); stroke: var(--orange); } .red { fill: var(--red); stroke: var(--red); }
+  /* scanning sweep over the page while the pipeline runs */
+  .sweep { fill: url(#sweep); animation: sweep 2.2s linear infinite; }
+  @keyframes sweep { from { transform: translateY(-20%); } to { transform: translateY(120%); } }
+
+  /* ---------- legend + inspector ---------- */
+  .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin-top: 1rem; padding: 0; list-style: none; font-size: 0.875rem; color: var(--muted); }
+  .legend li { display: flex; align-items: center; gap: 0.5rem; }
+  .sw { width: 0.875rem; height: 0.875rem; flex: none; }
+  .sw.green { background: var(--green); } .sw.orange { background: var(--orange); } .sw.red { background: var(--red); }
+  .legend b { color: var(--text); font-weight: 500; }
+  .inspect { display: grid; grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr); gap: 1.5rem 2.5rem; margin-top: 1.5rem; }
+  .zoom { border: 1px solid var(--line); background: #000; }
+  .zoom svg { display: block; width: 100%; height: auto; }
+  .status { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .inspect h3 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; margin-top: 0.25rem; }
+  .inspect .why { font-size: 0.875rem; color: var(--muted); font-weight: 300; max-width: 34rem; }
+  .opts { list-style: none; padding: 0; margin-top: 1rem; display: grid; gap: 0.5rem; max-width: 30rem; }
+  .opts li { display: grid; grid-template-columns: 2.5rem 7rem 1fr 3rem; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: var(--muted); }
+  .opts .k { font-family: "Noto Sans Khojki", var(--serif); font-size: 1.5rem; line-height: 1; color: var(--text); text-align: center; }
+  .opts .track { height: 0.375rem; background: var(--surface); }
+  .opts .track span { display: block; height: 100%; background: var(--brown); }
+  .opts li:first-child .track span { background: var(--gold); }
+  .opts .pct { text-align: right; color: var(--text); font-variant-numeric: tabular-nums; }
+  .opts-title { margin-top: 1rem; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+  .nav { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; font-size: 0.875rem; color: var(--muted); }
+  .counts { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin-top: 1.25rem; padding: 0; list-style: none; }
+  .counts li { font-size: 0.8125rem; color: var(--muted); }
+  .counts .num { display: block; font-family: var(--serif); font-size: 2rem; line-height: 1; color: var(--text); }
+
+  @media (max-width: 760px) {
+    .inspect { grid-template-columns: 1fr; }
+    .zoom { max-width: 16rem; }
+    .stage-head p { margin-left: 0; width: 100%; }
+    select { min-width: 0; width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .draw { animation: none; stroke-dashoffset: 0; }
+    .stage { transition: none; }
+    .sweep { animation: none; display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <p class="eyebrow">Khojki OCR &middot; Live Demo</p>
+    <a class="back" href="/">&larr; Back to the walkthrough</a>
+  </div>
+  <h1>Watch the Pipeline Read a Page</h1>
+  <p class="lede">Pick a sample page or upload your own, and run it. The pipeline runs on this computer and shows each
+    stage: the lines it finds, the glyph boxes in a line, and what it recognized in each box.</p>
+
+  <form class="controls" id="form">
+    <fieldset class="source">
+      <legend>Page</legend>
+      <label><input type="radio" name="src" value="sample" checked> A sample page</label>
+      <label><input type="radio" name="src" value="upload"> Upload a file</label>
+    </fieldset>
+    <div id="sample-row">
+      <div class="cards" id="cards" role="radiogroup" aria-label="Sample pages"></div>
+      <div class="row">
+        <label class="field">Sample
+          <select id="sample"></select>
+        </label>
+      </div>
+    </div>
+    <div class="row" id="upload-row" hidden>
+      <label class="field">File (PNG, JPEG, TIFF or PDF)
+        <input type="file" id="file" accept=".png,.jpg,.jpeg,.tif,.tiff,.pdf">
+      </label>
+      <label class="field" id="page-field" hidden>PDF page
+        <input type="number" id="page" min="1" value="9">
+      </label>
+    </div>
+    <p class="note" id="upload-note" hidden>Works best on printed Khojki pages like the 1896 print. Handwritten pages
+      won't work.</p>
+    <div class="row"><button class="run-btn" id="run" type="submit" disabled>Run the pipeline</button></div>
+  </form>
+
+  <div class="progress" id="progress" hidden>
+    <div class="bar"><span id="bar"></span></div>
+    <p id="progress-text" role="status" aria-live="polite"></p>
+  </div>
+  <p class="error" id="error" role="alert" hidden></p>
+
+  <div id="results" hidden>
+    <section class="stage" id="s1" aria-labelledby="s1h">
+      <div class="stage-head"><span class="n">1</span><h2 id="s1h">Finding the Lines</h2><p id="s1-meta"></p></div>
+      <p class="sub">The page is turned into black ink on white, and each band of ink inside the printed frame becomes
+        one line.</p>
+      <div class="frame page-frame" id="page-view"></div>
+      <div class="linebar">
+        <button class="ghost" type="button" data-step="-1" aria-label="Previous line">&larr;</button>
+        <span id="line-label"></span>
+        <button class="ghost" type="button" data-step="1" aria-label="Next line">&rarr;</button>
+      </div>
+      <div class="frame" id="line-plain"></div>
+    </section>
+
+    <section class="stage" id="s2" aria-labelledby="s2h">
+      <div class="stage-head"><span class="n">2</span><h2 id="s2h">Finding the Glyphs</h2><p id="s2-meta"></p></div>
+      <p class="sub">Each connected piece of ink is boxed, and pieces stacked on top of each other are grouped into one
+        glyph.</p>
+      <div class="frame" id="line-boxes"></div>
+    </section>
+
+    <section class="stage" id="s3" aria-labelledby="s3h">
+      <div class="stage-head"><span class="n">3</span><h2 id="s3h">Recognizing Each Glyph</h2><p id="s3-meta"></p></div>
+      <ul class="legend">
+        <li><span class="sw green"></span><span><b>Green:</b> recognized, 95% sure or more. Written as text.</span></li>
+        <li><span class="sw orange"></span><span><b>Orange:</b> a suggestion. Not sure enough to write as text.</span></li>
+        <li><span class="sw red"></span><span><b>Red:</b> no good guess. The best guess is under 30%.</span></li>
+      </ul>
+      <div class="frame" id="line-rec"></div>
+      <div class="inspect" id="inspect">
+        <div class="zoom" id="zoom"></div>
+        <div>
+          <p class="status" id="i-status"></p>
+          <h3 id="i-title"></h3>
+          <p class="why" id="i-why"></p>
+          <p class="opts-title">Letter</p>
+          <ul class="opts" id="i-letter"></ul>
+          <p class="opts-title">Marks</p>
+          <ul class="opts" id="i-signs"></ul>
+          <div class="nav">
+            <button class="ghost" type="button" id="prev">&larr; Previous glyph</button>
+            <span id="i-pos"></span>
+            <button class="ghost" type="button" id="next">Next glyph &rarr;</button>
+          </div>
+        </div>
+      </div>
+      <ul class="counts" id="counts" aria-label="Whole page totals"></ul>
+    </section>
+  </div>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+let R = null, line = 0, unit = 0, samples = [];
+const LABEL = { green: "Recognized", orange: "Suggestion", red: "No good guess" };
+const WHY = {
+  green: "The program is at least 95% sure, so this glyph is written as text. The other options are shown for comparison.",
+  orange: "The program has guesses, but none is 95% sure, so it is written as � with these guesses saved for a reviewer.",
+  red: "The best guess is under 30%. The program has no real idea what this glyph is.",
+};
+
+// ---------- form ----------
+async function loadSamples() {
+  samples = await (await fetch("/api/samples")).json();
+  $("#sample").innerHTML = samples.map(s => `<option value="${s.id}">${esc(s.label)}</option>`).join("");
+  // a preview card per sample, so the reader can see the yellow 1896 pages and the grey ones before running
+  $("#cards").innerHTML = samples.map(s => `<button type="button" class="card" role="radio" data-id="${s.id}">
+      <img src="/api/thumb/${s.id}.jpg" alt="" width="120" height="174" onerror="this.replaceWith(Object.assign(document.createElement('span'), {className: 'no-thumb', textContent: 'Preview unavailable'}))">
+      <span class="c-label">${esc(s.label)}</span>
+    </button>`).join("");
+  showNote();
+  $("#run").disabled = false;  // nothing to run until the samples are known
+}
+const showNote = () => {
+  const s = samples.find(x => x.id === $("#sample").value);
+  document.querySelectorAll(".card").forEach(c => c.setAttribute("aria-checked", c.dataset.id === $("#sample").value));
+};
+$("#cards").addEventListener("click", e => { const c = e.target.closest(".card"); if (c) { $("#sample").value = c.dataset.id; showNote(); } });
+$("#sample").addEventListener("change", showNote);
+document.querySelectorAll('input[name="src"]').forEach(r => r.addEventListener("change", () => {
+  const up = $('input[name="src"]:checked').value === "upload";
+  $("#sample-row").hidden = up;
+  $("#upload-row").hidden = $("#upload-note").hidden = !up;
+}));
+$("#file").addEventListener("change", () => { $("#page-field").hidden = !/\.pdf$/i.test($("#file").files[0]?.name || ""); });
+
+$("#form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const up = $('input[name="src"]:checked').value === "upload";
+  let req;
+  if (up) {
+    const f = $("#file").files[0];
+    if (!f) return showError("Choose a file to upload first.");
+    const pdf = /\.pdf$/i.test(f.name);
+    req = fetch("/api/run" + (pdf ? `?page=${encodeURIComponent($("#page").value)}` : ""), { method: "POST", body: f });
+  } else {
+    req = fetch("/api/run", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ sample: $("#sample").value }) });
+  }
+  showError(""); $("#results").hidden = true;
+  const stop = startProgress();
+  try {
+    const res = await req, data = await res.json();
+    if (!res.ok || data.error) throw new Error(data.error || "Something went wrong.");
+    stop(true); R = data; line = 0; unit = 0; render();
+  } catch (err) {
+    stop(false); showError(err.message === "Failed to fetch" ? "Can't reach the demo server. Is demo/server.py running?" : err.message);
+  }
+});
+function showError(msg) { $("#error").hidden = !msg; $("#error").textContent = msg; }
+
+// The pipeline answers once, after about 10 to 15 seconds, so the bar estimates the stages from elapsed time.
+function startProgress() {
+  const steps = [[0, "Finding the lines…"], [3, "Cutting each line into glyphs…"], [6, "Recognizing each glyph…"]];
+  $("#run").disabled = true; $("#progress").hidden = false;
+  const t0 = performance.now();
+  const tick = setInterval(() => {
+    const s = (performance.now() - t0) / 1000;
+    $("#bar").style.width = `${Math.min(92, 100 * (1 - Math.exp(-s / 6)))}%`;
+    $("#progress-text").textContent = steps.filter(x => s >= x[0]).pop()[1];
+  }, 200);
+  return ok => {
+    clearInterval(tick); $("#bar").style.width = ok ? "100%" : "0";
+    setTimeout(() => { $("#progress").hidden = true; $("#run").disabled = false; $("#bar").style.width = "0"; }, ok ? 500 : 0);
+  };
+}
+
+// ---------- drawing ----------
+// Every view is the same page image; an SVG viewBox picks the part to show, so crops need no image processing.
+const box = b => ({ x: b[0], y: b[1], w: b[2] - b[0], h: b[3] - b[1] });
+function view(el, b, inner = "", pad = 0) {
+  const x = b.x - pad, y = b.y - pad, w = b.w + 2 * pad, h = b.h + 2 * pad;
+  const sw = 1.5 * w / (el.clientWidth || 800);  // 1.5 screen pixels, in this view's units
+  el.innerHTML = `<svg viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="xMidYMid meet" style="--sw:${sw}">
+    <image href="${R.image}" width="${R.width}" height="${R.height}"/>${inner}</svg>`;
+}
+const rect = (b, cls, delay, extra = "") =>
+  `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" class="draw ${cls}"
+     style="--p:${2 * (b.w + b.h)};animation-delay:${delay}ms" ${extra}/>`;
+const lineBox = () => box(R.lines[line].bbox);
+const units = () => R.lines[line].units;
+
+function render() {
+  $("#results").hidden = false;
+  const c = R.counts;
+  $("#s1-meta").textContent = `${c.lines} lines · ${R.title} · ${R.seconds} s`;
+  view($("#page-view"), { x: 0, y: 0, w: R.width, h: R.height },
+    R.lines.map((l, i) => rect(box(l.bbox), "linebox", 200 + i * 120)).join(""));
+  $("#counts").innerHTML = [["green", "recognized"], ["orange", "suggestions"], ["red", "no good guess"]]
+    .map(([k, t]) => `<li><span class="num">${c[k]}</span>${t} on the whole page</li>`).join("");
+  drawLine(true);
+  // stages appear one after another, like the pipeline running
+  ["#s1", "#s2", "#s3"].forEach((s, i) => { $(s).classList.remove("show"); setTimeout(() => $(s).classList.add("show"), 150 + i * 1400); });
+  $("#s1").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function drawLine(first) {
+  const lb = lineBox(), us = units();
+  $("#line-label").textContent = `Line ${line + 1} of ${R.lines.length}`;
+  document.querySelectorAll("[data-step]").forEach(b => b.disabled = (line + +b.dataset.step < 0) || (line + +b.dataset.step >= R.lines.length));
+  view($("#line-plain"), lb);
+  $("#s2-meta").textContent = `${us.length} glyphs in line ${line + 1}`;
+  const d0 = first ? 1600 : 0;
+  view($("#line-boxes"), lb, us.map((u, j) => rect(box(u.bbox), "gbox", d0 + j * 35)).join(""));
+  const n = k => us.filter(u => u.colour === k).length;
+  $("#s3-meta").textContent = `${n("green")} green · ${n("orange")} orange · ${n("red")} red`;
+  view($("#line-rec"), lb, us.map((u, j) => {
+    const b = box(u.bbox);
+    return `<g class="glyph" data-u="${j}" role="button" tabindex="0" aria-label="Glyph ${j + 1}: ${LABEL[u.colour]}">
+      <rect class="tint ${u.colour}" x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}"/>
+      ${rect(b, "edge " + u.colour, (first ? 3000 : 0) + j * 35)}</g>`;
+  }).join(""));
+  unit = 0; inspect();
+}
+
+function inspect() {
+  const us = units(), u = us[unit], b = box(u.bbox);
+  document.querySelectorAll(".glyph").forEach(g => g.classList.toggle("current", +g.dataset.u === unit));
+  view($("#zoom"), b, `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" class="edge ${u.colour}"/>`, Math.max(b.w, b.h) * 0.35);
+  $("#i-status").innerHTML = `<span class="sw ${u.colour}"></span>${LABEL[u.colour]}`;
+  const top = u.letter.options[0];
+  $("#i-title").textContent = u.colour === "green" ? `Read as ${top.name}` : `Best guess: ${top.name}`;
+  $("#i-why").textContent = WHY[u.colour];
+  const li = o => `<li><span class="k">${esc(o.text) || "&ndash;"}</span><span>${esc(o.name)}</span>
+    <span class="track"><span style="width:${Math.round(o.conf * 100)}%"></span></span><span class="pct">${Math.round(o.conf * 100)}%</span></li>`;
+  $("#i-letter").innerHTML = u.letter.options.slice(0, 3).map(li).join("");
+  $("#i-signs").innerHTML = u.signs.options.slice(0, 2).map(li).join("");
+  $("#i-pos").textContent = `Glyph ${unit + 1} of ${us.length}`;
+  $("#prev").disabled = unit === 0; $("#next").disabled = unit === us.length - 1;
+}
+
+// ---------- navigation ----------
+document.querySelectorAll("[data-step]").forEach(b => b.addEventListener("click", () => { line += +b.dataset.step; drawLine(false); }));
+$("#prev").addEventListener("click", () => { unit--; inspect(); });
+$("#next").addEventListener("click", () => { unit++; inspect(); });
+$("#line-rec").addEventListener("click", e => { const g = e.target.closest(".glyph"); if (g) { unit = +g.dataset.u; inspect(); } });
+$("#line-rec").addEventListener("keydown", e => {
+  const g = e.target.closest(".glyph");
+  if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); unit = +g.dataset.u; inspect(); }
+});
+document.addEventListener("keydown", e => {
+  if (!R || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+  if (e.key === "ArrowRight" && unit < units().length - 1) { unit++; inspect(); }
+  if (e.key === "ArrowLeft" && unit > 0) { unit--; inspect(); }
+});
+
+loadSamples().catch(() => showError("Can't reach the demo server. Start it with: python -X utf8 demo/server.py"));
+</script>
+</body>
+</html>
