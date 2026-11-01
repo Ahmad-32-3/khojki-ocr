@@ -28,3 +28,6 @@ __pycache__/
 
 # Pipeline output (the pages are for this exercise only)
 out/
+
+# Built by pip install -e
+*.egg-info/

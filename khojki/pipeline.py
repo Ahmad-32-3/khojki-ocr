@@ -107,10 +107,17 @@ def main(argv=None):
     ap.add_argument("--out", default="out")
     a = ap.parse_args(argv)
     src = Path(a.input)
+    # bad input gets one plain line, not a traceback
+    if not src.is_file():
+        ap.error(f"no such file: {src} (the sample PDF lives in data/)")
     if src.suffix.lower() == ".pdf":
+        if a.page is None:
+            ap.error("a PDF needs --page N")
         gray, name = pdf_page(src, a.page), f"{src.stem}_p{a.page:02d}"
     else:
         gray, name = cv2.imread(str(src), cv2.IMREAD_GRAYSCALE), src.stem
+        if gray is None:
+            ap.error(f"can't read {src} as an image (use a PNG, JPEG or TIFF page, or a PDF with --page)")
     result = run_page(gray, name)
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)

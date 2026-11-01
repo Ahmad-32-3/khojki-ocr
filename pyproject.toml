@@ -5,13 +5,21 @@ description = "Page images of 1896 printed Khojki to Unicode text, with a CER re
 requires-python = ">=3.11"
 dependencies = [
     "numpy>=2.0",
-    "opencv-python>=4.10",
+    "opencv-python-headless>=4.10",  # no GUI needed; avoids a second cv2 next to the full package
     "pillow>=10.0",
     "pymupdf>=1.24",
     "uharfbuzz>=0.40",
     "freetype-py>=2.4",
     "scikit-learn>=1.5",
 ]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# Only khojki/ is the package. gt/, data/, site/, out/ and hooks/ are project folders, not code to install.
+[tool.setuptools]
+packages = ["khojki"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]

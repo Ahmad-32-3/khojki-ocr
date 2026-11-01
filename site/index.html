@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khojki OCR Pipeline</title>
+<meta name="description" content="A short walkthrough of how I built an OCR pipeline for 1896 printed Khojki.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+  /* Palette from panel 03: walnut + antique gold */
+  :root {
+    --bg: #170b0d;
+    --surface: #1f1012;
+    --line: #3a2420;
+    --walnut: #5e362d;
+    --brown: #875b41;
+    --gold: #cba461;
+    --rust: #d0805c;  /* the one result that was clearly worse */
+    --text: #efe4d4;
+    --muted: #b7a48f;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --gutter: clamp(1rem, 5vw, 4rem);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.6; }
+  strong { color: var(--text); font-weight: 500; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; }
+  .hero img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: 70% 60%; z-index: -2;
+  }
+  /* darken the top-left corner so the title always reads, whatever the crop */
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(105deg, var(--bg) 0%, rgb(23 11 13 / 0.75) 35%, transparent 65%),
+      linear-gradient(to top, var(--bg) 0%, transparent 25%);
+  }
+  .title { padding: calc(var(--gutter) * 1.25) var(--gutter); max-width: 48rem; }
+  h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; letter-spacing: 0.01em; }
+  .rule { width: 4rem; height: 1px; margin: 1.5rem 0 1.25rem; background: var(--gold); }
+  .sub {
+    font-weight: 300; font-size: clamp(0.75rem, 1.4vw, 0.875rem);
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: clamp(3rem, 8vw, 6rem) var(--gutter); max-width: 80rem; margin: 0 auto; }
+  .eyebrow { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); }
+  h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-top: 0.5rem; }
+  .lede { max-width: 42rem; margin-top: 1rem; color: var(--muted); font-weight: 300; }
+  .facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1.25rem; padding: 0; list-style: none;
+           font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .facts li + li::before { content: "\00b7"; margin-right: 1.5rem; color: var(--brown); }
+
+  /* ---------- the strip: machines + stage tabs ---------- */
+  /* keeps its width on small screens and scrolls sideways, so tabs stay under their machines */
+  .strip { margin-top: 2.5rem; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--walnut) transparent; }
+  .strip-inner { min-width: 56rem; }
+  .machines { position: relative; }
+  /* pipeline.webp's background was recoloured to exactly --bg, so it needs no frame or fade */
+  .machines img { display: block; width: 100%; height: auto; }
+  /* one shade per machine: every machine but the selected one sinks back into the page */
+  .shade {
+    position: absolute; top: 0; bottom: 0; width: 14.9%;
+    background: var(--bg); opacity: 0; cursor: pointer;
+    transition: opacity 250ms ease;
+  }
+  .js .shade { opacity: 0.55; }
+  .js .shade.on { opacity: 0; cursor: default; }
+  /* the outer two also cover the inlet and outlet pipes at the image edges */
+  .shade:nth-child(2) { left: 0; width: 20.15%; }
+  .shade:nth-child(7) { right: 0; width: auto; }  .shade:nth-child(3) { left: 20.15%; } .shade:nth-child(4) { left: 35.05%; }
+  .shade:nth-child(5) { left: 49.95%; } .shade:nth-child(6) { left: 64.85%; } .shade:nth-child(7) { left: 79.75%; }
+  /* machine centres sit every 14.9% from 12.7%; the 6 tab columns are placed to match */
+  .tabs { display: grid; grid-template-columns: repeat(6, 1fr); width: 89.4%; margin-left: 5.25%; }
+  .tabs button {
+    font: inherit; color: var(--muted); background: none; border: 0; cursor: pointer;
+    padding: 0.75rem 0.25rem 0.875rem; text-align: center;
+    border-bottom: 1px solid var(--line);
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  .tabs button:hover { color: var(--text); }
+  .tabs button:focus-visible { outline: 1px solid var(--gold); outline-offset: -1px; }
+  .tabs button[aria-selected="true"] { color: var(--text); border-bottom: 2px solid var(--gold); }
+  .tabs .tag { display: block; font-size: 0.6875rem; letter-spacing: 0.2em; color: var(--gold); }
+  .tabs .name { display: block; font-family: var(--serif); font-size: 1.25rem; line-height: 1.2; margin-top: 0.125rem; }
+
+  /* ---------- stage panels ---------- */
+  .panel {
+    display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2rem 3rem;
+    margin-top: 2rem; padding-top: 0.5rem;
+  }
+  .panel[hidden] { display: none; }
+  .panel h3 { font-family: var(--serif); font-weight: 500; font-size: 1.75rem; line-height: 1.2; }
+  .panel .lead { margin-top: 0.5rem; color: var(--gold); font-weight: 300; }
+  .panel p { max-width: 40rem; font-weight: 300; color: var(--muted); }
+  .panel p + p { margin-top: 0.875rem; }
+  .panel .lead + p { margin-top: 0.875rem; }
+  .aside { margin-top: 1.5rem; padding: 1rem 1.25rem; max-width: 40rem; background: var(--surface); border-left: 2px solid var(--walnut); }
+  .aside h4 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); }
+  .aside p { margin-top: 0.375rem; }
+  .checks { list-style: none; padding: 0; margin-top: 0.875rem; max-width: 40rem; display: grid; gap: 0.5rem; }
+  .checks li { position: relative; padding-left: 1.5rem; font-weight: 300; color: var(--muted); }
+  /* 0.8em = half the 1.6 line height: the dash sits on the middle of the first line */
+  .checks li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 0.75rem; height: 1px; background: var(--gold); }
+  .checks + p, .bars + p { margin-top: 1.25rem; }
+
+  .stat { border-left: 1px solid var(--line); padding-left: 2rem; align-self: start; }
+  .stat .num { font-family: var(--serif); font-size: clamp(3rem, 5vw, 4rem); line-height: 1; color: var(--gold); }
+  .stat .cap { margin-top: 0.5rem; font-size: 0.8125rem; color: var(--muted); }
+  .stat .cap + .num { margin-top: 1.5rem; }
+
+  /* errors by stage, as bars out of 81 */
+  .bars { list-style: none; padding: 0; margin-top: 1.25rem; max-width: 30rem; display: grid; gap: 0.625rem; }
+  .bars li { display: grid; grid-template-columns: 7.5rem 1fr 2rem; align-items: center; gap: 0.75rem; font-size: 0.8125rem; color: var(--muted); }
+  .bars .track { height: 0.375rem; background: var(--surface); }
+  .bars .fill { height: 100%; background: var(--gold); }
+  .bars .n { text-align: right; color: var(--text); }
+
+  /* ---------- comparison ---------- */
+  .compare { border-top: 1px solid var(--line); }
+  .sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 22rem); gap: 2rem 3rem; align-items: center; }
+  .sec-head img { width: 100%; height: auto; display: block; }
+
+  .method { list-style: none; padding: 0; margin-top: 2.5rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .method li { padding: 0 1.5rem; border-left: 1px solid var(--line); }
+  .method li:first-child { padding-left: 0; border-left: 0; }
+  .method .k { font-family: var(--serif); font-size: 1.25rem; line-height: 1.2; color: var(--text); }
+  .method p:not(.k) { margin-top: 0.25rem; font-size: 0.875rem; font-weight: 300; color: var(--muted); }
+
+  .figures { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 3rem; margin-top: 3.5rem; }
+  /* on phones the 17-row chart keeps a readable size and scrolls sideways instead of shrinking its labels */
+  figure { min-width: 0; overflow-x: auto; }
+  .figures figure:first-child svg { min-width: 34rem; }
+  figcaption { font-size: 0.8125rem; color: var(--muted); }
+  .fig-k { display: block; font-family: var(--serif); font-size: 1.5rem; color: var(--text); margin-bottom: 0.125rem; }
+  figure svg { display: block; width: 100%; height: auto; margin-top: 1rem; font-family: Inter, system-ui, sans-serif; }
+  figure .note { margin-top: 1rem; font-size: 0.875rem; font-weight: 300; color: var(--muted); max-width: 34rem; }
+  svg .grid { stroke: var(--line); stroke-width: 1; }
+  svg .zero { stroke: var(--brown); stroke-width: 1; }
+  svg .tick { fill: var(--muted); font-size: 11px; opacity: 0.8; }
+  svg .axis { fill: var(--muted); font-size: 11px; letter-spacing: 0.08em; }
+  svg .grp { fill: var(--gold); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; }
+  svg .lab { fill: var(--muted); font-size: 12.5px; }
+  svg .stem { stroke: var(--brown); stroke-width: 2; }
+  svg .dot { fill: var(--muted); }
+  svg .val { fill: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+  svg .best { fill: var(--text); stroke: var(--text); }
+  svg .lab.best, svg .val.best { stroke: none; }
+  svg .sig { fill: var(--rust); stroke: var(--rust); }
+  svg .lab.sig, svg .val.sig { stroke: none; }
+  svg .curve { fill: none; stroke: var(--gold); stroke-width: 2; }
+  svg .err { stroke: var(--gold); stroke-width: 1; opacity: 0.5; }
+  svg .data { fill: var(--gold); }
+  svg .val.data { fill: var(--text); font-size: 12px; }
+  svg .brace { fill: none; stroke: var(--gold); stroke-width: 1; }
+  svg .big { fill: var(--gold); font-family: var(--serif); font-size: 30px; }
+
+  .sub-h { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; margin-top: 4rem; }
+  /* 5 cards: three across, then two wider ones, so no card is left alone on a row */
+  .findings { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
+  .findings article { grid-column: span 2; }
+  .findings article:nth-child(n+4) { grid-column: span 3; }
+  .findings article { background: var(--surface); padding: 1.25rem 1.25rem 1.375rem; border-top: 1px solid var(--walnut); }
+  .findings h4 { font-size: 0.9375rem; font-weight: 500; line-height: 1.4; color: var(--text); }
+  .findings p { margin-top: 0.5rem; font-size: 0.875rem; font-weight: 300; color: var(--muted); }
+  .minibars { list-style: none; padding: 0; margin-top: 0.875rem; display: grid; gap: 0.5rem; }
+  .minibars li { display: grid; grid-template-columns: 6.5rem 1fr 2.25rem; gap: 0.625rem; align-items: center; font-size: 0.8125rem; color: var(--muted); }
+  .minibars li span:last-child { text-align: right; color: var(--text); font-variant-numeric: tabular-nums; }
+  .minibars .track { height: 0.375rem; background: var(--bg); }
+  .minibars .track span { display: block; height: 100%; background: var(--brown); }
+  .minibars .track .top { background: var(--gold); }
+
+  .verdict { margin: 4rem 0 0; padding-left: 1.5rem; border-left: 2px solid var(--gold); max-width: 46rem; }
+  .verdict p { font-family: var(--serif); font-size: clamp(1.375rem, 2.4vw, 1.75rem); line-height: 1.35; color: var(--text); }
+
+  /* ---------- data shape ---------- */
+  .data { border-top: 1px solid var(--line); }
+  .data .lede + .lede { margin-top: 0.5rem; }
+  .table-wrap { margin-top: 1.25rem; overflow-x: auto; }
+  .needs { width: 100%; min-width: 40rem; border-collapse: collapse; font-size: 0.875rem; }
+  .needs th { text-align: left; font-weight: 400; font-size: 0.8125rem; color: var(--gold); padding: 0 1rem 0.75rem 0; border-bottom: 1px solid var(--walnut); }
+  .needs td { padding: 1rem 1rem 1rem 0; vertical-align: top; color: var(--muted); font-weight: 300; border-bottom: 1px solid var(--line); }
+  .needs td:first-child { width: 26%; }
+  .needs .m { display: block; font-family: var(--serif); font-size: 1.125rem; color: var(--text); font-weight: 400; }
+  .needs td:last-child { white-space: nowrap; color: var(--text); text-align: right; padding-right: 0; }
+  .needs tr.won td:last-child { color: var(--gold); }
+  .needs th:last-child { text-align: right; white-space: nowrap; }
+  .needs td:last-child { font-variant-numeric: tabular-nums; }
+  .table-note { margin-top: 0.75rem; font-size: 0.8125rem; color: var(--muted); font-weight: 300; }
+
+  .proofs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; margin-top: 1.5rem; }
+  .proofs .num { font-family: var(--serif); font-size: clamp(2.5rem, 4.5vw, 3.5rem); line-height: 1; color: var(--gold); }
+  .proofs h4 { margin-top: 0.75rem; font-size: 1rem; font-weight: 500; color: var(--text); }
+  .proofs p:not(.num) { margin-top: 0.375rem; font-size: 0.9375rem; font-weight: 300; color: var(--muted); max-width: 30rem; }
+
+  .plan { list-style: none; padding: 0; margin-top: 1.5rem; counter-reset: step; max-width: 46rem; }
+  .plan li { counter-increment: step; position: relative; padding: 0 0 1.75rem 3.5rem; }
+  .plan li::before {
+    content: counter(step); position: absolute; left: 0; top: -0.125rem;
+    font-family: var(--serif); font-size: 1.75rem; line-height: 1; color: var(--gold);
+  }
+  /* a hairline joins the steps */
+  .plan li:not(:last-child)::after { content: ""; position: absolute; left: 0.5rem; top: 2.25rem; bottom: 0.5rem; width: 1px; background: var(--line); }
+  .plan h4 { font-size: 1rem; font-weight: 500; color: var(--text); }
+  .plan p { margin-top: 0.25rem; font-size: 0.9375rem; font-weight: 300; color: var(--muted); }
+  .plan .cost { margin-top: 0.25rem; font-size: 0.8125rem; color: var(--brown); }
+
+  /* ---------- research: plain reading text ---------- */
+  .research { border-top: 1px solid var(--line); }
+  /* the learning path: a vertical story, title on the left and the telling on the right, joined by a rail */
+  .path { list-style: none; padding: 0; margin-top: 3rem; counter-reset: step; max-width: 62rem; }
+  .path li {
+    counter-increment: step; position: relative;
+    display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 0.5rem 2.5rem;
+    padding: 0 0 2.25rem 3.25rem;
+  }
+  .path li::before {
+    content: counter(step); position: absolute; left: 0; top: -0.25rem;
+    font-family: var(--serif); font-size: 1.75rem; line-height: 1; color: var(--gold);
+  }
+  .path li:not(:last-child)::after { content: ""; position: absolute; left: 0.45rem; top: 2.25rem; bottom: 0.75rem; width: 1px; background: var(--line); }
+  .path h3 { font-family: var(--serif); font-weight: 500; font-size: 1.375rem; line-height: 1.25; color: var(--text); }
+  .path p { font-weight: 300; color: var(--muted); max-width: 40rem; }
+
+  /* the routine: one row of steps with arrows, then a return arrow to show it repeats */
+  .routine { margin-top: 3.5rem; }
+  .loop { list-style: none; padding: 0; margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 0; }
+  .loop li { font-family: var(--serif); font-size: 1.375rem; color: var(--text); }
+  .loop li:not(:last-child)::after { content: "\2192"; margin: 0 1rem; color: var(--gold); font-family: Inter, system-ui, sans-serif; font-size: 1rem; }
+  .loop li:last-child::after { content: "\21BA"; margin-left: 1rem; color: var(--gold); font-family: Inter, system-ui, sans-serif; font-size: 1.125rem; }
+  .loop-note { margin-top: 0.75rem; max-width: 42rem; font-size: 0.875rem; font-weight: 300; color: var(--muted); }
+
+  /* ---------- AI tools ---------- */
+  .ai { border-top: 1px solid var(--line); }
+  .doc { width: 2.75rem; height: auto; fill: none; stroke: var(--gold); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .doc .badge { fill: var(--bg); }
+  .skills { list-style: none; padding: 0; margin-top: 1.75rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  .skills h4 { margin-top: 1rem; font-family: var(--serif); font-weight: 500; font-size: 1.375rem; color: var(--text); }
+  .skills p { margin-top: 0.375rem; font-size: 0.9375rem; font-weight: 300; color: var(--muted); }
+  .hook { display: flex; gap: 1.25rem; align-items: flex-start; margin-top: 3rem; max-width: 46rem; }
+  .hook h3 { font-family: var(--serif); font-weight: 500; font-size: 1.375rem; color: var(--text); }
+  .hook p { margin-top: 0.375rem; font-size: 0.9375rem; font-weight: 300; color: var(--muted); }
+  .prose { max-width: 42rem; margin-top: 1rem; }
+  .prose p { font-weight: 300; color: var(--muted); }
+  .prose p + p { margin-top: 1rem; }
+  .tally { list-style: none; padding: 0; margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; }
+  .tally li { font-size: 0.875rem; color: var(--muted); }
+  .tally .n { display: block; font-family: var(--serif); font-size: 2.25rem; line-height: 1; color: var(--gold); margin-bottom: 0.25rem; }
+
+  /* ---------- how to run ---------- */
+  .run { border-top: 1px solid var(--line); }
+  .steps-run { list-style: none; padding: 0; margin-top: 2.5rem; counter-reset: step; max-width: 50rem; }
+  .steps-run > li { counter-increment: step; position: relative; padding: 0 0 2rem 3.25rem; }
+  .steps-run > li::before { content: counter(step); position: absolute; left: 0; top: -0.25rem;
+    font-family: var(--serif); font-size: 1.75rem; line-height: 1; color: var(--gold); }
+  .steps-run h3 { font-family: var(--serif); font-weight: 500; font-size: 1.375rem; color: var(--text); }
+  .steps-run p { margin-top: 0.25rem; font-weight: 300; color: var(--muted); }
+  .cmd { position: relative; margin-top: 0.625rem; background: var(--surface); border-left: 2px solid var(--walnut); }
+  .cmd pre { margin: 0; padding: 0.75rem 5.5rem 0.75rem 1rem; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--walnut) transparent; }
+  .cmd code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 0.8125rem; color: var(--text); }
+  .copy {
+    position: absolute; top: 50%; right: 0.5rem; transform: translateY(-50%);
+    font: inherit; font-size: 0.75rem; color: var(--gold); background: var(--bg);
+    border: 1px solid var(--walnut); padding: 0.25rem 0.625rem; cursor: pointer;
+  }
+  .copy:hover { border-color: var(--gold); }
+  .copy:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+  .outputs { list-style: none; padding: 0; margin-top: 1.25rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+  .outputs .k { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 1.125rem; color: var(--gold); }
+  .outputs p:not(.k) { margin-top: 0.375rem; font-size: 0.9375rem; font-weight: 300; color: var(--muted); }
+
+  /* ---------- next steps: three horizons side by side ---------- */
+  .next { border-top: 1px solid var(--line); }
+  .horizons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+  .horizon > h3 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold);
+    padding-bottom: 0.75rem; border-bottom: 1px solid var(--walnut); }
+  .horizon ol { list-style: none; padding: 0; }
+  .horizon li { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .horizon h4 { font-size: 1rem; font-weight: 500; line-height: 1.4; color: var(--text); }
+  .horizon p { margin-top: 0.375rem; font-size: 0.9375rem; font-weight: 300; color: var(--muted); }
+
+  /* ---------- what I learned ---------- */
+  .learned { border-top: 1px solid var(--line); }
+  .learned .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 2rem; }
+  .learned h3 { font-family: var(--serif); font-weight: 500; font-size: 1.375rem; line-height: 1.25; }
+  .learned p { margin-top: 0.5rem; font-weight: 300; color: var(--muted); }
+
+  @media (max-width: 760px) {
+    .hero img { object-position: 80% 50%; }
+    .hero::after {
+      background:
+        linear-gradient(to bottom, var(--bg) 0%, rgb(23 11 13 / 0.7) 40%, transparent 70%),
+        linear-gradient(to top, var(--bg) 0%, transparent 25%);
+    }
+    .panel { grid-template-columns: 1fr; gap: 1.5rem; }
+    .stat { order: -1; border-left: 0; border-top: 1px solid var(--line); padding: 1.25rem 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
+    .stat .cap + .num { margin-top: 0; }
+    .stat .cap { margin-top: 0; flex: 1 1 8rem; }
+    .learned .cols { grid-template-columns: 1fr; }
+    .sec-head { grid-template-columns: 1fr; }
+    .sec-head img { max-width: 22rem; order: -1; }
+    .method { grid-template-columns: 1fr 1fr; gap: 1.5rem 0; }
+    .method li:nth-child(3) { padding-left: 0; border-left: 0; }
+    .figures { grid-template-columns: 1fr; }
+    .findings { grid-template-columns: 1fr; }
+    .proofs { grid-template-columns: 1fr; }
+    .path li { grid-template-columns: 1fr; padding-left: 2.75rem; }
+    .skills { grid-template-columns: 1fr; gap: 1.75rem; }
+    .outputs, .horizons { grid-template-columns: 1fr; gap: 1.5rem; }
+    .steps-run > li { padding-left: 2.75rem; }
+    .findings article, .findings article:nth-child(n+4) { grid-column: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) { .shade, .tabs button { transition: none; } }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <img src="hero.webp" alt="" width="1983" height="793">
+    <div class="title">
+      <h1>Khojki OCR Pipeline</h1>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="sub">A short walkthrough of how I built this project</p>
+    </div>
+  </header>
+
+  <main>
+  <section aria-labelledby="how-title">
+    <p class="eyebrow">01 &middot; How it works</p>
+    <h2 id="how-title">From Page Image to Unicode</h2>
+    <p class="lede">The goal is simple: take a scanned page from an 1896 Khojki book and turn it into readable Unicode text.
+      I built a five-stage pipeline for it. Pick a stage to see what it does.</p>
+    <ul class="facts">
+      <li>~12 s per page</li>
+      <li>Runs offline</li>
+      <li>No language model</li>
+    </ul>
+
+    <div class="strip">
+      <div class="strip-inner">
+        <div class="machines">
+          <img src="pipeline.webp" alt="Six connected machines: page, lines, glyph boxes, recognition, checking, measuring" width="2000" height="299">
+          <div class="shades" aria-hidden="true">
+            <span></span>
+            <div class="shade"></div><div class="shade"></div><div class="shade"></div>
+            <div class="shade"></div><div class="shade"></div><div class="shade"></div>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Pipeline stages">
+          <button role="tab" id="t0" aria-controls="p0"><span class="tag">INPUT</span><span class="name">The Page</span></button>
+          <button role="tab" id="t1" aria-controls="p1"><span class="tag">A</span><span class="name">Lines</span></button>
+          <button role="tab" id="t2" aria-controls="p2"><span class="tag">B</span><span class="name">Glyphs</span></button>
+          <button role="tab" id="t3" aria-controls="p3"><span class="tag">C</span><span class="name">Recognition</span></button>
+          <button role="tab" id="t4" aria-controls="p4"><span class="tag">D</span><span class="name">Checking</span></button>
+          <button role="tab" id="t5" aria-controls="p5"><span class="tag">E</span><span class="name">Measuring</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
+      <div>
+        <h3>The Challenge</h3>
+        <p class="lead">Barely any labelled examples, century-old printing, and no OCR tool built for this script.</p>
+        <p>There are barely any labelled examples of Khojki, the printing is over a century old, and modern OCR tools
+          aren't designed to recognize it. So everything here was built and measured from three pages of one book.</p>
+      </div>
+      <div class="stat"><p class="num">1896</p><p class="cap">printed Khojki, pages 9&ndash;11 of the Narsi Mehta book</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+      <div>
+        <h3>Finding the Lines</h3>
+        <p class="lead">First, figure out where the actual writing is.</p>
+        <p>The program converts the scanned page into black and white, removes the printed borders, and looks for
+          rows where ink is concentrated. These become the text lines.</p>
+      </div>
+      <div class="stat"><p class="num">35/35</p><p class="cap">lines found across the three pages, after eight iterations</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2">
+      <div>
+        <h3>Finding the Glyphs</h3>
+        <p class="lead">Next, separate each line into individual characters.</p>
+        <p>This is trickier than it sounds. In Khojki, a single character can be several disconnected pieces, such as
+          a letter with a dot or vowel sign above it.</p>
+        <p>The program finds connected regions of ink and groups nearby pieces into boxes. The boxes aren't always
+          perfect, and that's fine: the recognition stage is built to correct some splitting mistakes.</p>
+      </div>
+      <div class="stat"><p class="num">1&nbsp;&ne;&nbsp;1</p><p class="cap">one character isn't always one piece of ink</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3">
+      <div>
+        <h3>Recognizing the Characters</h3>
+        <p class="lead">This is where most of the interesting work happens.</p>
+        <p>Instead of training a large neural network, I built a reference library of glyph images: 150 labelled by hand
+          from the original book and 2,666 generated from Khojki fonts.</p>
+        <p>For every unknown glyph, the program finds the <strong>seven most similar examples</strong> and lets them vote
+          on what it is. The closer the match, the more its vote counts. Letters and vowel signs are recognized
+          separately, and different ways of grouping neighbouring boxes are tested.</p>
+        <div class="aside">
+          <h4>Why Not a Neural Network?</h4>
+          <p>I tried three neural approaches, and they all did worse. With so little real training data, nearest-neighbour
+            matching was more accurate, easier to debug, and improved the moment I labelled more examples.</p>
+        </div>
+      </div>
+      <div class="stat">
+        <p class="num">2,816</p><p class="cap">reference glyphs: 150 real, 2,666 from fonts</p>
+        <p class="num">7</p><p class="cap">nearest examples vote on each glyph</p>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4">
+      <div>
+        <h3>Checking the Results</h3>
+        <p class="lead">The program should never pretend to know something it doesn't.</p>
+        <p>Every prediction gets a calibrated confidence score. A character is only accepted when:</p>
+        <ul class="checks">
+          <li>its estimated accuracy meets the 95% threshold,</li>
+          <li>it clearly beats the alternatives, and</li>
+          <li>at least one real example from the book supports it.</li>
+        </ul>
+        <p>Otherwise it's marked unknown, with its three best guesses saved for review. Before export, the text is
+          checked against Khojki's Unicode ordering rules. The output is readable text, a JSON record of every
+          prediction, and PAGE-XML for archival tools.</p>
+      </div>
+      <div class="stat"><p class="num">95%</p><p class="cap">accuracy a character must reach before it is accepted</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p5" aria-labelledby="t5">
+      <div>
+        <h3>Measuring Accuracy</h3>
+        <p class="lead">What makes the pipeline useful: I can tell exactly where it goes wrong.</p>
+        <p>Every stage saves its results separately, so I can swap one stage's output for the correct answer and see
+          how much the transcription improves. On the development lines, that gives the errors by stage:</p>
+        <ul class="bars" aria-label="Errors by stage, out of 81">
+          <li><span>Recognition</span><span class="track"><span class="fill" style="display:block;width:79%"></span></span><span class="n">64</span></li>
+          <li><span>Glyph boxes</span><span class="track"><span class="fill" style="display:block;width:23.5%"></span></span><span class="n">19</span></li>
+          <li><span>Line finding</span><span class="track"><span class="fill" style="display:block;width:0"></span></span><span class="n">0</span></li>
+        </ul>
+        <p>For the final test I held back two lines that were never used during development. That's still a high error
+          rate, and I'm not hiding it. What matters is that I know which parts to improve, and can measure whether each
+          change actually helps.</p>
+      </div>
+      <div class="stat"><p class="num">40.8%</p><p class="cap">character error rate on the two held-out test lines</p></div>
+    </div>
+  </section>
+
+
+
+
+  <section class="run" aria-labelledby="run-title">
+    <p class="eyebrow">02 &middot; Run It</p>
+    <h2 id="run-title">How to Run the Pipeline</h2>
+    <p class="lede">The pipeline is plain Python and runs offline on a laptop. It needs Python 3.11 or newer.</p>
+    <ol class="steps-run">
+      <li>
+        <h3>Install</h3>
+        <p>From the project folder, install the package and its test tools.</p>
+        <div class="cmd"><pre><code>pip install -e &quot;.[dev]&quot;</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+      </li>
+      <li>
+        <h3>Add the Data</h3>
+        <p>The scans aren't in the repository, because the pages are for this exercise only. Put the sample PDF in the
+          data/ folder. The example bank is built from my labelled lines, so it also stays on my machine.</p>
+      </li>
+      <li>
+        <h3>Run It on a Page</h3>
+        <p>Give it a PDF and a page number, or a single page image.</p>
+        <div class="cmd"><pre><code>python -X utf8 -m khojki.pipeline data/sample_khojki_script_vatiations.pdf --page 9 --out out/</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+        <div class="cmd"><pre><code>python -X utf8 -m khojki.pipeline page.png --out out/</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+      </li>
+      <li>
+        <h3>Check It</h3>
+        <p>Run the 29 tests, then score the output against the ground truth.</p>
+        <div class="cmd"><pre><code>python -X utf8 -m pytest -q</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+        <div class="cmd"><pre><code>python -X utf8 gt/eval_cer.py</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
+      </li>
+    </ol>
+    <h3 class="sub-h">What You Get</h3>
+    <ul class="outputs">
+      <li><p class="k">.txt</p><p>The page as Unicode text, one line per printed line. Unsure characters are written
+        as &#xFFFD;.</p></li>
+      <li><p class="k">.json</p><p>Every line and glyph with its position on the page, the answer or the top three
+        suggestions, and the confidence of each.</p></li>
+      <li><p class="k">.xml</p><p>PAGE-XML, a standard format that archive and transcription tools can open.</p></li>
+    </ul>
+    <p class="table-note">About 12 seconds a page on a laptop CPU. No internet, no GPU, no cost per page.</p>
+  </section>
+
+  <section class="compare" aria-labelledby="compare-title">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">03 &middot; Comparison</p>
+        <h2 id="compare-title">Finding What Actually Works</h2>
+        <p class="lede">With almost no labelled Khojki, what's the best way to recognize the characters? Rather than
+          assume a more complicated model would do better, I tested around 20 approaches, from basic image matching to
+          neural networks from recent research. The results surprised me.</p>
+      </div>
+      <img src="img/comparison.webp" alt="" width="1168" height="680" loading="lazy">
+    </div>
+
+    <ul class="method" aria-label="How the comparisons were kept fair">
+      <li><p class="k">9 + 2 lines</p><p>Nine lines for development. Two kept sealed for the final test.</p></li>
+      <li><p class="k">Leave one line out</p><p>Learn from eight lines, test on the ninth, until every line has been tested.</p></li>
+      <li><p class="k">Top-1 and top-3</p><p>Was the right character the first guess? Was it among the three a reviewer sees?</p></li>
+      <li><p class="k">Chance check</p><p>An exact McNemar test on the same 105 glyphs: a few extra right isn't proof.</p></li>
+    </ul>
+
+    <div class="figures">
+      <figure>
+        <figcaption><span class="fig-k">Changing the Model</span>Glyphs gained or lost against plain pixels, of 105</figcaption>
+        <svg viewBox="0 0 600 498" role="img" aria-labelledby="c1t c1d"><title id="c1t">Glyphs gained or lost against plain pixels, 17 variants</title><desc id="c1d">Every change falls between minus 8 and plus 6 glyphs of 105, except DANN at minus 15, the only significant result. The best, pixels plus HOG, gains 6 with p equal 0.11.</desc><line x1="260.61538461538464" x2="260.61538461538464" y1="30" y2="464" class="grid"/><text x="260.61538461538464" y="482" class="tick" text-anchor="middle">-16</text><line x1="309.84615384615387" x2="309.84615384615387" y1="30" y2="464" class="grid"/><text x="309.84615384615387" y="482" class="tick" text-anchor="middle">-12</text><line x1="359.0769230769231" x2="359.0769230769231" y1="30" y2="464" class="grid"/><text x="359.0769230769231" y="482" class="tick" text-anchor="middle">-8</text><line x1="408.30769230769226" x2="408.30769230769226" y1="30" y2="464" class="grid"/><text x="408.30769230769226" y="482" class="tick" text-anchor="middle">-4</text><line x1="457.53846153846155" x2="457.53846153846155" y1="30" y2="464" class="zero"/><text x="457.53846153846155" y="482" class="tick" text-anchor="middle">0</text><line x1="506.7692307692308" x2="506.7692307692308" y1="30" y2="464" class="grid"/><text x="506.7692307692308" y="482" class="tick" text-anchor="middle">+4</text><line x1="556.0" x2="556.0" y1="30" y2="464" class="grid"/><text x="556.0" y="482" class="tick" text-anchor="middle">+8</text><text x="457.53846153846155" y="18" class="axis" text-anchor="middle">plain pixels</text><text x="0" y="50" class="grp">Tweaks to the pixel matcher</text><text x="222" y="75.0" class="lab" text-anchor="end">HOG instead of pixels</text><line x1="457.53846153846155" x2="445.2307692307692" y1="71.0" y2="71.0" class="stem"/><circle cx="445.2307692307692" cy="71.0" r="4" class="dot"/><text x="435.2307692307692" y="75.0" class="val" text-anchor="end">-1</text><text x="222" y="97.0" class="lab" text-anchor="end">Thicker font renders</text><line x1="457.53846153846155" x2="469.8461538461538" y1="93.0" y2="93.0" class="stem"/><circle cx="469.8461538461538" cy="93.0" r="4" class="dot"/><text x="479.8461538461538" y="97.0" class="val" text-anchor="start">+1</text><text x="222" y="119.0" class="lab" text-anchor="end">Thicker renders, HOG</text><line x1="457.53846153846155" x2="469.8461538461538" y1="115.0" y2="115.0" class="stem"/><circle cx="469.8461538461538" cy="115.0" r="4" class="dot"/><text x="479.8461538461538" y="119.0" class="val" text-anchor="start">+1</text><text x="222" y="141.0" class="lab" text-anchor="end">Thicker + worn copies</text><line x1="457.53846153846155" x2="408.30769230769226" y1="137.0" y2="137.0" class="stem"/><circle cx="408.30769230769226" cy="137.0" r="4" class="dot"/><text x="398.30769230769226" y="141.0" class="val" text-anchor="end">-4</text><text x="222" y="163.0" class="lab" text-anchor="end">Worn copies, HOG</text><line x1="457.53846153846155" x2="383.69230769230774" y1="159.0" y2="159.0" class="stem"/><circle cx="383.69230769230774" cy="159.0" r="4" class="dot"/><text x="373.69230769230774" y="163.0" class="val" text-anchor="end">-6</text><text x="222" y="185.0" class="lab" text-anchor="end">Shifted real copies</text><line x1="457.53846153846155" x2="506.7692307692308" y1="181.0" y2="181.0" class="stem"/><circle cx="506.7692307692308" cy="181.0" r="4" class="dot"/><text x="516.7692307692307" y="185.0" class="val" text-anchor="start">+4</text><text x="222" y="207.0" class="lab" text-anchor="end">Shifted real copies, HOG</text><line x1="457.53846153846155" x2="506.7692307692308" y1="203.0" y2="203.0" class="stem"/><circle cx="506.7692307692308" cy="203.0" r="4" class="dot"/><text x="516.7692307692307" y="207.0" class="val" text-anchor="start">+4</text><text x="222" y="229.0" class="lab" text-anchor="end">Sans font only</text><line x1="457.53846153846155" x2="482.1538461538462" y1="225.0" y2="225.0" class="stem"/><circle cx="482.1538461538462" cy="225.0" r="4" class="dot"/><text x="492.1538461538462" y="229.0" class="val" text-anchor="start">+2</text><text x="222" y="251.0" class="lab" text-anchor="end">Real examples count x3</text><line x1="457.53846153846155" x2="494.46153846153845" y1="247.0" y2="247.0" class="stem"/><circle cx="494.46153846153845" cy="247.0" r="4" class="dot"/><text x="504.46153846153845" y="251.0" class="val" text-anchor="start">+3</text><text x="222" y="273.0" class="lab best" text-anchor="end">Pixels + HOG combined</text><line x1="457.53846153846155" x2="531.3846153846155" y1="269.0" y2="269.0" class="stem best"/><circle cx="531.3846153846155" cy="269.0" r="4" class="dot best"/><text x="541.3846153846155" y="273.0" class="val best" text-anchor="start">+6</text><text x="0" y="300" class="grp">Neural networks</text><text x="222" y="325.0" class="lab" text-anchor="end">CNN on worn copies</text><line x1="457.53846153846155" x2="506.7692307692308" y1="321.0" y2="321.0" class="stem"/><circle cx="506.7692307692308" cy="321.0" r="4" class="dot"/><text x="516.7692307692307" y="325.0" class="val" text-anchor="start">+4</text><text x="222" y="347.0" class="lab" text-anchor="end">CNN, real glyphs oversampled</text><line x1="457.53846153846155" x2="359.0769230769231" y1="343.0" y2="343.0" class="stem"/><circle cx="359.0769230769231" cy="343.0" r="4" class="dot"/><text x="349.0769230769231" y="347.0" class="val" text-anchor="end">-8</text><text x="222" y="369.0" class="lab" text-anchor="end">+ SimCLR</text><line x1="457.53846153846155" x2="420.6153846153846" y1="365.0" y2="365.0" class="stem"/><circle cx="420.6153846153846" cy="365.0" r="4" class="dot"/><text x="410.6153846153846" y="369.0" class="val" text-anchor="end">-3</text><text x="222" y="391.0" class="lab sig" text-anchor="end">+ DANN</text><line x1="457.53846153846155" x2="272.9230769230769" y1="387.0" y2="387.0" class="stem sig"/><circle cx="272.9230769230769" cy="387.0" r="4" class="dot sig"/><text x="262.9230769230769" y="391.0" class="val sig" text-anchor="end">-15</text><text x="222" y="413.0" class="lab" text-anchor="end">+ SimCLR + DANN</text><line x1="457.53846153846155" x2="408.30769230769226" y1="409.0" y2="409.0" class="stem"/><circle cx="408.30769230769226" cy="409.0" r="4" class="dot"/><text x="398.30769230769226" y="413.0" class="val" text-anchor="end">-4</text><text x="222" y="435.0" class="lab" text-anchor="end">DANN, real letter mix</text><line x1="457.53846153846155" x2="420.6153846153846" y1="431.0" y2="431.0" class="stem"/><circle cx="420.6153846153846" cy="431.0" r="4" class="dot"/><text x="410.6153846153846" y="435.0" class="val" text-anchor="end">-3</text><text x="222" y="457.0" class="lab" text-anchor="end">SimCLR + DANN, real letter mix</text><line x1="457.53846153846155" x2="408.30769230769226" y1="453.0" y2="453.0" class="stem"/><circle cx="408.30769230769226" cy="453.0" r="4" class="dot"/><text x="398.30769230769226" y="457.0" class="val" text-anchor="end">-4</text></svg>
+        <p class="note">Nothing beat plain pixels by more than chance. The best, pixels + HOG, has a 1-in-9 chance of
+          being luck. The only clear result was DANN, and it was worse.</p>
+      </figure>
+      <figure>
+        <figcaption><span class="fig-k">Adding Real Labels</span>Same pixel matcher, more of my labelled glyphs</figcaption>
+        <svg viewBox="0 0 420 290" role="img" aria-labelledby="c2t c2d"><title id="c2t">First-guess accuracy as real labelled glyphs grow</title><desc id="c2d">33 real glyphs: 46 percent. 67: 58 percent. 100: 65 percent. 133: 69 percent. Quadrupling the labels adds 23 points.</desc><line x1="44" x2="340" y1="250.0" y2="250.0" class="grid"/><text x="36" y="254.0" class="tick" text-anchor="end">40%</text><line x1="44" x2="340" y1="187.14285714285714" y2="187.14285714285714" class="grid"/><text x="36" y="191.14285714285714" class="tick" text-anchor="end">50%</text><line x1="44" x2="340" y1="124.28571428571429" y2="124.28571428571429" class="grid"/><text x="36" y="128.28571428571428" class="tick" text-anchor="end">60%</text><line x1="44" x2="340" y1="61.428571428571445" y2="61.428571428571445" class="grid"/><text x="36" y="65.42857142857144" class="tick" text-anchor="end">70%</text><text x="113.77142857142857" y="268" class="tick" text-anchor="middle">33</text><text x="185.65714285714287" y="268" class="tick" text-anchor="middle">67</text><text x="255.42857142857144" y="268" class="tick" text-anchor="middle">100</text><text x="325.2" y="268" class="tick" text-anchor="middle">133</text><text x="192.0" y="286" class="axis" text-anchor="middle">real labelled glyphs</text><line x1="113.77142857142857" x2="113.77142857142857" y1="222.9714285714286" y2="202.85714285714286" class="err"/><line x1="185.65714285714287" x2="185.65714285714287" y1="147.54285714285712" y2="124.91428571428573" class="err"/><line x1="255.42857142857144" x2="255.42857142857144" y1="106.68571428571431" y2="77.77142857142863" class="err"/><polyline points="113.8,212.9 185.7,136.2 255.4,92.2 325.2,70.2" class="curve"/><circle cx="113.77142857142857" cy="212.9142857142857" r="4.5" class="dot data"/><text x="113.77142857142857" y="200.9142857142857" class="val data" text-anchor="middle">46%</text><circle cx="185.65714285714287" cy="136.2285714285714" r="4.5" class="dot data"/><text x="185.65714285714287" y="124.2285714285714" class="val data" text-anchor="middle">58%</text><circle cx="255.42857142857144" cy="92.22857142857146" r="4.5" class="dot data"/><text x="255.42857142857144" y="80.22857142857146" class="val data" text-anchor="middle">65%</text><circle cx="325.2" cy="70.22857142857148" r="4.5" class="dot data"/><text x="325.2" y="58.228571428571485" class="val data" text-anchor="middle">69%</text><path d="M346,70.22857142857148 H352 V212.9142857142857 H346" class="brace"/><text x="360" y="143.57142857142856" class="big">+23</text><text x="360" y="167.57142857142856" class="tick">points</text></svg>
+        <p class="note">Every step helped, far beyond the spread between repeated runs. Quadrupling the labels gained
+          <strong>23 points</strong>. The best model change gained 6, and that wasn't convincing.</p>
+      </figure>
+    </div>
+
+    <h3 class="sub-h">Along the Way</h3>
+    <div class="findings">
+      <article>
+        <h4>The Score Said Perfect. The Image Didn't.</h4>
+        <p>Line finding took eight attempts. One found all 35 lines, but an overlay showed it was cutting characters off
+          the left edge. Now I always look at the output, not just the number.</p>
+      </article>
+      <article>
+        <h4>The Specialized Method Lost</h4>
+        <p>Sauvola is built for uneven old scans; Otsu uses one threshold for the whole page. Otsu got
+          <strong>59 of 80</strong> glyph boxes right, Sauvola 56.</p>
+      </article>
+      <article>
+        <h4>Pixels Beat Hand-Designed Features</h4>
+        <ul class="minibars" aria-label="First-guess accuracy by description">
+          <li><span>Shape features</span><span class="track"><span style="width:27%"></span></span><span>27%</span></li>
+          <li><span>HOG</span><span class="track"><span style="width:51%"></span></span><span>51%</span></li>
+          <li><span>Raw pixels</span><span class="track"><span class="top" style="width:52%"></span></span><span>52%</span></li>
+        </ul>
+      </article>
+      <article>
+        <h4>Why DANN Failed</h4>
+        <p>My font examples hold every character equally; real text doesn't. DANN made the two look alike as a whole, so
+          it matched the wrong letters. Drawing the fonts at the real mix cut its loss from <strong>15 glyphs to 3</strong>.</p>
+      </article>
+      <article>
+        <h4>Perfect on 14 Isn't Proof</h4>
+        <p>Five familiar characters were right in all 14 cases. Tested on unseen lines, the same rule was right
+          <strong>5 times out of 12</strong>. I dropped the rule.</p>
+      </article>
+    </div>
+
+    <blockquote class="verdict">
+      <p>The simplest approach kept winning: compare the pixels and let the seven nearest examples vote.
+        The bottleneck was the data, and now I have the experiments to prove it.</p>
+    </blockquote>
+  </section>
+
+
+
+
+  <section class="data" aria-labelledby="data-title">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">04 &middot; Data</p>
+        <h2 id="data-title">Why the Shape of the Data Matters</h2>
+        <p class="lede">The more advanced models scored lower than simple pixel matching. The reason wasn&#x27;t the models. It was the data I gave them.</p><p class="lede">Each model needs data of a certain size, letter mix and appearance. I had 150 labelled glyphs from the book, 722 unlabelled glyphs, and 2,666 font images that look different from the 1896 print.</p><p class="lede">If the data is changed to match what a model needs, that model can do better.</p>
+      </div>
+      <img src="img/tradeoffs.webp" alt="" width="1166" height="680" loading="lazy">
+    </div>
+
+    <h3 class="sub-h">What Each Model Needs</h3>
+    <div class="table-wrap">
+      <table class="needs">
+        <thead><tr><th scope="col">Model</th><th scope="col">Needs</th><th scope="col">What I had</th><th scope="col">Right first guess</th></tr></thead>
+        <tbody>
+          <tr class="won"><td><span class="m">Pixel Matching</span>Compares a glyph&#x27;s pixels with labelled examples. The 7 closest vote.</td>
+            <td>A few labelled examples that look like the glyphs being read.</td><td>150 labelled glyphs from the book.</td><td>68.6%</td></tr>
+          <tr><td><span class="m">Neural Network (CNN)</span>Learns letter shapes from labelled examples.</td>
+            <td>Hundreds of labelled examples per letter.</td><td>About 150 labelled glyphs in total, across dozens of letters.</td><td>61.0%</td></tr>
+          <tr><td><span class="m">SimCLR</span>A neural network that also learns from glyphs without labels.</td>
+            <td>Thousands of unlabelled glyphs.</td><td>722 unlabelled glyphs from 24 lines.</td><td>65.7%</td></tr>
+          <tr><td><span class="m">DANN</span>A neural network trained to treat font images and printed glyphs alike.</td>
+            <td>Each letter appearing about as often in the font images as in the book.</td><td>The font images have each letter once. The book uses common letters far more often.</td><td>54.3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">Share of the same 105 test glyphs where the model&#x27;s first guess was the correct letter.</p>
+
+    <h3 class="sub-h">The Proof</h3>
+    <p class="lede">Two experiments support this. In each one, I kept the model the same and changed only the data.</p>
+    <div class="proofs">
+      <div><p class="num">54% → 66%</p><h4>Matching the Letter Mix</h4><p>I changed how often each letter appears in the font images to match the book. DANN went from 54.3% to 65.7% correct first guesses.</p></div>
+      <div><p class="num">46% → 69%</p><h4>Adding More Labels</h4><p>I gave the pixel matcher 25%, 50%, 75% and 100% of my labelled glyphs. It scored 46%, 58%, 65% and 69%. No change to the model itself added more than about 6 percentage points.</p></div>
+    </div>
+
+    <h3 class="sub-h">The Plan</h3>
+    <p class="lede">The next step is to change the data, then test the same models again.</p>
+    <ol class="plan">
+      <li><h4>Build a Larger Test Set</h4><p>With 105 test glyphs, only differences of about 9 percentage points can be trusted. A test set of about 50 lines (950 glyphs), labelled by a Khojki reader without suggestions, could show differences of 3 points.</p><p class="cost">About 12 hours</p></li>
+      <li><h4>Label Similar Glyphs in Groups</h4><p>Cut out every glyph from more pages of this book, group similar glyphs automatically, and have a reader label each group at once. Today each glyph takes about 44 seconds. The VOLTAGE project used this method to label about 14,000 glyphs of Takri, a related script.</p><p class="cost">Needs more scans of this book</p></li>
+      <li><h4>Make the Font Images Match the Print</h4><p>The printed strokes are about 40% thicker than in the font images. Make the font strokes thicker, include each letter as often as it appears in the book, and copy the print&#x27;s ink texture onto the font images.</p></li>
+      <li><h4>Test the Same Models Again</h4><p>Run pixel matching, the CNN, SimCLR and DANN again on the new data, each at several data sizes and with 3 random seeds. This shows how much data a neural network needs before it does better than pixel matching.</p></li>
+      <li><h4>Read Whole Lines</h4><p>At about 500 to 800 labelled lines, use a model that reads whole lines, such as Kraken. This would remove the 19 errors caused by cutting lines into glyphs.</p></li>
+    </ol>
+
+    <blockquote class="verdict"><p>Change the data first, then compare the models again.</p></blockquote>
+  </section>
+
+
+
+
+  <section class="research" aria-labelledby="research-title">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">05 &middot; Research</p>
+        <h2 id="research-title">How I Researched</h2>
+        <p class="lede">I started this project knowing little about OCR. This is how I learned it quickly, and the
+          routine I followed while building.</p>
+      </div>
+      <img src="img/research.webp" alt="" width="1024" height="596" loading="lazy">
+    </div>
+
+    <ol class="path">
+      <li><h3>Learning the Basics</h3><p>I started by searching how OCR works and brushing up on computer vision models in general. Then I watched videos that walk through real OCR pipelines, so I could see how the parts fit together before I built any of them.</p></li>
+      <li><h3>Comparing Languages</h3><p>Next, I learned how an OCR pipeline changes between everyday languages like English and Spanish, and why both are easier to read than most: they have large labelled datasets and ready-made models. Then I asked what a language with almost no resources would need. Khojki has barely any labelled examples, a print from 1896, and no OCR tool built for it. That told me where the hard part would be.</p></li>
+      <li><h3>Choosing Where to Go Deep</h3><p>I decided not to learn all of OCR before starting. I learned it the way the pipeline works, one stage at a time, and spent the most time where the errors were. Recognition caused <strong>64 of the 81 errors</strong>, so that's where most of my reading went.</p></li>
+      <li><h3>Testing the Research</h3><p>For recognition, I read recent papers and GitHub projects on reading rare scripts, including work on matching font images to real glyphs. I didn't take their results on trust. I tested their methods on my own data, and when the method they rated best did worst on mine, I worked out why.</p></li>
+    </ol>
+
+    <div class="routine">
+      <h3 class="sub-h">How I Worked</h3>
+      <ol class="loop" aria-label="The routine, repeated for every stage"><li>Build the simplest version</li><li>Measure it</li><li>Fix the biggest error</li><li>Write it down</li></ol>
+      <p class="loop-note">I repeated this for every stage and wrote each decision in a project log. It has 91 entries.</p>
+    </div>
+  </section>
+
+
+  <section class="ai" aria-labelledby="ai-title">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">06 &middot; AI Tools</p>
+        <h2 id="ai-title">How I Used AI Tools</h2>
+        <p class="lede">I used Claude Code as a coding partner. To keep its work reliable, I set up three skill files
+          and a commit hook, and I checked every glyph myself in a review tool.</p>
+      </div>
+      <img src="img/ai.webp" alt="" width="1166" height="688" loading="lazy">
+    </div>
+
+    <h3 class="sub-h">Three Skill Files</h3>
+    <p class="lede">A skill file is a short set of instructions Claude follows for one kind of task. These three set
+      how it works on this project.</p>
+    <ul class="skills">
+        <li><svg class="doc" viewBox="0 0 48 56" aria-hidden="true"><path d="M9 2h21l12 12v38a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M30 2v12h12"/><path d="M14 22h20M14 29h20M14 36h12"/><circle cx="36" cy="45" r="8" class="badge"/><path d="M32 49l1-3 6-6 2 2-6 6z"/></svg><h4>Writing Specs</h4><p>Before building anything that could be designed more than one way, Claude writes down what will be built, what won't, and how we'll know it's done. It kept the work from drifting, and gave me a checklist to judge the result against. The recognition stage started from one.</p></li>
+        <li><svg class="doc" viewBox="0 0 48 56" aria-hidden="true"><path d="M9 2h21l12 12v38a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M30 2v12h12"/><path d="M14 22h20M14 29h20M14 36h12"/><circle cx="36" cy="45" r="8" class="badge"/><path d="M32 45l3 3 5-6"/></svg><h4>Verifying Output</h4><p>Before any number is reported, it has to be reached a second way, for example by recounting a total from the raw files instead of trusting the code that produced it. Code that runs without errors isn't proof it's right. The results in my project log list their second checks.</p></li>
+        <li><svg class="doc" viewBox="0 0 48 56" aria-hidden="true"><path d="M9 2h21l12 12v38a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M30 2v12h12"/><path d="M14 22h20M14 29h20M14 36h12"/><circle cx="36" cy="45" r="8" class="badge"/><path d="M36 50v-4M36 46l-4-4M36 46l4-4"/></svg><h4>Checking Divergence</h4><p>For decisions without an obvious answer, Claude drafts several approaches that can't see each other, then compares them. Where they disagree is where the real decision is, so I know which questions I need to answer myself. I run this one by hand.</p></li>
+    </ul>
+
+    <div class="hook">
+      <svg class="doc" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 4l17 6v14c0 13-8 23-17 28C15 47 7 37 7 24V10z"/><path d="M16 29l6 6 11-12"/></svg>
+      <div>
+        <h3>A Commit Hook</h3>
+        <p>Before every commit, a script runs three checks. It blocks any scan from being committed, because the pages
+          are for this exercise only. It runs all 29 tests. And it runs checks on the real pages. If any of them fail,
+          the commit stops, whoever wrote the code.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-h">The Review Tool</h3>
+    <div class="prose">
+      <p>AI can suggest readings, but it can't have the final word on a script it has barely seen. So I built a local
+        review tool. Each glyph appears next to the program's suggestions and a full Khojki character chart, and I
+        pick the answer, add marks, or mark it as unreadable. Follow-up questions came to me as cropped pictures of
+        the glyph, and I made each call.</p>
+      <p>When the suggestions kept defaulting to MA, I rechecked every MA, BA, JA and TA against reference drawings,
+        and changed 15 answers. One glyph took me seven and a half minutes: the AI had read it as two letters, and I
+        showed it was one letter with a long vowel sign.</p>
+    </div>
+    <ul class="tally" aria-label="Review totals">
+      <li><span class="n">11</span> lines labelled</li>
+      <li><span class="n">210</span> glyphs reviewed</li>
+      <li><span class="n">153</span> minutes of review</li>
+      <li><span class="n">15</span> answers changed on recheck</li>
+    </ul>
+  </section>
+
+
+  <section class="next" aria-labelledby="next-title">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">07 &middot; Next Steps</p>
+        <h2 id="next-title">What I Would Do Next</h2>
+        <p class="lede">The pipeline works end to end, and I know where its errors come from. These are the
+          improvements I'd make, in the order I'd make them.</p>
+      </div>
+      <img src="img/next.webp" alt="" width="1168" height="688" loading="lazy">
+    </div>
+    <div class="horizons">
+      <div class="horizon"><h3>First</h3><ol><li><h4>Have a Khojki Reader Check the Hard Letters</h4><p>MA, BA, JA and TA look alike, and I&#x27;m not a reader. A reader reviewing those letters would make the labels I learn from more reliable.</p></li><li><h4>Build a Larger, Blind Test Set</h4><p>About 50 lines, labelled without suggestions shown, from pages the pipeline never learned from. That&#x27;s about 12 hours, and it would let me trust differences of 3 points instead of 9.</p></li><li><h4>Fix the Most Common Glyph-Box Error</h4><p>Cutting lines into glyphs causes 19 of the 81 errors. I&#x27;d go through them one by one and fix the most common cause first.</p></li></ol></div>
+      <div class="horizon"><h3>Then</h3><ol><li><h4>Label in Groups, Not One Glyph at a Time</h4><p>Group similar glyphs automatically from more pages of the book, so a reader labels a whole group at once.</p></li><li><h4>Make the Font Images Match the Print</h4><p>Thicker strokes, the book&#x27;s letter frequencies, and the print&#x27;s ink texture.</p></li><li><h4>Test Line Finding on New Pages</h4><p>It found all 35 lines on three pages, but it was tuned on those same pages. New pages would show whether it holds up.</p></li></ol></div>
+      <div class="horizon"><h3>Later</h3><ol><li><h4>Rerun the Model Comparison</h4><p>On the larger data set, with several data sizes and random seeds, to see when a neural network starts to beat pixel matching.</p></li><li><h4>Read Whole Lines</h4><p>At about 500 to 800 labelled lines, switch to a model that reads whole lines, like Kraken. That removes the glyph-cutting step and its errors.</p></li><li><h4>Run the Whole Book</h4><p>At about 12 seconds a page, the pipeline could process the book in minutes, and the PAGE-XML output could go straight into a transcription tool for correction.</p></li></ol></div>
+    </div>
+  </section>
+
+  <section class="learned" aria-labelledby="learned-title">
+    <p class="eyebrow">08 &middot; What I learned</p>
+    <h2 id="learned-title">The Lesson Wasn't About OCR</h2>
+    <p class="lede">It was about designing software that's easy to understand, test, and improve.</p>
+    <div class="cols">
+      <div><h3>Small Stages, Not One Big System</h3><p>Each stage has one job and is measured on its own, instead of one complicated system I hope works.</p></div>
+      <div><h3>Uncertainty Over Confident Guesses</h3><p>The system knows when it doesn't know, and says so, rather than guessing.</p></div>
+      <div><h3>A Clear Benchmark</h3><p>Every new label, segmentation rule, or recognition change can be measured against it.</p></div>
+    </div>
+  </section>
+  </main>
+
+<script>
+  // Stage tabs: click a tab or a machine; arrow keys move between tabs. Without JS every panel shows.
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const shades = [...document.querySelectorAll(".shade")];
+  function select(i, focus) {
+    tabs.forEach((t, k) => {
+      const on = k === i;
+      t.setAttribute("aria-selected", on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      shades[k].classList.toggle("on", on);
+    });
+    if (focus) tabs[i].focus();
+    // on narrow screens the strip scrolls: keep the chosen machine in view
+    if (focus !== undefined) tabs[i].scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => select(i, false));
+    t.addEventListener("keydown", e => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (step) { e.preventDefault(); select((i + step + tabs.length) % tabs.length, true); }
+    });
+  });
+  shades.forEach((s, i) => s.addEventListener("click", () => select(i, false)));
+  select(0);
+
+  // copy buttons on the run commands
+  document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(b.previousElementSibling.textContent); b.textContent = "Copied"; }
+    catch { b.textContent = "Select and copy"; }
+    setTimeout(() => (b.textContent = "Copy"), 1500);
+  }));
+</script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 #!/bin/sh
 # Enable once per clone:  git config core.hooksPath hooks
 # Your own commits: no scans, unit tests pass, and (when the scans are on this machine) real-data checks pass.
-if git diff --cached --name-only | grep -E '\.(pdf|png|jpe?g|webp)$|^data/pages/|^gt/lines/'; then
+# site/ is the showcase page's own artwork (generated, no scan pixels), so its images are allowed.
+if git diff --cached --name-only | grep -E '\.(pdf|png|jpe?g|webp)$|^data/pages/|^gt/lines/' | grep -v '^site/'; then
   echo "pre-commit: scan files are staged (listed above). The brief says to use the pages for this exercise only." >&2
   exit 1
 fi

@@ -154,14 +154,16 @@ def group(opts):
 
 
 def decide(options, calib, tau):
-    """One part -> recognised (calibrated score >= tau, margin >= MARGIN, backed by a real example) or suggestion."""
+    """One part -> recognised (calibrated score >= tau, margin >= MARGIN, backed by a real example) or suggestion.
+    A recognition still lists the next options."""
     (top, raw, real), *rest = options
     second = rest[0][1] if rest else 0.0
     conf = calibrate(raw, calib)
+    shown = [{"cps": [f"U+{c:04X}" for c in v], "conf": round(calibrate(s, calib), 3)} for v, s, _ in options[:3]]
     if conf >= tau and raw - second >= MARGIN and real:
-        return {"status": "recognised", "cps": [f"U+{c:04X}" for c in top], "conf": round(conf, 3)}
-    return {"status": "suggestion",
-            "options": [{"cps": [f"U+{c:04X}" for c in v], "conf": round(calibrate(s, calib), 3)} for v, s, _ in options[:3]]}
+        return {"status": "recognised", "cps": shown[0]["cps"], "conf": round(conf, 3), "others": shown[1:]}
+    return {"status": "suggestion", "options": shown}
+
 
 
 def calibrate(raw, calib):

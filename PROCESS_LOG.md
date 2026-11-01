@@ -564,6 +564,21 @@ Format: **Assumption / error → How caught → Fix**
    - **Second route:** the 100% row reproduces log 88's baseline exactly (68.6% / 85.7%).
    - Re-weighted DANN (renders drawn at the real letter mix, to test the label-shift diagnosis of log 89) is running; results go in the next entry.
 
+91. **Trusted glyphs committed by rule; re-weighted DANN; README (your request).**
+   - **Your rule:** glyphs you labelled at a glance and that are always read right should be recognised. Built as: median labelling time <= 5 s, never changed by a recheck, and right every time the recognizer picked it on held-out lines (at least twice). Tested on the pick, not the truth: DANDA took 1 s and was always found, but 19 of 22 picks of it were wrong.
+   - **Trusted list (all dev lines):** A+NUKTA, AA+ANUSVARA, SA+AA, SA+NUKTA, HA+U+ANUSVARA. 14 of 14 right when picked. They are recognised whatever their score, marked `"rule": "trusted glyph"`, with the other options still listed. On pages 9-11 the pipeline now commits 21 of them (11 / 9 / 1).
+   - **Second route, and it disagrees.** Choosing the list without each held-out line, then scoring that line: 12 glyph parts recognised, 5 right (**42%**). The folds trusted RA (10 of 10 without p11 l3, wrong on it), MA, NA, HA+U, DOUBLE DANDA. "Right every time" on 2-10 picks is weak evidence. So the list is your judgement, kept because you asked; it is not a measured 95%. Dev and test CER are unchanged (eval_cer fits its own nested model without the rule).
+   - **Re-weighted DANN** (renders drawn at the fold's real letter mix): -3 glyphs top-1 (p=0.63), -4 top 3, vs -15 / -7 for DANN alone. Supports the label-shift diagnosis of log 89; still not better than pixels. SimCLR + DANN re-weighted: -4 top-1 (p=0.50), -8 top 3, the same as without re-weighting (-4 / -10): SimCLR had already absorbed most of the damage.
+   - `tests/test_recognise.py` now allows a recognition below tau only for a glyph on the model's trusted list. 29 tests pass. `README.md` written.
+
+92. **Trusted glyphs removed (your call); install and run fixed.**
+   - The commit hook's real-data check blocked a commit: with the trusted-glyph rule on, committed glyphs were right 5 of 12 times (42%) on held-out lines, against the 95% bar. That's the weakness log 91 found. You chose to drop the rule rather than loosen the check, because the site promises 95% for every accepted character.
+   - Removed from `recognise.py`, `eval_recognise.py` and the test; model refit with no trusted list. eval_recognise now meets the target again ("chosen: pixels", no warning).
+   - The hook had also been blocking every commit since the hero image was staged: it rejected any image file. It now allows images under `site/` (generated artwork, no scan pixels) and still blocks images everywhere else.
+   - `pip install -e ".[dev]"` failed: setuptools found six top-level folders. `pyproject.toml` now names only `khojki`, and uses headless OpenCV (the one already installed; the pipeline opens no windows).
+   - The run docs pointed to the PDF in the project folder; it's in `data/`. Fixed in README and site. Bad input (missing file, PDF without `--page`, unreadable image) now prints one line instead of a traceback.
+   - **Second route:** every documented command run as written: install, PDF page 9 (11 lines, 0 validation problems), a page image, 29 tests, eval_cer (64 + 19 - 2 = 81 errors, unchanged).
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.
