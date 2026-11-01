@@ -121,6 +121,13 @@
   .opts .pct { text-align: right; color: var(--text); font-variant-numeric: tabular-nums; }
   .opts-title { margin-top: 1rem; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
   .nav { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; font-size: 0.875rem; color: var(--muted); }
+  .guess { margin-top: 1.25rem; }
+  .guess-text { margin-top: 0.5rem; font-family: "Noto Sans Khojki", var(--serif); font-size: 1.75rem; line-height: 1.6;
+                letter-spacing: 0.04em; word-break: break-all; }
+  .guess-text button { font: inherit; letter-spacing: inherit; background: none; border: 0; padding: 0 0.04em; cursor: pointer;
+                       border-bottom: 2px solid transparent; }
+  .guess-text button.green { color: var(--green); } .guess-text button.orange { color: var(--orange); } .guess-text button.red { color: var(--red); }
+  .guess-text button.current { border-bottom-color: currentColor; }
   .counts { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin-top: 1.25rem; padding: 0; list-style: none; }
   .counts li { font-size: 0.8125rem; color: var(--muted); }
   .counts .num { display: block; font-family: var(--serif); font-size: 2rem; line-height: 1; color: var(--text); }
@@ -210,6 +217,12 @@
         <li><span class="sw red"></span><span><b>Red:</b> no good guess. The best guess is under 30%.</span></li>
       </ul>
       <div class="frame" id="line-rec"></div>
+      <div class="guess">
+        <p class="opts-title">Best Guess for This Line</p>
+        <p class="guess-text" id="guess" lang="sd-Khoj"></p>
+        <p class="note">Each glyph's top guess, in the same colours. Only the green ones are written as text in the
+          .txt file; the others are written as &#xFFFD;. Click a character to inspect it.</p>
+      </div>
       <div class="inspect" id="inspect">
         <div class="zoom" id="zoom"></div>
         <div>
@@ -353,12 +366,17 @@ function drawLine(first) {
       <rect class="tint ${u.colour}" x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}"/>
       ${rect(b, "edge " + u.colour, (first ? 3000 : 0) + j * 35)}</g>`;
   }).join(""));
+  // the line as text: each glyph's top letter + top marks, coloured like its box
+  $("#guess").innerHTML = us.map((u, j) => {
+    const t = (u.letter.options[0]?.text || "") + (u.signs.options[0]?.text || "");
+    return `<button type="button" class="${u.colour}" data-u="${j}" aria-label="Glyph ${j + 1}: ${esc(u.letter.options[0]?.name || "")}">${esc(t) || "◌"}</button>`;
+  }).join("");
   unit = 0; inspect();
 }
 
 function inspect() {
   const us = units(), u = us[unit], b = box(u.bbox);
-  document.querySelectorAll(".glyph").forEach(g => g.classList.toggle("current", +g.dataset.u === unit));
+  document.querySelectorAll(".glyph, #guess button").forEach(g => g.classList.toggle("current", +g.dataset.u === unit));
   view($("#zoom"), b, `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" class="edge ${u.colour}"/>`, Math.max(b.w, b.h) * 0.35);
   $("#i-status").innerHTML = `<span class="sw ${u.colour}"></span>${LABEL[u.colour]}`;
   const top = u.letter.options[0];
@@ -377,6 +395,7 @@ document.querySelectorAll("[data-step]").forEach(b => b.addEventListener("click"
 $("#prev").addEventListener("click", () => { unit--; inspect(); });
 $("#next").addEventListener("click", () => { unit++; inspect(); });
 $("#line-rec").addEventListener("click", e => { const g = e.target.closest(".glyph"); if (g) { unit = +g.dataset.u; inspect(); } });
+$("#guess").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { unit = +b.dataset.u; inspect(); } });
 $("#line-rec").addEventListener("keydown", e => {
   const g = e.target.closest(".glyph");
   if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); unit = +g.dataset.u; inspect(); }

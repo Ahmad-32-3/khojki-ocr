@@ -585,6 +585,11 @@ Format: **Assumption / error → How caught → Fix**
    - Colours: green = written as text (95%+), orange = suggestion, red = suggestion whose best guess is under 30%. Your definition of red (glyphs repeatedly missed in the ground truth) needs per-letter error stats; not built in the time left, and the legend says exactly what red means.
    - Checked in the browser: connection (samples, run 8.9-9.9 s, image, bad upload 400, `../` blocked), all three stages draw in order, glyph clicks and arrow keys move the inspector, upload of a page image gives the same result as the sample, phone width has no sideways scroll. Fixed on the way: Run enabled before samples loaded; boxes drawn as faint dots (Chrome ignores pathLength on rect); zoom box filled solid.
 
+94. **Threshold check; kept 95%; best-guess line in the demo (your call).**
+   - Held-out letters committed at lower bars: 95% none of 122; 90% 2 (1 right; the wrong one was a badly cut box); 80% 4 (3 right); 70% 37 (19 right, 51%). At 90% the full fit still commits no glyph letters, because no threshold has the required 10 recognitions behind it, and model selection switched to "shape" (it meets 90% by committing nothing). Reverted to pixels at 95%; model unchanged.
+   - Your notes: every correction is in GT v5 and the bank. Checked: the bank's 150 real examples equal those built from gt.json now, and both carry gt sha 6d8fc96a.
+   - Demo: under the coloured boxes, the line's best guess as Khojki text in the same colours; click a character to inspect it.
+
 ### Still unverified (don't build on these yet)
 
 - That the 1896 type differs enough from Noto Sans Khojki to break template matching. Step 0 tests it.
