@@ -120,11 +120,21 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_response(204)
         self.end_headers()
 
+    def redirect_home(self):
+        self.send_response(302)
+        self.send_header("Location", "/ocr-walkthrough/")
+        self.end_headers()
+
+    def do_HEAD(self):
+        if urlparse(self.path).path in ("/", ""):
+            return self.redirect_home()
+        return super().do_HEAD()
+
     def translate_path(self, path):
         # Local URLs match the live site: /ocr-walkthrough/, /ocr-demo/. Also keep / and /demo/ working.
         p = urlparse(path).path
         if p in ("/", ""):
-            return str(ROOT / "site" / "__redirect__")
+            return str(ROOT / "site" / "index.html")
         if p.startswith("/ocr-walkthrough/") or p == "/ocr-walkthrough":
             base, rest = ROOT / "site", p[len("/ocr-walkthrough/"):] if p.startswith("/ocr-walkthrough/") else ""
         elif p.startswith("/ocr-demo/") or p == "/ocr-demo":
@@ -147,10 +157,7 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         p = urlparse(self.path).path
         if p in ("/", ""):
-            self.send_response(302)
-            self.send_header("Location", "/ocr-walkthrough/")
-            self.end_headers()
-            return
+            return self.redirect_home()
         if p == "/api/samples":
             return self.send_json([{"id": i, "label": l, "page": pg} for i, l, pg in SAMPLES])
         if p.startswith("/api/thumb/"):
