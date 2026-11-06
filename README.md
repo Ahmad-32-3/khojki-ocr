@@ -15,7 +15,7 @@ copied and preserved. It also measures how accurate that text is, and shows wher
 | **Test lines with their Unicode transcriptions** | [gt/gt.txt](gt/gt.txt) (one line per labelled line, `?` = unreadable) and [gt/gt.json](gt/gt.json) (with positions and dev/test split) |
 | **Results** (CER and most common errors) | below, and `python -X utf8 gt/eval_cer.py` |
 | **How to run it** | below |
-| Every decision as it was made | [PROCESS_LOG.md](PROCESS_LOG.md) (99 entries) |
+| Every decision as it was made | [PROCESS_LOG.md](PROCESS_LOG.md) (101 entries) |
 
 The demo reads pages through a small Python server in this repo, so to run a page yourself, start it locally (step 5
 below). The scans aren't in the repository, because the pages are for this exercise only.
@@ -35,7 +35,7 @@ below). The scans aren't in the repository, because the pages are for this exerc
 
 ## How to Run It
 
-You need Python 3.11 or newer. Run every command from the project folder. Each page takes 15 to 18 seconds.
+You need Python 3.11 or newer. Run every command from the project folder. Each page takes about 5 seconds, including start-up.
 
 **1. Install**
 
@@ -49,6 +49,13 @@ You should see it finish with *Successfully installed khojki-ocr*.
 The scans aren't in this repository, because the pages are for this exercise only. Use pages **9, 10 or 11**, the
 1896 print the program was built on. Pages 1 to 6 and 12 to 14 are handwritten and won't work.
 
+Then rebuild the files cut from the scans (page images, labelled lines and the example bank). This takes about a
+minute and ends with *Ready.*
+
+```bash
+python -X utf8 scripts/setup_data.py
+```
+
 **3. Run it on a page**
 
 ```bash
@@ -58,19 +65,19 @@ python -X utf8 -m khojki.pipeline khojki-scans/sample_khojki_script_vatiations.p
 When it finishes, it prints a summary like this:
 
 ```
-sample_khojki_script_vatiations_p09  (11.3 s)
+sample_khojki_script_vatiations_p09  (3.4 s)
   Lines found              11
   Word separators found    52  (written as text)
   Characters found         158
-    certain (green)        0  (95% sure or more)
-    best guess (orange)    127  (written as the best guess; top 3 in the .json)
-    no good guess (red)    31  (best guess under 30%, written as �)
+    certain (green)        3  (95% sure or more)
+    best guess (orange)    126  (written as the best guess; top 3 in the .json)
+    no good guess (red)    29  (best guess under 30%, written as �)
   Unicode order problems   0
 ```
 
 How to read it: the program found 11 lines on the page. It is sure of the word separators, so they're written as
-text. No letter is 95% certain yet, so 127 characters are written as the program's best guess, and 31 that it had no
-good guess for are written as �. *Unicode order problems 0* means every line passed the Unicode check.
+text. The 3 certain characters are section marks. No letter is 95% certain yet, so 126 characters are written as the
+program's best guess, and 29 that it had no good guess for are written as �. *Unicode order problems 0* means every line passed the Unicode check.
 
 It saves three files in the folder called **out**, named after the page:
 

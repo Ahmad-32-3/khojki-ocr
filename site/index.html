@@ -486,7 +486,7 @@
   <section class="run" aria-labelledby="run-title">
     <p class="eyebrow">02 &middot; Run It</p>
     <h2 id="run-title">How to Run the Pipeline</h2>
-    <p class="lede">You need Python 3.11 or newer and the Khojki scans. Each page takes about 15 to 18 seconds,
+    <p class="lede">You need Python 3.11 or newer and the Khojki scans. Each page takes about 5 seconds,
       including start-up.</p>
     <ol class="steps-run">
       <li>
@@ -499,21 +499,23 @@
         <p>Put the sample PDF in the folder called <strong>khojki-scans</strong> inside the project. The scans
           aren't in the repository, because the pages are for this exercise only.</p>
         <p>Use pages <strong>9, 10 or 11</strong>.</p>
+        <p>Then rebuild the files cut from the scans. It takes about a minute and ends with <em>Ready.</em></p>
+        <div class="cmd"><pre><code>python -X utf8 scripts/setup_data.py</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
       </li>
       <li>
         <h3>Run It on a Page</h3>
         <p>Give it the PDF and a page number. A single page image also works.</p>
         <div class="cmd"><pre><code>python -X utf8 -m khojki.pipeline khojki-scans/sample_khojki_script_vatiations.pdf --page 9 --out out/</code></pre><button type="button" class="copy" aria-label="Copy command">Copy</button></div>
         <p>When it finishes, it prints a summary of the page:</p>
-        <pre class="sample"><code>sample_khojki_script_vatiations_p09  (10.8 s)
+        <pre class="sample"><code>sample_khojki_script_vatiations_p09  (3.4 s)
   Lines found              11
   Word separators found    52  (written as text)
   Characters found         158
-    certain (green)        0  (95% sure or more)
-    best guess (orange)    127  (written as the best guess; top 3 in the .json)
-    no good guess (red)    31  (best guess under 30%, written as �)
+    certain (green)        3  (95% sure or more)
+    best guess (orange)    126  (written as the best guess; top 3 in the .json)
+    no good guess (red)    29  (best guess under 30%, written as �)
   Unicode order problems   0</code></pre>
-        <p>A character counts as certain only when the program is at least 95% sure. None reach that yet, so each one is written as its best guess, with the top three saved in the .json file. When even the best guess is under 30%, it's written as &#xFFFD; instead.</p>
+        <p>A character counts as certain only when the program is at least 95% sure. Only the 3 section marks reach that, so every letter is written as its best guess, with the top three saved in the .json file. When even the best guess is under 30%, it's written as &#xFFFD; instead.</p>
       </li>
       <li>
         <h3>Check the Accuracy</h3>
@@ -783,7 +785,7 @@
     <div class="horizons">
       <div class="horizon"><h3>First</h3><ol><li><h4>Have a Khojki Reader Check the Hard Letters</h4><p>MA, BA, JA and TA look alike, and I&#x27;m not a reader. A reader reviewing those letters would make the labels I learn from more reliable.</p></li><li><h4>Build a Larger, Blind Test Set</h4><p>About 50 lines, labelled without suggestions shown, from pages the pipeline never learned from. That&#x27;s about 12 hours, and it would let me trust differences of 3 points instead of 9.</p></li><li><h4>Fix the Most Common Glyph-Box Error</h4><p>Cutting lines into glyphs causes 19 of the 81 errors. I&#x27;d go through them one by one and fix the most common cause first.</p></li></ol></div>
       <div class="horizon"><h3>Then</h3><ol><li><h4>Speed Up the Better Matcher</h4><p>Letting each pixel shift up to 2 pixels when comparing raised first guesses from 68.6% to 77.1% of 105 glyphs, but it adds about a minute a page.</p></li><li><h4>Label in Groups, Not One Glyph at a Time</h4><p>Group similar glyphs automatically from more pages of the book, so a reader labels a whole group at once.</p></li><li><h4>Make the Font Images Match the Print</h4><p>Thicker strokes, the book&#x27;s letter frequencies, and the print&#x27;s ink texture.</p></li><li><h4>Test Line Finding on New Pages</h4><p>It found all 35 lines on three pages, but it was tuned on those same pages. New pages would show whether it holds up.</p></li></ol></div>
-      <div class="horizon"><h3>Later</h3><ol><li><h4>Rerun the Model Comparison</h4><p>On the larger data set, with several data sizes and random seeds, to see when a neural network starts to beat pixel matching.</p></li><li><h4>Read Whole Lines</h4><p>At about 500 to 800 labelled lines, switch to a model that reads whole lines, like Kraken. That removes the glyph-cutting step and its errors.</p></li><li><h4>Run the Whole Book</h4><p>At 15 to 18 seconds a page, the pipeline could process 45 pages in about 12 minutes, and the PAGE-XML output could go straight into a transcription tool for correction.</p></li></ol></div>
+      <div class="horizon"><h3>Later</h3><ol><li><h4>Rerun the Model Comparison</h4><p>On the larger data set, with several data sizes and random seeds, to see when a neural network starts to beat pixel matching.</p></li><li><h4>Read Whole Lines</h4><p>At about 500 to 800 labelled lines, switch to a model that reads whole lines, like Kraken. That removes the glyph-cutting step and its errors.</p></li><li><h4>Run the Whole Book</h4><p>At about 5 seconds a page, the pipeline could process 45 pages in about 4 minutes, and the PAGE-XML output could go straight into a transcription tool for correction.</p></li></ol></div>
     </div>
   </section>
 
